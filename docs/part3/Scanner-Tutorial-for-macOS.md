@@ -42,21 +42,13 @@
     </p>
     <p>
         谢天谢地，苹果提供了一系列用来分析在任何形式下的字符串数据的工具，从自然的到电脑的语言，诸如
-        <code>
-            NSRegularExpression
-        </code>
+        <code> NSRegularExpression </code>
         ，
-        <code>
-            NSDataDetector
-        </code>
+        <code> NSDataDetector </code>
         或
-        <code>
-            Scanner
-        </code>
+        <code> Scanner </code>
         。它们各自都有各自的优势，但到目前为止，
-        <code>
-            Scanner
-        </code>
+        <code> Scanner </code>
         是最容易使用的，不仅功能强大，而且非常灵活。在本教程中，你将会学习如何使用它，来从电子邮件的信息中抽取信息，去构建一个macOS应用。它工作起来，就像如下所示的苹果的Mail界面这样。
     </p>
     <p>
@@ -67,32 +59,24 @@
     </p>
     <p>
         尽管你是为Mac构建app，但
-        <code>
-            Scanner
-        </code>
+        <code> Scanner </code>
         同样也可以用在iOS上。在这个教程的结尾，你将可以在任一平台上解析文本。
     </p>
     <p>
         在开始之前，让我们来看一看
-        <code>
-            Scanner
-        </code>
+        <code> Scanner </code>
         有哪些功能！
     </p>
     <h2>
         Scanner概述
     </h2>
     <p>
-        <code>
-            Scanner
-        </code>
+        <code> Scanner </code>
         的主要功能是检索和解释子字符串和数值。
     </p>
     <p>
         例如，
-        <code>
-            Scanner
-        </code>
+        <code> Scanner </code>
         可以分析一个电话号码，并将其拆分成像下面这样的几个部分：
     </p>
     <pre lang="swift" class="hljs cs"><span class="hljs-comment">// 1.</span>
@@ -119,58 +103,36 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
     <ol>
         <li>
             创建的一个名为
-            <code>
-                hyphen
-            </code>
+            <code> hyphen </code>
             的
-            <code>
-                CharacterSet
-            </code>
+            <code> CharacterSet </code>
             的实例。这将会作为字符串成分之间的分隔符。
         </li>
         <li>
             初始化一个
-            <code>
-                Scanner
-            </code>
+            <code> Scanner </code>
             对象，并将它的
-            <code>
-                charactersToBeSkipped
-            </code>
+            <code> charactersToBeSkipped </code>
             默认值（空格和换行符）修改为
-            <code>
-                hyphen
-            </code>
+            <code> hyphen </code>
             ，因此返回的字符串将不包含任何连字符。
         </li>
         <li>
-            <code>
-                areaCode
-            </code>
+            <code> areaCode </code>
             ，
-            <code>
-                firstThreeDigits
-            </code>
+            <code> firstThreeDigits </code>
             和
-            <code>
-                lastFourDigits
-            </code>
+            <code> lastFourDigits </code>
             将会储存你从scanner返回的解析过的值。由于你无法将
             <em>
                 Swift
             </em>
             本身的
-            <code>
-                String
-            </code>
+            <code> String </code>
             直接作为
-            <code>
-                AutoreleasingUnsafeMutablePointer
-            </code>
+            <code> AutoreleasingUnsafeMutablePointer </code>
             ，因此为了将他们传给scanner的方法，你不得不将这些变量声明为可选的
-            <code>
-                NSString
-            </code>
+            <code> NSString </code>
             对象。
             <ol>
                 <li>
@@ -179,8 +141,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
                         –
                     </em>
                     字符并将连字符前的值分配到
-                    <code>
-                        areaCode
+                    <code>         areaCode
                     </code>
                     中。
                 </li>
@@ -190,27 +151,22 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
                         –
                     </em>
                     并抓取下面的三个数字到
-                    <code>
-                        firstThreeDigits
+                    <code>         firstThreeDigits
                     </code>
                     中。在调用
-                    <code>
-                        scanUpToCharactersFromSet(from:into:)
+                    <code>         scanUpToCharactersFromSet(from:into:)
                     </code>
                     之前，scanner的读取光标位于首次发现
-                    <code>
-                        -
+                    <code>         -
                     </code>
                     的位置。在忽略掉连字符之后，你就获得了电话号码的第二个成分。
                 </li>
                 <li>
                     寻找下一个
-                    <code>
-                        -
+                    <code>         -
                     </code>
                     。scanner结束了字符串的剩余部分，并返回一个成功的状态。之后就没有连字符了，scanner会将剩余的子字符串装到
-                    <code>
-                        lastFourDigits
+                    <code>         lastFourDigits
                     </code>
                     中。
                 </li>
@@ -219,9 +175,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
     </ol>
     <p>
         这就是
-        <code>
-            Scanner
-        </code>
+        <code> Scanner </code>
         所作的全部的事。容易吧！现在，是时候来搞个app了！
     </p>
     <h2>
@@ -444,9 +398,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         </li>
     </ul>
     <p>
-        <code>
-            Scanner
-        </code>
+        <code> Scanner </code>
         是超赞的；然而，我们使用它的时候会感到有一些笨重，并且不那么的swift，因此你会转换內建的方法，就像上面那个电话号码的例子中一样，返回可选类型的值。
     </p>
     <p>
@@ -503,36 +455,24 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
 </pre>
     <p>
         这些助手方法封装了一些你在这篇教程中用到的
-        <code>
-            Scanner
-        </code>
+        <code> Scanner </code>
         的方法，它们会返回
-        <code>
-            String
-        </code>
+        <code> String </code>
         的可选类型。这三个方法有着相同的结构：
     </p>
     <ol>
         <li>
             定义一个
-            <code>
-                result
-            </code>
+            <code> result </code>
             变量来持有scanner返回的结果。
         </li>
         <li>
             使用一个三元操作符来检查扫描是否成功。如果成功的话，将
-            <code>
-                result
-            </code>
+            <code> result </code>
             转化为
-            <code>
-                String
-            </code>
+            <code> String </code>
             并返回它；否则就返回
-            <code>
-                nil
-            </code>
+            <code> nil </code>
             。
         </li>
     </ol>
@@ -541,9 +481,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             注意：
         </em>
         就像上面这样，你可以用相同的方式来实现其它的
-        <code>
-            Scanner
-        </code>
+        <code> Scanner </code>
         方法，并将它们保存到你的武器库中：
         <p>
         </p>
@@ -635,9 +573,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
 </pre>
     <p>
         以上代码定义了
-        <code>
-            HardwarePost
-        </code>
+        <code> HardwarePost </code>
         结构体，它可以用来储存解析到的数据。默认情况下，
         <em>
             Swift
@@ -646,9 +582,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
     </p>
     <p>
         准备好用
-        <code>
-            Scanner
-        </code>
+        <code> Scanner </code>
         解析数据了么？动手吧。
     </p>
     <h2>
@@ -687,9 +621,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             ParserEngine.swift
         </em>
         并添加下列代码，创建
-        <code>
-            ParserEngine
-        </code>
+        <code> ParserEngine </code>
         类：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ParserEngine</span> </span>{
@@ -710,9 +642,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
     </p>
     <p>
         这里是
-        <code>
-            Scanner
-        </code>
+        <code> Scanner </code>
         进入并分割字段和它的值的地方。下面的图给出了你这个结构体的一般的视觉上的表示。
     </p>
     <p>
@@ -727,9 +657,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             ParserEngine.swift
         </em>
         并在
-        <code>
-            ParserEngine
-        </code>
+        <code> ParserEngine </code>
         类中添加下列的代码：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// 1.</span>
@@ -776,9 +704,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
     <ol>
         <li>
             为解析到的字段的元组定义一个
-            <code>
-                Fields
-            </code>
+            <code> Fields </code>
             类型的别名。
         </li>
         <li>
@@ -786,13 +712,9 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         </li>
         <li>
             初始化一个
-            <code>
-                Scanner
-            </code>
+            <code> Scanner </code>
             示例，并将它的
-            <code>
-                charactersToBeSkipped
-            </code>
+            <code> charactersToBeSkipped </code>
             property改变为除了它的默认值（空格和换行符）外，还包含一个冒号。
         </li>
         <li>
@@ -800,52 +722,43 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             <ol>
                 <li>
                     使用
-                    <code>
-                        while
+                    <code>         while
                     </code>
                     来循环访问
-                    <code>
-                        string
+                    <code>         string
                     </code>
                     的内容，直到它的结尾处。
                 </li>
                 <li>
                     调用你之前创建的工具方法之一，来获取
-                    <code>
-                        field
+                    <code>         field
                     </code>
                     位于
-                    <code>
-                        :
+                    <code>         :
                     </code>
                     之前的标题。
                 </li>
                 <li>
                     继续扫描至行尾
-                    <code>
-                        \n
+                    <code>         \n
                     </code>
                     处，并将结果赋值给
-                    <code>
-                        info
+                    <code>         info
                     </code>
                     。
                 </li>
                 <li>
                     使用
-                    <code>
-                        switch
+                    <code>         switch
                     </code>
                     来找到匹配的字段，并将它的
-                    <code>
-                        info
+                    <code>         info
                     </code>
                     property的值储存到合适的变量中。                    
                 </li>
                 <li>
                     调用
-                    <code>
-                        fromInfoByExtractingFrom(\_:)
+                    <code>         fromInfoByExtractingFrom(\_:)
                     </code>
                     分析
                     <i>
@@ -879,9 +792,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             ParserEngine.swift
         </em>
         的末尾，添加下列的
-        <code>
-            String
-        </code>
+        <code> String </code>
         的extension：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">String</span> </span>{
@@ -896,17 +807,11 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
     </p>
     <p>
         它用
-        <code>
-            NSPredicate
-        </code>
+        <code> NSPredicate </code>
         操作符，使用正则表达式创建了一个
-        <code>
-            NSPredicate
-        </code>
+        <code> NSPredicate </code>
         对象。然后调用
-        <code>
-            evaluate(with:)
-        </code>
+        <code> evaluate(with:) </code>
         来检查字符串是否与之匹配。
     </p>
     <div class="note">
@@ -919,20 +824,14 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             the official Apple documentation
         </a>
         中读到更多的关于
-        <code>
-            NSPredicate
-        </code>
+        <code> NSPredicate </code>
         的内容。
     </div>
     <p>
         现在添加下列的方法到
-        <code>
-            ParserEngine
-        </code>
+        <code> ParserEngine </code>
         实现的内部，就在
-        <code>
-            fieldsByExtractingFrom(\_:)
-        </code>
+        <code> fieldsByExtractingFrom(\_:) </code>
         方法之后：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">fileprivate</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">fromInfoByExtractingFrom</span><span class="hljs-params">(<span class="hljs-number">_</span> string: String)</span></span> -&gt; (email: <span class="hljs-type">String</span>, sender: <span class="hljs-type">String</span>) {
@@ -1003,67 +902,53 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
                 email (name)
             </i>
             匹配
-            <code>
-                string
-            </code>
+            <code> string </code>
             。如果不匹配的话，执行到下一个case。
             <ol>
                 <li>
-                    <code>
-                        .*
+                    <code>         .*
                     </code>
                     可以用来查找零个或多个任意的字符，后跟零个或多个的空格 - 
-                    <code>
-                        [\\s]*
+                    <code>         [\\s]*
                     </code>
                     ，后跟一个开发的括号 - 
-                    <code>
-                        \\({1}
+                    <code>         \\({1}
                     </code>
                     ，最后则是一个或多个的字符串 - 
-                    <code>
-                        (.*)
+                    <code>         (.*)
                     </code>
                     。
                 </li>
                 <li>
                     设置
-                    <code>
-                        Scanner
+                    <code>         Scanner
                     </code>
                     对象的
-                    <code>
-                        charactersToBeSkipped
+                    <code>         charactersToBeSkipped
                     </code>
                     包含“(”,“)”和空格。
                 </li>
                 <li>
                     扫描到
-                    <code>
-                        (
+                    <code>         (
                     </code>
                     来获取
-                    <code>
-                        email
+                    <code>         email
                     </code>
                     的值。
                 </li>
                 <li>
                     扫描到
-                    <code>
-                        )
+                    <code>         )
                     </code>
                     ，这会给到你
-                    <code>
-                        sender
+                    <code>         sender
                     </code>
                     的名称。这就提取了在
-                    <code>
-                        (
+                    <code>         (
                     </code>
                     和
-                    <code>
-                        )
+                    <code>         )
                     </code>
                     之间的任何内容。
                 </li>
@@ -1103,24 +988,18 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         <em>
             注意：
         </em>
-        <code>
-            NSDataDetector
-        </code>
+        <code> NSDataDetector </code>
         对类似于电话号码，地址，邮箱这样的已知的数据类型来讲，是一个更好的解决方案。你可以访问
         <a href="https://www.cocoanetics.com/2014/06/e-mail-validation/" sl-processed="1">
             这篇
         </a>
         关于使用
-        <code>
-            NSDataDetector
-        </code>
+        <code> NSDataDetector </code>
         验证电子邮箱的博客。
     </div>
     <p>
         你已经使用了
-        <code>
-            Scanner
-        </code>
+        <code> Scanner </code>
         来分析和检索来自于模式字符串的信息。在接下来的两节中，你将了解到如何去解析非结构化的数据。
     </p>
     <h3>
@@ -1128,9 +1007,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
     </h3>
     <p>
         解析非结构化数据的一个很好的例子，就是确定电子邮件的正文中是否包含成本相关的信息。为了实现这点，你将使用
-        <code>
-            Scanner
-        </code>
+        <code> Scanner </code>
         来搜索一个美元字符：
         <em>
             $
@@ -1143,9 +1020,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             ParserEngine.swift
         </em>
         中，添加下列的实现到
-        <code>
-            ParserEngine
-        </code>
+        <code> ParserEngine </code>
         类中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">costInfoByExtractingFrom</span><span class="hljs-params">(<span class="hljs-number">_</span> string: String)</span></span> -&gt; [<span class="hljs-type">Double</span>] {
@@ -1176,20 +1051,14 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         </li>
         <li>
             使用
-            <code>
-                $
-            </code>
+            <code> $ </code>
             字符创建一个
-            <code>
-                CharacterSet
-            </code>
+            <code> CharacterSet </code>
             对象。
         </li>
         <li>
             初始化一个
-            <code>
-                Scanner
-            </code>
+            <code> Scanner </code>
             实例，并配置它忽略
             <em>
                 $
@@ -1198,21 +1067,13 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         </li>
         <li>
             遍历
-            <code>
-                string
-            </code>
+            <code> string </code>
             的内容，当
-            <code>
-                $
-            </code>
+            <code> $ </code>
             字符被找到时，使用你的助手方法抓取
-            <code>
-                $
-            </code>
+            <code> $ </code>
             字符后的数字，并将它添加到
-            <code>
-                results
-            </code>
+            <code> results </code>
             数组中。
         </li>
     </ol>
@@ -1238,9 +1099,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
     </p>
     <p>
         在
-        <code>
-            ParserEngine
-        </code>
+        <code> ParserEngine </code>
         类的尾部添加下列代码：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// 1.</span>
@@ -1276,43 +1135,29 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         </li>
         <li>
             创建一个
-            <code>
-                String
-            </code>
+            <code> String </code>
             的
-            <code>
-                Set
-            </code>
+            <code> Set </code>
             来保存找到的关键字。
         </li>
         <li>
             初始化一个
-            <code>
-                Scanner
-            </code>
+            <code> Scanner </code>
             的实例。你将采用默认的
-            <code>
-                charactersToBeSkipped
-            </code>
+            <code> charactersToBeSkipped </code>
             值，即空格和换行符。
         </li>
         <li>
             对于每个发现的单词，检查其是否是预定义的
-            <code>
-                keywords
-            </code>
+            <code> keywords </code>
             之一。如果是的话，添加它到
-            <code>
-                results
-            </code>
+            <code> results </code>
             中。
         </li>
     </ol>
     <p>
         在这里，你已经有了获取所需信息的所有必须的方法。是时候投入实用，为49个数据文件创建
-        <code>
-            HardwarePost
-        </code>
+        <code> HardwarePost </code>
         实例。
     </p>
     <h2>
@@ -1324,9 +1169,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             HardwarePost.swift
         </em>
         并添加下面的初始化器到
-        <code>
-            HardWarePost
-        </code>
+        <code> HardWarePost </code>
         结构体中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">init</span>(fromData data: <span class="hljs-type">Data</span>) {
@@ -1362,61 +1205,41 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
 }
 </pre>
     <p>        
-        <code>
-            HardwarePost
-        </code>
+        <code> HardwarePost </code>
         如何初始化它的property：
     </p>
     <ol>
         <li>
             创建名为
-            <code>
-                parser
-            </code>
+            <code> parser </code>
             的
-            <code>
-                ParserEngine
-            </code>
+            <code> ParserEngine </code>
             对象。
         </li>
         <li>
             将
-            <code>
-                data
-            </code>
+            <code> data </code>
             转化为
-            <code>
-                String
-            </code>
+            <code> String </code>
             。
         </li>
         <li>
             初始化一个
-            <code>
-                Scanner
-            </code>
+            <code> Scanner </code>
             的实例，来解析由“\n\n”分隔的元数据和消息段。
         </li>
         <li>
             扫描到第一个
-            <code>
-                \n\n
-            </code>
+            <code> \n\n </code>
             来抓取元数据的字符串，然后调用
-            <code>
-                parser
-            </code>
+            <code> parser </code>
             的
-            <code>
-                fieldsByExtractingFrom(\_:)
-            </code>
+            <code> fieldsByExtractingFrom(\_:) </code>
             方法，来获取全部的元数据字段。
         </li>
         <li>
             将解析的结果赋值到
-            <code>
-                HardwarePost
-            </code>
+            <code> HardwarePost </code>
             的property中。
         </li>
         <li>
@@ -1424,54 +1247,43 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             <ol>
                 <li>
                     使用
-                    <code>
-                        scanLocation
+                    <code>         scanLocation
                     </code>
                     获取
-                    <code>
-                        scanner
+                    <code>         scanner
                     </code>
                     当前的读取指针，并将它转化为 
-                    <code>
-                        String.CharacterView.Index
+                    <code>         String.CharacterView.Index
                     </code>
                     ，这样你就可以通过range来替代
-                    <code>
-                        string
+                    <code>         string
                     </code>
                     。
                 </li>
                 <li>
                     将
-                    <code>
-                        scanner
+                    <code>         scanner
                     </code>
                     剩余还未读取的字符串赋给新的
-                    <code>
-                        message
+                    <code>         message
                     </code>
                     变量。
                 </li>
                 <li>
                     由于
-                    <code>
-                        message
+                    <code>         message
                     </code>
                     的值仍然包含
-                    <code>
-                        \n\n
+                    <code>         \n\n
                     </code>
                     ，也就是
-                    <code>
-                        scanner
+                    <code>         scanner
                     </code>
                     从之前的读取停止的地方，你需要trim它，并将新的值给回到
-                    <code>
-                        HardwarePost
+                    <code>         HardwarePost
                     </code>
                     实例的
-                    <code>
-                        message
+                    <code>         message
                     </code>
                     property中。
                 </li>
@@ -1479,29 +1291,19 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         </li>
         <li>
             用
-            <code>
-                message
-            </code>
+            <code> message </code>
             调用
-            <code>
-                parser
-            </code>
+            <code> parser </code>
             的方法，来检索
-            <code>
-                cost
-            </code>
+            <code> cost </code>
             和
-            <code>
-                keywords
-            </code>
+            <code> keywords </code>
             property的值。
         </li>
     </ol>
     <p>
         现在，你就可以由文件的数据直接创建
-        <code>
-            HardwarePost
-        </code>
+        <code> HardwarePost </code>
         实例。你距离展现出最后的产品已只剩几步之遥了！
     </p>
     <h2>
@@ -1513,9 +1315,7 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             PostCell.swift
         </em>
         并添加下列的方法到
-        <code>
-            PostCell
-        </code>
+        <code> PostCell </code>
         类的实现中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">configure</span><span class="hljs-params">(<span class="hljs-number">_</span> post: HardwarePost)</span></span> {
@@ -1538,25 +1338,17 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
 </pre>
     <p>
         上面的代码将post的值分配给了cell label。
-        <code>
-            costLabel
-        </code>
+        <code> costLabel </code>
         和
-        <code>
-            keywordsLabel
-        </code>
+        <code> keywordsLabel </code>
         需要特殊的处理，因为它们可以为空。这里是会发生的事：
     </p>
     <ol>
         <li>
             如果
-            <code>
-                costs
-            </code>
+            <code> costs </code>
             数组为空，就设置
-            <code>
-                costLabel
-            </code>
+            <code> costLabel </code>
             的string值为
             <em>
                 NO
@@ -1565,17 +1357,11 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
         </li>
         <li>
             类似的，当
-            <code>
-                post.keywords
-            </code>
+            <code> post.keywords </code>
             是一个空集合时，设置
-            <code>
-                keywordsLabel
-            </code>
+            <code> keywordsLabel </code>
             的string值为
-            <code>
-                No words found
-            </code>
+            <code> No words found </code>
             。
         </li>
     </ol>
@@ -1585,13 +1371,9 @@ print(areaCode!, firstThreeDigits!, lastFourDigits!)<span class="hljs-comment">/
             DataSource.swift
         </em>
         。删除
-        <code>
-            DataSource
-        </code>
+        <code> DataSource </code>
         初始化器
-        <code>
-            init()
-        </code>
+        <code> init() </code>
         并添加下列的代码到这个类中：
     </p>
     <pre lang="swift">let hardwarePosts: [HardwarePost] // 1.
@@ -1611,9 +1393,7 @@ override init() {
     <ol>
         <li>
             储存
-            <code>
-                HardwarePost
-            </code>
+            <code> HardwarePost </code>
             实例。
         </li>
         <li>
@@ -1628,44 +1408,26 @@ override init() {
         </li>
         <li>
             通过使用
-            <code>
-                Data
-            </code>
+            <code> Data </code>
             的可是白初始化器和
-            <code>
-                flatMap(\_:)
-            </code>
+            <code> flatMap(\_:) </code>
             读取文件内容，惰性获取
-            <code>
-                Data
-            </code>
+            <code> Data </code>
             实例的数组。使用
-            <code>
-                flatMap(\_:)
-            </code>
+            <code> flatMap(\_:) </code>
             是要获取元素不为
-            <code>
-                nil
-            </code>
+            <code> nil </code>
             的子数组。
         </li>
         <li>
             最后，将
-            <code>
-                Data
-            </code>
+            <code> Data </code>
             的结果转换为
-            <code>
-                HardwarePost
-            </code>
+            <code> HardwarePost </code>
             对象，并将它们赋给
-            <code>
-                DataSource
-            </code>
+            <code> DataSource </code>
             的
-            <code>
-                hardwarePosts
-            </code>
+            <code> hardwarePosts </code>
             property。
         </li>
     </ol>
@@ -1678,9 +1440,7 @@ override init() {
             DataSource.swift
         </em>
         。找到
-        <code>
-            numberOfRows(in:)
-        </code>
+        <code> numberOfRows(in:) </code>
         ，并使用下列代码来替换它：
     </p>
     <pre lang="swift">func numberOfRows(in tableView: NSTableView) -&gt; Int {
@@ -1688,44 +1448,30 @@ override init() {
 }
 </pre>
     <p>
-        <code>
-            numberOfRows(in:)
-        </code>
+        <code> numberOfRows(in:) </code>
         是table view的data source协议的一部分；它设置了table view的行数。
     </p>
     <p>
         接下来，找到
-        <code>
-            tableView(\_:viewForTableColumn:row:)
-        </code>
+        <code> tableView(\_:viewForTableColumn:row:) </code>
         ，并使用下列代码替换注释
-        <code>
-            //TODO: Set up cell view
-        </code>
+        <code> //TODO: Set up cell view </code>
         ：
     </p>
     <pre lang="swift">cell.configure(hardwarePosts[row])
 </pre>
     <p>
         table view会调用代理方法
-        <code>
-            tableView(\_:viewForTableColumn:row:)
-        </code>
+        <code> tableView(\_:viewForTableColumn:row:) </code>
         来设置每个cell。它为相应的行获取post的引用，并调用
-        <code>
-            PostCell
-        </code>
+        <code> PostCell </code>
         的
-        <code>
-            configure(\_:)
-        </code>
+        <code> configure(\_:) </code>
         方法来展示数据。
     </p>
     <p>
         现在你需要当在table view中选择一个post时，在text view上展示它。使用下列代码替换
-        <code>
-            tableViewSelectionDidChange(\_:)
-        </code>
+        <code> tableViewSelectionDidChange(\_:) </code>
         的实现：
     </p>
     <pre lang="swift">func tableViewSelectionDidChange(_ notification: Notification) {
@@ -1736,13 +1482,9 @@ override init() {
 }
 </pre>
     <p>
-        <code>
-            tableViewSelectionDidChange(\_:)
-        </code>
+        <code> tableViewSelectionDidChange(\_:) </code>
         方法会在table view的选择发生变化时被调用。当调用发生时，这个代码就会获取选择的行的硬件post，并在text view中展示
-        <code>
-            message
-        </code>
+        <code> message </code>
         。
     </p>
     <p>
@@ -1793,9 +1535,7 @@ override init() {
         。
         <br>
         有很多你可以基于解析到的数据去做的事。你可以写一个格式转换器，将
-        <code>
-            HardwarePost
-        </code>
+        <code> HardwarePost </code>
         对象转换为JSON，XML，CSV或其它格式。你可以通过新发现的灵活性，来以不同的格式展示数据，你可以在不同的平台上分享数据。
     </p>
     <p>
@@ -1809,9 +1549,7 @@ override init() {
     </p>
     <p>
         有关
-        <code>
-            Scanner
-        </code>
+        <code> Scanner </code>
         和其它解析理论的更多信息，请访问下列资源：
     </p>
     <ul>

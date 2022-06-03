@@ -52,18 +52,14 @@
             macOS/Unit Test Case Class
         </em>
         来创建一个名为
-        <code>
-            ViewControllerTests
-        </code>
+        <code> ViewControllerTests </code>
         的类。添加全部的代码并添加下列的import到文件的顶部：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@testable</span> <span class="hljs-keyword">import</span> High_Roller
 </pre>
     <p>
         插入下列的代码到
-        <code>
-            ViewControllerTests
-        </code>
+        <code> ViewControllerTests </code>
         类中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// 1</span>
@@ -90,23 +86,17 @@
             File Navigator
             </em>
             的property访问
-            <code>
-                ViewController
-            </code>
+            <code> ViewController </code>
             。可以将它设为非可选的，因为如果它崩溃掉的话，仍然是一个非常有用的测试结果。
         </li>
         <li>
             这个view controller是从storyboard的
-            <code>
-                setup()
-            </code>
+            <code> setup() </code>
             中实例化的。
         </li>
         <li>
             为了触发view的生命周期，获取view controller的
-            <code>
-                view
-            </code>
+            <code> view </code>
             property。你无需去保存，因为获取它的动作就已是的创建view controller的动作正确地执行。
         </li>
     </ol>
@@ -194,13 +184,9 @@
     </p>
     <p>
         如果你在使用app的过程中，通过点击向上或向下的箭头改变了stepper的值，
-        <code>
-            numberOfDiceStepperChanged(\_:)
-        </code>
+        <code> numberOfDiceStepperChanged(\_:) </code>
         方法就会被自动地调用。类似的，如果你编辑text field的话，
-        <code>
-            numberOfDiceTextFieldChanged(\_:)
-        </code>
+        <code> numberOfDiceTextFieldChanged(\_:) </code>
         就会被调用。在测试的时候，你必须手动地来调用这IBAction方法。
     </p>
     <p>
@@ -231,13 +217,9 @@
     </p>
     <p>
         view controller含有一个
-        <code>
-            Roll
-        </code>
+        <code> Roll </code>
         对象，它含有自己的property。添加下列的测试以确认
-        <code>
-            Roll
-        </code>
+        <code> Roll </code>
         存在对象，并含有期望的默认property：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testViewControllerHasRollObject</span><span class="hljs-params">()</span></span> {
@@ -251,9 +233,7 @@
 </pre>
     <p>
         接下来，你需要确认通过界面中的元素改变一项设置后，确实可以改变
-        <code>
-            Roll
-        </code>
+        <code> Roll </code>
         对象中的设置。添加下列的设置：
     </p>
     <pre lang="swift" class="language-swift hljs">    <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testChangingNumberOfDiceInTextFieldChangesRoll</span><span class="hljs-params">()</span></span> {
@@ -274,9 +254,7 @@
 </pre>
     <p>
         这三个测试会分别操作text field，stepper和弹出菜单。在每次UI元素发生变化之后，它们就会检查
-        <code>
-            roll
-        </code>
+        <code> roll </code>
         这个property是否匹配于相应的值。
     </p>
     <p>
@@ -285,9 +263,7 @@
             ViewController.swift
         </em>
         ，并查看
-        <code>
-            rollButtonClicked(\_:)
-        </code>
+        <code> rollButtonClicked(\_:) </code>
         。它做了三件事：
     </p>
     <ol>
@@ -296,9 +272,7 @@
         </li>
         <li>
             告知
-            <code>
-                Roll
-            </code>
+            <code> Roll </code>
             结构体滚动所有骰子。
         </li>
         <li>
@@ -307,21 +281,15 @@
     </ol>
     <p>
         你早已编写了测试来确认
-        <code>
-            rollAll()
-        </code>
+        <code> rollAll() </code>
         的功能如同期望中一样，但
-        <code>
-            displayDiceFromRoll(diceRolls:numberOfSides:)
-        </code>
+        <code> displayDiceFromRoll(diceRolls:numberOfSides:) </code>
         需要被当做交互的一部分进行测试。展示的方法全在
         <em>
             ViewControllerDisplay.swift
         </em>
         中，它是包含
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         的一个extension的单独的文件。这是组织代码的一种方式，以保持
         <em>
             ViewController.swift
@@ -334,9 +302,7 @@
             ViewControllerDisplay.swift
         </em>
         文件，你会看到一堆私有方法和一个公有方法：
-        <code>
-            displayDiceFromRoll(diceRolls:numberOfSides:)
-        </code>
+        <code> displayDiceFromRoll(diceRolls:numberOfSides:) </code>
         ，它可以清空展示的内容，填入文本信息，然后用一系列的子view来填充一个stack view，每个子view对应于一个骰子。
     </p>
     <p>
@@ -376,13 +342,9 @@
             ViewController.swift
         </em>
         中的
-        <code>
-            rollButtonClicked(\_:)
-        </code>
+        <code> rollButtonClicked(\_:) </code>
         。看看它是如何滚动骰子，然后来展示结果？如果你直接使用已知的数据调用
-        <code>
-            displayDiceFromRoll(diceRolls:numberOfSides:)
-        </code>
+        <code> displayDiceFromRoll(diceRolls:numberOfSides:) </code>
         呢？这将允许精确地检查展示。
     </p>
     <p>
@@ -446,16 +408,12 @@
             High_RollerUITests.swift
         </em>
         。默认的代码非常类似于目前为止你所看到的测试代码，仅仅是在
-        <code>
-            setup()
-        </code>
+        <code> setup() </code>
         中额外的几行有所不同。
     </p>
     <p>
         关于UI测试的一件很有趣的事，就是它可以记录界面的交互。从
-        <code>
-            testExample()
-        </code>
+        <code> testExample() </code>
         中移除注释，将光标置于方法内的空白行上，并点击编辑面板左下角的红点以开始录制：
     </p>
     <p>
@@ -525,29 +483,17 @@
 </pre>
     <p>
         记录的主要用途，是为了展示访问界面元素的语法。但意料之外的事却是你无法获取到
-        <code>
-            NSButton
-        </code>
+        <code> NSButton </code>
         或
-        <code>
-            NSTextField
-        </code>
+        <code> NSTextField </code>
         的引用，只能通过获取
-        <code>
-            XCUIElement
-        </code>
+        <code> XCUIElement </code>
         来代替。以此来赋予你发送消息和测试一些property的能力。
-        <code>
-            value
-        </code>
+        <code> value </code>
         则是
-        <code>
-            Any
-        </code>
+        <code> Any </code>
         类型的，用来持有
-        <code>
-            XCUIElement
-        </code>
+        <code> XCUIElement </code>
         中最重要的内容。
     </p>
     <p>
@@ -595,9 +541,7 @@
             Random.org
         </a>
         来查看它如何工作。如果URL包含有一个
-        <code>
-            num
-        </code>
+        <code> num </code>
         参数，这个网页就会展示滚动很多六面的骰子的结果。似乎和下面这部分的内容相关：
     </p>
     <pre lang="html" class="language-html hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>You rolled 2 dice:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
@@ -635,9 +579,7 @@
             macOS/Unit Test Case Class
         </em>
         创建一个名为
-        <code>
-            WebSourceTests
-        </code>
+        <code> WebSourceTests </code>
         的类。
     </p>
     <p>
@@ -658,21 +600,13 @@
             WebSource.swift
         </em>
         中查看
-        <code>
-            findRollOnline(numberOfDice:completion:)
-        </code>
+        <code> findRollOnline(numberOfDice:completion:) </code>
         方法。这个方法会创建一个
-        <code>
-            URLRequest
-        </code>
+        <code> URLRequest </code>
         和一个
-        <code>
-            URLSession
-        </code>
+        <code> URLSession </code>
         ，然后将它们连接到
-        <code>
-            URLSessionDataTask
-        </code>
+        <code> URLSessionDataTask </code>
         中，它会尝试基于选定骰子的数量，尝试下载相应的网页。
     </p>
     <p>
@@ -694,9 +628,7 @@
 </pre>
     <p>
         当你运行测试的时候，它会以令人怀疑的速度快速通过。点击左边的位置来添加一个断点在
-        <code>
-            XCTAssertEqual()
-        </code>
+        <code> XCTAssertEqual() </code>
         这行。
     </p>
     <p>
@@ -734,9 +666,7 @@
     <ol>
         <li>
             用人类可读的描述创建一个
-            <code>
-                XCTestExpectation
-            </code>
+            <code> XCTestExpectation </code>
             。
         </li>
         <li>
@@ -748,9 +678,7 @@
     </ol>
     <p>
         这次，在
-        <code>
-            XCTAssertEqual()
-        </code>
+        <code> XCTAssertEqual() </code>
         这行设置一个断点，它应当会触发，测试就可以真正地通过了。如果你想看到一个期望超时时会发生什么，可以将超时时间设置为一个非常小的值（比方说0.1秒），并再次运行测试。
     </p>
     <p>
@@ -768,36 +696,22 @@
     </h3>
     <p>
         在实际的代码中，
-        <code>
-            URLSession
-        </code>
+        <code> URLSession </code>
         是用来启动
-        <code>
-            URLSessionDataTask
-        </code>
+        <code> URLSessionDataTask </code>
         的，用它来返回响应。由于不想访问网络，你可以测试
-        <code>
-            URLRequest
-        </code>
+        <code> URLRequest </code>
         是正确配置的，而
-        <code>
-            URLSessionDataTask
-        </code>
+        <code> URLSessionDataTask </code>
         可以被创建，
-        <code>
-            URLSessionDataTask
-        </code>
+        <code> URLSessionDataTask </code>
         可以被启动。
     </p>
     <p>
         你将要创建的mock版本的类包括：
-        <code>
-            MockURLSession
-        </code>
+        <code> MockURLSession </code>
         和
-        <code>
-            MockURLSessionDataTask
-        </code>
+        <code> MockURLSessionDataTask </code>
         ，你可以用它们来代替真实的类。
     </p>
     <p>
@@ -806,9 +720,7 @@
             WebSourcesTests.swift
         </em>
         文件的底部，
-        <code>
-            WebSourceTests
-        </code>
+        <code> WebSourceTests </code>
         类的外部，添加下面的两个新的类：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MockURLSession</span>: <span class="hljs-title">URLSession</span> </span>{
@@ -830,50 +742,30 @@
 }
 </pre>
     <p>
-        <code>
-            MockURLSession
-        </code>
+        <code> MockURLSession </code>
         继承自
-        <code>
-            URLSession
-        </code>
+        <code> URLSession </code>
         ，提供了一个替代版本的
-        <code>
-            dataTask(with:completionHandler:)
-        </code>
+        <code> dataTask(with:completionHandler:) </code>
         ，它会储存来自提供的
-        <code>
-            URLRequest
-        </code>
+        <code> URLRequest </code>
         的URL并返回一个
-        <code>
-            MockURLSessionTask
-        </code>
+        <code> MockURLSessionTask </code>
         来替代
-        <code>
-            URLSessionDataTask
-        </code>
+        <code> URLSessionDataTask </code>
         。
     </p>
     <p>
-        <code>
-            MockURLSessionTask
-        </code>
+        <code> MockURLSessionTask </code>
         则继承自
-        <code>
-            URLSessionDataTask
-        </code>
+        <code> URLSessionDataTask </code>
         ，当
-        <code>
-            resume()
-        </code>
+        <code> resume() </code>
         被调用时，并不会真正地访问网络，而是标记一个flag表示此事已发生。
     </p>
     <p>
         添加下列代码到
-        <code>
-            WebSourceTests
-        </code>
+        <code> WebSourceTests </code>
         类中，并运行新的测试：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testUsingMockURLSession</span><span class="hljs-params">()</span></span> {
@@ -905,27 +797,19 @@
     <ol>
         <li>
             如同之前一样地构建
-            <code>
-                URLRequest
-            </code>
+            <code> URLRequest </code>
             。
         </li>
         <li>
             创建一个
-            <code>
-                MockURLSession
-            </code>
+            <code> MockURLSession </code>
             并配置初始的property。
         </li>
         <li>
             创建
-            <code>
-                MockURLSessionTask
-            </code>
+            <code> MockURLSessionTask </code>
             并调用
-            <code>
-                resume()
-            </code>
+            <code> resume() </code>
             。
         </li>
         <li>
@@ -934,17 +818,11 @@
     </ol>
     <p>
         这就完成了第一部分的测试：
-        <code>
-            URLRequest
-        </code>
+        <code> URLRequest </code>
         ，
-        <code>
-            URLSession
-        </code>
+        <code> URLSession </code>
         ，和
-        <code>
-            URLSessionDataTask
-        </code>
+        <code> URLSessionDataTask </code>
         ，以及data task的启动。现在缺少的测试是解析返回的数据。
     </p>
     <p>
@@ -993,21 +871,13 @@
             Roll.swift
         </em>
         中的
-        <code>
-            totalForDice()
-        </code>
+        <code> totalForDice() </code>
         ，使用
-        <code>
-            flatMap
-        </code>
+        <code> flatMap </code>
         和
-        <code>
-            reduce
-        </code>
+        <code> reduce </code>
         来计算骰子的总数，且允许
-        <code>
-            value
-        </code>
+        <code> value </code>
         是可选类型的。但这是最快的方法么？
     </p>
     <p>
@@ -1028,9 +898,7 @@
             macOS/Unit Test Case Class
         </em>
         创建一个名为
-        <code>
-            PerformanceTests
-        </code>
+        <code> PerformanceTests </code>
         的类。
     </p>
     <p>
@@ -1059,19 +927,13 @@
     <ol>
         <li>
             用20个
-            <code>
-                Dice
-            </code>
+            <code> Dice </code>
             设置
-            <code>
-                Roll
-            </code>
+            <code> Roll </code>
             。
         </li>
         <li>
-            <code>
-                self.measure
-            </code>
+            <code> self.measure </code>
             则定义了定时的block。
         </li>
         <li>
@@ -1244,13 +1106,9 @@
     </p>
     <p>
         两个model对象（
-        <code>
-            Dice
-        </code>
+        <code> Dice </code>
         和
-        <code>
-            Roll
-        </code>
+        <code> Roll </code>
         ）都被很好地覆盖了。如果你只想添加一些测试，model就是开始的最好的地方。
     </p>
     <p>
@@ -1275,9 +1133,7 @@
     </p>
     <p>
         在本例中，
-        <code>
-            applicationWillTerminate(\_:)
-        </code>
+        <code> applicationWillTerminate(\_:) </code>
         方法从未被使用过，但却显著地减小了代码覆盖率。由于本app用不到这个方法，就可以将它直接删除。再次运行所有的测试，
         <em>
             AppDelegate.swift

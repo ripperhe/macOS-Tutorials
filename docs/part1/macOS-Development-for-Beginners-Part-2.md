@@ -566,17 +566,11 @@
     </h2>
     <p>
         As you learned in part 1 of this series, you need to set up
-        <code>
-            @IBOutlets
-        </code>
+        <code> @IBOutlets </code>
         and
-        <code>
-            @IBActions
-        </code>
+        <code> @IBActions </code>
         to connect your UI to your code. For this window, you need
-        <code>
-            @IBOutlets
-        </code>
+        <code> @IBOutlets </code>
         for the following elements:
     </p>
     <ul>
@@ -592,9 +586,7 @@
     </ul>
     <p>
         The 3 buttons also need
-        <code>
-            @IBActions
-        </code>
+        <code> @IBActions </code>
         to trigger a function when a user clicks them. In the
         <em>
             Project Navigator
@@ -632,40 +624,26 @@
             countdown timer label
         </em>
         and Control-drag into the
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         class, just as you did in part 1. Set the name of the label to
-        <code>
-            timeLeftField
-        </code>
+        <code> timeLeftField </code>
         . Repeat for the
         <em>
             egg image view
         </em>
         , setting its name to
-        <code>
-            eggImageView
-        </code>
+        <code> eggImageView </code>
         . Set up outlets for the buttons naming them
-        <code>
-            startButton
-        </code>
+        <code> startButton </code>
         ,
-        <code>
-            stopButton
-        </code>
+        <code> stopButton </code>
         and
-        <code>
-            resetButton
-        </code>
+        <code> resetButton </code>
         .
     </p>
     <p>
         The buttons also need
-        <code>
-            @IBActions
-        </code>
+        <code> @IBActions </code>
         . Control-drag from the
         <em>
             Start
@@ -679,37 +657,23 @@
             Action
         </em>
         and set the name to
-        <code>
-            startButtonClicked
-        </code>
+        <code> startButtonClicked </code>
         . Repeat for the other buttons creating actions called
-        <code>
-            stopButtonClicked
-        </code>
+        <code> stopButtonClicked </code>
         and
-        <code>
-            resetButtonClicked
-        </code>
+        <code> resetButtonClicked </code>
         .
     </p>
     <p>
         If you do what I often do and forget to change the Connection popup to
         Action, you will end up with two
-        <code>
-            @IBOutlets
-        </code>
+        <code> @IBOutlets </code>
         and no
-        <code>
-            @IBAction
-        </code>
+        <code> @IBAction </code>
         . To remove the extra
-        <code>
-            @IBOutlet
-        </code>
+        <code> @IBOutlet </code>
         , firstly delete the extra line of code in the
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         . Then go to the
         <em>
             Connections Inspector
@@ -730,9 +694,7 @@
             X
         </em>
         beside the incorrect one to remove it. Then go back and make the
-        <code>
-            @IBAction
-        </code>
+        <code> @IBAction </code>
         remembering to change the
         <em>
             Connection
@@ -747,9 +709,7 @@
     </p>
     <p>
         The
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         code should now look like this:
     </p>
     <p>
@@ -824,32 +784,20 @@
             Main Menu
         </em>
         is an instance of class
-        <code>
-            NSMenu
-        </code>
+        <code> NSMenu </code>
         . It contains an array of
-        <code>
-            NSMenuItems
-        </code>
+        <code> NSMenuItems </code>
         : View is one of these.
     </p>
     <p>
         The View menu item contains a sub-menu (
-        <code>
-            NSMenu
-        </code>
+        <code> NSMenu </code>
         ) with its own
-        <code>
-            NSMenuItems
-        </code>
+        <code> NSMenuItems </code>
         . Notice the
-        <code>
-            Separator
-        </code>
+        <code> Separator </code>
         item which is just a specialized form of
-        <code>
-            NSMenuItem
-        </code>
+        <code> NSMenuItem </code>
         .
     </p>
     <p>
@@ -1026,9 +974,7 @@
             ViewController.swift
         </em>
         and add the following code below the
-        <code>
-            @IBActions
-        </code>
+        <code> @IBActions </code>
         you have for the buttons:
     </p>
     <div class="wp_codebox">
@@ -1082,17 +1028,13 @@
             Stop
         </em>
         menu item to
-        <code>
-            stopTimerMenuItemSelected
-        </code>
+        <code> stopTimerMenuItemSelected </code>
         and the
         <em>
             Reset
         </em>
         menu item to
-        <code>
-            resetTimerMenuItemSelected
-        </code>
+        <code> resetTimerMenuItemSelected </code>
         in the same way. Now when the EggTimer window is at the front, selecting
         the menu items will call these functions.
     </p>
@@ -1100,14 +1042,10 @@
         However the 3 buttons are not all going to be enabled at the same time,
         and the menu items need to reflect the status of the buttons. This cannot
         happen in the
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         as it will not always be the First Responder, so the menu items will be
         controlled in the
-        <code>
-            AppDelegate
-        </code>
+        <code> AppDelegate </code>
         .
     </p>
     <p>
@@ -1128,24 +1066,16 @@
             Start
         </em>
         menu into the
-        <code>
-            AppDelegate
-        </code>
+        <code> AppDelegate </code>
         and assign an outlet name of
-        <code>
-            startTimerMenuItem
-        </code>
+        <code> startTimerMenuItem </code>
         .
     </p>
     <p>
         Do the same for the other items, assigning titles of
-        <code>
-            stopTimerMenuItem
-        </code>
+        <code> stopTimerMenuItem </code>
         and
-        <code>
-            resetTimerMenuItem
-        </code>
+        <code> resetTimerMenuItem </code>
         .
     </p>
     <p>
@@ -1282,13 +1212,9 @@
             Next
         </em>
         . Set the class name to
-        <code>
-            PrefsViewController
-        </code>
+        <code> PrefsViewController </code>
         and make it a subclass of
-        <code>
-            NSViewController
-        </code>
+        <code> NSViewController </code>
         . Check that the language is set to
         <em>
             Swift
@@ -1328,9 +1254,7 @@
             Identity Inspector
         </em>
         , set its class to
-        <code>
-            PrefsViewController
-        </code>
+        <code> PrefsViewController </code>
         .
     </p>
     <p>
@@ -1411,9 +1335,7 @@
     </p>
     <p>
         The
-        <code>
-            PrefsViewController
-        </code>
+        <code> PrefsViewController </code>
         is going to display a popup for selecting from a preset time and a slider
         for selecting a custom time. It will have labels for each of these and
         two buttons: Cancel and OK. There will also be a dynamic label that shows
@@ -1627,41 +1549,29 @@
             Project Navigator
         </em>
         and hide the side panels if you need the room. You need
-        <code>
-            @IBOutlets
-        </code>
+        <code> @IBOutlets </code>
         for the popup, the slider and the label showing “6 minutes”. Control-drag
         from each of these into the
-        <code>
-            PrefsViewController
-        </code>
+        <code> PrefsViewController </code>
         giving them the following outlet names:
     </p>
     <ul>
         <li>
             Popup:
-            <code>
-                presetsPopup
-            </code>
+            <code> presetsPopup </code>
         </li>
         <li>
             Slider:
-            <code>
-                customSlider
-            </code>
+            <code> customSlider </code>
         </li>
         <li>
             Label:
-            <code>
-                customTextField
-            </code>
+            <code> customTextField </code>
         </li>
     </ul>
     <p>
         Next, Control-drag to create the
-        <code>
-            @IBActions
-        </code>
+        <code> @IBActions </code>
         , remembering to set the
         <em>
             Connection
@@ -1675,27 +1585,19 @@
     <ul>
         <li>
             Popup:
-            <code>
-                popupValueChanged
-            </code>
+            <code> popupValueChanged </code>
         </li>
         <li>
             Slider:
-            <code>
-                sliderValueChanged
-            </code>
+            <code> sliderValueChanged </code>
         </li>
         <li>
             Cancel button:
-            <code>
-                cancelButtonClicked
-            </code>
+            <code> cancelButtonClicked </code>
         </li>
         <li>
             OK button:
-            <code>
-                okButtonClicked
-            </code>
+            <code> okButtonClicked </code>
         </li>
     </ul>
     <p>

@@ -14,23 +14,17 @@
     </p>
     <p>
         在OS X 10.5发布时，
-        <code>
-            NSCollectionView
-        </code>
+        <code> NSCollectionView </code>
         提供了一个便利的手段，那就是在一个可滚动的view上，用网格式的相同尺寸的项目，来排列一组对象。
     </p>
     <p>
         OS X 10.11，也就是El Capitan，受iOS中的
-        <code>
-            UICollectionView
-        </code>
+        <code> UICollectionView </code>
         启发，对El Capitan进行了一次大修改。
     </p>
     <p>
         除其它方面之外，新的
-        <code>
-            NSCollectionView
-        </code>
+        <code> NSCollectionView </code>
         API添加了以下的支持：
     </p>
     <ul>
@@ -63,48 +57,34 @@
     </p>
     <p>
         表演马上要开始了！所以找一个座位，准备好你自己的有关
-        <code>
-            NSCollectionView
-        </code>
+        <code> NSCollectionView </code>
         的个人魔术表演。
     </p>
     <h2>
         在Collection View的场景之后
     </h2>
     <p>
-        <code>
-            NSCollectionView
-        </code>
+        <code> NSCollectionView </code>
         是主要的view - 也就是魔法将会发生的舞台。它展示了可见的项目，并包含了这些关键的成分：
     </p>
     <h3>
         布局
     </h3>
     <p>
-        <code>
-            NSCollectionViewLayout
-        </code>
+        <code> NSCollectionViewLayout </code>
         - 这个版本中的新内容，让你可以通过设置collection
         view的 
-        <code>
-            collectionViewLayout
-        </code>
+        <code> collectionViewLayout </code>
         来指定一个布局。它是一个抽象类，所有实际的布局的类都继承自它。
     </p>
     <p>
-        <code>
-            NSCollectionViewFlowLayout
-        </code>
+        <code> NSCollectionViewFlowLayout </code>
         - 提供了一个灵活的网格布局，对于大多数的app，你都可以达到你所期望的结果。
     </p>
     <p>
-        <code>
-            NSCollectionViewGridLayout
-        </code>
+        <code> NSCollectionViewGridLayout </code>
         - 匹配
-        <code>
-            NSCollectionView
-        </code>
+        <code> NSCollectionView </code>
         的简单的OS X 10.11前的网格布局的行为，但不支持部分和所有新的API带来的好东西。
     </p>
     <p>
@@ -119,13 +99,9 @@
         <em>
             Section和
         </em>
-        <code>
-            NSIndexPath
-        </code>
+        <code> NSIndexPath </code>
         - 可以把项目分组成section。这些项目就构成了一个section的有序列表，每个section则包含一个有序的项目列表。每个项目都被关联到一个被封装到一个包含一堆整数（section,item）的
-        <code>
-            NSIndexPath
-        </code>
+        <code> NSIndexPath </code>
         的实例中。
         <i>
             当需求并非是将项目分组到一个个section中时，默认你仍然含有至少一个section。
@@ -169,13 +145,9 @@
             NSCollectionViewItem
         </em>
         的实例持有的，它是一个
-        <code>
-            NSViewController
-        </code>
+        <code> NSViewController </code>
         或其子类的节点。它协调了在item和model对象中的信息流。通常，你会继承
-        <code>
-            NSCollectionViewItem
-        </code>
+        <code> NSCollectionViewItem </code>
         。当item并非相同的类型时，你就要为每种类型定义不同的子类和nib。
     </p>
     <h3>
@@ -189,9 +161,7 @@
     </h3>
     <ul>
         <li>
-            <code>
-                NSCollectionViewDataSource
-            </code>
+            <code> NSCollectionViewDataSource </code>
             - 是在
             <em>
                 OS X 10.11
@@ -199,15 +169,11 @@
             引入的新API，它会使用item和supplementary填充collection view。
         </li>
         <li>
-            <code>
-                NSCollectionViewDelegate
-            </code>
+            <code> NSCollectionViewDelegate </code>
             - 处理有关拖拽，选择和高亮的事件。
         </li>
         <li>
-            <code>
-                NSCollectionViewDelegateFlowLayout
-            </code>
+            <code> NSCollectionViewDelegateFlowLayout </code>
             - 让你可以定制一个流式布局。
         </li>
     </ul>
@@ -337,13 +303,9 @@
                 WindowController.swift
             </em>
             -
-            <code>
-                windowDidLoad()
-            </code>
+            <code> windowDidLoad() </code>
             负责初始化屏幕左侧窗口的尺寸。
-            <code>
-                openAnotherFolder
-            </code>
+            <code> openAnotherFolder </code>
             方法是由
             <em>
                 File \ Open Another Folder…
@@ -355,21 +317,13 @@
                 ViewController.swift
             </em>
             –
-            <code>
-                viewDidLoad()
-            </code>
+            <code> viewDidLoad() </code>
             打开了桌面的图片目录作为待浏览的初始目录，而
-            <code>
-                loadDataForNewFolderWithUrl()
-            </code>
+            <code> loadDataForNewFolderWithUrl() </code>
             是通过来自
-            <code>
-                WindowController
-            </code>
+            <code> WindowController </code>
             的
-            <code>
-                openAnotherFolder
-            </code>
+            <code> openAnotherFolder </code>
             使用的。
         </li>
     </ul>
@@ -451,9 +405,7 @@
             Xcode
         </em>
         还添加了一个
-        <code>
-            NSCollectionViewItem
-        </code>
+        <code> NSCollectionViewItem </code>
         ，且于一个
         <em>
             Prototype
@@ -525,9 +477,7 @@
             ViewController.swift
         </em>
         并添加下列的代码到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         类的定义中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> collectionView: <span class="hljs-type">NSCollectionView</span>!
@@ -593,9 +543,7 @@
             ViewController.swift
         </em>
         并添加下列的方法到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         ：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">configureCollectionView</span><span class="hljs-params">()</span></span> {
@@ -618,32 +566,20 @@
     <ol>
         <li>
             创建一个
-            <code>
-                NSCollectionViewFlowLayout
-            </code>
+            <code> NSCollectionViewFlowLayout </code>
             并设置它的attribute，以及
-            <code>
-                NSCollectionView
-            </code>
+            <code> NSCollectionView </code>
             的
-            <code>
-                collectionViewLayout
-            </code>
+            <code> collectionViewLayout </code>
             property。
         </li>
         <li>
             为了优化性能，
-            <code>
-                NSCollectionView
-            </code>
+            <code> NSCollectionView </code>
             被设计为基于layer的。因此，你要设置其
-            <code>
-                wantsLayer
-            </code>
+            <code> wantsLayer </code>
             property为
-            <code>
-                true
-            </code>
+            <code> true </code>
             。
         </li>
         <li>
@@ -656,9 +592,7 @@
     </ol>
     <p>
         你需要在view被创建时调用这个方法，因此添加下列的代码到
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs"><font><font>configureCollectionView（）
@@ -682,9 +616,7 @@
     </h2>
     <p>
         为了加载项目，你需要调用这个
-        <code>
-            reloadData()
-        </code>
+        <code> reloadData() </code>
         方法，它会让collection view重新展示当前可见的item。
     </p>
     <p>
@@ -696,9 +628,7 @@
             ViewController.swift
         </em>
         并添加下列的代码到
-        <code>
-            loadDataForNewFolderWithUrl(\_:)
-        </code>
+        <code> loadDataForNewFolderWithUrl(\_:) </code>
         的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs">collectionView.reloadData()
@@ -709,9 +639,7 @@
             File \ Open Another Folder…
         </em>
         来调用这个方法。它会加载一个新的model，然后调用
-        <code>
-            reloadData()
-        </code>
+        <code> reloadData() </code>
         。
     </p>
     <h2>
@@ -719,9 +647,7 @@
     </h2>
     <p>
         由于你从storyboard移除
-        <code>
-            NSCollectionViewItem
-        </code>
+        <code> NSCollectionViewItem </code>
         并不意味着你不需要它。:] 这里是如何将它带回来的正确方式。
     </p>
     <p>
@@ -749,9 +675,7 @@
             CollectionViewItem
         </em>
         ，它是
-        <code>
-            NSCollectionViewItem
-        </code>
+        <code> NSCollectionViewItem </code>
         的
         <em>
             子类
@@ -824,13 +748,9 @@
     <ol>
         <li>
             定义
-            <code>
-                imageFile
-            </code>
+            <code> imageFile </code>
             property来持有将在这个item中展示的model对象。当设置的时候，它的
-            <code>
-                didSet
-            </code>
+            <code> didSet </code>
             property观察者就会设置item的图片和标签内容。
         </li>
         <li>
@@ -856,9 +776,7 @@
     </p>
     <p>
         添加一个
-        <code>
-            NSImageView
-        </code>
+        <code> NSImageView </code>
         ：
     </p>
     <ol>
@@ -1055,13 +973,9 @@
     </p>
     <p>
         现在你需要连接控件到
-        <code>
-            imageView
-        </code>
+        <code> imageView </code>
         和
-        <code>
-            textField
-        </code>
+        <code> textField </code>
         的outlets上：
     </p>
     <ol>
@@ -1092,9 +1006,7 @@
         </li>
         <li>
             用相同的方式，连接
-            <code>
-                textField
-            </code>
+            <code> textField </code>
             的outlet到
             <em>
                 Label
@@ -1119,23 +1031,15 @@
             File’s Owner
         </em>
         - 它的类型是
-        <code>
-            CollectionViewItem
-        </code>
+        <code> CollectionViewItem </code>
         - 只是一个占位符。你仍然需要去实例化它。
     </p>
     <p>
-        <code>
-            CollectionView
-        </code>
+        <code> CollectionView </code>
         的方法
-        <code>
-            makeItemWithIdentifier(\_:forIndexPath:)
-        </code>
+        <code> makeItemWithIdentifier(\_:forIndexPath:) </code>
         会实例化collection view的item，它要求nib文件包含一个单独的顶层的
-        <code>
-            NSCollectionViewItem
-        </code>
+        <code> NSCollectionViewItem </code>
         的实例或它的子类。
     </p>
     <p>
@@ -1163,9 +1067,7 @@
             Class
         </em>
         为
-        <code>
-            CollectionViewItem
-        </code>
+        <code> CollectionViewItem </code>
         。
     </p>
     <p>
@@ -1195,9 +1097,7 @@
     </ol>
     <p>
         满足你的data source方法：
-        <code>
-            NSCollectionViewDataSource
-        </code>
+        <code> NSCollectionViewDataSource </code>
         协议。
     </p>
     <p>
@@ -1239,20 +1139,14 @@
                 SlidesMagic
             </em>
             启动的时候，model
-            <code>
-                imageDirectoryLoader
-            </code>
+            <code> imageDirectoryLoader </code>
             会被设置返回值为1。
         </li>
         <li>
             这是
-            <code>
-                NSCollectionViewDataSource
-            </code>
+            <code> NSCollectionViewDataSource </code>
             中的两个必须方法之一。在这里，你要返回由
-            <code>
-                section
-            </code>
+            <code> section </code>
             参数所指定的section中的item的数量。在启动的时候
             <em>
                 SlidesMagic
@@ -1261,31 +1155,21 @@
         </li>
         <li>
             这是第二个必须的方法。它对于给定的
-            <code>
-                indexPath
-            </code>
+            <code> indexPath </code>
             ，返回一个collection view的item。
         </li>
         <li>
             collection view的方法
-            <code>
-                makeItemWithIdentifier(\_:forIndexPath:)
-            </code>
+            <code> makeItemWithIdentifier(\_:forIndexPath:) </code>
             从nib文件中初始化了一个item，该nib文件的名称和
-            <code>
-                identifier
-            </code>
+            <code> identifier </code>
             参数相同。在本例中，它是
-            <code>
-                “CollectionViewItem”
-            </code>
+            <code> “CollectionViewItem” </code>
             。首先，它尝试去复用一个要求类型的未使用的item，如果没有的话，它就会创建一个新的。
         </li>
         <li>
             此代码根据给定的
-            <code>
-                NSIndexPath
-            </code>
+            <code> NSIndexPath </code>
             得到相应的model对象，并设置图片和标签的内容。
         </li>
     </ol>
@@ -1376,9 +1260,7 @@
         </li>
         <li>
             你是否设置了
-            <code>
-                dataSource
-            </code>
+            <code> dataSource </code>
             outlet？
         </li>
         <li>
@@ -1390,24 +1272,16 @@
         </li>
         <li>
             你是否添加了顶层的
-            <code>
-                NSCollectionViewItem
-            </code>
+            <code> NSCollectionViewItem </code>
             的对象，并将它的类型改变为
-            <code>
-                CollectionViewItem
-            </code>
+            <code> CollectionViewItem </code>
             ？
         </li>
         <li>
             在
-            <code>
-                makeItemWithIdentifier
-            </code>
+            <code> makeItemWithIdentifier </code>
             中
-            <code>
-                identifier
-            </code>
+            <code> identifier </code>
             参数的值是否相等于nib的名称？
         </li>
     </ol>
@@ -1520,9 +1394,7 @@
             ViewController.swift
         </em>
         并添加下列的方法到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         类的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs">  
@@ -1545,29 +1417,19 @@
         </li>
         <li>
             相应地，检索checkbox的状态，并设置数据model的mode为
-            <code>
-                singleSelectionMode
-            </code>
+            <code> singleSelectionMode </code>
             ，然后调用model的
-            <code>
-                setupDataForUrls(\_:)
-            </code>
+            <code> setupDataForUrls(\_:) </code>
             方法来重新排列section的结构。传递
-            <code>
-                nil
-            </code>
+            <code> nil </code>
             的值则意味着你跳过了图片的加载 - 相同的图片，不同的布局。
         </li>
     </ol>
     <p>
         如果你好奇于图片是如何通过section进行分布，可查阅
-        <code>
-            ImageDirectoryLoader
-        </code>
+        <code> ImageDirectoryLoader </code>
         中的
-        <code>
-            sectionLengthArray
-        </code>
+        <code> sectionLengthArray </code>
         。在这个数组中元素的数量，就被设定成了section的最大数量，元素的值则设定了在每一section中item的数量。
     </p>
     <p>
@@ -1628,9 +1490,7 @@
     </p>
     <p>
         由于第二行中的“黑色尾巴”，你会看到在第0部分有7个图像，但第1部分有5个图像，第2个部分则有10个（请看
-        <code>
-            sectionLengthArray
-        </code>
+        <code> sectionLengthArray </code>
         ）。这并不清楚，因为这些section相当得懵逼。
     </p>
     <p>
@@ -1639,13 +1499,9 @@
             ViewController.swift
         </em>
         并在
-        <code>
-            configureCollectionView()
-        </code>
+        <code> configureCollectionView() </code>
         方法中修改布局的
-        <code>
-            sectionInset
-        </code>
+        <code> sectionInset </code>
         property。
     </p>
     <p>
@@ -1689,9 +1545,7 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
     </p>
     <p>
         让section的边界看得更清楚的另一种方式，是添加一个header或footer。为实现这点，你需要添加一个定制的
-        <code>
-            NSView
-        </code>
+        <code> NSView </code>
         类，以及实现一个data source的方法来提供header view到table view上。
     </p>
     <p>
@@ -1854,13 +1708,9 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
             OS X \ Source \ Cocoa Class
         </em>
         并将类命名为
-        <code>
-            HeaderView
-        </code>
+        <code> HeaderView </code>
         ，并让它成为
-        <code>
-            NSView
-        </code>
+        <code> NSView </code>
         的子类。单击下一步，对于
         <em>
             Group
@@ -1987,9 +1837,7 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
     </h3>
     <p>
         你的header view已准备就绪，你需要将它拖拽到collection view上来实现
-        <code>
-            collectionView(\_:viewForSupplementaryElementOfKind:atIndexPath:)
-        </code>
+        <code> collectionView(\_:viewForSupplementaryElementOfKind:atIndexPath:) </code>
         方法。
     </p>
     <p>
@@ -1998,9 +1846,7 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
             ViewController.swift
         </em>
         并添加下列的方法到
-        <code>
-            NSCollectionViewDataSource
-        </code>
+        <code> NSCollectionViewDataSource </code>
         到extension中：
     </p>
     <pre lang="swift" class="language-swift hljs">  
@@ -2020,17 +1866,11 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
     <ol>
         <li>
             调用
-            <code>
-                makeSupplementaryViewOfKind(\_:withIdentifier:forIndexPath:)
-            </code>
+            <code> makeSupplementaryViewOfKind(\_:withIdentifier:forIndexPath:) </code>
             方法来初始化一个
-            <code>
-                withIdentifier
-            </code>
+            <code> withIdentifier </code>
             参数和nib名称相同的
-            <code>
-                HeaderView
-            </code>
+            <code> HeaderView </code>
             对象。
         </li>
         <li>
@@ -2043,9 +1883,7 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
             ViewController.swift
         </em>
         的尾部，添加下列的
-        <code>
-            NSCollectionViewDelegateFlowLayout
-        </code>
+        <code> NSCollectionViewDelegateFlowLayout </code>
         extension。
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span> : <span class="hljs-title">NSCollectionViewDelegateFlowLayout</span> </span>{
@@ -2065,21 +1903,13 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
     </p>
     <p>
         为使collection view使用
-        <code>
-            NSCollectionViewDelegateFlowLayout
-        </code>
+        <code> NSCollectionViewDelegateFlowLayout </code>
         ，你必须连接
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         到
-        <code>
-            NSCollectionView
-        </code>
+        <code> NSCollectionView </code>
         的outlet
-        <code>
-            delegate
-        </code>
+        <code> delegate </code>
         上。
     </p>
     <p>
@@ -2177,9 +2007,7 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
     </p>
     <p>
         为了展示一个item已被选择，为它设置一个白色的边框，并使用
-        <code>
-            borderWith
-        </code>
+        <code> borderWith </code>
         将边框的粗细设定为5。未被选择的item则不会有特殊的处理。
     </p>
     <p>
@@ -2188,9 +2016,7 @@ flowLayout.sectionInset = <span class="hljs-type">NSEdgeInsets</span>(top: <span
             CollectionViewItem.swift
         </em>
         。添加下列代码到
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         方法的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// 1</span>
@@ -2201,13 +2027,9 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
     <ol>
         <li>
             设定
-            <code>
-                borderWidth
-            </code>
+            <code> borderWidth </code>
             为
-            <code>
-                0.0
-            </code>
+            <code> 0.0 </code>
             ，即将item初始化为未被选择的状态
         </li>
         <li>
@@ -2216,9 +2038,7 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
     </ol>
     <p>
         添加下列的方法到
-        <code>
-            CollectionViewItem
-        </code>
+        <code> CollectionViewItem </code>
         类的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">setHighlight</span><span class="hljs-params">(selected: Bool)</span></span> {
@@ -2263,17 +2083,13 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
 </pre>
     <p>
         这就实现了必须的
-        <code>
-            NSCollectionViewDelegate
-        </code>
+        <code> NSCollectionViewDelegate </code>
         方法。更多细节：
     </p>
     <ol>
         <li>
             当你选择了一个item，
-            <code>
-                NSCollectionView
-            </code>
+            <code> NSCollectionView </code>
             就会调用这个方法。
         </li>
         <li>
@@ -2295,58 +2111,38 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
     <ol>
         <li>
             加入
-            <code>
-                NSCollectionView
-            </code>
+            <code> NSCollectionView </code>
             的property
-            <code>
-                selectionIndexPaths
-            </code>
+            <code> selectionIndexPaths </code>
             。
         </li>
         <li>
-            <code>
-                NSCollectionViewItem
-            </code>
+            <code> NSCollectionViewItem </code>
             的property
-            <code>
-                selected
-            </code>
+            <code> selected </code>
             被设置为YES。
         </li>
     </ol>
     <p>
         理解当
-        <code>
-            NSCollectionViewItem
-        </code>
+        <code> NSCollectionViewItem </code>
         的实例被循环使用时，它的数据必须被来自新的对象的数据刷新是非常
         <i>
             重要的
         </i>
         。你
-        <code>
-            NSCollectionViewItem
-        </code>
+        <code> NSCollectionViewItem </code>
         的property
-        <code>
-            selected
-        </code>
+        <code> selected </code>
         就是确保这点的地方。
     </p>
     <p>
         因此，在
-        <code>
-            NSCollectionViewDataSource
-        </code>
+        <code> NSCollectionViewDataSource </code>
         的extension中，你需要添加下列的代码到
-        <code>
-            collectionView(\_:itemForRepresentedObjectAtIndexPath:)
-        </code>
+        <code> collectionView(\_:itemForRepresentedObjectAtIndexPath:) </code>
         方法中，就在
-        <code>
-            return
-        </code>
+        <code> return </code>
         语句之前：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> selectedIndexPath = collectionView.selectionIndexPaths.first <span class="hljs-keyword">where</span> selectedIndexPath == indexPath {
@@ -2432,9 +2228,7 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
         </li>
         <li>
             调整
-            <code>
-                NSCollectionViewFlowLayout
-            </code>
+            <code> NSCollectionViewFlowLayout </code>
             （例如，粘性的header）
         </li>
     </ul>
@@ -2473,9 +2267,7 @@ view.layer?.borderColor = <span class="hljs-type">NSColor</span>.whiteColor().<s
                 Exhibition
             </a>
             – Sample code from Apple, written in Swift using
-            <code>
-                NSCollectionViewGridLayout
-            </code>
+            <code> NSCollectionViewGridLayout </code>
         </li>
     </ul>
 </div>

@@ -665,20 +665,14 @@
 </pre>
     <p>
         这行选择了GitHub事件的数据源 - 这里选择了Ray的名字（
-        <code>
-            rwenderlich
-        </code>
+        <code> rwenderlich </code>
         ）。
     </p>
     <p>
         尝试改变
-        <code>
-            rwenderlich
-        </code>
+        <code> rwenderlich </code>
         为一个不同的GitHub用户名 - 例如
-        <code>
-            sammyd
-        </code>
+        <code> sammyd </code>
         。然后，就像你刚刚选择的一样，构建并运行你的app。你就会看到在app中列出了新用户的事件：
     </p>
     <p>
@@ -1006,13 +1000,9 @@
     </p>
     <p>
         这个方法是用来从下载自GitHub API的JSON中移除转义的字符。你可以看到输入的字符串
-        <code>
-            s
-        </code>
+        <code> s </code>
         和合成的字符串
-        <code>
-            unescaped
-        </code>
+        <code> unescaped </code>
         。
     </p>
     <p>
@@ -1061,9 +1051,7 @@
             WindowController.swift
         </em>
         ，定位到创建
-        <code>
-            sharedDataStore
-        </code>
+        <code> sharedDataStore </code>
         的那行，更新它到如下的样子：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">let</span> sharedDataStore <span style="color: #002200;">=</span> DataStore<span style="color: #002200;">(</span>username<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"rwenderlich"</span>, type<span style="color: #002200;">:</span> .Disk<span style="color: #002200;">)</span>
@@ -1077,20 +1065,14 @@
             DataStore.swift
         </em>
         ，然后添加一个断点在包含
-        <code>
-            super.init()
-        </code>
+        <code> super.init() </code>
         的这行。
     </p>
     <p>
         运行app，并等待停到断点这里。使用debug来在
-        <code>
-            self
-        </code>
+        <code> self </code>
         中定位
-        <code>
-            dataProvider
-        </code>
+        <code> dataProvider </code>
         属性：
     </p>
     <p>
@@ -1100,16 +1082,12 @@
     </p>
     <p>
         注意靠近它的类型是
-        <code>
-            GitHubData.GitHubDataNetworkProvider
-        </code>
+        <code> GitHubData.GitHubDataNetworkProvider </code>
         。这听起来不对 - 为何它从磁盘读取的时候，使用一个叫做网络的对象。
     </p>
     <p>
         现在更进一步地看下这个文件，你会找到
-        <code>
-            dataProvider
-        </code>
+        <code> dataProvider </code>
         这个对象是从哪里创建的：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">switch</span> type <span style="color: #002200;">{</span>
@@ -1121,20 +1099,14 @@
     </pre>
     <p>
         这是一个选择哪种提供者需要被创建的转换语句 - 为何它为
-        <code>
-            .Disk
-        </code>
+        <code> .Disk </code>
         创建的是
-        <code>
-            GitHubDataNetworkProvider
-        </code>
+        <code> GitHubDataNetworkProvider </code>
         类型？这就是bug！
     </p>
     <p>
         替换
-        <code>
-            .Disk
-        </code>
+        <code> .Disk </code>
         到如下的样子：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">case</span> .Disk<span style="color: #002200;">:</span>
@@ -1142,9 +1114,7 @@
     </pre>
     <p>
         现在再次运行app，它会停到相同的断点上。再次检查
-        <code>
-            dataProvider
-        </code>
+        <code> dataProvider </code>
         属性的类型：
     </p>
     <p>
@@ -1179,16 +1149,12 @@
             Controllers\WindowController.swift
         </em>
         在
-        <code>
-            transformedValueClass()
-        </code>
+        <code> transformedValueClass() </code>
         方法里，
         <em>
             Option-点击
         </em>
-        <code>
-            NSString
-        </code>
+        <code> NSString </code>
         ：
     </p>
     <p>
@@ -1212,9 +1178,7 @@
             Documentation and Reference
         </em>
         菜单。然后搜获
-        <code>
-            NSString
-        </code>
+        <code> NSString </code>
         来获取文档：
     </p>
     <p>
@@ -1245,25 +1209,15 @@
             SplitViewController.swift
         </em>
         文件中添加一行到
-        <code>
-            viewWillAppear()
-        </code>
+        <code> viewWillAppear() </code>
         方法。使用文档浏览器来搜索
-        <code>
-            NSSplitView
-        </code>
+        <code> NSSplitView </code>
         ，阅读
-        <code>
-            setPosition(\_:, ofDividerAtIndex:)
-        </code>
+        <code> setPosition(\_:, ofDividerAtIndex:) </code>
         方法的相关内容。然后使用这个方法在
-        <code>
-            splitView
-        </code>
+        <code> splitView </code>
         property （在之前提到的方法），传递
-        <code>
-            view.bounds.height / 2.0
-        </code>
+        <code> view.bounds.height / 2.0 </code>
         在这个位置。
     </p>
     <pre class="swift" style="font-family:monospace;">splitView.setPosition<span style="color: #002200;">(</span>view.bounds.height <span style="color: #002200;">/</span> <span style="color: #2400d9;">2.0</span>, ofDividerAtIndex<span style="color: #002200;">:</span> <span style="color: #2400d9;">0</span><span style="color: #002200;">)</span>

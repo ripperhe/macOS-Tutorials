@@ -23,9 +23,7 @@
         If you’re a macOS developer, you’ll want to take full advantage of this
         new technology right away. In this tutorial, I’ll show you how you can
         use the new
-        <code>
-            NSTouchBar
-        </code>
+        <code> NSTouchBar </code>
         API to easily create a dynamic touch bar for your macOS app.
     </p>
     <div class="note">
@@ -140,20 +138,14 @@
     <p>
         To add support for the TouchBar in your apps, you use some new classes
         provided by Apple:
-        <code>
-            NSTouchBar
-        </code>
+        <code> NSTouchBar </code>
         and
-        <code>
-            NSTouchBarItem
-        </code>
+        <code> NSTouchBarItem </code>
         (and its subclasses).
     </p>
     <p>
         Some of the
-        <code>
-            NSTouchBarItem
-        </code>
+        <code> NSTouchBarItem </code>
         subclasses include features like:
     </p>
     <ul>
@@ -238,9 +230,7 @@
             AppDelegate.swift
         </em>
         , and paste the following into
-        <code>
-            applicationDidFinishLaunching(\_:)
-        </code>
+        <code> applicationDidFinishLaunching(\_:) </code>
         :
     </p>
     <div class="wp_codebox">
@@ -263,9 +253,7 @@
         Touch Bar menu items for you. At the time of this writing the current version
         of Xcode does not have macOS 10.12.1 available as a deployment target,
         so you will need to place
-        <code>
-            #available(OS X 10.12.1, *)
-        </code>
+        <code> #available(OS X 10.12.1, *) </code>
         around code or extensions dealing with the Touch Bar. Luckily, Xcode will
         give you a friendly error if you forget ;]
     </p>
@@ -275,13 +263,9 @@
             WindowController.swift
         </em>
         , and look at
-        <code>
-            makeTouchBar()
-        </code>
+        <code> makeTouchBar() </code>
         . This method is checking if
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         has a Touch Bar that can be returned. If so, it will send that Touch Bar
         to the
         <em>
@@ -299,13 +283,9 @@
         </em>
         to see how these have been created for this project. There are extensions
         for both
-        <code>
-            NSTouchBarCustomizationIdentifier
-        </code>
+        <code> NSTouchBarCustomizationIdentifier </code>
         , and
-        <code>
-            NSTouchBarItemIdentifier
-        </code>
+        <code> NSTouchBarItemIdentifier </code>
         .
     </p>
     <p>
@@ -339,29 +319,21 @@
     </div>
     <p>
         Here, you override
-        <code>
-            makeTouchBar()
-        </code>
+        <code> makeTouchBar() </code>
         , which is required for your view or window to create a touch bar. You
         also did the following:
     </p>
     <ol>
         <li>
             Create a new
-            <code>
-                TouchBar
-            </code>
+            <code> TouchBar </code>
             and set the delegate.
         </li>
         <li>
             Set the customizationIdentifier. Remember, every
-            <code>
-                TouchBar
-            </code>
+            <code> TouchBar </code>
             and
-            <code>
-                TouchBarItem
-            </code>
+            <code> TouchBarItem </code>
             need to have unique identifiers.
         </li>
         <li>
@@ -375,9 +347,7 @@
     <p>
         You’re still not quite ready to see anything in your Touch Bar yet. You’ll
         need to tell the Touch Bar what the
-        <code>
-            .infoLabelItem
-        </code>
+        <code> .infoLabelItem </code>
         should look like. In the same extension, add the following:
     </p>
     <div class="wp_codebox">
@@ -399,22 +369,14 @@
     </div>
     <p>
         By implementing
-        <code>
-            touchBar(\_:makeItemForIdentifier:)
-        </code>
+        <code> touchBar(\_:makeItemForIdentifier:) </code>
         , you can customize your touch bar items anyway you’d like. Here, you’ve
         created a simple
-        <code>
-            NSCustomTouchBarItem
-        </code>
+        <code> NSCustomTouchBarItem </code>
         , and set its
-        <code>
-            view
-        </code>
+        <code> view </code>
         to an
-        <code>
-            NSTextField
-        </code>
+        <code> NSTextField </code>
         . Build and run your application, and you’ll now see the Touch Bar has
         a new item.
     </p>
@@ -437,13 +399,9 @@
     </h2>
     <p>
         In
-        <code>
-            makeTouchBar()
-        </code>
+        <code> makeTouchBar() </code>
         , change the
-        <code>
-            defaultItemIdentifiers
-        </code>
+        <code> defaultItemIdentifiers </code>
         to the following:
     </p>
     <div class="wp_codebox">
@@ -463,34 +421,22 @@
     <p>
         This will allow the Touch Bar to show three new items: a label and a scrubber.
         You’ve also added a
-        <code>
-            .flexibleSpace
-        </code>
+        <code> .flexibleSpace </code>
         . This is a dynamically sized space put in the Touch Bar to keeps things
         grouped together nicely. You can also take advantage of
-        <code>
-            .fixedSpaceSmall
-        </code>
+        <code> .fixedSpaceSmall </code>
         , and
-        <code>
-            .fixedSpaceLarge
-        </code>
+        <code> .fixedSpaceLarge </code>
         for more static sized spacing.
     </p>
     <p>
         You’ll still need to customize these items, just like the label you added.
         Add the following
-        <code>
-            cases
-        </code>
+        <code> cases </code>
         to the
-        <code>
-            switch
-        </code>
+        <code> switch </code>
         in
-        <code>
-            touchBar(\_:makeItemForIdentifier:)
-        </code>
+        <code> touchBar(\_:makeItemForIdentifier:) </code>
         :
     </p>
     <div class="wp_codebox">
@@ -523,16 +469,12 @@
         </li>
         <li>
             Here, a custom item is created to hold an
-            <code>
-                NSScrubber
-            </code>
+            <code> NSScrubber </code>
             . This is a new control introduced for the Touch Bar. They behave similar
             to a slider, but can be customized specifically for working in the bar.
             Since scrubbers require a delegate to handle events, all you need to do
             here is set the
-            <code>
-                delegate
-            </code>
+            <code> delegate </code>
             , which
             <em>
                 ViewController
@@ -562,13 +504,9 @@
             Target-Action
         </em>
         within the Touch Bar. Back in
-        <code>
-            makeTouchBar()
-        </code>
+        <code> makeTouchBar() </code>
         , you’ll need to add the last three items to
-        <code>
-            defaultItemIdentifiers
-        </code>
+        <code> defaultItemIdentifiers </code>
         :
     </p>
     <div class="wp_codebox">
@@ -587,13 +525,9 @@
     </div>
     <p>
         And add the last three
-        <code>
-            cases
-        </code>
+        <code> cases </code>
         to
-        <code>
-            touchBar(\_:makeItemForIdentifier:)
-        </code>
+        <code> touchBar(\_:makeItemForIdentifier:) </code>
         :
     </p>
     <div class="wp_codebox">
@@ -659,13 +593,9 @@
         Finally, it would be nice to give the user a chance to save using the
         Touch Bar. Since this button has a different outcome from the others, you’ll
         take advantage of the new
-        <code>
-            bezelColor
-        </code>
+        <code> bezelColor </code>
         property of
-        <code>
-            NSButton
-        </code>
+        <code> NSButton </code>
         to give it some color.
     </p>
     <p>
@@ -674,9 +604,7 @@
             TouchBarIdentifiers.swift
         </em>
         , and in the
-        <code>
-            NSTouchBarItemIdentifier
-        </code>
+        <code> NSTouchBarItemIdentifier </code>
         extension, add the following to the end:
     </p>
     <div class="wp_codebox">
@@ -702,17 +630,11 @@
             ViewController.swift
         </em>
         , and add a new
-        <code>
-            .flexSpace
-        </code>
+        <code> .flexSpace </code>
         and
-        <code>
-            .saveItem
-        </code>
+        <code> .saveItem </code>
         to the touch bar’s
-        <code>
-            defaultItemIdentifiers
-        </code>
+        <code> defaultItemIdentifiers </code>
         :
     </p>
     <div class="wp_codebox">
@@ -733,17 +655,11 @@
     <p>
         You’re almost done – all you have left is to handle configuring the new
         item. In
-        <code>
-            touchBar(\_:makeItemForIdentifier:)
-        </code>
+        <code> touchBar(\_:makeItemForIdentifier:) </code>
         , add a final
-        <code>
-            case
-        </code>
+        <code> case </code>
         before
-        <code>
-            default
-        </code>
+        <code> default </code>
         :
     </p>
     <div class="wp_codebox">
@@ -765,9 +681,7 @@
     <p>
         Everything here should look pretty familiar to this point. All that is
         new is setting the
-        <code>
-            bezelColor
-        </code>
+        <code> bezelColor </code>
         to a familiar green :].
     </p>
     <p>
@@ -840,13 +754,9 @@
     <p>
         Don’t stop with these examples! There are plenty of exciting features
         to be found within
-        <code>
-            NSTouchBar
-        </code>
+        <code> NSTouchBar </code>
         and
-        <code>
-            NSTouchBarItem
-        </code>
+        <code> NSTouchBarItem </code>
         . Try adding a popover to your Touch Bar, or see how easy it is to format
         text in your app. You can also check out creating Touch Bars in Interface
         Builder.

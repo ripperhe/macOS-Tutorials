@@ -17,9 +17,7 @@
             macOS
         </em>
         中文件系统是每个app的基础 - 在
-        <code>
-            FileManager
-        </code>
+        <code> FileManager </code>
         类有很多来处理这个。你会在
         <em>
             Applications
@@ -39,9 +37,7 @@
     </p>
     <p>
         那就要靠
-        <code>
-            FileManager
-        </code>
+        <code> FileManager </code>
         类了！
     </p>
     <p>
@@ -58,9 +54,7 @@
             macOS
         </em>
         使用了一个分层的文件系统：目录中的文件和目录，目录内部。这意味着找到一个指定的文件是非常复杂的。每个文件都有它自己的地址，定义地址的结构被称为
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         。
     </p>
     <p>
@@ -127,9 +121,7 @@
     </div>
     <p>
         打开开始的playground后，删除除
-        <code>
-            import Cocoa
-        </code>
+        <code> import Cocoa </code>
         外全部行的代码。
     </p>
     <p>
@@ -138,9 +130,7 @@
     <pre lang="swift" class="hljs javascript"><span class="hljs-keyword"><font><font>let</font></font></span><font><font> completePath = </font></font><span class="hljs-string"><font><font>“/Users/sarah/Desktop/Files.playground”</font></font></span>
 </pre>
     <p>
-        <code>
-            completePath
-        </code>
+        <code> completePath </code>
         现在包含了这个playground文件的地址或路径。由于
         now contains the address, or path, of this playground file. Since
         <em>
@@ -176,18 +166,14 @@
     </p>
     <p>
         尽管这个字符串描述了这个文件的全路径，但它并不是处理地址的最佳方式。相代替的，你会通过添加下列代码，将地址替换为一个
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         ：
     </p>
     <pre lang="swift" class="hljs javascript"><span class="hljs-keyword">let</span> completeUrl = URL(fileURLWithPath: completePath)
 </pre>
     <p>
         现在，在playground的结果面板中，你会看到：
-        <code>
-            file:///Users/sarah/Desktop/Files.playground
-        </code>
+        <code> file:///Users/sarah/Desktop/Files.playground </code>
     </p>
     <p>
         <img src="https://koenig-media.raywenderlich.com/uploads/2017/04/CreateURL.png"
@@ -197,34 +183,24 @@
     </p>
     <p>
         “稍等！”你喊道。“我以为
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         是一个像
-        <code>
-            https://www.raywenderlich.com
-        </code>
+        <code> https://www.raywenderlich.com </code>
         这样的网址，而不是目录的路径！”
     </p>
     <p>
         嗯，是的是的！
     </p>
     <p>
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         代表了
         <em>
             Uniform Resource Locator
         </em>
         - 它也可以指向本地的文件和目录。并非
-        <code>
-            https://
-        </code>
+        <code> https:// </code>
         ，而是以
-        <code>
-            file://
-        </code>
+        <code> file:// </code>
         开头来表示本地文件。在结果面板中，它看起来有3个斜杠，但这是因为这个路径本身就是以斜杠开头的。
     </p>
     <h3>
@@ -232,32 +208,22 @@
     </h3>
     <p>
         你已经使用了一个
-        <code>
-            字符串
-        </code>
+        <code> 字符串 </code>
         来指定一个文件路径，并将它转换为一个
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         。但是，虽然它是一个有效的
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         ，但却无法工作 - 除非你的用户名也恰好就是
         <em>
             sarah
         </em>
         。因此，下面的一步就是来创建一个可以在任何人的电脑上work的
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         了。
     </p>
     <p>
         要做到这个，你就要使用
-        <code>
-            FileManager
-        </code>
+        <code> FileManager </code>
         类，它提供了在macOS中大多数的处理文件相关行为的方法。
     </p>
     <p>
@@ -277,28 +243,18 @@
     <pre lang="swift" class="hljs cs"><span class="hljs-keyword">let</span> home = FileManager.<span class="hljs-keyword">default</span>.homeDirectoryForCurrentUser
 </pre>
     <p>
-        <code>
-            default
-        </code>
+        <code> default </code>
         返回了
-        <code>
-            FileManager
-        </code>
+        <code> FileManager </code>
         类的单例实例，而
-        <code>
-            homeDirectoryForCurrentUser
-        </code>
+        <code> homeDirectoryForCurrentUser </code>
         包含了当前用户的home目录的
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         。
     </p>
     <p>
         现在你已经有了指向你的home目录的
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         ，你就可以通过添加下列的代码来获取指向playground的路径：
     </p>
     <pre lang="swift" class="hljs javascript"><span class="hljs-keyword">let</span> playgroundPath = <span class="hljs-string">"Desktop/Files.playground"</span>
@@ -306,16 +262,12 @@
 </pre>
     <p>
         现在结果面板就会展示在你的家目录下的
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         了。
     </p>
     <p>
         添加下列的代码到playground中，来查询各种
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         的property：
     </p>
     <pre lang="swift" class="hljs">playgroundUrl.path
@@ -329,17 +281,11 @@ playgroundUrl.isFileURL
 playgroundUrl.hasDirectoryPath
 </pre>
     <p>
-        <code>
-            pathComponents
-        </code>
+        <code> pathComponents </code>
         这个property非常有趣，它会将所有的目录和文件拆成一个数组。而
-        <code>
-            lastPathComponent
-        </code>
+        <code> lastPathComponent </code>
         和
-        <code>
-            pathExtension
-        </code>
+        <code> pathExtension </code>
         property在实践中都相当地有用。
     </p>
     <p>
@@ -355,17 +301,13 @@ playgroundUrl.hasDirectoryPath
                 注意：
             </em>
             property
-            <code>
-                hasDirectoryPath
-            </code>
+            <code> hasDirectoryPath </code>
             的值被设为了
             <coee>
                 true
             </coee>
             。这标记了
-            <code>
-                URL
-            </code>
+            <code> URL </code>
             是一个目录。但为何playground文件是被标记为一个目录？
         </p>
         <p>
@@ -385,13 +327,9 @@ playgroundUrl.hasDirectoryPath
         </p>
     </div>
     <p>
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         类使得编辑
-        <code>
-            URLs
-        </code>
+        <code> URLs </code>
         非常得容易。
     </p>
     <p>
@@ -417,20 +355,14 @@ urlForEditing.path
 </pre>
     <p>
         注意，每次你都会展示
-        <code>
-            path
-        </code>
+        <code> path </code>
         property，因此很容易就会看到改变了什么。
     </p>
     <p>
         尽管这些命令恰当地编辑
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         ，你也可以从已存在的创建一个新的
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         。
     </p>
     <p>
@@ -447,16 +379,12 @@ desktopUrl.path
 </pre>
     <p>
         这些方法会返回新的
-        <code>
-            URLs
-        </code>
+        <code> URLs </code>
         ，因此将它们连接到一个序列中效果会更好。
     </p>
     <p>
         这三个
-        <code>
-            appending
-        </code>
+        <code> appending </code>
         方法实际上可以缩到一个方法中，但我在这里将它们拆分成了独立的步骤，以便清晰地展示给你。
     </p>
     <p>
@@ -474,36 +402,24 @@ desktopUrl.path
         </em>
     </p>
     <p>
-        <code>
-            NSString
-        </code>
+        <code> NSString </code>
         中有很多处理文件路径的方法，但在Swift的结构体
-        <code>
-            String
-        </code>
+        <code> String </code>
         中则不是。相反地，随着苹果向着
         <em>
             Apple File System (APFS)
         </em>
         的转变，你应当使用
-        <code>
-            URLs
-        </code>
+        <code> URLs </code>
         来处理文件路径。在这种方式下处理将会变得更重要，因为。
     </p>
     <p>
         然而，在下面这个情形下，你仍然需要一个字符串来代表文件
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         ：检查是否这个文件或目录存在。获取一个
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         的字符串版本的最近方式是通过
-        <code>
-            path
-        </code>
+        <code> path </code>
         property。
     </p>
     <p>
@@ -517,9 +433,7 @@ fileManager.fileExists(atPath: missingFile.path)
 </pre>
     <p>
         检查一个目录是否存在稍微有一点难懂，因为你必须这个
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         既是一个有效的资源，又是一个目录。
     </p>
     <p>
@@ -548,9 +462,7 @@ isDirectory.boolValue
     </p>
     <p>
         既然你已理解了如何使用
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         来区别文件和目录，关闭playground。是时候来构建app了！
     </p>
     <h2>
@@ -595,9 +507,7 @@ isDirectory.boolValue
             Select Folder
         </em>
         按钮上添加一些代码，并使用
-        <code>
-            NSOpenPanel
-        </code>
+        <code> NSOpenPanel </code>
         类来选择一个目录。
     </p>
     <p>
@@ -610,9 +520,7 @@ isDirectory.boolValue
             Actions
         </em>
         区，找到
-        <code>
-            selectFolderClicked
-        </code>
+        <code> selectFolderClicked </code>
         并插入下面的代码：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-comment">// 1</span>
@@ -639,23 +547,17 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
     <ol>
         <li>
             检查你可否获取window的引用，因为它是
-            <code>
-                NSOpenPanel
-            </code>
+            <code> NSOpenPanel </code>
             将要展示的地方。
         </li>
         <li>
             创建一个新的
-            <code>
-                NSOpenPanel
-            </code>
+            <code> NSOpenPanel </code>
             ，并设置一些property，使其值运行单选，且只能选择目录。
         </li>
         <li>
             模态地在window中展示
-            <code>
-                NSOpenPanel
-            </code>
+            <code> NSOpenPanel </code>
             并使用一个闭包来等待结果。
         </li>
         <li>
@@ -664,17 +566,11 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
                 OK
             </em>
             按钮（实际看到的按钮上，将基于你的本地化带有不同的标签），获取被选择的
-            <code>
-                URL
-            </code>
+            <code> URL </code>
             并设置指定的
-            <code>
-                ViewController
-            </code>
+            <code> ViewController </code>
             property。为了临时快速地测试，你会把选择的
-            <code>
-                URL
-            </code>
+            <code> URL </code>
             输入到控制台。现在忽略这行代码上的警告。
         </li>
     </ol>
@@ -684,9 +580,7 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
             Select Folder
         </em>
         按钮并选择一个目录。确认选择的目录的
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         已打印到控制台上。
     </p>
     <p>
@@ -695,9 +589,7 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
             Cancel
         </em>
         按钮。这时就不会打印
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         。
     </p>
     <p>
@@ -708,9 +600,7 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
     </p>
     <p>
         退出app并删除临时的
-        <code>
-            print
-        </code>
+        <code> print </code>
         语句。
     </p>
     <h3>
@@ -721,28 +611,18 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
     </p>
     <p>
         上一部分的代码填充了一个名为
-        <code>
-            selectedFolder
-        </code>
+        <code> selectedFolder </code>
         的property。滚动到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         定义的顶部，并查看
-        <code>
-            selectedFolder
-        </code>
+        <code> selectedFolder </code>
         的property。它使用了一个
-        <code>
-            didSet
-        </code>
+        <code> didSet </code>
         的property观察者，它会在设置值的时候运行代码。
     </p>
     <p>
         这里的关键代码是调用
-        <code>
-            contentsOf(folder:)
-        </code>
+        <code> contentsOf(folder:) </code>
         。滚动到这个方法这里，它当前返回了一个空的数组。用下面的代码来替换其中的内容：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">contentsOf</span><span class="hljs-params">(folder: URL)</span></span> -&gt; [<span class="hljs-type">URL</span>] {
@@ -769,87 +649,55 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
     <ol>
         <li>
             和之前一样，获取
-            <code>
-                FileManager
-            </code>
+            <code> FileManager </code>
             类的单例。
         </li>
         <li>
             由于
-            <code>
-                FileManager
-            </code>
+            <code> FileManager </code>
             的方法可能抛出错误，因此你要使用
-            <code>
-                do...catch
-            </code>
+            <code> do...catch </code>
             代码块。
         </li>
         <li>
             尝试找到目录
-            <code>
-                contentsOfDirectory(atPath:)
-            </code>
+            <code> contentsOfDirectory(atPath:) </code>
             的内容，并返回内部文件和目录名称的数组。
         </li>
         <li>
             使用
-            <code>
-                map
-            </code>
+            <code> map </code>
             处理返回的数组，并将每个名称，用其父目录转换成一个完整的
-            <code>
-                URL
-            </code>
+            <code> URL </code>
             然后返回数组。
         </li>
         <li>
             如果
-            <code>
-                contentsOfDirectory(atPath:)
-            </code>
+            <code> contentsOfDirectory(atPath:) </code>
             抛出错误的话，返回一个空的数组。
         </li>
     </ol>
     <p>
-        <code>
-            selectedFolder
-        </code>
+        <code> selectedFolder </code>
         property将
-        <code>
-            filesList
-        </code>
+        <code> filesList </code>
         property设置为被选择的目录的内容，但由于你使用了一个table view来展示内容，你就需要定义如何展示每个项目。
     </p>
     <p>
         向下拖动到
-        <code>
-            NSTableViewDataSource
-        </code>
+        <code> NSTableViewDataSource </code>
         的extension。注意
-        <code>
-            numberOfRows
-        </code>
+        <code> numberOfRows </code>
         早已返回了
-        <code>
-            filesList
-        </code>
+        <code> filesList </code>
         数组中
-        <code>
-            URLs
-        </code>
+        <code> URLs </code>
         的数量。现在滚动到        
-        <code>
-            NSTableViewDelegate
-        </code>
+        <code> NSTableViewDelegate </code>
         ，并注意到
-        <code>
-            tableView(\_:viewFor:row:)
-        </code>
+        <code> tableView(\_:viewFor:row:) </code>
         返回的是
-        <code>
-            nil
-        </code>
+        <code> nil </code>
         。你需要在table中出现任何事之前改变这点。
     </p>
     <p>
@@ -882,24 +730,16 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
     <ol>
         <li>
             获取匹配行序号的
-            <code>
-                URL
-            </code>
+            <code> URL </code>
             。
         </li>
         <li>
             获取这个
-            <code>
-                URL
-            </code>
+            <code> URL </code>
             的icon。
-            <code>
-                NSWorkspace
-            </code>
+            <code> NSWorkspace </code>
             是另一个非常有用的单例；这个方法对任何
-            <code>
-                URL
-            </code>
+            <code> URL </code>
             都返回的是Finder的icon。
         </li>
         <li>
@@ -918,9 +758,7 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
         </li>
         <li>
             如果没有cell存在，返回
-            <code>
-                nil
-            </code>
+            <code> nil </code>
             。
         </li>
     </ol>
@@ -945,9 +783,7 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
             Command+I键
         </em>
         来打开一个关于文件信息的窗口：创建日期，修改日期，尺寸，权限等等。全部的这些信息，甚至更多，你都可以通过
-        <code>
-            FileManager
-        </code>
+        <code> FileManager </code>
         类来获取。
     </p>
     <p>
@@ -962,47 +798,29 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
             ViewController.swift
         </em>
         中，查找
-        <code>
-            tableViewSelectionDidChange
-        </code>
+        <code> tableViewSelectionDidChange </code>
         。设置
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         的property：
-        <code>
-            selectedItem
-        </code>
+        <code> selectedItem </code>
         。
     </p>
     <p>
         滚动回到顶部，并找到
-        <code>
-            selectedItem
-        </code>
+        <code> selectedItem </code>
         被定义的地方。和
-        <code>
-            selectedFolder
-        </code>
+        <code> selectedFolder </code>
         一样，
-        <code>
-            didSet
-        </code>
+        <code> didSet </code>
         观察者正在观察这个property的变化。当这个property改变时，如果新的值不为
-        <code>
-            nil
-        </code>
+        <code> nil </code>
         ，观察者就会调用
-        <code>
-            infoAbout(url:)
-        </code>
+        <code> infoAbout(url:) </code>
         。这里将是你检索的信息用来展示的地方。
     </p>
     <p>
         找到
-        <code>
-            infoAbout
-        </code>
+        <code> infoAbout </code>
         ，当前它会返回一个无聊的静态字符串，用下面的代码来替换它：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">infoAbout</span><span class="hljs-params">(url: URL)</span></span> -&gt; <span class="hljs-type">String</span> {
@@ -1035,16 +853,12 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
     <ol>
         <li>    
             按照惯例，获取一个
-            <code>
-                FileManager
-            </code>
+            <code> FileManager </code>
             单例的引用。
         </li>
         <li>
             使用
-            <code>
-                do...catch
-            </code>
+            <code> do...catch </code>
             来捕获任何的错误。
         </li>
         <li>
@@ -1053,28 +867,18 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
                 FileManager
             </em>
             类的
-            <code>
-                attributesOfItem(atPath:)
-            </code>
+            <code> attributesOfItem(atPath:) </code>
             方法来获取文件的信息。如果成功的话，它就会返回一个
-            <code>
-                [FileAttributeKey: Any]
-            </code>
+            <code> [FileAttributeKey: Any] </code>
             类型的字典，
-            <code>
-                FileAttributeKeys
-            </code>
+            <code> FileAttributeKeys </code>
             是一个带有字符串
-            <code>
-                rawValue
-            </code>
+            <code> rawValue </code>
             的结构体的成员。
         </li>
         <li>
             将key的名称和value的值组装成一个tab分隔符字符创的数组。但会忽略掉
-            <code>
-                NSFileExtendedAttributes
-            </code>
+            <code> NSFileExtendedAttributes </code>
             键，因为它包含了一个复杂的但并不是确实有用的字段。
         </li>
         <li>
@@ -1082,9 +886,7 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
         </li>
         <li>
             如果
-            <code>
-                try
-            </code>
+            <code> try </code>
             语句抛出了错误，就返回一个默认的报告。
         </li>
     </ol>
@@ -1143,13 +945,9 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
     </p>
     <p>
         前往
-        <code>
-            contentsOf(folder:)
-        </code>
+        <code> contentsOf(folder:) </code>
         ，并用下列代码替换
-        <code>
-            map
-        </code>
+        <code> map </code>
         这行：
     </p>
     <pre lang="swift" class="hljs bash"><span class="hljs-built_in">let</span> urls = contents
@@ -1158,32 +956,20 @@ panel.beginSheetModal(<span class="hljs-keyword">for</span>: window) { (result) 
 </pre>
     <p>
         上面的代码添加了一个
-        <code>
-            filter
-        </code>
+        <code> filter </code>
         ，当
-        <code>
-            showInvisibles
-        </code>
+        <code> showInvisibles </code>
         的property不为        
-        <code>
-            true
-        </code>
+        <code> true </code>
         时，就会拒绝隐藏的项目；否则
-        <code>
-            filter
-        </code>
+        <code> filter </code>
         会返回所有的项目，包括因此的。
     </p>
     <p>
         找到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         中的
-        <code>
-            toggleShowInvisibles
-        </code>
+        <code> toggleShowInvisibles </code>
         方法，并插入下列代码到函数中：
     </p>
     <pre lang="swift" class="hljs objectivec"><span class="hljs-comment">// 1</span>
@@ -1202,36 +988,22 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
     <ol>
         <li>
             根据sender的状态设置
-            <code>
-                showInvisibles
-            </code>
+            <code> showInvisibles </code>
             property。由于sender是
-            <code>
-                NSButton
-            </code>
+            <code> NSButton </code>
             ，所以它的state不是
-            <code>
-                NSOnState
-            </code>
+            <code> NSOnState </code>
             就是
-            <code>
-                NSOffState
-            </code>
+            <code> NSOffState </code>
             。由于它是一个checkbox按钮，
-            <code>
-                NSOnState
-            </code>
+            <code> NSOnState </code>
             就表示勾选。
         </li>
         <li>
             如果当前有
-            <code>
-                selectedFolder
-            </code>
+            <code> selectedFolder </code>
             ，就重新生成
-            <code>
-                filesList
-            </code>
+            <code> filesList </code>
             并更新UI。
         </li>
     </ol>
@@ -1259,17 +1031,11 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
     </p>
     <p>
         在storyboard中，table view已被分配了一个叫做
-        <code>
-            tableViewDoubleClicked
-        </code>
+        <code> tableViewDoubleClicked </code>
         的
-        <code>
-            双击动作
-        </code>
+        <code> 双击动作 </code>
         。找到
-        <code>
-            tableViewDoubleClicked
-        </code>
+        <code> tableViewDoubleClicked </code>
         并用以下代码替换：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">tableViewDoubleClicked</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any)</span></span> {
@@ -1290,37 +1056,23 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
     <ol>
         <li>
             检查双击是否发生在一个已填充的行上。如果点击在table的空白的部分，就会将
-            <code>
-                tableView的
-            </code>
+            <code> tableView的 </code>
             selectedRow设置为-1。
         </li>
         <li>
             从
-            <code>
-                filesList
-            </code>
+            <code> filesList </code>
             中获取匹配的
-            <code>
-                URL
-            </code>
+            <code> URL </code>
             。
         </li>
         <li>
-            <code>
-                URL
-            </code>
+            <code> URL </code>
             是一个目录，设置
-            <code>
-                ViewController的
-            </code>
-            <code>
-                selectedFolder
-            </code>
+            <code> ViewController的 </code>
+            <code> selectedFolder </code>
             property。就像当你使用Select Folder按钮来选择一个目录一样，设置这个property就会触发property的观察者来读取目录的内容，并更新UI。如果
-            <code>
-                URL
-            </code>
+            <code> URL </code>
             不是目录，则不执行任何事。
         </li>
     </ol>
@@ -1337,9 +1089,7 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
     </p>
     <p>
         找到空的
-        <code>
-            moveUpClicked
-        </code>
+        <code> moveUpClicked </code>
         方法并用下列的代码来替换它：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">moveUpClicked</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any)</span></span> {
@@ -1349,17 +1099,11 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
 </pre>
     <p>
         首先，检查
-        <code>
-            selectedFolder
-        </code>
+        <code> selectedFolder </code>
         是否是根目录。如果是的话，你就不能做任何事，如果不是的话，就使用
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         的方法来去掉URL的最后一部分。编辑
-        <code>
-            selectedFolder
-        </code>
+        <code> selectedFolder </code>
         就会像之前一样触发更新。
     </p>
     <p>
@@ -1378,9 +1122,7 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
             注意：
         </em>
         正如你看到的一样，property观察器（
-        <code>
-            didSet
-        </code>
+        <code> didSet </code>
         ）非常得有用。用来更新界面的所有代码都在一个观察者中，因此无论是UI元素或方法来改变被观察的property，更新就发生了，无需做任何其它的事。Sweet！
     </div>
     <p>
@@ -1400,32 +1142,20 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
     </p>
     <p>
         你已使用
-        <code>
-            NSOpenPanel
-        </code>
+        <code> NSOpenPanel </code>
         来提示用户选择一个目录。这次，你会使用
-        <code>
-            NSSavePanel
-        </code>
+        <code> NSSavePanel </code>
         。
-        <code>
-            NSOpenPanel
-        </code>
+        <code> NSOpenPanel </code>
         和
-        <code>
-            NSSavePanel
-        </code>
+        <code> NSSavePanel </code>
         都是
-        <code>
-            NSPanel
-        </code>
+        <code> NSPanel </code>
         的子类，因此它们有很多共同的地方。
     </p>
     <p>
         使用下列代码来替换空方法
-        <code>
-            saveInfoClicked
-        </code>
+        <code> saveInfoClicked </code>
         ：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">saveInfoClicked</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any)</span></span> {
@@ -1466,30 +1196,22 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
     <ol>
         <li>
             确认每样你需要的都存在：一个用来展示面板的窗口，已经你将要保存的
-            <code>
-                URL
-            </code>
+            <code> URL </code>
             。
         </li>
         <li>
             创建一个
-            <code>
-                NSSavePanel
-            </code>
+            <code> NSSavePanel </code>
             。
         </li>
         <li>
             设置
-            <code>
-                directoryURL
-            </code>
+            <code> directoryURL </code>
             property，它会指定展示在面板中的发起目录。
         </li>
         <li>
             设置
-            <code>
-                nameFieldStringValue
-            </code>
+            <code> nameFieldStringValue </code>
             property，来为文件设置一个默认的名称。            
         </li>
         <li>
@@ -1497,9 +1219,7 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
         </li>
         <li>
             如果用户选择了一个有效的数据文件的路径（一个有效的
-            <code>
-                URL
-            </code>
+            <code> URL </code>
             ）并点击
             <em>
                 OK
@@ -1512,17 +1232,11 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
         </li>
     </ol>
     <p>
-        <code>
-            write(to:atomically:encoding)
-        </code>
+        <code> write(to:atomically:encoding) </code>
         是一个字符串的方法，它会将字符串写入到被提供的
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         中。
-        <code>
-            atomically
-        </code>
+        <code> atomically </code>
         选项意味着字符串将会写入到一个临时的文件中，并进行重命名，确保你不会在一个坏掉的文件上结束 - 即使系统在写入过程中崩溃了。在这个文件中，文本的编码方式被设置为
         <em>
             UTF8
@@ -1551,9 +1265,7 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
             注意：
         </em>
         使用
-        <code>
-            NSSavePanel
-        </code>
+        <code> NSSavePanel </code>
         的一个很好的特性，就是如果你尝试覆盖一个早已存在的文件，你的app会自动展示一个确认对话框，询问你是否想要替换文件。
     </div>
     <p>
@@ -1564,9 +1276,7 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
     </h3>
     <p>
         通常，我会把app状态的数据保存到
-        <code>
-            UserDefaults
-        </code>
+        <code> UserDefaults </code>
         中，它会为你自动保存到
         <em>
             Preferences
@@ -1586,39 +1296,25 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
     </p>
     <p>
         我已经提供了用来进行实际的读写的方法。写入会使用和保存info file相同的
-        <code>
-            write(to:atomically:encoding)
-        </code>
+        <code> write(to:atomically:encoding) </code>
         方法。读取则使用一个
-        <code>
-            String
-        </code>
+        <code> String </code>
         构造器，从
-        <code>
-            URL
-        </code>
+        <code> URL </code>
         创建一个
-        <code>
-            String
-        </code>
+        <code> String </code>
         。
     </p>
     <p>
         一个非常有趣的事是如何决定去哪里保存数据。你会在
-        <code>
-            urlForDataStorage
-        </code>
+        <code> urlForDataStorage </code>
         来做这件事，它现在返回的是
-        <code>
-            nil
-        </code>
+        <code> nil </code>
         。
     </p>
     <p>
         使用下列的代码替换
-        <code>
-            urlForDataStorage
-        </code>
+        <code> urlForDataStorage </code>
         ：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">urlForDataStorage</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">URL</span>? {
@@ -1658,44 +1354,30 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
     <ol>
         <li>
             又是你的老朋友
-            <code>
-                FileManager
-            </code>
+            <code> FileManager </code>
             。:]
         </li>
         <li>
-            <code>
-                FileManager
-            </code>
+            <code> FileManager </code>
             有一个方法，可以返回对于指定用途的恰当的
-            <code>
-                URL
-            </code>
+            <code> URL </code>
             的列表。在这个case中，你会在用户当前的目录下查找
-            <code>
-                applicationSupportDirectory
-            </code>
+            <code> applicationSupportDirectory </code>
             。这个基本上是不大可能返回超过一个的URL的，并且你只想获取第一个元素。你可以用不同的参数来调用这个方法，来找到更多不同的目录。
         </li>
         <li>
             就像你在playground中做的一样，添加一个路径成分来创建一个app指定目录的
-            <code>
-                URL
-            </code>
+            <code> URL </code>
             ，并检查它是否存在。
         </li>
         <li>
             如果这个目录不存在，尝试创建它，以及任何由路径决定的中间目录。如果创建失败的话，就返回
-            <code>
-                nil
-            </code>
+            <code> nil </code>
             。
         </li>
         <li>
             添加另一个路径成分，来创建数据文件的完整的
-            <code>
-                URL
-            </code>
+            <code> URL </code>
             ，并返回它。
         </li>
     </ol>
@@ -1703,21 +1385,13 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
         <em>
             注意：
         </em>
-        <code>
-            .applicationSupportDirectory
-        </code>
+        <code> .applicationSupportDirectory </code>
         是
-        <code>
-            FileManager.SearchPathDirectory.applicationSupportDirectory
-        </code>
+        <code> FileManager.SearchPathDirectory.applicationSupportDirectory </code>
         的一个简写的方式。
-        <code>
-            .userDomainMask
-        </code>
+        <code> .userDomainMask </code>
         则指向了
-        <code>
-            FileManager.SearchPathDomainMask.userDomainMask
-        </code>
+        <code> FileManager.SearchPathDomainMask.userDomainMask </code>
         。虽然简写的方式会更容易输入和阅读，但完整的方式会更有用于了解这些来自于哪里，因此如果需要的话，你可以在文档中找到他们。
     </div>
     <p>
@@ -1805,24 +1479,18 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
     </p>
     <p>
         在
-        <code>
-            FileManager
-        </code>
+        <code> FileManager </code>
         类的教程中：
     </p>
     <ol>
         <li>
             你学到了
-            <code>
-                URL
-            </code>
+            <code> URL </code>
             如何表示本地的文件和目录，以及展示关于文件或目录的有用的属性。
         </li>
         <li>
             你学到了如何添加和删除一个
-            <code>
-                URL
-            </code>
+            <code> URL </code>
             中的
             <em>
                 路径成分
@@ -1831,21 +1499,13 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
         </li>
         <li>
             你探究了
-            <code>
-                FileManager
-            </code>
+            <code> FileManager </code>
             类，如property
-            <code>
-                homeDirectoryForCurrentUser
-            </code>
+            <code> homeDirectoryForCurrentUser </code>
             ，
-            <code>
-                applicationSupportDirectory
-            </code>
+            <code> applicationSupportDirectory </code>
             ，甚至
-            <code>
-                attributesOfItem
-            </code>
+            <code> attributesOfItem </code>
             ，它包含了一个文件或目录的详细信息。
         </li>
         <li>
@@ -1862,9 +1522,7 @@ showInvisibles = (sender.state == <span class="hljs-built_in">NSOnState</span>)
             苹果FileManager API参考文档
         </a>
         ，你可以找到更多关于
-        <code>
-            FileManager
-        </code>
+        <code> FileManager </code>
         类中可用的方法。
     </p>
     <p>

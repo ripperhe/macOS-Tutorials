@@ -10,9 +10,7 @@
     </p>
     <p>
         如果你想了解
-        <code>
-            NSCollectionView
-        </code>
+        <code> NSCollectionView </code>
         的高级特性，恭喜你来对了地方。这里是第二部分的教程，关于OS X中Collection View的高级特性，你已经深入到了collection view所围绕的世界中。
     </p>
     <p>
@@ -40,9 +38,7 @@
     </h2>
     <p>
         你需要了解关于
-        <code>
-            NSCollectionView
-        </code>
+        <code> NSCollectionView </code>
         的基础知识，以及来自于
         <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/Collection%20Views%20in%20OS%20X%20Tutorial.md"
         title="Collection Views tutorial" target="_blank">
@@ -168,13 +164,9 @@
     </p>
     <p>
         在
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         中，为按钮添加一个
-        <code>
-            IBOutlet
-        </code>
+        <code> IBOutlet </code>
         ：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-meta"><font><font>@IBOutlet </font></font></span> <span class="hljs-keyword"><font><font>weak </font></font></span> <span class="hljs-keyword"><font><font>var</font></font></span><font><font> addSlideButton：</font></font><span class="hljs-type"><font><font>NSButton</font></font></span><font><font>！ 
@@ -188,20 +180,14 @@
     </p>
     <p>
         你需要去跟踪item选择的变化，以在ViewController的方法
-        <code>
-            highlightItems(\_: atIndexPaths:)
-        </code>
+        <code> highlightItems(\_: atIndexPaths:) </code>
         中确定这个按钮的打开和关闭。当选择或取消选择一个item时，它就会被两个
-        <code>
-            NSCollectionViewDelegate
-        </code>
+        <code> NSCollectionViewDelegate </code>
         的方法去调用。
     </p>
     <p>
         为了实现这点，只需要添加一行代码到
-        <code>
-            highlightItems(\_: atIndexPaths:)
-        </code>
+        <code> highlightItems(\_: atIndexPaths:) </code>
         方法中：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword"><font><font>func </font></font></span> <span class="hljs-title"><font><font>highlightItems </font></font></span><span class="hljs-params"><font><font>（selected：Bool，atIndexPaths：Set &lt;NSIndexPath&gt;）</font></font></span></span><font><font> {</font></font><font></font><font><font>
@@ -236,9 +222,7 @@
     </div>
     <p>
         要更新你的model，你需要添加下列的代码到
-        <code>
-            ImageDirectoryLoader
-        </code>
+        <code> ImageDirectoryLoader </code>
         类中：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">insertImage</span><span class="hljs-params">(image: ImageFile, atIndexPath: NSIndexPath)</span></span> {
@@ -259,13 +243,9 @@
     </p>
     <p>
         添加下列的方法到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         中。第一个方法会被
-        <code>
-            IBAction
-        </code>
+        <code> IBAction </code>
         在动作方法中调用，第二个就是这个动作方法了，它会在点击添加按钮时被调用：
     </p>
     <pre lang="swift" class="language-swift hljs">   <span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">insertAtIndexPathFromURLs</span><span class="hljs-params">(urls: [NSURL], atIndexPath: NSIndexPath)</span></span> {
@@ -318,9 +298,7 @@
                 URL
             </em>
             创建一个
-            <code>
-                ImageFile
-            </code>
+            <code> ImageFile </code>
             实例，并添加到model中。
         </li>
         <li>
@@ -328,16 +306,12 @@
         </li>
         <li>
             根据被选择的那个item的
-            <code>
-                NSIndexPath
-            </code>
+            <code> NSIndexPath </code>
             觉得从什么地方插入。
         </li>
         <li>
             创建一个
-            <code>
-                NSOpenPanel
-            </code>
+            <code> NSOpenPanel </code>
             ，并配置为只允许选择图片文件，然后展示它。
         </li>
     </ol>
@@ -347,13 +321,9 @@
             Main.storyboard
         </em>
         并将
-        <code>
-            addSlide(\_:)
-        </code>
+        <code> addSlide(\_:) </code>
         这个
-        <code>
-            IBAction
-        </code>
+        <code> IBAction </code>
         连接到这个按钮上。
     </p>
     <p>
@@ -535,13 +505,9 @@
     </p>
     <p>
         在
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         中，添加一个
-        <code>
-            IBOutlet
-        </code>
+        <code> IBOutlet </code>
         ：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-meta">@IBOutlet</span> <span class="hljs-keyword">weak</span> <span class="hljs-keyword">var</span> removeSlideButton: <span class="hljs-type">NSButton</span>!
@@ -555,13 +521,9 @@
     </p>
     <p>
         在
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         中，
-        <code>
-            highlightItems(\_: atIndexPaths:)
-        </code>
+        <code> highlightItems(\_: atIndexPaths:) </code>
         的尾部，添加下列的代码来控制移除按钮的打开/禁用。
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">highlightItems</span><span class="hljs-params">(selected: Bool, atIndexPaths: Set&lt;NSIndexPath&gt;)</span></span> {
@@ -581,9 +543,7 @@
     </p>
     <p>
         要更新model，添加下列的方法到
-        <code>
-            ImageDirectoryLoader
-        </code>
+        <code> ImageDirectoryLoader </code>
         类的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">removeImageAtIndexPath</span><span class="hljs-params">(indexPath: NSIndexPath)</span></span> -&gt; <span class="hljs-type">ImageFile</span> {
@@ -601,13 +561,9 @@
 </pre>
     <p>
         在
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         中，添加
-        <code>
-            IBAction
-        </code>
+        <code> IBAction </code>
         方法，它会在你点击
         <em>
             Remove
@@ -650,9 +606,7 @@
             Main.storyboard
         </em>
         并连接
-        <code>
-            removeSlide(\_:) IBAction
-        </code>
+        <code> removeSlide(\_:) IBAction </code>
         到移除按钮上。
     </p>
     <p>
@@ -706,16 +660,12 @@
     </ul>
     <p>
         要支持拖拽的功能，你就要实现
-        <code>
-            NSCollectionViewDelegate
-        </code>
+        <code> NSCollectionViewDelegate </code>
         协议中的相关方法，但首先要注册SlidesPro对于拖拽操作的支持。
     </p>
     <p>
         添加下列的方法到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         中：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">registerForDragAndDrop</span><span class="hljs-params">()</span></span> {
@@ -743,9 +693,7 @@
     </ol>
     <p>
         在
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         的尾部，添加下述代码：
     </p>
     <pre lang="swift" class="language-swift hljs">registerForDragAndDrop()
@@ -768,13 +716,9 @@
     </p>
     <p>
         第一个问题是，这里需要一些额外的逻辑来处理拖拽的动作，因此，在
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         的
-        <code>
-            NSCollectionViewDelegate
-        </code>
+        <code> NSCollectionViewDelegate </code>
         extension中添加下列的方法：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-comment">// 1</span>
@@ -794,13 +738,9 @@
     <ol>
         <li>
             当collection view将开始一个拖拽操作时，就会发送这个消息给它的
-            <code>
-                delegate
-            </code>
+            <code> delegate </code>
             。它的返回值代表了collection view是否指定index path的item允许被拖动。你需要能够拖动任意item，因此你就无条件地返回
-            <code>
-                true
-            </code>
+            <code> true </code>
             。
         </li>
         <li>
@@ -809,17 +749,11 @@
                 Drag Source
             </em>
             。如果在第一部分中的方法允许开始拖拽，collection view就会为每个item调用一次这个方法，来为item的底层模型对象请求一个pasteboard writer。这个方法就返回一个实现了
-            <code>
-                NSPasteboardWriting
-            </code>
+            <code> NSPasteboardWriting </code>
             的自定义对象；在这个case中就是
-            <code>
-                NSURL
-            </code>
+            <code> NSURL </code>
             。返回
-            <code>
-                nil
-            </code>
+            <code> nil </code>
             则会阻止拖拽。
         </li>
     </ol>
@@ -856,22 +790,16 @@
     </h3>
     <p>
         添加下列的property到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         中：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">var</span> indexPathsOfItemsBeingDragged: <span class="hljs-type">Set</span>&lt;<span class="hljs-type">NSIndexPath</span>&gt;!
 </pre>
     <p>
         添加下列方法到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         的
-        <code>
-            NSCollectionViewDelegate
-        </code>
+        <code> NSCollectionViewDelegate </code>
         extension中：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-comment">// 1</span>
@@ -900,13 +828,9 @@
     <ol>
         <li>
             当拖拽回话即将开始时，一个
-            <code>
-                optional
-            </code>
+            <code> optional </code>
             的方法就会被调用。你将使用跟这个方法来保存被拖拽的item。当这个property不为
-            <code>
-                nil
-            </code>
+            <code> nil </code>
             时，就表示
             <em>
                 Drag Source
@@ -925,17 +849,13 @@
         </li>
         <li>
             当在collection view中移动item时，操作类型为
-            <code>
-                Move
-            </code>
+            <code> Move </code>
             。而当
             <em>
                 Dragging Source
             </em>
             是另一个app的时候，操作类型就为
-            <code>
-                Copy
-            </code>
+            <code> Copy </code>
             。
         </li>
     </ol>
@@ -958,13 +878,9 @@
     </p>
     <p>
         在
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         中，找到这个
-        <code>
-            DataSource
-        </code>
+        <code> DataSource </code>
         方法，它会在collection view请求一个supplementary view时被调用：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath)</span></span> -&gt; <span class="hljs-type">NSView</span> {
@@ -977,9 +893,7 @@
 </pre>
     <p>
         当你开始拖拽一个item的时候，collection view的布局就会请求“过渡间隔指示器”的supplementary view。上述的
-        <code>
-            DataSource
-        </code>
+        <code> DataSource </code>
         方法无条件地假定这是一个对header view的请求。因此，就会返回header view作为“过渡间隔指示器”。
     </p>
     <p>
@@ -1005,37 +919,21 @@
     <ol>
         <li>
             你根据接受到的
-            <code>
-                kind
-            </code>
+            <code> kind </code>
             参数，设置了一个
-            <code>
-                identifier
-            </code>
+            <code> identifier </code>
             。如果它不是header view的话，你就将
-            <code>
-                identifier
-            </code>
+            <code> identifier </code>
             设置为一个空的
-            <code>
-                String
-            </code>
+            <code> String </code>
             。当你传递给
-            <code>
-                makeSupplementaryViewOfKind
-            </code>
+            <code> makeSupplementaryViewOfKind </code>
             方法的
-            <code>
-                identifier
-            </code>
+            <code> identifier </code>
             不能匹配任何的类或nib文件，它就会返回
-            <code>
-                nil
-            </code>
+            <code> nil </code>
             。当返回
-            <code>
-                nil
-            </code>
+            <code> nil </code>
             的时候，collection view就会使用默认的“过渡间隔指示器”。当你需要使用自定义一个指示器的时候，你就可以创建一个nib文件（就像你在header中做的一样），并将它的identifier传进来。
         </li>
         <li>
@@ -1047,25 +945,15 @@
             注意
         </em>
         ：对于上述提到的方法，以及
-        <code>
-            makeItemWithIdentifier
-        </code>
+        <code> makeItemWithIdentifier </code>
         和
-        <code>
-            makeSupplementaryViewOfKind
-        </code>
+        <code> makeSupplementaryViewOfKind </code>
         方法中，Swift的API中存在一个bug。它们的返回值被指定为
-        <code>
-            NSView
-        </code>
+        <code> NSView </code>
         类型，但这些方法是有可能返回
-        <code>
-            nil
-        </code>
+        <code> nil </code>
         的。所以返回值应当是
-        <code>
-            NSView?
-        </code>
+        <code> NSView? </code>
         类型的吗 -- 问好也是这个值的一部分。
     </div>
     <p>
@@ -1085,9 +973,7 @@
     </p>
     <p>
         为
-        <code>
-            ImageDirectoryLoader
-        </code>
+        <code> ImageDirectoryLoader </code>
         添加下列方法：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-comment">// 1</span>
@@ -1121,13 +1007,9 @@
     </ol>
     <p>
         通过添加下列的方法到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         的
-        <code>
-            NSCollectionViewDelegate
-        </code>
+        <code> NSCollectionViewDelegate </code>
         extension中来把拖拽的过程收尾：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-comment">// 1</span>
@@ -1185,17 +1067,13 @@
         </li>
         <li>
             用从
-            <code>
-                NSDraggingInfo
-            </code>
+            <code> NSDraggingInfo </code>
             中获取的
             <em>
                 URLs
             </em>
             ，去调用
-            <code>
-                ViewController
-            </code>
+            <code> ViewController </code>
             中的
             <em>
                 Add
@@ -1204,9 +1082,7 @@
         </li>
         <li>
             调用结论性的方法。清除
-            <code>
-                indexPathsOfItemsBeingDragged
-            </code>
+            <code> indexPathsOfItemsBeingDragged </code>
             的值。
         </li>
     </ol>
@@ -1225,13 +1101,9 @@
             UI
         </em>
         中禁用这些不支持的特性，可将第二个
-        <code>
-            if
-        </code>
+        <code> if </code>
         语句中的
-        <code>
-            else
-        </code>
+        <code> else </code>
         部分改为：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">collectionView</span><span class="hljs-params">(collectionView: NSCollectionView, validateDrop draggingInfo: NSDraggingInfo, proposedIndexPath
@@ -1259,9 +1131,7 @@
         </li>
         <li>
             否则，就通过返回
-            <code>
-                .None
-            </code>
+            <code> .None </code>
             来阻止拖拽动作的完成。
         </li>
     </ol>
@@ -1349,9 +1219,7 @@
             注意：
         </em>
         collection view会同步选择到
-        <code>
-            selectionIndexPaths
-        </code>
+        <code> selectionIndexPaths </code>
         这个property上。在debug的时候，你就可以打印它的值。
     </div>
     <p>
@@ -1363,27 +1231,19 @@
             Item-1
         </em>
         ，但
-        <code>
-            collectionView(\_:didDeselectItemsAtIndexPaths: )
-        </code>
+        <code> collectionView(\_:didDeselectItemsAtIndexPaths: ) </code>
         这个代理方法却未被调用，以将高亮的效果移除掉并禁用按钮。
     </p>
     <p>
         在
-        <code>
-            NSCollectionView.h
-        </code>
+        <code> NSCollectionView.h </code>
         中，collectionView(\_:didDeselectItemsAtIndexPaths: )上面的注释中描述到，“在交互式选择后调用...”。因此，这些通知仅仅会在你通过UI选择或取消选择item时，才会调用这个方法。
     </p>
     <p>
         这就是你的答案了，“夏洛克”：这个当你移动一个item时发生的取消选择的行为，是因为程序性地执行
-        <code>
-            NSCollectionView
-        </code>
+        <code> NSCollectionView </code>
         的方法
-        <code>
-            deselectItemsAtIndexPaths(\_:)
-        </code>
+        <code> deselectItemsAtIndexPaths(\_:) </code>
         而触发的。
     </p>
     <p>
@@ -1414,9 +1274,7 @@
     </p>
     <p>
         默认可能会添加一个
-        <code>
-            drawRect(\_:)
-        </code>
+        <code> drawRect(\_:) </code>
         方法 -- 将其删除掉。
     </p>
     <p>
@@ -1429,9 +1287,7 @@
     </p>
     <p>
         添加下列的方法到
-        <code>
-            CollectionView
-        </code>
+        <code> CollectionView </code>
         中：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">deselectItemsAtIndexPaths</span><span class="hljs-params">(indexPaths: Set&lt;NSIndexPath&gt;)</span></span> {
@@ -1442,13 +1298,9 @@
 </pre>
     <p>
         这个方法首先会调用其父类的实现，然后在调用它的delegate的
-        <code>
-            highlightItems(\_:atIndexPaths:)
-        </code>
+        <code> highlightItems(\_:atIndexPaths:) </code>
         方法，并相应地让
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         高亮/取消高亮item，打开使用/禁用按钮。
     </p>
     <p>
@@ -1492,24 +1344,16 @@
         Collection View中的动画
     </h2>
     <p>
-        <code>
-            NSCollectionView
-        </code>
+        <code> NSCollectionView </code>
         ，作为
-        <code>
-            NSView
-        </code>
+        <code> NSView </code>
         的子类，可以通用动画代理来执行动画。在诸如移除item的操作之前，它就和你在代码中添加一个单词一样的容易。
     </p>
     <p>
         在
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         中，
-        <code>
-            removeSlide(\_:)
-        </code>
+        <code> removeSlide(\_:) </code>
         方法的尾部，将代码：
     </p>
     <pre lang="swift" class="language-swift hljs">    collectionView.deleteItemsAtIndexPaths(selectionIndexPaths)
@@ -1540,13 +1384,9 @@
     </p>
     <p>
         你可以在添加item时，为
-        <code>
-            insertItemsAtIndexPaths
-        </code>
+        <code> insertItemsAtIndexPaths </code>
         做相同的事，同理也适用于使用
-        <code>
-            moveItemAtIndexPath
-        </code>
+        <code> moveItemAtIndexPath </code>
         方法移动item时的情况。
     </p>
     <h2>
@@ -1572,9 +1412,7 @@
     </p>
     <p>
         为了让效果显得更加真实，你将撰写一个
-        <code>
-            NSCollectionViewFlowLayout
-        </code>
+        <code> NSCollectionViewFlowLayout </code>
         的子类。
     </p>
     <p>
@@ -1610,22 +1448,16 @@
     </p>
     <p>
         在
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         中，将
-        <code>
-            configureCollectionView()
-        </code>
+        <code> configureCollectionView() </code>
         的第一行改为：
     </p>
     <pre lang="swift" class="language-swift hljs">    <span class="hljs-keyword">let</span> flowLayout = <span class="hljs-type">StickyHeadersLayout</span>()
 </pre>
     <p>
         现在通过添加下列的方法到
-        <code>
-            StickyHeadersLayout
-        </code>
+        <code> StickyHeadersLayout </code>
         内来实现黏性headers：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">layoutAttributesForElementsInRect</span><span class="hljs-params">(rect: NSRect)</span></span> -&gt; [<span class="hljs-type">NSCollectionViewLayoutAttributes</span>] {
@@ -1687,30 +1519,22 @@
         </li>
         <li>
             这个
-            <code>
-                NSMutableIndexSet
-            </code>
+            <code> NSMutableIndexSet </code>
             对象首先会收集所有的至少含有一个可见的item的section。
         </li>
         <li>
             从这个set中，移除所有header早已在
-            <code>
-                layoutAttributes
-            </code>
+            <code> layoutAttributes </code>
             中的section，只留下“缺少Header”的section。
         </li>
         <li>
             获取缺少header的section的attribute，并添加到
-            <code>
-                layoutAttributes
-            </code>
+            <code> layoutAttributes </code>
             中。
         </li>
         <li>
             便利
-            <code>
-                layoutAttributes
-            </code>
+            <code> layoutAttributes </code>
             但只处理headers。
         </li>
         <li>
@@ -1726,14 +1550,12 @@
             可将这里拆分为两步：
             <ol>
                 <li>
-                    <code>
-                        maybeY = max(offset!, minY)
+                    <code>         maybeY = max(offset!, minY)
                     </code>
                     ：当这个section的顶部位于可见区域的上方时，就会将header固定到可见区域的顶部。
                 </li>
                 <li>
-                    <code>
-                        y = min(maybeY, maxY)
+                    <code>         y = min(maybeY, maxY)
                     </code>
                     ：当从section底部到可见区域顶部的距离，小于header的高度的时候，它就只展示header底部的一部分，以适应这部分空间。
                 </li>
@@ -1751,9 +1573,7 @@
     </ol>
     <p>
         添加下列的方法到
-        <code>
-            StickyHeadersLayout
-        </code>
+        <code> StickyHeadersLayout </code>
         中：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">shouldInvalidateLayoutForBoundsChange</span><span class="hljs-params">(newBounds: CGRect)</span></span> -&gt; <span class="hljs-type">Bool</span> {
@@ -1762,9 +1582,7 @@
 </pre>
     <p>
         你将总是返回
-        <code>
-            true
-        </code>
+        <code> true </code>
         ，因为你想要在用户滚动collection view时清除原先的布局。
     </p>
     <p>
@@ -1823,9 +1641,7 @@
     <ul>
         <li>
             通过直接继承
-            <code>
-                NSCollectionViewLayout
-            </code>
+            <code> NSCollectionViewLayout </code>
             来创建自定义的布局
         </li>
         <li>

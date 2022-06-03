@@ -106,9 +106,7 @@
                 AppDelegate
             </em>
             使用一个
-            <code>
-                DataProvider
-            </code>
+            <code> DataProvider </code>
             对象来持有一个app任务的记录。
         </li>
         <li>
@@ -218,9 +216,7 @@
                 Note:
             </em>
             如果你曾经打开过一个AppleScript文件，并发现它包含类似下面的代码：
-            <code>
-                «class TaSk» whose «class TrFa» is false and «class CrDa»
-            </code>
+            <code> «class TaSk» whose «class TrFa» is false and «class CrDa» </code>
             ，点击
             <em>
                 Compile
@@ -343,13 +339,9 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
     <pre class="javascript" style="font-family:monospace;">Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"Scriptable Tasks"</span><span style="color: #009900;">)</span>.<span style="color: #660066;">launch</span><span style="color: #009900;">(</span><span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre>
     <p>
         这个app会重新启动，但不会到达前台。要使它成为“焦点”，在上面的脚本改变
-        <code>
-            launch
-        </code>
+        <code> launch </code>
         为
-        <code>
-            activate
-        </code>
+        <code> activate </code>
         ，并单击
         <em>
             Run
@@ -368,29 +360,17 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
     <ul>
         <li>
             标准的脚本对象和命令，例如
-            <code>
-                window
-            </code>
+            <code> window </code>
             ，
-            <code>
-                make
-            </code>
+            <code> make </code>
             ，
-            <code>
-                delete
-            </code>
+            <code> delete </code>
             ，
-            <code>
-                count
-            </code>
+            <code> count </code>
             ，
-            <code>
-                open
-            </code>
+            <code> open </code>
             和
-            <code>
-                quit
-            </code>
+            <code> quit </code>
             。
         </li>
         <li>
@@ -402,16 +382,12 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
     </p>
     <p>
         首先，脚本的接口使用Key-Value-Coding来get和set对象的property。在OC中，所有的对象都自动地遵守KVC协议，但Swift的对象并不是这样的，除非你使其成为
-        <code>
-            NSObject
-        </code>
+        <code> NSObject </code>
         的子类。
     </p>
     <p>
         接下来，可脚本的类需要一个脚本接口可以识别的OC的名字。为了避免命名空间的冲突，Swift对象的名称是很难以给出一个独立的表示的。通过使用
-        <code>
-            @objc(YourClassName)
-        </code>
+        <code> @objc(YourClassName) </code>
         来给类添加前缀，你就给了它们一个可以被脚本引擎使用的名称。
     </p>
     <p>
@@ -446,9 +422,7 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
             ScriptableTasks.sdef
         </em>
         。在靠近结尾 
-        <code>
-            Insert Scriptable Tasks suite here
-        </code>
+        <code> Insert Scriptable Tasks suite here </code>
         注释的这里添加下列代码：
     </p>
     <pre class="xml" style="font-family:monospace;"><span style="color: #808080; font-style: italic;">&lt;!-- 1 --&gt;</span>
@@ -502,9 +476,7 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
     <ol>
         <li>
             最外层的元素是
-            <code>
-                suite
-            </code>
+            <code> suite </code>
             ，所以你的SDEF文件现在有两个suite：
             <em>
                 Standard Suite
@@ -517,99 +489,64 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
         </li>
         <li>
             下一部分定义了应用，并必须使用code值
-            <code>
-                "capp"
-            </code>
+            <code> "capp" </code>
             。你必须制定application的class；如果你子类化了
-            <code>
-                NSApplication
-            </code>
+            <code> NSApplication </code>
             ，你就该在这里使用你子类的名称了。
         </li>
         <li>
             这个application包含
-            <code>
-                element
-            </code>
+            <code> element </code>
             。在这个app中，element被储存在app的delegate，一个叫做
-            <code>
-                tasks
-            </code>
+            <code> tasks </code>
             的数组中。在脚本术语中，element是app和其它对象可以包含的对象。
         </li>
         <li>
             最后的一个块定义了application包含的
-            <code>
-                Task
-            </code>
+            <code> Task </code>
             class。访问多个的复数名称是
-            <code>
-                tasks
-            </code>
+            <code> tasks </code>
             。在这个app中，支持这个对象类型的class是
-            <code>
-                Task
-            </code>
+            <code> Task </code>
             。
         </li>
         <li>
             前两个property是特定的。请看它们的code：
-            <code>
-                "ID "
-            </code>
+            <code> "ID " </code>
             an和d
-            <code>
-                "pnam"
-            </code>
+            <code> "pnam" </code>
             。
-            <code>
-                "ID "
-            </code>
+            <code> "ID " </code>
             （注意字母之后的两个空格）指定了这个对象的唯一标识符。
-            <code>
-                "pnam"
-            </code>
+            <code> "pnam" </code>
             指定了这个对象的
-            <code>
-                name
-            </code>
+            <code> name </code>
             property。你可以使用它们中的任一个，来直接访问对象。
             <p>
-                <code>
-                    "ID "
+                <code>     "ID "
                 </code>
                 是只读的，因为脚本不应该改变唯一标识符，但
-                <code>
-                    "pnam"
+                <code>     "pnam"
                 </code>
                 是可读写的。它们都是text类型的property。
-                <code>
-                    "pnam"
+                <code>     "pnam"
                 </code>
                 property映射到了
-                <code>
-                    Task
+                <code>     Task
                 </code>
                 对象的
-                <code>
-                    title
+                <code>     title
                 </code>
                 property。
             </p>
         </li>
         <li>
             还剩两个property，一个是number类型的property
-            <code>
-                daysUntilDue
-            </code>
+            <code> daysUntilDue </code>
             ，另一个是Boolean类型的property
-            <code>
-                completed
-            </code>
+            <code> completed </code>
             。它们可以在对象和脚本中使用相同的名称，因此你不需要指定
-            <code>
-                cocoa key
-            </code>
+            <code> cocoa key </code>
             。
         </li>
         <li>
@@ -687,24 +624,18 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
     <ol>
         <li>
             当一个脚本请求
-            <code>
-                tasks
-            </code>
+            <code> tasks </code>
             的数据时，这个方法将确认app的delegate可以处理它。
         </li>
         <li>
             如果一个脚本尝试插入，编辑或删除数据，这些方法将传递那些请求到
-            <code>
-                dataProvider
-            </code>
+            <code> dataProvider </code>
             中。
         </li>
     </ol>
     <p>
         为了使
-        <code>
-            Task
-        </code>
+        <code> Task </code>
         的model类对脚本可用，你必须在做一点coding。
     </p>
     <p>
@@ -717,13 +648,9 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
     <pre class="swift" style="font-family:monospace;">@objc(Task) class Task: NSObject {</pre>
     <p>
         Xcode会立刻抱怨说
-        <code>
-            init
-        </code>
+        <code> init </code>
         要求
-        <code>
-            override
-        </code>
+        <code> override </code>
         关键字，所以让Fix-It来做吧。这是必需的，因为这个类现在有一个父类：
     </p>
     <pre class="swift" style="font-family:monospace;">override init() {</pre>
@@ -732,9 +659,7 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
             Task.swift
         </em>
         需要更多的修改：一个对象说明符。插入下列的方法到
-        <code>
-            Task
-        </code>
+        <code> Task </code>
         的类中：
     </p>
     <pre class="swift" style="font-family:monospace;">override var objectSpecifier: NSScriptObjectSpecifier {
@@ -755,9 +680,7 @@ Application<span style="color: #009900;">(</span><span style="color: #3366CC;">"
         </li>
         <li>
             通过id在app中获取任务的描述。这就是为什么Task类有一个
-            <code>
-                id
-            </code>
+            <code> id </code>
             的property - 这样每个任务就可以被正确地指定。
         </li>
     </ol>
@@ -949,9 +872,7 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
     </p>
     <p>
         这个脚本添加了新的任务，在第一个任务上切换了
-        <code>
-            completed
-        </code>
+        <code> completed </code>
         的标记，并尝试创建另一个相同名称的任务。
     </p>
     <p>
@@ -967,17 +888,13 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
             AppDelegate.swift
         </em>
         ，你会看到当脚本想要插入一个对象时，app的delegate会将这个调用床底给
-        <code>
-            dataProvider
-        </code>
+        <code> dataProvider </code>
         。在
         <em>
             DataProvider.swift
         </em>
         中，查看
-        <code>
-            insertNew(task:at:)
-        </code>
+        <code> insertNew(task:at:) </code>
         ，它将一个存在的任务插入到数组中，或添加了一个新的任务到结尾。
     </p>
     <p>
@@ -1022,16 +939,13 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
                 </li>
                 <li>
                     查看命令的
-                    <code>
-                        errorNumber
+                    <code>         errorNumber
                     </code>
                     和
-                    <code>
-                        errorString
+                    <code>         errorString
                     </code>
                     property；
-                    <code>
-                        errOSACantAssign
+                    <code>         errOSACantAssign
                     </code>
                     是AppleScript的标准错误码之一。这些将被发送回调用的脚本。
                 </li>
@@ -1085,13 +999,9 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
     </p>
     <p>
         与
-        <code>
-            Task
-        </code>
+        <code> Task </code>
         类一样，你需要使
-        <code>
-            Tag
-        </code>
+        <code> Tag </code>
         脚本化。
     </p>
     <p>
@@ -1104,19 +1014,13 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
     <ul>
         <li>
             将类的定义这行修改为：
-            <code>
-                @objc(Tag) class Tag: NSObject {
-            </code>
+            <code> @objc(Tag) class Tag: NSObject { </code>
         </li>
         <li>
             添加
-            <code>
-                override
-            </code>
+            <code> override </code>
             关键字到
-            <code>
-                init
-            </code>
+            <code> init </code>
             上。
         </li>
         <li>
@@ -1159,9 +1063,7 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
     </ol>
     <p>
         在评论 
-        <code>
-            Insert tag class here
-        </code>
+        <code> Insert tag class here </code>
         处，添加下列的代码到SDEF文件中：
     </p>
     <pre class="xml" style="font-family:monospace;"><span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;class</span> <span style="color: #000066;">name</span>=<span style="color: #ff0000;">"tag"</span> <span style="color: #000066;">code</span>=<span style="color: #ff0000;">"TaGg"</span> <span style="color: #000066;">description</span>=<span style="color: #ff0000;">"A tag"</span> <span style="color: #000066;">inherits</span>=<span style="color: #ff0000;">"item"</span> <span style="color: #000066;">plural</span>=<span style="color: #ff0000;">"tags"</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
@@ -1177,31 +1079,21 @@ app.<span style="color: #660066;">tasks</span>.<span style="color: #000066;">nam
 <span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;/class<span style="color: #000000; font-weight: bold;">&gt;</span></span></span></pre>
     <p>
         它和
-        <code>
-            Task
-        </code>
+        <code> Task </code>
         class的数据非常相似，但一个标签只有两个暴露的property：
-        <code>
-            id
-        </code>
+        <code> id </code>
         和
-        <code>
-            name
-        </code>
+        <code> name </code>
         。
     </p>
     <p>
         现在必须要对
-        <code>
-            Task
-        </code>
+        <code> Task </code>
         部分进行一下编辑，来指出它包含着tag元素了。
     </p>
     <p>
         添加下列的代码到Task类的XML中，在
-        <code>
-            Insert element of tags here
-        </code>
+        <code> Insert element of tags here </code>
         的注释处：
     </p>
     <pre class="xml" style="font-family:monospace;"><span style="color: #009900;"><span style="color: #000000; font-weight: bold;">&lt;element</span> <span style="color: #000066;">type</span>=<span style="color: #ff0000;">"tag"</span> <span style="color: #000066;">access</span>=<span style="color: #ff0000;">"rw"</span><span style="color: #000000; font-weight: bold;">&gt;</span></span>
@@ -1261,9 +1153,7 @@ app.<span style="color: #660066;">tasks</span><span style="color: #009900;">[</s
             Tag.swift
         </em>
         中，每个
-        <code>
-            Tag
-        </code>
+        <code> Tag </code>
         都有一个弱引用指向它自己的任务。当获取了对象说明符后，它可以帮助创建连接，因此当分配一个熄灯tag到任务中时，任务的property必须被设置。
     </p>
     <p>
@@ -1272,9 +1162,7 @@ app.<span style="color: #660066;">tasks</span><span style="color: #009900;">[</s
             Task.swift
         </em>
         并添加下列的方法到
-        <code>
-            Task
-        </code>
+        <code> Task </code>
         的类中：
     </p>
     <pre class="swift" style="font-family:monospace;">override func newScriptingObject(of objectClass: AnyClass,
@@ -1291,17 +1179,11 @@ app.<span style="color: #660066;">tasks</span><span style="color: #009900;">[</s
 }</pre>
     <p>
         为什么你将它放到 
-        <code>
-            Task
-        </code>
+        <code> Task </code>
         类而不是
-        <code>
-            Tag
-        </code>
+        <code> Tag </code>
         类中，是因为这个方法被发送到了新对象的容器中。这个调用被传递到了
-        <code>
-            父类
-        </code>
+        <code> 父类 </code>
         中来获取新的标签，然后这个task的property就被赋值了。
     </p>
     <p>
@@ -1316,9 +1198,7 @@ app.<span style="color: #660066;">tasks</span><span style="color: #009900;">[</s
     </h2>
     <p>
         当制作一个app脚本时，你还可以采取一步：添加定制的命令。在之前的脚本中，你直接切换了任务的
-        <code>
-            completed
-        </code>
+        <code> completed </code>
         标记。但难道不应该更好一些 - 更安全一些么？能否可以使用一个命令来完成，而不是直接改变property？
     </p>
     <p>
@@ -1362,16 +1242,12 @@ mark task <span style="color: #009900;">"Feed the cat"</span> <span style="color
     </p>
     <p>
         当定义一个方法的时候，你提供一个两个部分的code。它组合了参数的code或类型 - 在这个case中是一个
-        <code>
-            Task
-        </code>
+        <code> Task </code>
         对象和一些文本。
     </p>
     <p>
         在
-        <code>
-            Task
-        </code>
+        <code> Task </code>
         类的定义中，
         <em>
             Insert responds-to command here
@@ -1402,28 +1278,18 @@ mark task <span style="color: #009900;">"Feed the cat"</span> <span style="color
   }
 }</pre>
     <p>
-        <code>
-            markAsDone(\_:)
-        </code>
+        <code> markAsDone(\_:) </code>
         的参数是
-        <code>
-            NSScriptCommand
-        </code>
+        <code> NSScriptCommand </code>
         类型的，它含有两个有用的property：
-        <code>
-            evaluatedReceivers
-        </code>
+        <code> evaluatedReceivers </code>
         和
-        <code>
-            evaluatedArguments
-        </code>
+        <code> evaluatedArguments </code>
         。从它们这里，你会尝试获取任务和字符创的参数，并使用它们来调整相应的任务。
     </p>
     <p>
         退出，再次运行你的app。在Script Editor中查看字典，如果
-        <code>
-            mark
-        </code>
+        <code> mark </code>
         命令未显示，请删除并重新导入它：
     </p>
     <p>
@@ -1447,13 +1313,9 @@ mark task <span style="color: #009900;">"Feed the cat"</span> <span style="color
             注意：
         </em>
         Swift 3改变了命令发送到对象中的方式。AppleScript仍会按照预期一般地工作，但
-        <code>
-            mark
-        </code>
+        <code> mark </code>
         命令在JavaScript中却失效了。我已经添加了
-        <code>
-            completed
-        </code>
+        <code> completed </code>
         property的手动切换到JavaScript版本的
         <em>
             7. Custom Command.scpt

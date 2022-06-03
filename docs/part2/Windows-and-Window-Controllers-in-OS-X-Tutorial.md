@@ -38,13 +38,9 @@
     </p>
     <p>
         在Cocoa中，window是
-        <code>
-            NSWindow
-        </code>
+        <code> NSWindow </code>
         类的一个实例，相应的控制器对象则是
-        <code>
-            NSWindowController
-        </code>
+        <code> NSWindowController </code>
         类的实例。在一个有着很好设计的app中，你通常（typically）都会使用一对一关系的window和它的controller。这个模型层会根据你app类型和设计各有不同。
     </p>
     <p>
@@ -217,39 +213,27 @@
     </h3>
     <p>
         文档是在内存中的数据的容器，你可以在window中查看它。最终，它可以从磁盘或iCould中写入和读出。从程序上讲，文档是一个
-        <code>
-            NSDocument
-        </code>
+        <code> NSDocument </code>
         类的实例，充当数据对象的控制器 - 也就是说 - 相应于文档的模型。
     </p>
     <p>
         在文档架构中的其它的两个主要的类是
-        <code>
-            NSWindowcontroller
-        </code>
+        <code> NSWindowcontroller </code>
         和
-        <code>
-            NSDocumentController
-        </code>
+        <code> NSDocumentController </code>
         。这些是它们的角色：
     </p>
     <ul>
         <li>
-            <code>
-                NSDocument
-            </code>
+            <code> NSDocument </code>
             ：穿件，展示及保存文档数据
         </li>
         <li>
-            <code>
-                NSWindowController
-            </code>
+            <code> NSWindowController </code>
             ：管理展示文档的那个window
         </li>
         <li>
-            <code>
-                NSDocumentController
-            </code>
+            <code> NSDocumentController </code>
             ：管理app中全部的文档对象
         </li>
     </ul>
@@ -272,13 +256,9 @@
             Document.swift
         </em>
         中，你会发现实现为空的
-        <code>
-            dataOfType
-        </code>
+        <code> dataOfType </code>
         ，它是为了写入的，还有
-        <code>
-            readFromData
-        </code>
+        <code> readFromData </code>
         ，是为了读出的。保存和打开文档是在这个教程的范围之外的，因此你要做出一些变化来避免令人困惑的行为的出现。
     </p>
     <p>
@@ -290,9 +270,7 @@
         <i>
             移除
         </i>
-        <code>
-            autosavesInPlace
-        </code>
+        <code> autosavesInPlace </code>
         ：
     </p>
     <pre class="swift" style="font-family:monospace;">  <span style="color: #a61390;">override</span> <span style="color: #a61390;">class</span> <span style="color: #a61390;">func</span> autosavesInPlace<span style="color: #002200;">(</span><span style="color: #002200;">)</span> <span style="color: #002200;">-&amp;</span>gt; <span style="color: #a61390;">Bool</span> <span style="color: #002200;">{</span>
@@ -352,9 +330,7 @@
             Open
         </em>
         。正如你看到的，它通过
-        <code>
-            openDocument
-        </code>
+        <code> openDocument </code>
         selector连接到了第一响应者，也就是在响应者链中，第一个响应这个selector的对象。就像下面这样，通过点击 
         <em>
             x
@@ -594,9 +570,7 @@
     </p>
     <p>
         采取“硬的方式”（hard way）的原因有两个。第一，你可以对
-        <code>
-            NSWindowController
-        </code>
+        <code> NSWindowController </code>
         有一个更好的理解。第二，它是一种更灵活和很直接的方式。
     </p>
     <p>
@@ -627,13 +601,9 @@
     </p>
     <p>
         创建一个名叫
-        <code>
-            WindowController
-        </code>
+        <code> WindowController </code>
         的新的类，让它作为
-        <code>
-            NSWindowController
-        </code>
+        <code> NSWindowController </code>
         的子类。不要勾选
         <em>
             XIB
@@ -689,9 +659,7 @@
             Class
         </em>
         下拉菜单中选择
-        <code>
-            WindowController
-        </code>
+        <code> WindowController </code>
         。
     </p>
     <p>
@@ -704,9 +672,7 @@
     </p>
     <p>
         当
-        <code>
-            windowDidLoad
-        </code>
+        <code> windowDidLoad </code>
         方法被调用时，这个window就完成了从storyboard加载的过程，因此这是你的任何配置都会覆盖在storyboard中的设置。
     </p>
     <p>
@@ -715,9 +681,7 @@
             WindowController.swift
         </em>
         并用下列代码替换
-        <code>
-            windowDidLoad
-        </code>
+        <code> windowDidLoad </code>
         方法：
     </p>
     <pre class="swift" style="font-family:monospace;">  <span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> windowDidLoad<span style="color: #002200;">(</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
@@ -736,41 +700,27 @@
     </p>
     <p>
         正如你看到的，
-        <code>
-            NSWindowController
-        </code>
+        <code> NSWindowController </code>
         有一个
-        <code>
-            window
-        </code>
+        <code> window </code>
         property，而
-        <code>
-            NSWindow
-        </code>
+        <code> NSWindow </code>
         一个
-        <code>
-            screen
-        </code>
+        <code> screen </code>
         property。你可以使用这两个property来访问window和屏幕的几何信息（geometry）。
     </p>
     <p>
         在确定了（ascertaining）屏幕的高度之后 ，你的window的frame就被减去了期望的偏移。记住Y的值是随着你在屏幕中向上移而增大的。
     </p>
     <p>
-        <code>
-            visibleFrame
-        </code>
+        <code> visibleFrame </code>
         排除了被dock和菜单栏占用的区域。如果你不把这个纳入考量，你可能最终会让dock模糊掉了你的window的一部分。
     </p>
     <p>
         当你隐藏了dock和菜单的时候，
-        <code>
-            visibleFrame
-        </code>
+        <code> visibleFrame </code>
         可能仍然会比
-        <code>
-            frame
-        </code>
+        <code> frame </code>
         小，因为系统会持有了一个小的边界区域来当展示dock时进行检测。
     </p>
     <p>
@@ -792,9 +742,7 @@
             WindowController.swift
         </em>
         中，
-        <code>
-            WindowController
-        </code>
+        <code> WindowController </code>
         定义下面添加下列代码：
     </p>
     <pre class="swift" style="font-family:monospace;">  required <span style="color: #a61390;">init</span>?<span style="color: #002200;">(</span>coder<span style="color: #002200;">:</span> <span style="color: #400080;">NSCoder</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
@@ -803,21 +751,13 @@
   <span style="color: #002200;">}</span></pre>
     <p>
         通过覆盖
-        <code>
-            NSWindowController
-        </code>
+        <code> NSWindowController </code>
         的
-        <code>
-            required init
-        </code>
+        <code> required init </code>
         方法，你将
-        <code>
-            NSWindowController
-        </code>
+        <code> NSWindowController </code>
         的
-        <code>
-            shouldCascadeWindows
-        </code>
+        <code> shouldCascadeWindows </code>
         property设置为true。
     </p>
     <p>
@@ -840,13 +780,9 @@
             两
         </i>
         行代码并添加一个
-        <code>
-            NSTextView
-        </code>
+        <code> NSTextView </code>
         的控制到你window的
-        <code>
-            contentView
-        </code>
+        <code> contentView </code>
         上，你将添加激动人心（blow your mind）的功能！
     </p>
     <h3>
@@ -854,28 +790,18 @@
     </h3>
     <p>
         一个window在创建时，自动地创建了两个view：一个不透明的带有边界、标题栏等的框架view，和一个通过window的
-        <code>
-            contentView
-        </code>
+        <code> contentView </code>
         property访问的透明content view。
     </p>
     <p>
         content view是一个window的view图层的根，你可以用一个定制的view来替换这个默认的。注意，你必须使用
-        <code>
-            NSWindow
-        </code>
+        <code> NSWindow </code>
         的
-        <code>
-            setContentView
-        </code>
+        <code> setContentView </code>
         方法来定位content view - 你不可以用标准的
-        <code>
-            NSView
-        </code>
+        <code> NSView </code>
         的
-        <code>
-            setFrame
-        </code>
+        <code> setFrame </code>
         方法来定位它。
     </p>
     <p>
@@ -892,31 +818,21 @@
                 注意
             </em>
             ：如果你是一个iOS的开发者，请注意在Cocoa中，
-            <code>
-                NSWindow
-            </code>
+            <code> NSWindow </code>
             <i>
                 不是
             </i>
-            <code>
-                NSView
-            </code>
+            <code> NSView </code>
             的子类！在
             <em>
                 iOS
             </em>
             中，
-            <code>
-                UIWindow
-            </code>
+            <code> UIWindow </code>
             是
-            <code>
-                UIView
-            </code>
+            <code> UIView </code>
             的一个特殊的子类。
-            <code>
-                UIWindow
-            </code>
+            <code> UIWindow </code>
             它自己是view图层的根，就由它来扮演content view的角色。
         </p>
     </div>
@@ -925,9 +841,7 @@
     </h3>
     <p>
         在storyboard的
-        <code>
-            contentView
-        </code>
+        <code> contentView </code>
         中，通过选择并按
         <em>
             delete
@@ -940,9 +854,7 @@
     </p>
     <p>
         为了创建将要构成你的UI的主要部分的新的
-        <code>
-            NSTextField
-        </code>
+        <code> NSTextField </code>
         ，跟随下列的说明：
     </p>
     <ol>
@@ -1089,9 +1001,7 @@
             First Responder
         </em>
         上，然后释放鼠标。一个带有全部动作的小型的可滚动的列表window就会弹出。找到并选择
-        <code>
-            orderFrontFontPanel
-        </code>
+        <code> orderFrontFontPanel </code>
         。你也可以输入这个名称以便更快地找到它。
     </p>
     <p>
@@ -1112,9 +1022,7 @@
             Connections Inspector
         </em>
         。你会看到，现在这个菜单已经被连接到了在响应者链中响应 
-        <code>
-            orderFrontFontPanel
-        </code>
+        <code> orderFrontFontPanel </code>
         这个selector的第一响应者。
     </p>
     <p>
@@ -1273,9 +1181,7 @@
     </h3>
     <p>
         为了在window打开时自动地展示尺子，你需要在代码中有一个
-        <code>
-            IBOutlet
-        </code>
+        <code> IBOutlet </code>
         。从菜单中选择
         <em>
             Format / Text / Show Ruler
@@ -1285,13 +1191,9 @@
             ViewController.swift
         </em>
         中，添加一行代码方法
-        <code>
-            toggleRuler
-        </code>
+        <code> toggleRuler </code>
         到
-        <code>
-            viewDidLoad
-        </code>
+        <code> viewDidLoad </code>
         中，并添加一个
         <em>
             IBOutlet
@@ -1309,17 +1211,13 @@
     </p>
     <p>
         在storyboard中，右击
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         ，不放手并拖拽到text view直到它变得高亮，然后放开鼠标。你将会看到一个带有
         <em>
             Outlets
         </em>
         列表的小的window。选择
-        <code>
-            text
-        </code>
+        <code> text </code>
         的outlet：
     </p>
     <p>
@@ -1345,32 +1243,20 @@
     </p>
     <p>
         有两种方式来利用模态窗口。你可以调用
-        <code>
-            NSApplication
-        </code>
+        <code> NSApplication </code>
         的方法
-        <code>
-            runModalForWindow
-        </code>
+        <code> runModalForWindow </code>
         。这种方式为指定的窗口垄断（monopolizes）了事件，直到它得到了一个你可以通过
-        <code>
-            stopModal
-        </code>
+        <code> stopModal </code>
         、
-        <code>
-            abortModal
-        </code>
+        <code> abortModal </code>
         或
-        <code>
-            stopModalWithCode
-        </code>
+        <code> stopModalWithCode </code>
         来调用的请求才停止。
     </p>
     <p>
         对于这个case，你将使用
-        <code>
-            stopModal
-        </code>
+        <code> stopModal </code>
         。另一种方式被称作
         <em>
             模态session
@@ -1451,9 +1337,7 @@
             关闭
         </em>
         按钮，它还会引入一个严重的bug，因为点击它就会关闭window，但没有调用
-        <code>
-            stopModal
-        </code>
+        <code> stopModal </code>
         。这样，这个app就会永远停留在“模态状态”下。
     </p>
     <h3>
@@ -1500,9 +1384,7 @@
     </p>
     <p>
         现在，你将从Object Library中添加四个label控件和一个push button到Word Count window的
-        <code>
-            contentView
-        </code>
+        <code> contentView </code>
         上。
     </p>
     <p>
@@ -1562,17 +1444,13 @@
             Class
         </em>
         后输入
-        <code>
-            WordCountViewController
-        </code>
+        <code> WordCountViewController </code>
         ，而在
         <em>
             Subclass of
         </em>
         后输入
-        <code>
-            NSViewController
-        </code>
+        <code> NSViewController </code>
         。
     </p>
     <p>
@@ -1608,9 +1486,7 @@
             Class
         </em>
         的下拉菜单中选择
-        <code>
-            WordCountViewController
-        </code>
+        <code> WordCountViewController </code>
         。
         注意在画板和
         <em>
@@ -1649,16 +1525,12 @@
             Outlets
         </em>
         列表中，选择
-        <code>
-            wordCount
-        </code>
+        <code> wordCount </code>
         。
     </p>
     <p>
         为下面那个0 label重复同样的操作，但是这次选择
-        <code>
-            paragraphCount
-        </code>
+        <code> paragraphCount </code>
         。查看
         <em>
             Connections Inspector
@@ -1715,9 +1587,7 @@
             ViewController.swift
         </em>
         ，在
-        <code>
-            viewDidLoad
-        </code>
+        <code> viewDidLoad </code>
         下面添加如下代码：
     </p>
     <pre class="swift" style="font-family:monospace;">  @IBAction <span style="color: #a61390;">func</span> showWordCountWindow<span style="color: #002200;">(</span>sender<span style="color: #002200;">:</span> <span style="color: #a61390;">AnyObject</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
@@ -1758,13 +1628,9 @@
                 注意
             </em>
             ：在第二步，你在两个view controller间传递了数据。这就类似于当transition涉及到一个segue时，你经常在
-            <code>
-                prepareForSegue
-            </code>
+            <code> prepareForSegue </code>
             中做的一样。由于展示模态window是直接通过调用
-            <code>
-                runModalForWindow
-            </code>
+            <code> runModalForWindow </code>
             完成的，没有涉及到segue，你只需在调用之前传递数据。
         </p>
     </div>
@@ -1777,9 +1643,7 @@
             WordCountViewController.swift
         </em>
         中，添加下列代码到
-        <code>
-            paragraphCount
-        </code>
+        <code> paragraphCount </code>
         outlet的下边：
     </p>
     <pre class="swift" style="font-family:monospace;">  @IBAction <span style="color: #a61390;">func</span> dismissWordCountWindow<span style="color: #002200;">(</span>sender<span style="color: #002200;">:</span> <span style="color: #400080;">NSButton</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
@@ -1811,9 +1675,7 @@
             word count view controller
         </em>
         的proxy图标上。释放鼠标并在出现的列表中选择
-        <code>
-            dismissWordCountWindow:
-        </code>
+        <code> dismissWordCountWindow: </code>
         ：
     </p>
     <p>
@@ -1876,9 +1738,7 @@
             ViewController.swift
         </em>
         中连接新的菜单项到
-        <code>
-            showWordCountWindow
-        </code>
+        <code> showWordCountWindow </code>
         方法上。        
     </p>
     <p>
@@ -1895,9 +1755,7 @@
             First Responder
         </em>
         上。从列表中选择
-        <code>
-            showWordCountWindow
-        </code>
+        <code> showWordCountWindow </code>
         。
     </p>
     <p>
@@ -1914,9 +1772,7 @@
                 注意
             </em>
             ：你可能会奇怪为什么你要连接菜单项到first responder，而不是直接到
-            <code>
-                showWordCountWindow
-            </code>
+            <code> showWordCountWindow </code>
             这里。这是因为文档view的主菜单和view controller是在不同的storyboard的scene中，因此，不能直接连接。
         </p>
     </div>

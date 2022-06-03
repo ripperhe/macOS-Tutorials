@@ -109,9 +109,7 @@
     </p>
     <p>
         全部三种类型的slider（水平、垂直和径向）实际上都是一个控件
-        <code>
-            NSSlider
-        </code>
+        <code> NSSlider </code>
         。唯一的区别只是它们的外表。Interface Builder对于每种类型的slider在Object Library中都有一个对象，如同下面展示的这样：
     </p>
     <p>
@@ -151,9 +149,7 @@ mySlider.maxValue = theMaximumValue
 </pre>
     <p>
         再一次，这里没有什么好奇怪的 - 如果你现在已学到了什么，它就是实现标准macOS控件的一个相当简单的练习。移步到下一部分，让你的app包含一个
-        <code>
-            NSSlider
-        </code>
+        <code> NSSlider </code>
         ！
     </p>
     <h2>
@@ -320,9 +316,7 @@ mySlider.maxValue = theMaximumValue
             ViewController.swift
         </em>
         并添加下面的代码到
-        <code>
-            sliderChanged()
-        </code>
+        <code> sliderChanged() </code>
         中：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-keyword">let</span> amount = amountSlider.integerValue
@@ -330,9 +324,7 @@ amountLabel.stringValue = <span class="hljs-string">"Amount: [<span class="hljs-
 </pre>
     <p>
         快速回顾上面展示的代码，你第一次读取了slider当前的值，然后你label的值为一个包含slider的值的字符串。请注意，用户不能从UI中编辑
-        <code>
-            amountLabel
-        </code>
+        <code> amountLabel </code>
         的值，但仍然可以通过编程的方式来编辑它。
     </p>
     <div class="note">
@@ -341,17 +333,11 @@ amountLabel.stringValue = <span class="hljs-string">"Amount: [<span class="hljs-
                 注意：
             </em>
             这个例子使用
-            <code>
-                integerValue
-            </code>
+            <code> integerValue </code>
             获取了一个很好的整数，但如果你需要更加精确，你可以为你的slider使用
-            <code>
-                floatValue
-            </code>
+            <code> floatValue </code>
             或
-            <code>
-                doubleValue
-            </code>
+            <code> doubleValue </code>
             的值。
         </p>
     </div>
@@ -374,9 +360,7 @@ amountLabel.stringValue = <span class="hljs-string">"Amount: [<span class="hljs-
     </p>
     <p>
         添加下列的代码到
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         尾部：
     </p>
     <pre lang="swift" class="hljs objectivec"><span class="hljs-comment">// Update the amount slider</span>
@@ -384,9 +368,7 @@ sliderChanged(<span class="hljs-keyword">self</span>)
 </pre>
     <p>
         现在app就会在启动时调用
-        <code>
-            sliderChanged()
-        </code>
+        <code> sliderChanged() </code>
         ，它就会更新label。Neat！
     </p>
     <p>
@@ -485,9 +467,7 @@ myDatePicker.maxDate = theMaximumDate
             ViewController.swift
         </em>
         并添加下面的代码到
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         方法的末尾：
     </p>
     <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// Set the date picker to display the current date</span>
@@ -650,9 +630,7 @@ let selected = (radioButton.state == <span class="hljs-built_in">NSOnState</span
 </pre>
     <p>
         这是一个典型的动作方法，它包含一个
-        <code>
-            @IBAction
-        </code>
+        <code> @IBAction </code>
         的标注，因此Interface Builder就可以找到并使用它。现在，打开
         <em>
             Main.storyBoard
@@ -673,9 +651,7 @@ let selected = (radioButton.state == <span class="hljs-built_in">NSOnState</span
             Received Actions
         </em>
         区，并从靠近
-        <code>
-            radioButtonChanged:
-        </code>
+        <code> radioButtonChanged: </code>
         的圈拖拽到
         <em>
             RWDevCon
@@ -728,9 +704,7 @@ let selected = (radioButton.state == <span class="hljs-built_in">NSOnState</span
             ViewController.swift
         </em>
         。并添加下列的代码到
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         方法的尾部：
     </p>
     <pre lang="swift" class="hljs objectivec"><span class="hljs-comment">// Set the radio group's initial selection</span>
@@ -834,9 +808,7 @@ let state = myCheckBox.state
     </p>
     <p>
         现在，你会将check box在app启动时的默认值设为off。为了做到这点，添加下列的代码到
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         的尾部：
     </p>
     <pre lang="swift" class="hljs objectivec"><span class="hljs-comment">// set check button state</span>
@@ -887,9 +859,7 @@ segmentedControl.selectedSegment = <span class="hljs-number">0</span>
     </h2>
     <p>
         如果你还记得，
-        <code>
-            readSentence()
-        </code>
+        <code> readSentence() </code>
         方法含有一个控制语速（Normal, Fast, Slow）的参数。你将使用一个segmented control来改变语速。
     </p>
     <p>
@@ -929,9 +899,7 @@ segmentedControl.selectedSegment = <span class="hljs-number">0</span>
     </p>
     <p>
         在
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         中为segmented control创建一个outlet，并命名为
         <em>
             voiceSegmentedControl
@@ -941,9 +909,7 @@ segmentedControl.selectedSegment = <span class="hljs-number">0</span>
             ViewController.swift
         </em>
         并添加下面的代码到
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         ：
     </p>
     <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// Set the segmented control initial selection</span>
@@ -951,9 +917,7 @@ voiceSegmentedControl.selectedSegment = <span class="hljs-number">1</span>
 </pre>
     <p>
         就像它看起来一样得容易。只需将
-        <code>
-            selectedSegment
-        </code>
+        <code> selectedSegment </code>
         的property设置为1。现在，运行项目，查看Normal segment是否已选中。
     </p>
     <p>
@@ -1181,9 +1145,7 @@ myImageView.image = myImage
     </p>
     <p>
         现在，用以下的代码替换
-        <code>
-            goButtonClicked()
-        </code>
+        <code> goButtonClicked() </code>
         方法中的全部内容：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-comment">// 1</span>
@@ -1230,64 +1192,42 @@ readSentence(sentence, rate: voiceRate)
     <ol>
         <li>
             从
-            <code>
-                pastTenseVerbTextField
-            </code>
+            <code> pastTenseVerbTextField </code>
             获取文本。
         </li>
         <li>
             在这部分代码中，你通过 
-            <code>
-                stringValue
-            </code>
+            <code> stringValue </code>
             property从combo box中或取字符串。你可能会问，为何不只在选中的行进行查阅，然后检索关联到这行的字符串。非常简单，这是因为用户可以输入它们自己的文本到combo box中，因此选择使用
-            <code>
-                stringValue
-            </code>
+            <code> stringValue </code>
             来获取当前的字符串，它既可以被选择，也可以被输入。
         </li>
         <li>
             接下来，使用
-            <code>
-                integerValue
-            </code>
+            <code> integerValue </code>
             方法读取slider当前的值。记住，如果你需要更精确的控件，你还可以使用
-            <code>
-                floatValue
-            </code>
+            <code> floatValue </code>
             或
-            <code>
-                doubleValue
-            </code>
+            <code> doubleValue </code>
             。
         </li>
         <li>
             这里，你从popup button中获取了复数名词。这如何做到？在你的
-            <code>
-                pluralNouns
-            </code>
+            <code> pluralNouns </code>
             数组中使用下标语法，找到恰当的复数名词，并获取其
-            <code>
-                indexOfSelectedItem
-            </code>
+            <code> indexOfSelectedItem </code>
             property。
         </li>
         <li>
             接下来是用户输入的短语。要获取它，只需从
-            <code>
-                string
-            </code>
+            <code> string </code>
             property中获取我们的text view的字符串的值。再一次，你使用了nil coalescing语法，因为这个property是可选的，它的值可能是
-            <code>
-                nil
-            </code>
+            <code> nil </code>
             。
         </li>
         <li>
             调用date picker的
-            <code>
-                dateValue
-            </code>
+            <code> dateValue </code>
             方法获取日期。然后使用
             <a href="http://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSDateFormatter_Class/Reference/Reference.html"
             title="NSDateFormatter">
@@ -1297,9 +1237,7 @@ readSentence(sentence, rate: voiceRate)
         </li>
         <li>
             你应该说还是喊？只需获取checkbox的状态：如果它是
-            <code>
-                NSOnState
-            </code>
+            <code> NSOnState </code>
             ，指派
             <em>
                 yelled
@@ -1315,9 +1253,7 @@ readSentence(sentence, rate: voiceRate)
         </li>
         <li>
             现在你所有你努力工作所得出的结果了可以进行展示了！首先，通过设置results label的
-            <code>
-                stringValue
-            </code>
+            <code> stringValue </code>
             property来展示最终的句子。然后，通过向用户展示一副图像，来给app添加一些魅力，这和加载图像并设置image view控件的property一样得简单。
         </li>
         <li>

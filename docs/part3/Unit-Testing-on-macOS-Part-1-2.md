@@ -95,23 +95,15 @@
                 XCTest
             </em>
             是由Xcode提供的测试框架。
-            <code>
-                @testable import High_Roller
-            </code>
+            <code> @testable import High_Roller </code>
             则让代码可以访问
-            <code>
-                High_Roller
-            </code>
+            <code> High_Roller </code>
             模块中的所有代码。每个测试文件都需要这样的两个导入。
         </li>
         <li>
-            <code>
-                setup()
-            </code>
+            <code> setup() </code>
             和
-            <code>
-                tearDown()
-            </code>
+            <code> tearDown() </code>
             ：两个方法会在:
             <em>
                 每个单个的
@@ -119,17 +111,11 @@
             测试方法被调用之前和之后调用。
         </li>
         <li>
-            <code>
-                testExample()
-            </code>
+            <code> testExample() </code>
             和
-            <code>
-                testPerformanceExample()
-            </code>
+            <code> testPerformanceExample() </code>
             ：实际的测试。第一个测试功能，第二个则测试性能。每个测试方法的名称都必须以: 
-            <code>
-                test
-            </code>
+            <code> test </code>
             开头，这样才能被Xcode识别为一个测试的方法去执行。
         </li>
     </ul>
@@ -209,28 +195,18 @@
     </p>
     <p>
         这个app的model包含两个主要的对象类型：一个是
-        <code>
-            Dice
-        </code>
+        <code> Dice </code>
         ，它包含一个
-        <code>
-            value
-        </code>
+        <code> value </code>
         property和一个用来生成任意值的方法；另一个是
-        <code>
-            Roll
-        </code>
+        <code> Roll </code>
         ，它含有一个
-        <code>
-            Dice
-        </code>
+        <code> Dice </code>
         对象的集合，并附有一起滚动骰子，计算总值等等的方法。
     </p>
     <p>
         第一个测试类针对的是
-        <code>
-            Dice
-        </code>
+        <code> Dice </code>
         对象类型。
     </p>
     <h2>
@@ -258,9 +234,7 @@
             Next
         </em>
         并将类命名为
-        <code>
-            DiceTests
-        </code>
+        <code> DiceTests </code>
         。语言设为Swift。点击
         <em>
             Next
@@ -277,9 +251,7 @@
             DiceTests.swift
         </em>
         中，就在
-        <code>
-            import XCTest
-        </code>
+        <code> import XCTest </code>
         这行的下方：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@testable</span> <span class="hljs-keyword">import</span> High_Roller
@@ -293,9 +265,7 @@
     </p>
     <p>
         第一件要测试的事是
-        <code>
-            Dice
-        </code>
+        <code> Dice </code>
         对象可否被创建。
     </p>
     <h3>
@@ -314,9 +284,7 @@
 </pre>
     <p>
         在你运行测试之前，这里会爆出一个编译错误：
-        <code>
-            "Use of unresolved identifier 'Dice'"
-        </code>
+        <code> "Use of unresolved identifier 'Dice'" </code>
         。在TDD中，一个未能编译通过的测试会被认做是失败的测试，因此你现在只是完成了TDD顺序中的第一步。
     </p>
     <p>
@@ -470,17 +438,13 @@
             Dice
         </em>
         对象都有一个
-        <code>
-            value
-        </code>
+        <code> value </code>
         ，当
         <em>
             Dice
         </em>
         被初始化时，它的值应当为
-        <code>
-            nil
-        </code>
+        <code> nil </code>
         。
     </p>
     <p>
@@ -503,32 +467,22 @@
     <ol>
         <li>
             方法的名称以
-            <code>
-                'test'
-            </code>
+            <code> 'test' </code>
             开头，而剩余的部分则表明测试什么。
         </li>
         <li>
             本测试使用
-            <code>
-                XCTAssert
-            </code>
+            <code> XCTAssert </code>
             方法之一来确认value是
-            <code>
-                nil
-            </code>
+            <code> nil </code>
             。
-            <code>
-                XCTAssertNil()
-            </code>
+            <code> XCTAssertNil() </code>
             方法的第二个参数是一个可选的字符串，当测试失败的时候，用来提供错误信息。我通常偏好使用描述性较强的方法名称，而将这个参数置空，来保持实际测试的代码整洁易读。
         </li>
     </ol>
     <p>
         这个测试代码会产生一个编译错误：
-        <code>
-            “Value of type 'Dice' has no member 'value'”
-        </code>
+        <code> “Value of type 'Dice' has no member 'value'” </code>
         。
     </p>
     <p>
@@ -537,9 +491,7 @@
             Dice.swift
         </em>
         中添加下列的property声明到
-        <code>
-            Dice
-        </code>
+        <code> Dice </code>
         的结构体中：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">var</span> value: <span class="hljs-type">Int</span>?
@@ -557,9 +509,7 @@
     </p>
     <p>
         每个
-        <code>
-            Dice
-        </code>
+        <code> Dice </code>
         对象都应该可以“滚动”并生成它的value。添加下一个测试到
         <em>
             DiceTests.swift
@@ -574,20 +524,14 @@
 </pre>
     <p>
         这个测试使用了
-        <code>
-            XCTAssertNotNil()
-        </code>
+        <code> XCTAssertNotNil() </code>
         方法来替换之前测试中的
-        <code>
-            XCTAssertNil()
-        </code>
+        <code> XCTAssertNil() </code>
         。
     </p>
     <p>
         由于Dice结构体还没有
-        <code>
-            rollDie()
-        </code>
+        <code> rollDie() </code>
         方法，此时必然就会出现另一个编译错误。为了修复它，切回到
         <em>
             Assistant Editor
@@ -604,25 +548,15 @@
 </pre>
     <p>
         运行测试，你会看到一个警告，关于使用
-        <code>
-            var
-        </code>
+        <code> var </code>
         来替换
-        <code>
-            let
-        </code>
+        <code> let </code>
         ，以及一个
-        <code>
-            XCTAssert
-        </code>
+        <code> XCTAssert </code>
         这次将会失败的提示。这是讲得通的，因为
-        <code>
-            rollDie()
-        </code>
+        <code> rollDie() </code>
         到现在还未做任何事。将
-        <code>
-            rollDie()
-        </code>
+        <code> rollDie() </code>
         修改为如下的代码：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">rollDie</span><span class="hljs-params">()</span></span> {
@@ -631,9 +565,7 @@
 </pre>
     <p>
         现在你已明白了TDD如何产生一些奇怪的代码。你很清楚
-        <code>
-            Dice
-        </code>
+        <code> Dice </code>
         结构体最终产生的是随机的值，但由于目前为止，你还没有编写测试来验证这点，因此这个方法还是能够通过目前测试的最小代码集。再次运行测试来证明这点。
     </p>
     <h3>
@@ -648,9 +580,7 @@
             DiceTests.swift
         </em>
         并添加下列的测试，现在又引入了两个
-        <code>
-            XCTAssert
-        </code>
+        <code> XCTAssert </code>
         方法：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testDiceRoll_ShouldBeFromOneToSix</span><span class="hljs-params">()</span></span> {
@@ -667,13 +597,9 @@
     </p>
     <p>
         运行测试，现在两个断言都会失败。修改
-        <code>
-            rollDie()
-        </code>
+        <code> rollDie() </code>
         方法，将
-        <code>
-            value
-        </code>
+        <code> value </code>
         设置为1。这次就可以通过测试了，但这样的骰子仍没神马用处！:]
     </p>
     <p>
@@ -721,20 +647,14 @@
     </p>
     <ol>
         <li>
-            <code>
-                rollCounter
-            </code>
+            <code> rollCounter </code>
             指示骰子将被滚动的次数。我们认为相应于每个期望的数字滚动100次是一个大致合理的样本数量。
         </li>
         <li>
             如果任何一次循环后value没有值，测试会失败并立刻退出。
-            <code>
-                XCTFail()
-            </code>
+            <code> XCTFail() </code>
             类似于一个断言，它永远都不会通过，非常适合于
-            <code>
-                guard
-            </code>
+            <code> guard </code>
             语句搭配使用。
         </li>
         <li>
@@ -745,13 +665,9 @@
         </li>
         <li>
             这个测试使用了一个新的断言：
-            <code>
-                XCTAssertEqualWithAccuracy()
-            </code>
+            <code> XCTAssertEqualWithAccuracy() </code>
             ，它可以进行不精确的比较。由于
-            <code>
-                XCTAssertEqualWithAccuracy()
-            </code>
+            <code> XCTAssertEqualWithAccuracy() </code>
             会被调用非常多次，因此用可选的信息来表示哪一部分的循环失败了。
         </li>
     </ol>
@@ -770,9 +686,7 @@
     </p>
     <p>
         最后，添加随机数字生成器到
-        <code>
-            rollDie()
-        </code>
+        <code> rollDie() </code>
         中。在
         <em>
             Dice.swift
@@ -785,24 +699,18 @@
 </pre>
     <p>
         上述代码使用了
-        <code>
-            arc4random_uniform()
-        </code>
+        <code> arc4random_uniform() </code>
         产生一个1到6之间的数字。看起来非常得简单，但仍然需要进行测试！再次按下
         <em>
             Command-U
         </em>
         键，所有的测试都通过了。你现在就可以确信
-        <code>
-            Dice
-        </code>
+        <code> Dice </code>
         结构体大致是以你所期望的比例产生数字了。如果有人说你的app作弊，你就可以把测试结果给它们看说不是的！
     </p>
     <p>
         完工大吉了！
-        <code>
-            Dice
-        </code>
+        <code> Dice </code>
         结构体已完成，喝茶时间...
     </p>
     <p>
@@ -834,9 +742,7 @@
 </pre>
     <p>
         编译器会抱怨说
-        <code>
-            rollDie()
-        </code>
+        <code> rollDie() </code>
         不可以传任何参数。切到
         <em>
             assistant editor
@@ -846,13 +752,9 @@
             Dice.swift
         </em>
         中修改
-        <code>
-            rollDie()
-        </code>
+        <code> rollDie() </code>
         的声明，来添加一个
-        <code>
-            numberOfSides
-        </code>
+        <code> numberOfSides </code>
         的形参：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">rollDie</span><span class="hljs-params">(numberOfSides: Int)</span></span> {
@@ -863,16 +765,12 @@
             可以
         </i>
         将它们全部修改，但大多数的骰子都是6个面的（无需告知你角色扮演的朋友这点）。那么何不给
-        <code>
-            numberOfSides
-        </code>
+        <code> numberOfSides </code>
         参数一个默认值？
     </p>
     <p>
         将
-        <code>
-            rollDie(numberOfSides:)
-        </code>
+        <code> rollDie(numberOfSides:) </code>
         的声明修改为：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">mutating</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">rollDie</span><span class="hljs-params">(numberOfSides: Int = <span class="hljs-number">6</span>)</span></span> {
@@ -882,9 +780,7 @@
     </p>
     <p>
         因此现在需要写另一个类似于
-        <code>
-            testRollsAreSpreadRoughlyEvenly()
-        </code>
+        <code> testRollsAreSpreadRoughlyEvenly() </code>
         的测试了，但针对的是20个面的骰子。
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testTwentySidedRollsAreSpreadRoughlyEvenly</span><span class="hljs-params">()</span></span> {
@@ -927,24 +823,16 @@
     </p>
     <p>
         你应当期望：
-        <code>
-            rollDie(numberOfSides:)
-        </code>
+        <code> rollDie(numberOfSides:) </code>
         还不使用
-        <code>
-            numberOfSides
-        </code>
+        <code> numberOfSides </code>
         参数。
     </p>
     <p>
         用
-        <code>
-            numberOfSides
-        </code>
+        <code> numberOfSides </code>
         来替换
-        <code>
-            arc4random_uniform()
-        </code>
+        <code> arc4random_uniform() </code>
         中的6，然后再次按下
         <em>
             Command-U
@@ -959,13 +847,9 @@
     </h3>
     <p>
         你有一些很值得去重构的代码。
-        <code>
-            testRollsAreSpreadRoughlyEvenly()
-        </code>
+        <code> testRollsAreSpreadRoughlyEvenly() </code>
         和
-        <code>
-            testTwentySidedRollsAreSpreadRoughlyEvenly()
-        </code>
+        <code> testTwentySidedRollsAreSpreadRoughlyEvenly() </code>
         中的代码非常相似，因此你可以将其分离出来作为一个私有方法。
     </p>
     <p>
@@ -1008,24 +892,16 @@
 </pre>
     <p>
         这个方法的名称并不以
-        <code>
-            test
-        </code>
+        <code> test </code>
         开头，因此不会被当做一个测试去运行。
     </p>
     <p>
         回到主
-        <code>
-            DiceTests
-        </code>
+        <code> DiceTests </code>
         类，并将
-        <code>
-            testRollsAreSpreadRoughlyEvenly()
-        </code>
+        <code> testRollsAreSpreadRoughlyEvenly() </code>
         和
-        <code>
-            testTwentySidedRollsAreSpreadRoughlyEvenly()
-        </code>
+        <code> testTwentySidedRollsAreSpreadRoughlyEvenly() </code>
         方法替换为下列的代码：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">testRollsAreSpreadRoughlyEvenly</span><span class="hljs-params">()</span></span> {
@@ -1048,62 +924,40 @@
             Dice.swift
         </em>
         并撤销你在
-        <code>
-            rollDie(numberOfSides:)
-        </code>
+        <code> rollDie(numberOfSides:) </code>
         中做的有关于20面的骰子的改动：将调用
-        <code>
-            arc4random_uniform()
-        </code>
+        <code> arc4random_uniform() </code>
         中的
-        <code>
-            numberOfSides
-        </code>
+        <code> numberOfSides </code>
         替换为
-        <code>
-            6
-        </code>
+        <code> 6 </code>
         。现在再次运行测试。
     </p>
     <p>
-        <code>
-            testTwentySidedRollsAreSpreadRoughlyEvenly()
-        </code>
+        <code> testTwentySidedRollsAreSpreadRoughlyEvenly() </code>
         失败了，但错误信息却位于
-        <code>
-            performMultipleRollTests(numberOfSides:)
-        </code>
+        <code> performMultipleRollTests(numberOfSides:) </code>
         中 — 不是一个非常有用的地点。
     </p>
     <p>
         Xcode可以帮助你解决这个问题。当定义一个助手方法的时候，你可以提供一个带有特定默认值
-        <code>
-            #line
-        </code>
+        <code> #line </code>
         的参数 - 它会包含调用这个方法时的代码的行序号。这个行序号就可以被用到
-        <code>
-            XCTAssert
-        </code>
+        <code> XCTAssert </code>
         方法中，使得错误的信息更有价值。
     </p>
     <p>
         在
-        <code>
-            DiceTests
-        </code>
+        <code> DiceTests </code>
         的extension中，将方法的定义
-        <code>
-            performMultipleRollTests(numberOfSides:)
-        </code>
+        <code> performMultipleRollTests(numberOfSides:) </code>
         修改为如下的代码：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">fileprivate</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">performMultipleRollTests</span><span class="hljs-params">(numberOfSides: Int = <span class="hljs-number">6</span>, line: UInt = #line)</span></span> {
 </pre>
     <p>
         将
-        <code>
-            XCTAsserts
-        </code>
+        <code> XCTAsserts </code>
         修改为如下的样子：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-type">XCTAssertEqual</span>(rolls.keys.<span class="hljs-built_in">count</span>, numberOfSides, line: line)
@@ -1118,20 +972,14 @@
 </pre>
     <p>
         你无需修改调用
-        <code>
-            performMultipleRollTests(numberOfSides:line:)
-        </code>
+        <code> performMultipleRollTests(numberOfSides:line:) </code>
         方法的代码，因为新的参数会被默认值自动地填充。再次运行测试，你就会发现现在错误的记号位于调用
-        <code>
-            performMultipleRollTests(numberOfSides:line:)
-        </code>
+        <code> performMultipleRollTests(numberOfSides:line:) </code>
         方法这行了 - 而不是在助手方法之中。
     </p>
     <p>
         将
-        <code>
-            rollDie(numberOfSides:)
-        </code>
+        <code> rollDie(numberOfSides:) </code>
         方法恢复原状，然后按
         <em>
             Command-U
@@ -1153,21 +1001,13 @@
     </p>
     <p>
         要学习该怎么做，你要为
-        <code>
-            Roll
-        </code>
+        <code> Roll </code>
         结构体添加测试。在这个app中，
-        <code>
-            Roll
-        </code>
+        <code> Roll </code>
         包含了一个
-        <code>
-            Dice
-        </code>
+        <code> Dice </code>
         的数组和一个
-        <code>
-            numberOfSides
-        </code>
+        <code> numberOfSides </code>
         的property。它用来处理滚动所有的筛子及统计滚动的结果。
     </p>
     <p>
@@ -1176,9 +1016,7 @@
             File Navigator
         </em>
         ，选择
-        <code>
-            Roll.swift
-        </code>
+        <code> Roll.swift </code>
         。将全部占位的代码替换为如下内容：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Roll</span> </span>{
@@ -1239,9 +1077,7 @@
             macOS/Unit Test Case Class
         </em>
         来添加一个叫做
-        <code>
-            RollTests
-        </code>
+        <code> RollTests </code>
         的类。删除其中所有的测试代码。
     </p>
     <p>
@@ -1262,17 +1098,11 @@
     </p>
     <p>
         首先，你想去测试
-        <code>
-            Roll
-        </code>
+        <code> Roll </code>
         可否被创建，且可以添加
-        <code>
-            Dice
-        </code>
+        <code> Dice </code>
         到
-        <code>
-            dice
-        </code>
+        <code> dice </code>
         数组中。测试使用5个骰子。
     </p>
     <p>
@@ -1308,31 +1138,21 @@
 </pre>
     <p>
         再次成功了，但看起来似乎需要进行一些重构。每个测试的第一部分都设置了一个
-        <code>
-            Roll
-        </code>
+        <code> Roll </code>
         对象，并使用5个骰子来填充它。如果将它移到
-        <code>
-            setup()
-        </code>
+        <code> setup() </code>
         方法中，它就会在每个测试前执行。
     </p>
     <p>
         不仅如此，
-        <code>
-            Roll
-        </code>
+        <code> Roll </code>
         有一个方法来改变自身数组中
-        <code>
-            Dice
-        </code>
+        <code> Dice </code>
         的个数，因此测试也可以使用和测试这里。
     </p>
     <p>
         将
-        <code>
-            RollTests
-        </code>
+        <code> RollTests </code>
         类的内容替换为：
     </p>
     <pre lang="swift" class="language-swift hljs">  <span class="hljs-keyword">var</span> roll: <span class="hljs-type">Roll</span>!
@@ -1368,28 +1188,18 @@
 </pre>
     <p>
         运行测试 - 它失败了！看起来测试已经发现了一个代码中的bug。问题应该是在
-        <code>
-            rollAll()
-        </code>
+        <code> rollAll() </code>
         或
-        <code>
-            totalForDice()
-        </code>
+        <code> totalForDice() </code>
         中，因为这个测试中只调用过这两个方法。如果
-        <code>
-            rollAll()
-        </code>
+        <code> rollAll() </code>
         失败的话，总数应该是0.然而，返回的总数是一个负值，因此让我们来看一看
-        <code>
-            totalForDice()
-        </code>
+        <code> totalForDice() </code>
         方法。
     </p>
     <p>
         问题就在这里：
-        <code>
-            reduce
-        </code>
+        <code> reduce </code>
         是减而不是加value。将减号改为加号：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">totalForDice</span><span class="hljs-params">()</span></span> -&gt; <span class="hljs-type">Int</span> {

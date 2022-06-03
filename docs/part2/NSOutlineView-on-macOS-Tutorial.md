@@ -19,24 +19,16 @@
     </p>
     <p>
         当编写app的时候，你会经常想以一个类似列表的结构来展示数据。例如，你想要展示一个食谱的列表，这可以很容易地使用
-        <code>
-            NSTableView
-        </code>
+        <code> NSTableView </code>
         完成。但如果你想依据开胃菜或主要成分对食谱进行分组呢？现在你遇到了问题，因为table view不能进行分组。上图展示了设想中的分级食谱，只可惜我们还不会做！
     </p>
     <p>
         幸好，
-        <code>
-            NSOutlineView
-        </code>
+        <code> NSOutlineView </code>
         提供了更多的功能。
-        <code>
-            NSOutlineView
-        </code>
+        <code> NSOutlineView </code>
         是macOS中的一个常用组件，且它是
-        <code>
-            NSTableView
-        </code>
+        <code> NSTableView </code>
         的子类。和table view一样，它也用行和列来展示内容；有所不同的是，它使用分层的数据结构。
     </p>
     <p>
@@ -379,13 +371,9 @@
     </p>
     <p>
         将这个类命名为
-        <code>
-            Feed
-        </code>
+        <code> Feed </code>
         ，且让它成为
-        <code>
-            NSObject
-        </code>
+        <code> NSObject </code>
         的子类。然后点击
         <em>
             Next
@@ -420,13 +408,9 @@
 </pre>
     <p>
         上述代码为你的类添加了一个名为
-        <code>
-            name
-        </code>
+        <code> name </code>
         的property，以及一个方便设备此property的初始化分发。你的类会将它的“孩子”储存到一个数组中，但在你这么做之前，你需要创建一个类作为这个“孩子”。和之前的步骤一样，添加一个新名为
-        <code>
-            FeedItem
-        </code>
+        <code> FeedItem </code>
         的类。打开新建的
         <em>
             FeedItem.swift
@@ -449,21 +433,13 @@
 </pre>
     <p>
         这是另一个简答的模型类：
-        <code>
-            FeedItem
-        </code>
+        <code> FeedItem </code>
         ，它包含一个
-        <code>
-            url
-        </code>
+        <code> url </code>
         用来储存将加载到web view的网页的地址，一个
-        <code>
-            title
-        </code>
+        <code> title </code>
         ，及一个
-        <code>
-            publishingDate
-        </code>
+        <code> publishingDate </code>
         。它的构造器使用一个字典作为它的参数。它既可以从网络服务器中接收内容，也可以像本例中一样，从plist文件中获取。
     </p>
     <p>
@@ -472,9 +448,7 @@
             Feed.swift
         </em>
         并添加下列的property到
-        <code>
-            Feed
-        </code>
+        <code> Feed </code>
         中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">var</span> children = [<span class="hljs-type">FeedItem</span>]()
@@ -488,9 +462,7 @@
     </p>
     <p>
         现在添加下列的类方法到
-        <code>
-            Feed
-        </code>
+        <code> Feed </code>
         中来加载plist文件：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">func</span> <span class="hljs-title">feedList</span>(<span class="hljs-title">\_</span> <span class="hljs-title">fileName</span>: <span class="hljs-title">String</span>) -&gt; [<span class="hljs-title">Feed</span>] </span>{
@@ -522,17 +494,13 @@
 </pre>
     <p>
         这个方法以一个文件名作为它的参数，然后返回了一个由
-        <code>
-            Feed
-        </code>
+        <code> Feed </code>
         对象组成的数组。上述代码：
     </p>
     <ol>
         <li>
             创建了一个空的
-            <code>
-                Feed
-            </code>
+            <code> Feed </code>
             数组。
         </li>
         <li>
@@ -547,9 +515,7 @@
                 name
             </em>
             ，用来初始化
-            <code>
-                Feed
-            </code>
+            <code> Feed </code>
             。
         </li>
         <li>
@@ -564,43 +530,27 @@
         </li>
         <li>
             初始化一个
-            <code>
-                FeedItem
-            </code>
+            <code> FeedItem </code>
             。这个item被添加到了父
-            <code>
-                Feed
-            </code>
+            <code> Feed </code>
             的
-            <code>
-                children
-            </code>
+            <code> children </code>
             数组中。
         </li>
         <li>
             循环完成后，在
-            <code>
-                Feed
-            </code>
+            <code> Feed </code>
             开始加载之前，
-            <code>
-                Feed
-            </code>
+            <code> Feed </code>
             的每个child都被添加到了
-            <code>
-                feeds
-            </code>
+            <code> feeds </code>
             的数组中。
         </li>
         <li>
             返回
-            <code>
-                feeds
-            </code>
+            <code> feeds </code>
             。如果每件事都如同期望中的工作方式，这个数组将包含两个
-            <code>
-                Feed
-            </code>
+            <code> Feed </code>
             对象。
         </li>
     </ol>
@@ -615,9 +565,7 @@
 </pre>
     <p>
         找到
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         并添加下列的代码：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> filePath = <span class="hljs-type">Bundle</span>.main.path(forResource: <span class="hljs-string">"Feeds"</span>, ofType: <span class="hljs-string">"plist"</span>) {
@@ -632,13 +580,9 @@
 </pre>
     <p>
         可以看到你已经成功地加载了两个
-        <code>
-            Feed
-        </code>
+        <code> Feed </code>
         对象到
-        <code>
-            feeds
-        </code>
+        <code> feeds </code>
         property中 — 哇！
     </p>
     <h2>
@@ -646,20 +590,14 @@
     </h2>
     <p>
         到目前为止，你已告知了outline view
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         是它的data source — 但
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         至今不知道如何完成它的新工作。现在是时候来改变这点去解决错误信息了。
     </p>
     <p>
         在你的
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         的类声明下添加如下的
         <em>
             extension
@@ -672,20 +610,14 @@
 </pre>
     <p>
         这就让
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         采取了
-        <code>
-            NSOutlineViewDataSource
-        </code>
+        <code> NSOutlineViewDataSource </code>
         协议。由于在本教程中，我们不会使用binding，因此你必须实现几个方法来填充outline view。让我们来看看每个方法。
     </p>
     <p>
         你的outline view需要知道该展示多少个item。因此，使用方法
-        <code>
-            outlineView(\_: numberOfChildrenOfItem:) -&gt; Int
-        </code>
+        <code> outlineView(\_: numberOfChildrenOfItem:) -&gt; Int </code>
         。
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineView</span><span class="hljs-params">(<span class="hljs-number">\_</span> outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?)</span></span> -&gt; <span class="hljs-type">Int</span> {
@@ -703,56 +635,34 @@
     <ol>
         <li>
             如果
-            <code>
-                item
-            </code>
+            <code> item </code>
             是一个
-            <code>
-                Feed
-            </code>
+            <code> Feed </code>
             ，就返回
-            <code>
-                children
-            </code>
+            <code> children </code>
             的数量。
         </li>
         <li>
             否则，返回
-            <code>
-                feeds
-            </code>
+            <code> feeds </code>
             的数量。
         </li>
     </ol>
     <p>
         值得注意的是：
-        <code>
-            item
-        </code>
+        <code> item </code>
         是可选类型，对于你data model的根对象，它就是
-        <code>
-            nil
-        </code>
+        <code> nil </code>
         。在本例中，它对于
-        <code>
-            Feed
-        </code>
+        <code> Feed </code>
         就会返回
-        <code>
-            nil
-        </code>
+        <code> nil </code>
         ；否则它就会包含对象的父对象。对于
-        <code>
-            FeedItem
-        </code>
+        <code> FeedItem </code>
         对象，
-        <code>
-            item
-        </code>
+        <code> item </code>
         就会是一个
-        <code>
-            Feed
-        </code>
+        <code> Feed </code>
         。
     </p>
     <p>
@@ -768,35 +678,21 @@
 </pre>
     <p>
         首先检查
-        <code>
-            item
-        </code>
+        <code> item </code>
         是否是一个
-        <code>
-            Feed
-        </code>
+        <code> Feed </code>
         ；如果是的话，就为给定的index返回相应的
-        <code>
-            FeedItem
-        </code>
+        <code> FeedItem </code>
         。否则，就返回
-        <code>
-            Feed
-        </code>
+        <code> Feed </code>
         。同样，对于根对象，
-        <code>
-            item
-        </code>
+        <code> item </code>
         将是
-        <code>
-            nil
-        </code>
+        <code> nil </code>
         。
     </p>
     <p>
-        <code>
-            NSOutlineView
-        </code>
+        <code> NSOutlineView </code>
         的一个很棒的特性就是他可以折叠item。然而，你必须首先告诉它那些item可以折叠或是展开。添加下列的代码：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">outlineView</span><span class="hljs-params">(<span class="hljs-number">\_</span> outlineView: NSOutlineView, isItemExpandable item: Any)</span></span> -&gt; <span class="hljs-type">Bool</span> {
@@ -809,17 +705,11 @@
 </pre>
     <p>
         在本app中，只有
-        <code>
-            Feeds
-        </code>
+        <code> Feeds </code>
         可以展开或收起，因为只有它有children。因此首先检查
-        <code>
-            item
-        </code>
+        <code> item </code>
         是否是
-        <code>
-            Feed
-        </code>
+        <code> Feed </code>
         ，如果是的话，就判断它的child数量是否大于0，大于的话就返回true，否则返回false。对于其它的item，都返回false。
     </p>
     <p>
@@ -849,9 +739,7 @@
             ViewController.swift
         </em>
         中添加另一个
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         的extension：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span>: <span class="hljs-title">NSOutlineViewDelegate</span> </span>{
@@ -860,13 +748,9 @@
 </pre>
     <p>
         下面的这个方法会有一点复杂，因为outline view应当为每个
-        <code>
-            Feed
-        </code>
+        <code> Feed </code>
         和
-        <code>
-            FeedItems
-        </code>
+        <code> FeedItems </code>
         展示不同的view。让我们一块一块地说。
     </p>
     <p>
@@ -881,17 +765,11 @@
 </pre>
     <p>
         现在对于每个
-        <code>
-            item
-        </code>
+        <code> item </code>
         我们都返回了nil。下一步你要为
-        <code>
-            Feed
-        </code>
+        <code> Feed </code>
         来返回view。在
-        <code>
-            // More code here
-        </code>
+        <code> // More code here </code>
         注释的上方添加如下的代码：
     </p>
     <pre lang="swift" class="language-swift hljs">	
@@ -912,39 +790,27 @@
     <ol>
         <li>
             检查
-            <code>
-                item
-            </code>
+            <code> item </code>
             是否是
-            <code>
-                Feed
-            </code>
+            <code> Feed </code>
             。
         </li>
         <li>
             从outline view中获取一个对应于
-            <code>
-                Feed
-            </code>
+            <code> Feed </code>
             的view，包含一个text field的正常的
-            <code>
-                NSTableViewCell
-            </code>
+            <code> NSTableViewCell </code>
             。
         </li>
         <li>
             设置text field中的文本为feed的名称并调用
-            <code>
-                sizeToFit()
-            </code>
+            <code> sizeToFit() </code>
             ，来重新计算它的frame以适应它内容的大小。
         </li>
     </ol>
     <p>
         运行你的项目。你现在可以看到
-        <code>
-            Feed
-        </code>
+        <code> Feed </code>
         的cell，但展开的行中仍然看不到任何内容。
     </p>
     <p>
@@ -958,62 +824,44 @@
     </p>
     <p>
         这是因为你现在仅仅提供了代表
-        <code>
-            Feed
-        </code>
+        <code> Feed </code>
         的view。继续前进到下一步吧！依然在
         <em>
             ViewController.swift
         </em>
         中，在
-        <code>
-            feeds
-        </code>
+        <code> feeds </code>
         这个property下添加下列的property：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">let</span> dateFormatter = <span class="hljs-type">DateFormatter</span>() 
 </pre>
     <p>
         在
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         中
-        <code>
-            super.viewDidLoad()
-        </code>
+        <code> super.viewDidLoad() </code>
         后添加下列的代码：
     </p>
     <pre lang="swift" class="language-swift hljs">dateFormatter.dateStyle = .short
 </pre>
     <p>
         上述代码添加了一个
-        <code>
-            NSDateformatter
-        </code>
+        <code> NSDateformatter </code>
         ，用来依据
-        <code>
-            FeedItem
-        </code>
+        <code> FeedItem </code>
         中的
-        <code>
-            publishingDate
-        </code>
+        <code> publishingDate </code>
         创建一个很好的格式化日期。
     </p>
     <p>
         回到
-        <code>
-            outlineView(\_:viewForTableColumn:item:)
-        </code>
+        <code> outlineView(\_:viewForTableColumn:item:) </code>
         并添加一个
         <em>
             else-if
         </em>
         子句
-        <code>
-            if let feed = item as? Feed
-        </code>
+        <code> if let feed = item as? Feed </code>
         ：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> feedItem = item <span class="hljs-keyword">as</span>? <span class="hljs-type">FeedItem</span> {
@@ -1043,32 +891,20 @@
     <ol>
         <li>
             如果
-            <code>
-                item
-            </code>
+            <code> item </code>
             是一个
-            <code>
-                FeedItem
-            </code>
+            <code> FeedItem </code>
             ，你就需要填充两列：一列是
-            <code>
-                title
-            </code>
+            <code> title </code>
             ，另一列是
-            <code>
-                publishingDate
-            </code>
+            <code> publishingDate </code>
             。你可以使用它们的
-            <code>
-                identifier
-            </code>
+            <code> identifier </code>
             来区分列。
         </li>
         <li>
             如果
-            <code>
-                identifier
-            </code>
+            <code> identifier </code>
             是
             <em>
                 dateColumn
@@ -1077,9 +913,7 @@
         </li>
         <li>
             使用date formatter来根据
-            <code>
-                publishingDate
-            </code>
+            <code> publishingDate </code>
             创建一个字符串。
         </li>
         <li>
@@ -1088,20 +922,14 @@
                 dateColumn
             </em>
             的话，你就需要一个对应于
-            <code>
-                FeedItem
-            </code>
+            <code> FeedItem </code>
             的cell。
         </li>
         <li>
             将文本设置为
-            <code>
-                FeedItem
-            </code>
+            <code> FeedItem </code>
             的
-            <code>
-                title
-            </code>
+            <code> title </code>
             。
         </li>
     </ol>
@@ -1119,13 +947,9 @@
     </p>
     <p>
         还剩一个问题 - 相应于
-        <code>
-            Feed
-        </code>
+        <code> Feed </code>
         的date这列展示了一个静态的文本。要修复这里，可将if语句
-        <code>
-            if let feed = item as? Feed
-        </code>
+        <code> if let feed = item as? Feed </code>
         的内容修改为：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">if</span> tableColumn?.identifier == <span class="hljs-string">"DateColumn"</span> {
@@ -1172,32 +996,20 @@
         </li>
         <li>
             获取被选择的序号，并检查被选择的行是否包含
-            <code>
-                FeedItem
-            </code>
+            <code> FeedItem </code>
             或
-            <code>
-                Feed
-            </code>
+            <code> Feed </code>
             。
         </li>
         <li>
             如果选中的是
-            <code>
-                FeedItem
-            </code>
+            <code> FeedItem </code>
             ，就根据
-            <code>
-                Feed
-            </code>
+            <code> Feed </code>
             对象的
-            <code>
-                url
-            </code>
+            <code> url </code>
             property创建一个
-            <code>
-                NSURL
-            </code>
+            <code> NSURL </code>
             。
         </li>
         <li>
@@ -1257,9 +1069,7 @@
     </p>
     <p>
         现在运行项目，并选择一个
-        <code>
-            FeedItem
-        </code>
+        <code> FeedItem </code>
         。如果你的网路已连接，对应的文章就会在几秒中之后被加载出来。
     </p>
     <h2>
@@ -1313,21 +1123,15 @@
             ViewController.swift
         </em>
         中，添加一个名为
-        <code>
-            doubleClickedItem
-        </code>
+        <code> doubleClickedItem </code>
         的
         <em>
             IBAction
         </em>
         。确保sender的类型为
-        <code>
-            NSOutlineView
-        </code>
+        <code> NSOutlineView </code>
         而不是
-        <code>
-            AnyObject
-        </code>
+        <code> AnyObject </code>
         。
     </p>
     <p>
@@ -1374,16 +1178,12 @@
         </li>
         <li>
             检查这个item是否为
-            <code>
-                Feed
-            </code>
+            <code> Feed </code>
             ，只有Feed的item可以被展开或收起。
         </li>
         <li>
             如果这个item是
-            <code>
-                Feed
-            </code>
+            <code> Feed </code>
             的话，就询问outline view这个item是展开的还是收起的，然后调用恰当地方法完成操作。
         </li>
     </ol>
@@ -1399,9 +1199,7 @@
             ViewController.swift
         </em>
         中，为
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         添加下列的方法。确保将它添加到原始的类声明中而不是extension中，因为这个方法和delegate或datasource的协议无关。
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">keyDown</span><span class="hljs-params">(with theEvent: NSEvent)</span></span> {
@@ -1410,16 +1208,12 @@
 </pre>
     <p>
         这个方法会在每次某个键被按下时被调用，并询问系统是哪个键被按下了。对于一些键，系统会执行相应的动作。将被退格键调用的方法是
-        <code>
-            deleteBackward(\_:)
-        </code>
+        <code> deleteBackward(\_:) </code>
         。
     </p>
     <p>
         添加下面的方法
-        <code>
-            keyDown(\_:)
-        </code>
+        <code> keyDown(\_:) </code>
         ：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">deleteBackward</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any?)</span></span> {
@@ -1438,9 +1232,7 @@
     <ol>
         <li>
             第一件事是检查现在有无被选中的项。如果没有任何项被选中，
-            <code>
-                selectedRow
-            </code>
+            <code> selectedRow </code>
             的值就会是-1，直接退出本方法。
         </li>
         <li>
@@ -1449,13 +1241,9 @@
     </ol>
     <p>
         现在在
-        <code>
-            beginUpdates()
-        </code>
+        <code> beginUpdates() </code>
         和
-        <code>
-            endUpdates()
-        </code>
+        <code> endUpdates() </code>
         间添加下列的代码：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">//3</span>
@@ -1482,24 +1270,16 @@
         </li>
         <li>
             检查它是否为
-            <code>
-                Feed
-            </code>
+            <code> Feed </code>
             或
-            <code>
-                FeedItem
-            </code>
+            <code> FeedItem </code>
             。
         </li>
         <li>
             如果是
-            <code>
-                Feed
-            </code>
+            <code> Feed </code>
             的话，就在
-            <code>
-                feeds
-            </code>
+            <code> feeds </code>
             数组中查找它的序号。
         </li>
         <li>
@@ -1511,13 +1291,9 @@
     </ol>
     <p>
         为了完成这个方法，添加下列的代码来处理
-        <code>
-            FeedItems
-        </code>
+        <code> FeedItems </code>
         ，将它作为
-        <code>
-            if let item = item as? Feed
-        </code>
+        <code> if let item = item as? Feed </code>
         的else部分：
     </p>
     <pre lang="swift" class="language-swift hljs">		
@@ -1535,32 +1311,20 @@
     <ol start="8">
         <li>
             这里的代码非常类似于
-            <code>
-                Feed
-            </code>
+            <code> Feed </code>
             。唯一额外的步骤是它会迭代所有的feed，因为你不知道这个
-            <code>
-                FeedItem
-            </code>
+            <code> FeedItem </code>
             属于哪个
-            <code>
-                Feed
-            </code>
+            <code> Feed </code>
             。
         </li>
         <li>
             对于每个
-            <code>
-                Feed
-            </code>
+            <code> Feed </code>
             ，检查它的
-            <code>
-                children
-            </code>
+            <code> children </code>
             数组中是否可以找到
-            <code>
-                FeedItem
-            </code>
+            <code> FeedItem </code>
             。如果可以的话，就将它从数组和outline view中删除。
         </li>
     </ol>
@@ -1570,13 +1334,9 @@
                 注意：
             </em>
             不仅你可以删除一行，但你还可以添加和移动行。步骤是相同的：添加一个item到你的data model中并调用
-            <code>
-                insertItemsAtIndexes(\_:, inParent:, withAnimation:)
-            </code>
+            <code> insertItemsAtIndexes(\_:, inParent:, withAnimation:) </code>
             来插入item，或通过
-            <code>
-                moveItemAtIndex(\_:, inParent:, toIndex:, inParent:)
-            </code>
+            <code> moveItemAtIndex(\_:, inParent:, toIndex:, inParent:) </code>
             来移动item。确保你的datasource做出相应的改变。
         </p>
     </div>
@@ -1620,17 +1380,13 @@
     </p>
     <p>
         在本教程中，你学到了大量有关
-        <code>
-            NSOutlineView
-        </code>
+        <code> NSOutlineView </code>
         的内容：
     </p>
     <ul>
         <li>
             如何与Interface Builder中的
-            <code>
-                NSOutlineView
-            </code>
+            <code> NSOutlineView </code>
             进行交互。
         </li>
         <li>
@@ -1648,18 +1404,14 @@
     </ul>
     <p>
         还有很多未能覆盖到的功能，如拖拽深层级结构的data model。因此，如果你想要了解更多关于
-        <code>
-            NSOutlineView
-        </code>
+        <code> NSOutlineView </code>
         的内容，可以去查阅
         <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ApplicationKit/Classes/NSOutlineView_Class/"
         sl-processed="1">
             官方文档
         </a>
         。由于NSOutlineView是
-        <code>
-            NSTableView
-        </code>
+        <code> NSTableView </code>
         的子类，Ernesto García的教程
         <a href="https://github.com/DeveloperLx/macOS_Development_Tutorials_translation/blob/master/macOS%20NSTableView%20Tutorial.md"
         sl-processed="1">

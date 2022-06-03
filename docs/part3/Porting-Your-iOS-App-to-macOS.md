@@ -296,9 +296,7 @@
             Image Saving
         </em>
         的全部extension。在
-        <code>
-            import
-        </code>
+        <code> import </code>
         语句之后，添加下列的协议：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">protocol</span> <span class="hljs-title">BeerImage</span> </span>{
@@ -503,9 +501,7 @@
                 UIImage
             </em>
             一样的获取图片data的方法，因此你需要使用
-            <code>
-                tiffRepresentation
-            </code>
+            <code> tiffRepresentation </code>
             来代替。
         </li>
     </ol>
@@ -686,9 +682,7 @@
             拖拽
         </em>
         到这里，并创建一个新的名为
-        <code>
-            tableView
-        </code>
+        <code> tableView </code>
         的outlet。
     </p>
     <p>
@@ -773,17 +767,13 @@
             Image Well
         </em>
         创建一个名为
-        <code>
-            imageView
-        </code>
+        <code> imageView </code>
         的outlet。然后为
         <em>
             Image View
         </em>
         创建一个名为
-        <code>
-            imageChanged
-        </code>
+        <code> imageChanged </code>
         的动作。确保将
         <em>
             Type
@@ -820,9 +810,7 @@
             ViewController.swift
         </em>
         中并命名为
-        <code>
-            selectImage
-        </code>
+        <code> selectImage </code>
         。
     </p>
     <p>
@@ -880,9 +868,7 @@
             Text Field
         </em>
         创建一个名为
-        <code>
-            nameField
-        </code>
+        <code> nameField </code>
         的outlet。
     </p>
     <h3>
@@ -974,9 +960,7 @@
             Level Indicator
         </em>
         创建一个名为
-        <code>
-            ratingIndicator
-        </code>
+        <code> ratingIndicator </code>
         的outlet。
     </p>
     <p>
@@ -1026,9 +1010,7 @@
             Table View
         </em>
         中做的一样。将outlet命名为
-        <code>
-            noteView
-        </code>
+        <code> noteView </code>
         。你还需要将
         <em>
             Text View
@@ -1079,9 +1061,7 @@
     </ul>
     <p>
         从按钮连接一个名为
-        <code>
-            updateBeer
-        </code>
+        <code> updateBeer </code>
         的动作到
         <em>
             ViewController
@@ -1140,9 +1120,7 @@
     </ul>
     <p>
         为新的按钮添加一个名为
-        <code>
-            addBeer
-        </code>
+        <code> addBeer </code>
         的动作。
     </p>
     <p>
@@ -1195,9 +1173,7 @@
     </ul>
     <p>
         最后，为这个按钮添加一个名为
-        <code>
-            removeBeer
-        </code>
+        <code> removeBeer </code>
         的动作。
     </p>
     <h3>
@@ -1262,9 +1238,7 @@
     </p>
     <p>
         为最后一个label，创建一个名为
-        <code>
-            beerCountField
-        </code>
+        <code> beerCountField </code>
         的outlet到
         <em>
             ViewController.swift
@@ -1311,13 +1285,9 @@
             ViewController.swift
         </em>
         并删除名为
-        <code>
-            representedObject
-        </code>
+        <code> representedObject </code>
         的property。在
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         下面添加下列的方法：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">private</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">setFieldsEnabled</span><span class="hljs-params">(enabled: Bool)</span></span> {
@@ -1336,19 +1306,13 @@
     </p>
     <ol>
         <li>
-            <code>
-                setFieldsEnabled(\_:)
-            </code>
+            <code> setFieldsEnabled(\_:) </code>
             可以帮助你快速地打开或关闭使用form控件的能力。
         </li>
         <li>
-            <code>
-                updateBeerCountLabel()
-            </code>
+            <code> updateBeerCountLabel() </code>
             帮助你快速地在
-            <code>
-                beerCountField
-            </code>
+            <code> beerCountField </code>
             中设置啤酒的数量。
         </li>
     </ol>
@@ -1378,9 +1342,7 @@
     </p>
     <p>
         将
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         替换为下列的代码：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">viewDidLoad</span><span class="hljs-params">()</span></span> {
@@ -1401,9 +1363,7 @@
     </h3>
     <p>
         现在table view还不可以实际地展示任何数据，但
-        <code>
-            selectRowIndexes(\_:byExtendingSelection:)
-        </code>
+        <code> selectRowIndexes(\_:byExtendingSelection:) </code>
         会选中列表中的第一瓶啤酒。delegate中的代码将会为你处理剩余的事情。
     </p>
     <p>
@@ -1412,9 +1372,7 @@
             ViewController.swift
         </em>
         尾部，要在
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         类之外：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span>: <span class="hljs-title">NSTableViewDataSource</span> </span>{
@@ -1474,9 +1432,7 @@
     </p>
     <p>
         现在添加一个啤酒。将
-        <code>
-            addBeer()
-        </code>
+        <code> addBeer() </code>
         修改为：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">addBeer</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any)</span></span> {
@@ -1521,13 +1477,9 @@
     </ol>
     <p>
         你货主注意到了这点，就像在iOS中一样，你需要在插入新的行之前调用
-        <code>
-            beginUpdates()
-        </code>
+        <code> beginUpdates() </code>
         和
-        <code>
-            endUpdates()
-        </code>
+        <code> endUpdates() </code>
         。所以说，你其实早已懂得了关于macOS的很多的内容！
     </p>
     <h3>
@@ -1535,9 +1487,7 @@
     </h3>
     <p>
         为了移除一瓶啤酒，添加下列的代码到
-        <code>
-            removeBeer(\_:)
-        </code>
+        <code> removeBeer(\_:) </code>
         中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">removeBeer</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any)</span></span> {
@@ -1579,9 +1529,7 @@
             Image Wells
         </em>
         拥有接收拖拽到它上面的图片的能力么？将
-        <code>
-            imageChanged(\_:)
-        </code>
+        <code> imageChanged(\_:) </code>
         的方法修改为：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">imageChanged</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: NSImageView)</span></span> {
@@ -1594,9 +1542,7 @@
     </p>
     <p>
         但另一方面，你需要做很多工作，来方便用户从你的app中选取图片。将
-        <code>
-            selectImage()
-        </code>
+        <code> selectImage() </code>
         方法替换为：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">selectImage</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any)</span></span> {
@@ -1626,17 +1572,13 @@
 </pre>
     <p>
         上述代码实现了你使用
-        <code>
-            NSOpenPanel
-        </code>
+        <code> NSOpenPanel </code>
         来选取一个文件的过程。以下是详细步骤：
     </p>
     <ol>
         <li>
             创建一个
-            <code>
-                NSOpenPanel
-            </code>
+            <code> NSOpenPanel </code>
             ，并配置它的设置。
         </li>
         <li>
@@ -1651,9 +1593,7 @@
     </ol>
     <p>
         最后，在
-        <code>
-            updateBeer(\_:)
-        </code>
+        <code> updateBeer(\_:) </code>
         中添加保存数据model的代码：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBAction</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">updateBeer</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any)</span></span> {

@@ -33,13 +33,9 @@
     </p>
     <p>
         然而，一个和macOS开发很大的区别是它们存在不同的控件。消失的是
-        <code>
-            UIButton
-        </code>
+        <code> UIButton </code>
         和
-        <code>
-            UITextField
-        </code>
+        <code> UITextField </code>
         - 用来取代的是相似（但有轻微不同的）变量。
     </p>
     <p>
@@ -278,19 +274,13 @@
             NSControl
         </a>
         是所有其它的macOS控件构建的基础。
-        <code>
-            NSControl
-        </code>
+        <code> NSControl </code>
         提供了三个对于用户交互非常重要的特性：绘制到屏幕上，相应用户事件，发送动作消息。
     </p>
     <p>
-        <code>
-            NSControl
-        </code>
+        <code> NSControl </code>
         是一个抽象的基类，非常有可能从不需要在你的app中直接使用它，除非你想要定制你自己的macOS控件。所有的常用控件都是
-        <code>
-            NSControl
-        </code>
+        <code> NSControl </code>
         的子类，因此就继承了定义在NSControl中的property和方法。
     </p>
     <p>
@@ -301,9 +291,7 @@
     </h3>
     <p>
         如果你需要展示信息，通常就要改变控件的值。根据你的需要，这个值可能是一个字符串，一个数字，甚至是一个对象。在大多数环境下，你需要一个能够匹配被展示的信息的类型的值，但
-        <code>
-            NSControl
-        </code>
+        <code> NSControl </code>
         允许你超越这个，并设置几个不同类型的值！
     </p>
     <p>
@@ -368,47 +356,29 @@ myControl.isEnabled = <span class="hljs-literal">true</span>
         了。
     </p>
     <p>
-        <code>
-            NSTextField
-        </code>
+        <code> NSTextField </code>
         是用来展示或编辑文本的。你会注意到它和iOS的差别：在iOS中，
-        <code>
-            UILabel
-        </code>
+        <code> UILabel </code>
         是用来展示固定的文本的，
-        <code>
-            UITextField
-        </code>
+        <code> UITextField </code>
         是用来编辑文本的。在macOS中它们被合二为一，它的行为会根据
-        <code>
-            isEditable
-        </code>
+        <code> isEditable </code>
         这个property的值变化而变化。
     </p>
     <p>
         如果你想要text field成为一个label，你可以设置它的
-        <code>
-            isEditable
-        </code>
+        <code> isEditable </code>
         property为
-        <code>
-            false
-        </code>
+        <code> false </code>
         。要让它的行为像一个text field - 是的，你就可以设置
-        <code>
-            isEditable
-        </code>
+        <code> isEditable </code>
         为
-        <code>
-            true
-        </code>
+        <code> true </code>
         ！你可以从代码或从Interface Builder中改变这个property。
     </p>
     <p>
         为了让你编写代码更容易一些，Interface Builder事实上提供了几个预先配置好的 基于
-        <code>
-            NSTextField
-        </code>
+        <code> NSTextField </code>
         的macOS控件，来展示和编辑文本。这些可以在
         <em>
             Object Library
@@ -425,9 +395,7 @@ myControl.isEnabled = <span class="hljs-literal">true</span>
     </p>
     <p>
         现在你已经了解了有关
-        <code>
-            NSTextField
-        </code>
+        <code> NSTextField </code>
         的基础，你可以添加它到你爹Mad Libs应用中了！:]
     </p>
     <h2>
@@ -527,9 +495,7 @@ myControl.isEnabled = <span class="hljs-literal">true</span>
     </p>
     <p>
         就是这样！现在你已经在你的view controller中拥有了一个
-        <code>
-            NSTextField
-        </code>
+        <code> NSTextField </code>
         的property，并且它已经连接到了在主窗口的text field上。
     </p>
     <p>
@@ -541,13 +507,9 @@ myControl.isEnabled = <span class="hljs-literal">true</span>
     </p>
     <p>
         放置这个的一个很好的地方就在
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         中。现在设置你先前学过的
-        <code>
-            stringValue
-        </code>
+        <code> stringValue </code>
         property。
     </p>
     <p>
@@ -556,9 +518,7 @@ myControl.isEnabled = <span class="hljs-literal">true</span>
             ViewController.swift
         </em>
         ，并添加下列的代码到
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         方法末尾：
     </p>
     <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// Sets the default text for the pastTenseVerbTextField property</span>
@@ -610,16 +570,12 @@ pastTenseVerbTextField.stringValue = <span class="hljs-string">"ate"</span>
         。
     </p>
     <p>
-        <code>
-            NSComboBox
-        </code>
+        <code> NSComboBox </code>
         有两个不同的成分：你可以进行输入的text field，还有当嵌入的按钮被点击时展示的选项的列表。你可以分别地控制两部分的数据。
     </p>
     <p>
         要获取或设置text field中的值，只需使用前面提到的
-        <code>
-            stringValue
-        </code>
+        <code> stringValue </code>
         property。为保持事情简单一致喝彩吧！:]
     </p>
     <p>
@@ -642,9 +598,7 @@ pastTenseVerbTextField.stringValue = <span class="hljs-string">"ate"</span>
         方法1 - 直接调用控件上的方法
     </h3>
     <p>
-        <code>
-            NSComboBox
-        </code>
+        <code> NSComboBox </code>
         包含了一个内部的项目列表，并暴露了几个允许你操纵这个列表的方法，例如：
     </p>
     <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// Add an object to the list</span>
@@ -682,29 +636,17 @@ myComboBox.selectItem(at: <span class="hljs-number">1</span>)
     </p>
     <p>
         首先，设置控件的
-        <code>
-            usesDataSource
-        </code>
+        <code> usesDataSource </code>
         property为
-        <code>
-            true
-        </code>
+        <code> true </code>
         。然后设置控件的
-        <code>
-            dataSource
-        </code>
+        <code> dataSource </code>
         property，传递一个实现了这个协议的类的实例；当实现data source的类是托管的view controller时，配置这个的很好的一个地方就是
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         这里了，然后你就可以设置
-        <code>
-            dataSource
-        </code>
+        <code> dataSource </code>
         property为
-        <code>
-            self
-        </code>
+        <code> self </code>
         ，就像下面这样：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ViewController</span>: <span class="hljs-title">NSViewController</span>, <span class="hljs-title">NSComboBoxDataSource</span> </span>{
@@ -723,17 +665,11 @@ myComboBox.selectItem(at: <span class="hljs-number">1</span>)
                 注意：
             </em>
             上面这些指令的顺序是非常重要的。尝试当
-            <code>
-                useDataSource
-            </code>
+            <code> useDataSource </code>
             为
-            <code>
-                false（这是默认的值）
-            </code>
+            <code> false（这是默认的值） </code>
             时，设置
-            <code>
-                dataSource
-            </code>
+            <code> dataSource </code>
             property会导致失败，你的data source将不会被用到。
         </p>
     </div>
@@ -753,9 +689,7 @@ myComboBox.selectItem(at: <span class="hljs-number">1</span>)
 </pre>
     <p>
         最后，无论什么时候你的数据源发生变化，为了更新这个控件，只需调用combo box上的
-        <code>
-            reloadData()
-        </code>
+        <code> reloadData() </code>
         方法。
     </p>
     <h3>
@@ -828,9 +762,7 @@ myComboBox.selectItem(at: <span class="hljs-number">1</span>)
     </p>
     <p>
         现在你需要添加一个
-        <code>
-            NSComboBox
-        </code>
+        <code> NSComboBox </code>
         outlet到view controller上。使用你在text field上相同的技术：选择
         <em>
             Assistant Editor
@@ -845,13 +777,9 @@ myComboBox.selectItem(at: <span class="hljs-number">1</span>)
             Ctrl-Drag
         </em>
         combo box到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         类上，就在
-        <code>
-            NSTextField
-        </code>
+        <code> NSTextField </code>
         的下方：
     </p>
     <p>
@@ -877,9 +805,7 @@ myComboBox.selectItem(at: <span class="hljs-number">1</span>)
     </p>
     <p>
         现在
-        <code>
-            NSComboBox
-        </code>
+        <code> NSComboBox </code>
         property就被连接到了combo box控件上。接下来添加一些数据来填充这个列表。
     </p>
     <p>
@@ -905,13 +831,9 @@ singularNounCombo.selectItem(at: singularNouns.<span class="hljs-built_in">count
 </pre>
     <p>
         第一行代码移除了所有默认添加的项目。接下来，它使用
-         <code>
-            addItems()
-        </code>
+         <code> addItems() </code>
         方法添加来自
-        <code>
-            singularNouns
-        </code>
+        <code> singularNouns </code>
         的名称到了combo box中。然后，它选择了列表中的最后一个项目。
     </p>
     <p>
@@ -958,21 +880,13 @@ singularNounCombo.selectItem(at: singularNouns.<span class="hljs-built_in">count
     </h3>
     <p>
         正如你所期望的，添加项目到
-        <code>
-            NSPopUpButton
-        </code>
+        <code> NSPopUpButton </code>
         就类似于添加项目到
-        <code>
-            NSComboBox
-        </code>
+        <code> NSComboBox </code>
         上 - 除了
-        <code>
-            NSPopUpButton
-        </code>
+        <code> NSPopUpButton </code>
         不支持使用data source来为这个控件填充内容。
-        <code>
-            NSPopUpButton
-        </code>
+        <code> NSPopUpButton </code>
         持有着一个内部的项目的列表，并暴露了几个方法来操纵它：
     </p>
     <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// Add an item to the list</span>
@@ -1053,9 +967,7 @@ myPopUpbutton.selectItem(at: <span class="hljs-number">1</span>)
             按住Ctrl拖拽
         </em>
         pop up button到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         类上来创建一个新的outlet：
     </p>
     <p>
@@ -1091,9 +1003,7 @@ myPopUpbutton.selectItem(at: <span class="hljs-number">1</span>)
 </pre>
     <p>
         现在，添加下面的代码到
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         的底部：
     </p>
     <pre lang="swift" class="hljs javascript"><span class="hljs-comment">// Setup the pop up button with plural nouns</span>
@@ -1103,9 +1013,7 @@ pluralNounPopup.selectItem(at: <span class="hljs-number">0</span>)
 </pre>
     <p>
         第一行代码移除了所有pop up button中已存的项目。第二行代码则使用
-        <code>
-            addItems()
-        </code>
+        <code> addItems() </code>
         方法添加了名词的数组。最后，选中列表中的第一个项目。
     </p>
     <p>
@@ -1148,9 +1056,7 @@ pluralNounPopup.selectItem(at: <span class="hljs-number">0</span>)
     </p>
     <p>
         一个全部使用由
-        <code>
-            NSTextView
-        </code>
+        <code> NSTextView </code>
         提供的特性的应用的例子就是TextEdit了：
     </p>
     <p>
@@ -1162,9 +1068,7 @@ pluralNounPopup.selectItem(at: <span class="hljs-number">0</span>)
         </a>
     </p>
     <p>
-        <code>
-            NSTextView
-        </code>
+        <code> NSTextView </code>
         的特性非常的丰富，如果要覆盖所有的特性，可能就得单独得出一个对于它的教程。因此这里你只会看到一些能够让你的app运行起来的基本的特性。（你是不是松了一口气？）:]
     </p>
     <p>
@@ -1186,9 +1090,7 @@ myTextView.textColor = NSColor.black
         相对地简单 - 这里没有太让人震惊的事。
     </p>
     <p>
-        <code>
-            NSTextView
-        </code>
+        <code> NSTextView </code>
         也內建了对
         <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/Reference/Reference.html"
         title="NSAttributedString Class Reference">
@@ -1206,9 +1108,7 @@ myTextView.textColor = NSColor.black
                 TextKit教程
             </a>
             。这是一个iOS教程，但有关
-            <code>
-                NSAttributedString
-            </code>
+            <code> NSAttributedString </code>
             的信息也可以用到Mac开发上面。
         </p>
     </div>
@@ -1307,9 +1207,7 @@ myTextView.textColor = NSColor.black
     </p>
     <p>
         下面，添加一个
-        <code>
-            NSTextView
-        </code>
+        <code> NSTextView </code>
         outlet到view controller上。选择textview，打开
         <em>
             Assistant editor
@@ -1323,9 +1221,7 @@ myTextView.textColor = NSColor.black
             按住Ctrl拖拽
         </em>
         text view到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         类中已存在的outlet的下面。
     </p>
     <div class="note">
@@ -1350,9 +1246,7 @@ myTextView.textColor = NSColor.black
     </p>
     <p>
         在弹出的窗口中，确定类型为
-        <code>
-            NSTextView
-        </code>
+        <code> NSTextView </code>
         ，并命名outlet为
         <em>
             phraseTextView
@@ -1480,9 +1374,7 @@ myButton.image = theImage
             按住Ctrl拖拽
         </em>
         button到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         的实现中。
     </p>
     <p>
@@ -1514,9 +1406,7 @@ myButton.image = theImage
     </p>
     <p>
         当用户点击按钮时，方法
-        <code>
-            goButtonClicked()
-        </code>
+        <code> goButtonClicked() </code>
         就会被调用。现在，你只是在这里添加一个debug代码，来确保一切工作正常。
     </p>
     <p>
@@ -1525,9 +1415,7 @@ myButton.image = theImage
             ViewController.swift
         </em>
         并添加下列的代码到
-        <code>
-            goButtonClicked()
-        </code>
+        <code> goButtonClicked() </code>
         中：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-keyword">let</span> pastTenseVerb = pastTenseVerbTextField.stringValue
@@ -1544,25 +1432,15 @@ myButton.image = theImage
     </p>
     <p>
         注意text view
-        <code>
-            string
-        </code>
+        <code> string </code>
         这个property事实上是可选的，因此它可以是
-        <code>
-            nil
-        </code>
+        <code> nil </code>
         。要避免这种情况，你可以使用nil coalescing操作符
-        <code>
-            ??
-        </code>
+        <code> ?? </code>
         因此如果
-        <code>
-            string
-        </code>
+        <code> string </code>
         是nil，你就会得到
-        <code>
-            ""
-        </code>
+        <code> "" </code>
         来代替。
     </p>
     <p>
@@ -1592,9 +1470,7 @@ myButton.image = theImage
             ViewController.swift
         </em>
         并添加下列的代码到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         的实现中：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-comment">// 1</span>
@@ -1619,20 +1495,14 @@ fileprivate <span class="hljs-keyword">let</span> synth = <span class="hljs-type
 </pre>
     <p>
         首先，你声明了一个
-        <code>
-            enum
-        </code>
+        <code> enum </code>
         来代表声速。然后你创建了一个
-        <code>
-            NSSpeechSynthesizer
-        </code>
+        <code> NSSpeechSynthesizer </code>
         的实例，它会将文本朗读出来。
     </p>
     <p>
         现在，添加这个代码到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         的实现中：
     </p>
     <pre lang="swift" class="hljs swift">fileprivate <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">readSentence</span><span class="hljs-params">(<span class="hljs-number">_</span> sentence: String, rate: VoiceRate )</span></span> {
@@ -1643,16 +1513,12 @@ fileprivate <span class="hljs-keyword">let</span> synth = <span class="hljs-type
 </pre>
     <p>
         该方法启动
-        <code>
-            synth
-        </code>
+        <code> synth </code>
         对象来以被选中的速度朗读一个字符串。
     </p>
     <p>
         是时候来调用它了！添加下列代码到
-        <code>
-            goButtonClicked()
-        </code>
+        <code> goButtonClicked() </code>
         方法的尾部来朗读Mad Libs的句子：
     </p>
     <pre lang="swift" class="hljs bash"><span class="hljs-built_in">read</span>Sentence(madLibSentence, rate: .normal)

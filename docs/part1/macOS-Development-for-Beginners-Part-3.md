@@ -172,66 +172,40 @@
     </p>
     <p>
         The main model object type for the app is going to be a class called
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         . This class will have properties for the start time of the timer, the
         requested duration and the elapsed time. It will also have a
-        <code>
-            Timer
-        </code>
+        <code> Timer </code>
         object that fires every second to update itself. Methods will start, stop,
         resume or reset the
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         object.
     </p>
     <p>
         The
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         model class holds data and performs actions, but has no knowledge of how
         this is displayed. The Controller (in this case
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         ), knows about the
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         class (the Model) and has a
-        <code>
-            View
-        </code>
+        <code> View </code>
         that it can use to display the data.
     </p>
     <p>
         To communicate back to the
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         ,
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         uses a delegate protocol. When something changes, the
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         sends a message to its
-        <code>
-            delegate
-        </code>
+        <code> delegate </code>
         . The
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         assigns itself as the
-        <code>
-            EggTimer's delegate
-        </code>
+        <code> EggTimer's delegate </code>
         , so it is the one that receives the message and then it can display the
         new data in its own View.
     </p>
@@ -289,17 +263,11 @@
     </div>
     <p>
         This sets up the
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         class and its properties.
-        <code>
-            TimeInterval
-        </code>
+        <code> TimeInterval </code>
         really means
-        <code>
-            Double
-        </code>
+        <code> Double </code>
         , but is used when you want to show that you mean seconds.
     </p>
     <p>
@@ -324,9 +292,7 @@
     <p>
         These are convenient shortcuts that can be used to determine the state
         of the
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         .
     </p>
     <p>
@@ -335,9 +301,7 @@
             EggTimer.swift
         </em>
         file but outside the
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         class – I like to put protocol definitions at the top of the file, after
         the import.
     </p>
@@ -358,32 +322,22 @@
     <p>
         A protocol sets out a contract and any object that is defined as conforming
         to the
-        <code>
-            EggTimerProtocol
-        </code>
+        <code> EggTimerProtocol </code>
         must supply these 2 functions.
     </p>
     <p>
         Now that you have defined a protocol, the
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         can get an optional
-        <code>
-            delegate
-        </code>
+        <code> delegate </code>
         property which is set to any object that conforms to this protocol.
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         does not know or care what type of object the delegate is, because it
         is certain that the delegate has those two functions.
     </p>
     <p>
         Add this line to the existing properties in the
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         class:
     </p>
     <div class="wp_codebox">
@@ -401,18 +355,12 @@
     </div>
     <p>
         Starting the
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         ‘s timer object will fire off a function call every second. Insert this
         code which defines the function that will be called by the timer. The
-        <code>
-            dynamic
-        </code>
+        <code> dynamic </code>
         keyword is essential for the
-        <code>
-            Timer
-        </code>
+        <code> Timer </code>
         to be able to find it.
     </p>
     <div class="wp_codebox">
@@ -438,28 +386,18 @@
     </p>
     <ol>
         <li>
-            <code>
-                startTime
-            </code>
+            <code> startTime </code>
             is an
-            <code>
-                Optional Date
-            </code>
+            <code> Optional Date </code>
             – if it is
-            <code>
-                nil
-            </code>
+            <code> nil </code>
             , the timer cannot be running so nothing happens.
         </li>
         <li>
             Re-calculate the
-            <code>
-                elapsedTime
-            </code>
+            <code> elapsedTime </code>
             property.
-            <code>
-                startTime
-            </code>
+            <code> startTime </code>
             is earlier than now, so
             <em>
                 timeIntervalSinceNow
@@ -476,30 +414,20 @@
         </li>
         <li>
             If the timer has finished, reset it and tell the
-            <code>
-                delegate
-            </code>
+            <code> delegate </code>
             it has finished. Otherwise, tell the
-            <code>
-                delegate
-            </code>
+            <code> delegate </code>
             the number of seconds remaining. As
-            <code>
-                delegate
-            </code>
+            <code> delegate </code>
             is an optional property, the ? is used to perform optional chaining. If
             the
-            <code>
-                delegate
-            </code>
+            <code> delegate </code>
             is not set, these methods will not be called but nothing bad will happen.
         </li>
     </ol>
     <p>
         You will see an error until you add the final bit of code needed for the
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         class: the methods for starting, stopping, resuming and resetting the
         timer.
     </p>
@@ -530,44 +458,30 @@
     </p>
     <ol>
         <li>
-            <code>
-                startTimer
-            </code>
+            <code> startTimer </code>
             sets the start time to now using
-            <code>
-                Date()
-            </code>
+            <code> Date() </code>
             and sets up the repeating
-            <code>
-                Timer
-            </code>
+            <code> Timer </code>
             .
         </li>
         <li>
-            <code>
-                resumeTimer
-            </code>
+            <code> resumeTimer </code>
             is what gets called when the timer has been paused and is being re-started.
             The start time is re-calculated based on the elapsed time.
         </li>
         <li>
-            <code>
-                stopTimer
-            </code>
+            <code> stopTimer </code>
             stops the repeating timer.
         </li>
         <li>
-            <code>
-                resetTimer
-            </code>
+            <code> resetTimer </code>
             stops the repeating timer and sets the properties back to the defaults.
         </li>
     </ol>
     <p>
         All these functions also call
-        <code>
-            timerAction
-        </code>
+        <code> timerAction </code>
         so that the display can update immediately.
     </p>
     <h2>
@@ -575,9 +489,7 @@
     </h2>
     <p>
         Now that the
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         object is working, its time to go back to
         <em>
             ViewController.swift
@@ -585,17 +497,11 @@
         and make the display change to reflect this.
     </p>
     <p>
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         already has the
-        <code>
-            @IBOutlet
-        </code>
+        <code> @IBOutlet </code>
         properties, but now give it a property for the
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         :
     </p>
     <div class="wp_codebox">
@@ -613,9 +519,7 @@
     </div>
     <p>
         Add this line to
-        <code>
-            viewDidLoad
-        </code>
+        <code> viewDidLoad </code>
         , replacing the comment line:
     </p>
     <div class="wp_codebox">
@@ -633,18 +537,12 @@
     </div>
     <p>
         This is going to cause an error because
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         does not conform to the
-        <code>
-            EggTimerProtocol
-        </code>
+        <code> EggTimerProtocol </code>
         . When conforming to a protocol, it makes your code neater if you create
         a separate extension for the protocol functions. Add this code below the
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         class definition:
     </p>
     <div class="wp_codebox">
@@ -665,24 +563,16 @@
     </div>
     <p>
         The error disappears because
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         now has the two functions required by
-        <code>
-            EggTimerProtocol
-        </code>
+        <code> EggTimerProtocol </code>
         . However both these functions are calling
-        <code>
-            updateDisplay
-        </code>
+        <code> updateDisplay </code>
         which doesn’t exist yet.
     </p>
     <p>
         Here is another extension for
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         which contains the display functions:
     </p>
     <div class="wp_codebox">
@@ -714,41 +604,27 @@
         </table>
     </div>
     <p>
-        <code>
-            updateDisplay
-        </code>
+        <code> updateDisplay </code>
         uses private functions to get the text and the image for the supplied
         remaining time, and display these in the text field and image view.
     </p>
     <p>
-        <code>
-            textToDisplay
-        </code>
+        <code> textToDisplay </code>
         converts the seconds remaining to M:SS format.
-        <code>
-            imageToDisplay
-        </code>
+        <code> imageToDisplay </code>
         calculates how much the egg is done as a percentage of the total and picks
         the image to match.
     </p>
     <p>
         So the
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         has an
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         object and it has the functions to receive data from
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         and display the result, but the buttons have no code yet. In Part 2, you
         set up the
-        <code>
-            @IBActions
-        </code>
+        <code> @IBActions </code>
         for the buttons.
     </p>
     <p>
@@ -774,9 +650,7 @@
     </div>
     <p>
         These 3 actions call the
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         methods you added earlier.
     </p>
     <p>
@@ -814,9 +688,7 @@
     </p>
     <p>
         Add this function to the
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         , inside the extension with the Display functions:
     </p>
     <div class="wp_codebox">
@@ -842,24 +714,16 @@
     </div>
     <p>
         This function uses the
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         status (remember the computed variables you added to
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         ) to work out which buttons should be enabled.
     </p>
     <p>
         In Part 2, you set up the Timer menu items as properties of the
-        <code>
-            AppDelegate
-        </code>
+        <code> AppDelegate </code>
         , so the
-        <code>
-            AppDelegate
-        </code>
+        <code> AppDelegate </code>
         is where they can be configured.
     </p>
     <p>
@@ -887,9 +751,7 @@
     <p>
         So that your menus are correctly configured when the app first launches,
         add this line to the
-        <code>
-            applicationDidFinishLaunching
-        </code>
+        <code> applicationDidFinishLaunching </code>
         method:
     </p>
     <div class="wp_codebox">
@@ -908,9 +770,7 @@
     <p>
         The buttons and menus needs to be changed whenever a button or menu item
         action changes the state of the
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         . Switch back to
         <em>
             ViewController.swift
@@ -951,16 +811,12 @@
     <p>
         In Part 2, you designed a Preferences window to allow selection of a different
         time. This window is controlled by the
-        <code>
-            PrefsViewController
-        </code>
+        <code> PrefsViewController </code>
         , but it needs a model object to handle the data storage and retrieval.
     </p>
     <p>
         Preferences are going be stored using
-        <code>
-            UserDefaults
-        </code>
+        <code> UserDefaults </code>
         which is a key-value way of storing small pieces of data in the Preferences
         folder in your app’s Container.
     </p>
@@ -1021,59 +877,39 @@
     <ol>
         <li>
             A computed variable called
-            <code>
-                selectedTime
-            </code>
+            <code> selectedTime </code>
             is defined as a
-            <code>
-                TimeInterval
-            </code>
+            <code> TimeInterval </code>
             .
         </li>
         <li>
             When the value of the variable is requested, the
-            <code>
-                UserDefaults
-            </code>
+            <code> UserDefaults </code>
             singleton is asked for the
-            <code>
-                Double
-            </code>
+            <code> Double </code>
             value assigned to the key “selectedTime”. If the value has not been defined,
-            <code>
-                UserDefaults
-            </code>
+            <code> UserDefaults </code>
             will return zero, but if the value is greater than 0, return that as the
             value of
-            <code>
-                selectedTime
-            </code>
+            <code> selectedTime </code>
             .
         </li>
         <li>
             If
-            <code>
-                selectedTime
-            </code>
+            <code> selectedTime </code>
             has not been defined, use the default value of 360 (6 minutes).
         </li>
         <li>
             Whenever the value of
-            <code>
-                selectedTime
-            </code>
+            <code> selectedTime </code>
             is changed, write the new value to
-            <code>
-                UserDefaults
-            </code>
+            <code> UserDefaults </code>
             with the key “selectedTime”.
         </li>
     </ol>
     <p>
         So by using a computed variable with a getter and a setter, the
-        <code>
-            UserDefaults
-        </code>
+        <code> UserDefaults </code>
         data storage will be handled automatically.
     </p>
     <p>
@@ -1102,13 +938,9 @@
     </div>
     <p>
         Here you create an instance of
-        <code>
-            Preferences
-        </code>
+        <code> Preferences </code>
         so the
-        <code>
-            selectedTime
-        </code>
+        <code> selectedTime </code>
         computed variable is accessible.
     </p>
     <p>
@@ -1141,9 +973,7 @@
     <ol>
         <li>
             Ask the prefs object for its
-            <code>
-                selectedTime
-            </code>
+            <code> selectedTime </code>
             and convert it from seconds to whole minutes.
         </li>
         <li>
@@ -1151,32 +981,24 @@
         </li>
         <li>
             Loop through the menu items in the
-            <code>
-                presetsPopup
-            </code>
+            <code> presetsPopup </code>
             checking their tags. Remember in Part 2 how you set the tags to the number
             of minutes for each option? If a match is found, enable that item and get
             out of the loop.
         </li>
         <li>
             Set the value for the slider and call
-            <code>
-                showSliderValueAsText
-            </code>
+            <code> showSliderValueAsText </code>
             .
         </li>
         <li>
-            <code>
-                showSliderValueAsText
-            </code>
+            <code> showSliderValueAsText </code>
             adds “minute” or “minutes” to the number and shows it in the text field.
         </li>
     </ol>
     <p>
         Now, add this to
-        <code>
-            viewDidLoad
-        </code>
+        <code> viewDidLoad </code>
         :
     </p>
     <div class="wp_codebox">
@@ -1195,14 +1017,10 @@
     <p>
         When the view loads, call the method that shows the preferences in the
         display. Remember, using the MVC pattern, the
-        <code>
-            Preferences
-        </code>
+        <code> Preferences </code>
         model object has no idea about how or when it might be displayed – that
         is for the
-        <code>
-            PrefsViewController
-        </code>
+        <code> PrefsViewController </code>
         to manage.
     </p>
     <p>
@@ -1212,22 +1030,16 @@
     </p>
     <p>
         In the
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         object, you used the delegate pattern to pass data to whatever needed
         it. This time (just to be different), you are going to broadcast a
-        <code>
-            Notification
-        </code>
+        <code> Notification </code>
         when the data changes. Any object that choses can listen for this notification
         and act on it when received.
     </p>
     <p>
         Insert this method into
-        <code>
-            PrefsViewController
-        </code>
+        <code> PrefsViewController </code>
         :
     </p>
     <div class="wp_codebox">
@@ -1248,39 +1060,25 @@
     <p>
         This gets the data from the custom slider (you will see in a minute that
         any changes are reflected there). Setting the
-        <code>
-            selectedTime
-        </code>
+        <code> selectedTime </code>
         property will automatically save the new data to
-        <code>
-            UserDefaults
-        </code>
+        <code> UserDefaults </code>
         . Then a notification with the name “PrefsChanged” is posted to the
-        <code>
-            NotificationCenter
-        </code>
+        <code> NotificationCenter </code>
         .
     </p>
     <p>
         In a minute, you will see how the
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         can be set to listen for this
-        <code>
-            Notification
-        </code>
+        <code> Notification </code>
         and react to it.
     </p>
     <p>
         The final step in coding the
-        <code>
-            PrefsViewController
-        </code>
+        <code> PrefsViewController </code>
         is to set the code for the
-        <code>
-            @IBActions
-        </code>
+        <code> @IBActions </code>
         you added in Part 2:
     </p>
     <div class="wp_codebox">
@@ -1318,9 +1116,7 @@
         </li>
         <li>
             Clicking OK calls
-            <code>
-                saveNewPrefs
-            </code>
+            <code> saveNewPrefs </code>
             first and then closes the window.
         </li>
     </ol>
@@ -1397,21 +1193,13 @@
     </div>
     <p>
         This will give errors, because
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         has no object called
-        <code>
-            prefs
-        </code>
+        <code> prefs </code>
         . In the main
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         class definition, where you defined the
-        <code>
-            eggTimer
-        </code>
+        <code> eggTimer </code>
         property, add this line:
     </p>
     <div class="wp_codebox">
@@ -1429,48 +1217,32 @@
     </div>
     <p>
         Now
-        <code>
-            PrefsViewController
-        </code>
+        <code> PrefsViewController </code>
         has a prefs object and so does
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         – is this a problem? No, for a couple of reasons.
     </p>
     <ol>
         <li>
-            <code>
-                Preferences
-            </code>
+            <code> Preferences </code>
             is a struct, so it is value-based not reference-based. Each View Controller
             gets its own copy.
         </li>
         <li>
             The
-            <code>
-                Preferences
-            </code>
+            <code> Preferences </code>
             struct interacts with
-            <code>
-                UserDefaults
-            </code>
+            <code> UserDefaults </code>
             through a singleton, so both copies are using the same
-            <code>
-                UserDefaults
-            </code>
+            <code> UserDefaults </code>
             and getting the same data.
         </li>
     </ol>
     <p>
         At the end of the ViewController
-        <code>
-            viewDidLoad
-        </code>
+        <code> viewDidLoad </code>
         function, add this call which will set up the
-        <code>
-            Preferences
-        </code>
+        <code> Preferences </code>
         connection:
     </p>
     <div class="wp_codebox">
@@ -1489,17 +1261,11 @@
     <p>
         There is one final set of edits needed. Earlier, you were using hard-coded
         values for timings – 360 seconds or 6 minutes. Now that
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         has access to
-        <code>
-            Preferences
-        </code>
+        <code> Preferences </code>
         , you want to change these hard-coded 360’s to
-        <code>
-            prefs.selectedTime
-        </code>
+        <code> prefs.selectedTime </code>
         .
     </p>
     <p>
@@ -1508,9 +1274,7 @@
             ViewController.swift
         </em>
         and change each one to
-        <code>
-            prefs.selectedTime
-        </code>
+        <code> prefs.selectedTime </code>
         – you should be able to find 3 of them.
     </p>
     <p>
@@ -1524,13 +1288,9 @@
             OK
         </em>
         – your new time will immediately be shown as
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         receives the
-        <code>
-            Notification
-        </code>
+        <code> Notification </code>
         .
     </p>
     <p>
@@ -1586,9 +1346,7 @@
         </li>
         <li>
             Create an
-            <code>
-                NSAlert
-            </code>
+            <code> NSAlert </code>
             which is the class that displays a dialog box. Configure its text and
             style.
         </li>
@@ -1603,13 +1361,9 @@
     </ol>
     <p>
         In the
-        <code>
-            setupPrefs
-        </code>
+        <code> setupPrefs </code>
         method, change the line
-        <code>
-            self.updateFromPrefs()
-        </code>
+        <code> self.updateFromPrefs() </code>
         to:
     </p>
     <div class="wp_codebox">
@@ -1696,25 +1450,17 @@
     </p>
     <p>
         To play a sound, you need to use the
-        <code>
-            AVFoundation
-        </code>
+        <code> AVFoundation </code>
         library. The
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         will be playing the sound when the
-        <code>
-            EggTimer
-        </code>
+        <code> EggTimer </code>
         tells its delegate that the timer has finished, so switch to
         <em>
             ViewController.swift
         </em>
         . At the top, you will see where the
-        <code>
-            Cocoa
-        </code>
+        <code> Cocoa </code>
         library is imported.
     </p>
     <p>
@@ -1734,9 +1480,7 @@
         </table>
     </div>
     <p>
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         will need a player to play the sound file, so add this to its properties:
     </p>
     <div class="wp_codebox">
@@ -1754,9 +1498,7 @@
     </div>
     <p>
         It seems like a good idea to make a separate extension to
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         to hold the sound-related functions, so add this to
         <em>
             ViewController.swift
@@ -1782,38 +1524,26 @@
         </table>
     </div>
     <p>
-        <code>
-            prepareSound
-        </code>
+        <code> prepareSound </code>
         is doing most of the work here – it first checks to see whether the ding.mp3
         file is available in the app bundle. If the file is there, it tries to
         initialize an
-        <code>
-            AVAudioPlayer
-        </code>
+        <code> AVAudioPlayer </code>
         with the sound file URL and prepares it to play. This pre-buffers the
         sound file so it can play immediately when needed.
     </p>
     <p>
-        <code>
-            playSound
-        </code>
+        <code> playSound </code>
         just sends a play message to the player if it exists, but if
-        <code>
-            prepareSound
-        </code>
+        <code> prepareSound </code>
         has failed,
-        <code>
-            soundPlayer
-        </code>
+        <code> soundPlayer </code>
         will be nil so this will do nothing.
     </p>
     <p>
         The sound only needs to be prepared once the Start button is clicked,
         so insert this line at the end of
-        <code>
-            startButtonClicked
-        </code>
+        <code> startButtonClicked </code>
         :
     </p>
     <div class="wp_codebox">

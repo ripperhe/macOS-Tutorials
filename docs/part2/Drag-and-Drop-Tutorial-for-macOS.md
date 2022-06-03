@@ -34,8 +34,7 @@
         <li>
         	在
         	<code>
-         		NSView
-            </code>
+         		NSView </code>
         	的子类中实现核心的拖拽及投放动作
         </li>
         <li>
@@ -178,17 +177,11 @@
     </p>
     <p>
     	你从一个source拖拽出一个项目，它需要实现
-        <code>
-            NSDraggingSource
-        </code>
+        <code> NSDraggingSource </code>
         协议。然后投放它到一个destination中，它则必须实现
-        <code>
-            NSDraggingDestination
-        </code>
+        <code> NSDraggingDestination </code>
         协议，为了确定是接受还是拒绝收到的项目。
-        <code>
-            NSPasteboard
-        </code>
+        <code> NSPasteboard </code>
         是用来帮助交换数据的类。
     </p>
     <p>
@@ -242,9 +235,7 @@
     </h2>
     <p>
     	拖拽的destination是一个view或window，它接受来自拖拽粘贴板的数据类型。你要通过遵守（adopt）
-        <code>
-            NSDraggingDestination
-        </code>
+        <code> NSDraggingDestination </code>
         协议来创建拖拽的目的地。
     </p>
     <p>
@@ -298,16 +289,12 @@
             URLs
         </em>
         。然后，调用
-        <code>
-            register(forDraggedTypes:)
-        </code>
+        <code> register(forDraggedTypes:) </code>
         来接受包含这些类型的拖拽。
     </p>
     <p>
     	添加下列的代码到
-        <code>
-            DestinationView
-        </code>
+        <code> DestinationView </code>
         中来分析拖拽session的数据：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">//1.</span>
@@ -342,30 +329,20 @@
         </li>
     </ol>
     <p>
-        <code>
-            NSDraggingInfo
-        </code>
+        <code> NSDraggingInfo </code>
         是一个协议，声明了提供有关拖拽session的信息的方法。你不会创建它们，也不会在事件之间储存它们。系统会在拖拽session期间创建必要的对象。
     </p>
     <p>
     	当这个app接收到图片时，你可以使用这个信息去提供反馈给拖拽session。
     </p>
     <p>
-        <code>
-            NSView
-        </code>
+        <code> NSView </code>
         遵守
-        <code>
-            NSDraggingDestination
-        </code>
+        <code> NSDraggingDestination </code>
         协议，因此你需要在
-        <code>
-            DestinationView
-        </code>
+        <code> DestinationView </code>
         的实现中添加下列代码去覆盖
-        <code>
-            draggingEntered(\_:)
-        </code>
+        <code> draggingEntered(\_:) </code>
         方法：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">//1.</span>
@@ -387,24 +364,18 @@
     <ol>
         <li>
         	创建了一个名为
-            <code>
-                isReceivingDrag
-            </code>
+            <code> isReceivingDrag </code>
             的property，以便去追踪当前有拖拽session在这个view中，并含有你想要的数据。每次设置时，都会触发这个view的重绘。
         </li>
         <li>
         	覆盖
-            <code>
-                draggingEntered(\_:)
-            </code>
+            <code> draggingEntered(\_:) </code>
             方法，并确定它是否接受这个拖拽操作。
         </li>
     </ol>
     <p>
     	在第二部分，这个方法需要返回一个
-        <code>
-            NSDragOperation
-        </code>
+        <code> NSDragOperation </code>
         。你有可能注意到鼠标指针的变化是依赖于你按住的键或拖拽的destination的。
     </p>
     <p>
@@ -424,13 +395,9 @@
     </p>
     <p>
     	在这个配置中，如果拖拽粘贴板带有一个图片，它就返回
-        <code>
-            .copy
-        </code>
+        <code> .copy </code>
         来向用户展示你将要复制图片。否则，如果它不接受拖拽的项目，它就返回
-        <code>
-            NSDragOperation()
-        </code>
+        <code> NSDragOperation() </code>
         。
     </p>
     <h3>
@@ -444,17 +411,11 @@
 <span style="color: #002200;">}</span></pre>
     <p>
     	你已经覆盖了
-        <code>
-            draggingExited(\_:)
-        </code>
+        <code> draggingExited(\_:) </code>
         方法，并设置
-        <code>
-            isReceivingDrag
-        </code>
+        <code> isReceivingDrag </code>
         变量为
-        <code>
-            false
-        </code>
+        <code> false </code>
         。
     </p>
     <h3>
@@ -469,9 +430,7 @@
             DestinationView.swift
         </em>
         中，找到
-        <code>
-            draw(:_)
-        </code>
+        <code> draw(:_) </code>
         并用下列代码替换它。
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> draw<span style="color: #002200;">(</span>_ dirtyRect<span style="color: #002200;">:</span> <span style="color: #400080;">NSRect</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
@@ -542,9 +501,7 @@
     </p>
     <p>
     	添加下列代码到
-        <code>
-            DestinationView
-        </code>
+        <code> DestinationView </code>
         类的实现中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> prepareForDragOperation<span style="color: #002200;">(</span>_ sender<span style="color: #002200;">:</span> <span style="color: #400080;">NSDraggingInfo</span><span style="color: #002200;">)</span> <span style="color: #002200;">-</span>&gt; <span style="color: #a61390;">Bool</span> <span style="color: #002200;">{</span>
@@ -553,24 +510,16 @@
 <span style="color: #002200;">}</span></pre>
     <p>
     	当你在这个view中释放鼠标的时候，系统就会调用上面的方法；这是最后一次接受或拒绝拖拽的机会。返回
-        <code>
-            false
-        </code>
+        <code> false </code>
         就会拒绝，导致拖拽的图像跑回了它起始的位置。返回
-        <code>
-            true
-        </code>
+        <code> true </code>
         意味着view接受了这个image。当接受时，系统就会移除拖拽的图片并调用协议序列中的下一个方法：
-        <code>
-            performDragOperation(\_:)
-        </code>
+        <code> performDragOperation(\_:) </code>
         。
     </p>
     <p>
     	添加下列方法到
-        <code>
-            DestinationView
-        </code>
+        <code> DestinationView </code>
         中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> performDragOperation<span style="color: #002200;">(</span>_ draggingInfo<span style="color: #002200;">:</span> <span style="color: #400080;">NSDraggingInfo</span><span style="color: #002200;">)</span> <span style="color: #002200;">-</span>&gt; <span style="color: #a61390;">Bool</span> <span style="color: #002200;">{</span>
@@ -595,13 +544,9 @@
     <ol>
         <li>
             重置
-            <code>
-                isReceivingDrag
-            </code>
+            <code> isReceivingDrag </code>
             标致为
-            <code>
-                false
-            </code>
+            <code> false </code>
             。
         </li>
         <li>
@@ -609,13 +554,9 @@
         </li>
         <li>
         	将图片的URL移交给delegate进行处理，并返回
-            <code>
-                true
-            </code>
+            <code> true </code>
             - 否则，你拒绝拖拽操作并返回
-            <code>
-                false
-            </code>
+            <code> false </code>
             。
         </li>
     </ol>
@@ -625,17 +566,13 @@
                 注意
             </em>
             ：感觉更好了？如果你要做一个带动画的投放序列，
-            <code>
-                performDragOperation(:_)
-            </code>
+            <code> performDragOperation(:_) </code>
             会是开始动画最好的地方。
         </p>
     </div>
     <p>
     	祝贺！你刚刚完成了第一部分，并完成了
-    	<code>
-            DestinationView
-        </code>
+    	<code> DestinationView </code>
         接收拖拽要做的所有工作。
     </p>
     <h2>
@@ -643,9 +580,7 @@
     </h2>
     <p>
     	接下来你将使用
-        <code>
-            DestinationView
-        </code>
+        <code> DestinationView </code>
         在它的delegate中使用的数据。
     </p>
     <p>
@@ -654,20 +589,14 @@
             StickerBoardViewController.swift
         </em>
         并将其指定为
-        <code>
-            DestinationView
-        </code>
+        <code> DestinationView </code>
         的delegate。
     </p>
     <p>
     	为了恰当地使用它，你需要实现
-        <code>
-            DestinationViewDelegate协议
-        </code>
+        <code> DestinationViewDelegate协议 </code>
         的方法，将图片放到目标的层上。找到
-        <code>
-            processImage(\_:center:)
-        </code>
+        <code> processImage(\_:center:) </code>
         并用下列的代码替换它。
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> processImage<span style="color: #002200;">(</span>_ image<span style="color: #002200;">:</span> <span style="color: #400080;">NSImage</span>, center<span style="color: #002200;">:</span> <span style="color: #400080;">NSPoint</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
@@ -713,9 +642,7 @@
     	到这里，你已经准备好了去实现处理投放到这个view的图片的URL的方法。
         <br>
         使用下列代码替换
-        <code>
-            processImageURLs(\_:center:)
-        </code>
+        <code> processImageURLs(\_:center:) </code>
         方法：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> processImageURLs<span style="color: #002200;">(</span>_ urls<span style="color: #002200;">:</span> <span style="color: #002200;">[</span>URL<span style="color: #002200;">]</span>, center<span style="color: #002200;">:</span> <span style="color: #400080;">NSPoint</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
@@ -785,9 +712,7 @@
     </p>
     <p>
         所有的拖动source都必须遵循
-        <code>
-            NSDraggingSource
-        </code>
+        <code> NSDraggingSource </code>
         协议。这个MVP（最重要的玩家）承担了将一个或多个类型的数据（或数据的“承诺”（promise））放置到拖拽板上的任务。它还提供一个拖拽图片来展示数据。
     </p>
     <p>
@@ -805,20 +730,14 @@
     </h3>
     <p>
         拖拽source将是
-        <code>
-            ImageSourceView
-        </code>
+        <code> ImageSourceView </code>
         - 包含独角兽的view的类。你的目的很简单：把这个独角兽弄到你的拼图（collage）上。
     </p>
     <p>
         这个类需要遵循必须的协议
-        <code>
-            NSDraggingSource
-        </code>
+        <code> NSDraggingSource </code>
         和
-        <code>
-            NSPasteboardItemDataProvider
-        </code>
+        <code> NSPasteboardItemDataProvider </code>
         ，因此打开
         <em>
             ImageSourceView.swift
@@ -843,16 +762,12 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
     <ol>
         <li>
             这个方法是
-            <code>
-                NSDraggingSource
-            </code>
+            <code> NSDraggingSource </code>
             协议要求的。它告诉拖拽session你在尝试的操作类型，当用户从这个view中拖拽时。在这个case中，它是一个泛型的操作。
         </li>
         <li>
             这实现了强制的
-            <code>
-                NSPasteboardItemDataProvider
-            </code>
+            <code> NSPasteboardItemDataProvider </code>
             方法。后面还有更多的东西 - 现在的只是一点点的根。
         </li>
     </ol>
@@ -864,23 +779,17 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
     </p>
     <p>
         在这个项目app中，这个你工作所在的特定的view，是为了拖拽的单独的目标存在的，因此你将启动拖拽在
-        <code>
-            mouseDown(with:)
-        </code>
+        <code> mouseDown(with:) </code>
         这里。
     </p>
     <p>
         在其它case中，它启动在
-        <code>
-            mouseDragged(with:)
-        </code>
+        <code> mouseDragged(with:) </code>
         事件中启动可能会更恰当。
     </p>
     <p>
         在
-        <code>
-            ImageSourceView
-        </code>
+        <code> ImageSourceView </code>
         类的实现中添加下列方法：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> mouseDown<span style="color: #002200;">(</span>with theEvent<span style="color: #002200;">:</span> <span style="color: #400080;">NSEvent</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
@@ -897,25 +806,17 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
 <span style="color: #002200;">}</span></pre>
     <p>
         当你点击一个view时，系统调用
-        <code>
-            mouseDown(with:)
-        </code>
+        <code> mouseDown(with:) </code>
         ，事件开始“滚动”（rolling）。基类的实现中没有做任何事，因此无需再去调用。在实现中的代码做了全部的事：
     </p>
     <ol>
         <li>
             创建一个
-            <code>
-                NSPasteboardItem
-            </code>
+            <code> NSPasteboardItem </code>
             ，并设定这个类作为它的数据提供者。
-            <code>
-                NSPasteboardItem
-            </code>
+            <code> NSPasteboardItem </code>
             是一个“箱子”，可以“运载”有关被拖拽的项目的信息。
-            <code>
-                NSPasteboardItemDataProvider
-            </code>
+            <code> NSPasteboardItemDataProvider </code>
             根据请求提供数据。在这个case中你将提供
             <em>
                 TIFF
@@ -924,21 +825,13 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
         </li>
         <li>
             创建一个
-            <code>
-                NSDraggingItem
-            </code>
+            <code> NSDraggingItem </code>
             并将粘贴板的项目（item）赋给它。存在拖拽项目（item）来提供拖拽的图片，并运载一个粘贴板项目（item），但由于它有限的寿命，你不能保留对这个项目（item）的引用。如果需要的话，拖拽session会重新创建这个对象。
-            <code>
-                snapshot()
-            </code>
+            <code> snapshot() </code>
             是前面提到的助手方法之一。它创建一个
-            <code>
-                NSView
-            </code>
+            <code> NSView </code>
             的
-            <code>
-                NSImage
-            </code>
+            <code> NSImage </code>
             。
         </li>
         <li>
@@ -959,9 +852,7 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
     </p>
     <p>
         这个view的一个图片跟随你的鼠标，但它滑到了你鼠标的后面，因为
-        <code>
-            DestinationView
-        </code>
+        <code> DestinationView </code>
         不接受TIFF数据。
     </p>
     <h3>
@@ -973,23 +864,17 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
     <ol>
         <li>
             在
-            <code>
-                setup()
-            </code>
+            <code> setup() </code>
             中更新注册的类型来接受TIFF数据
         </li>
         <li>
             更新
-            <code>
-                shouldAllowDrag()
-            </code>
+            <code> shouldAllowDrag() </code>
             来接受TIFF类型
         </li>
         <li>
             更新
-            <code>
-                performDragOperation(\_:)
-            </code>
+            <code> performDragOperation(\_:) </code>
             来从粘贴板中拿到图片
         </li>
     </ol>
@@ -1014,17 +899,11 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
     </p>
     <p>
         接下来，来到
-        <code>
-            shouldAllowDrag(:_)
-        </code>
+        <code> shouldAllowDrag(:_) </code>
         ，并添加发现
-        <code>
-            return canAccept
-        </code>
+        <code> return canAccept </code>
         。输入下列代码在
-        <code>
-            return
-        </code>
+        <code> return </code>
         语句之前：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">else</span> <span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> types <span style="color: #002200;">=</span> pasteBoard.types, nonURLTypes.intersection<span style="color: #002200;">(</span>types<span style="color: #002200;">)</span>.<span style="color: #a61390;">count</span> &gt; <span style="color: #2400d9;">0</span> <span style="color: #002200;">{</span>
@@ -1032,9 +911,7 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
 <span style="color: #002200;">}</span></pre>
     <p>
         这里你检查了
-        <code>
-            nonURLTypes
-        </code>
+        <code> nonURLTypes </code>
         集合是否包含了任何从粘贴板接受到的类型，如果是的话，接受拖拽的操作。从你添加了一个TIFF类型到这个集合，这个view就接受从粘贴板而来的TIFF数据。
     </p>
     <h3>
@@ -1042,20 +919,14 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
     </h3>
     <p>
         最后，更新
-        <code>
-            performDragOperation(\_:)
-        </code>
+        <code> performDragOperation(\_:) </code>
         来解档从粘贴板来的图片数据。这相当得容易。
     </p>
     <p>
         Cocoa想让你使用粘贴板，并提供了一个
-        <code>
-            NSImage
-        </code>
+        <code> NSImage </code>
         的带有
-        <code>
-            NSPasteboard
-        </code>
+        <code> NSPasteboard </code>
         参数的构造方法。当你开始探索更多关于拖拽和投放的内容后，你将在
         <em>
             Cocoa
@@ -1064,13 +935,9 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
     </p>
     <p>
         找到
-        <code>
-            performDragOperation(\_:)
-        </code>
+        <code> performDragOperation(\_:) </code>
         ，在最后添加下列的代码，就在return语句
-        <code>
-            return false
-        </code>
+        <code> return false </code>
         的上面：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">else</span> <span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>pasteboard<span style="color: #002200;">:</span> pasteBoard<span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
@@ -1114,9 +981,7 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
             ImageSourceView.swift
         </em>
         并用下列代码替换
-        <code>
-            pasteboard(\_:item:provideDataForType:)
-        </code>
+        <code> pasteboard(\_:item:provideDataForType:) </code>
         的内容：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">//1.</span>
@@ -1133,9 +998,7 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
     <ol>
         <li>
             如果期望的数据类型是
-            <code>
-                kUTTypeTIFF
-            </code>
+            <code> kUTTypeTIFF </code>
             ，你就加载一个名为
             <em>
                 unicorn
@@ -1235,9 +1098,7 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
     </p>
     <p>
         例如，如果你将
-        <code>
-            kUTTypeTIFF
-        </code>
+        <code> kUTTypeTIFF </code>
         的值打印出来，你将看到它的值就是字符串
         <em>
             public.tiff
@@ -1261,20 +1122,14 @@ extension ImageSourceView<span style="color: #002200;">:</span> NSPasteboardItem
             UTI
         </em>
         的类型构建
-        <code>
-            NSPasteboardItem
-        </code>
+        <code> NSPasteboardItem </code>
         ，和这个操作将会失败。
     </p>
     <p>
         现在你需要让
-        <code>
-            AppActionSourceView
-        </code>
+        <code> AppActionSourceView </code>
         遵循
-        <code>
-            NSDraggingSource
-        </code>
+        <code> NSDraggingSource </code>
         协议。打开
         <em>
             AppActionSourceView.swift
@@ -1297,31 +1152,21 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
 <span style="color: #002200;">}</span></pre>
     <p>
         这个代码块和
-        <code>
-            ImageSourceView
-        </code>
+        <code> ImageSourceView </code>
         不同，因为你将放置私人的数据到粘贴板上，它们在app的外部是没有意义的。这就是为什么当鼠标被拖拽到你的应用之外时，你使用
-        <code>
-            context
-        </code>
+        <code> context </code>
         参数来返回
-        <code>
-            NSDragOperation()
-        </code>
+        <code> NSDragOperation() </code>
         。
     </p>
     <p>
         你早已熟悉了下一步。你需要覆盖
-        <code>
-            mouseDown(with:)
-        </code>
+        <code> mouseDown(with:) </code>
         事件来用一个粘贴板项目（item）启动一个拖拽session。
     </p>
     <p>
         添加下列的代码到
-        <code>
-            AppActionSourceView
-        </code>
+        <code> AppActionSourceView </code>
         类的实现中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">override</span> <span style="color: #a61390;">func</span> mouseDown<span style="color: #002200;">(</span>with theEvent<span style="color: #002200;">:</span> <span style="color: #400080;">NSEvent</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
@@ -1342,24 +1187,16 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
     </p>
     <p>
     	你可以看到这个和
-        <code>
-            ImageSourceView
-        </code>
+        <code> ImageSourceView </code>
         在某种程度上的不同之处。投放的数据直接到了粘贴板上，而不是将数据的产生推迟到当view使用
-        <code>
-            NSPasteboardItemDataProvider
-        </code>
+        <code> NSPasteboardItemDataProvider </code>
         协议接受了投放时。
     </p>
     <p>
     	为什么你要用
-        <code>
-            NSPasteboardItemDataProvider
-        </code>
+        <code> NSPasteboardItemDataProvider </code>
         协议？因为你希望当你在
-        <code>
-            mouseDown(with:)
-        </code> 
+        <code> mouseDown(with:) </code> 
         中开始拖拽session时，东西能够移动得尽可能得快。
     </p>
     <p>
@@ -1380,9 +1217,7 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
             DestinationView.swift
         </em>
         并添加
-        <code>
-            SparkleDrag.type
-        </code>
+        <code> SparkleDrag.type </code>
         到注册类型。替换下面这行：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">var</span> nonURLTypes<span style="color: #002200;">:</span> Set&lt;String&gt;  <span style="color: #002200;">{</span> <span style="color: #a61390;">return</span> <span style="color: #002200;">[</span><span style="color: #a61390;">String</span><span style="color: #002200;">(</span>kUTTypeTIFF<span style="color: #002200;">)</span><span style="color: #002200;">]</span> <span style="color: #002200;">}</span></pre>
@@ -1394,17 +1229,11 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
     	现在SparkleDrags就可以被接受了！
     </p>
     <p>
-        <code>
-            performDragOperation(:_)
-        </code>
+        <code> performDragOperation(:_) </code>
         需要一个新的
-        <code>
-            else-if
-        </code>
+        <code> else-if </code>
         字句，因此添加下列的代码到这个方法的最后
-        <code>
-            return false
-        </code>
+        <code> return false </code>
         之前：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">else</span> <span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> types <span style="color: #002200;">=</span> pasteBoard.types, types.<span style="color: #a61390;">contains</span><span style="color: #002200;">(</span>SparkleDrag.type<span style="color: #002200;">)</span>,
@@ -1417,9 +1246,7 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
     </p>
     <p>
     	你已几乎完成，只需要更新
-        <code>
-            StickerBoardViewController
-        </code>
+        <code> StickerBoardViewController </code>
         来处理动作指令。
     </p>
     <h3>
@@ -1431,9 +1258,7 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
             StickerBoardViewController.swift
         </em>
         并替换
-        <code>
-            processAction(\_:center:)
-        </code>
+        <code> processAction(\_:center:) </code>
         为：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> processAction<span style="color: #002200;">(</span>_ action<span style="color: #002200;">:</span> <span style="color: #a61390;">String</span>, center<span style="color: #002200;">:</span> <span style="color: #400080;">NSPoint</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
@@ -1486,8 +1311,7 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
             </li>
             <li>
             	创建一个
-                <code>
-                    NSImageView
+                <code>     NSImageView
                 </code>
                 并设置它的frame。
             </li>
@@ -1594,13 +1418,9 @@ extension AppActionSourceView<span style="color: #002200;">:</span> <span style=
     </p>
     <p>
     	另一个有趣的话题是怎么在
-        <code>
-            NSTableView
-        </code>
+        <code> NSTableView </code>
         和
-        <code>
-            NSOutlineView
-        </code>
+        <code> NSOutlineView </code>
         中使用拖放，它们的工作方式略有不同。可以在以下的资源中进行了解：
     </p>
     <ul>

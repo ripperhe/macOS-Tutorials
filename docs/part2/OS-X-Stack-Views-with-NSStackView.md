@@ -43,9 +43,7 @@
                 Note
             </em>
             : This
-            <code>
-                NSStackView
-            </code>
+            <code> NSStackView </code>
             tutorial assumes basic familiarity with Auto Layout. If you’re new to
             Auto Layout go check out the
             <a href="http://www.raywenderlich.com/115440/auto-layout-tutorial-in-ios-9-part-1-getting-started-2"
@@ -165,9 +163,7 @@
     </h2>
     <p>
         In this
-        <code>
-            NSStackView
-        </code>
+        <code> NSStackView </code>
         tutorial, you’ll work on an app called
         <em>
             Book Shop
@@ -697,9 +693,7 @@
     </p>
     <p>
         Since the table view has a constraint that sets its width to
-        <code>
-            180
-        </code>
+        <code> 180 </code>
         points, the stack view respects that and lets the other arranged view
         fill all of the remaining space. Run the project and try resizing the window.
     </p>
@@ -986,9 +980,7 @@
         The stack view itself is just a container and displays nothing on screen.
         It merely arranges the layout of a bunch of views, and you can access those
         via the
-        <code>
-            arrangedSubviews
-        </code>
+        <code> arrangedSubviews </code>
         property. For each arranged view, you can show and hide, animate, or remove
         it from the stack at will.
     </p>
@@ -1058,13 +1050,9 @@
             from code in the same manner you do for labels, button, and other Cocoa
             controls. For example you can dynamically add arranged view by calling
             the
-            <code>
-                addArrangedSubview(\_:)
-            </code>
+            <code> addArrangedSubview(\_:) </code>
             method on your stack view or remove and arranged view by making use of
-            <code>
-                removeArrangedSubview(\_:)
-            </code>
+            <code> removeArrangedSubview(\_:) </code>
             .
         </p>
     </div>
@@ -1082,13 +1070,9 @@
         The menu button is selected by default, but if you click it repeatedly
         you’ll see it toggles between selected and deselected states. The button
         is already connected to the method in
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         called
-        <code>
-            actionToggleListView(\_:)
-        </code>
+        <code> actionToggleListView(\_:) </code>
         , so you can just add your code at the bottom of the method body.
     </p>
     <p>
@@ -1110,9 +1094,7 @@
         </table>
     </div>
     <p>
-        <code>
-            runAnimationGroup()
-        </code>
+        <code> runAnimationGroup() </code>
         allows you create UI animations by simply listing the desired changes
         in the argument closure. The animations closure gets one parameter, which
         is the animation
@@ -1130,9 +1112,7 @@
             </em>
             Unlike on iOS, in OSX there are different (but similar in effect) APIs
             to create animations. I personally like using
-            <code>
-                NSAnimationContext.runAnimationGroup(_)
-            </code>
+            <code> NSAnimationContext.runAnimationGroup(_) </code>
             because it’s the closest to what I’m using on iOS and can write my code
             easier and faster by just using the same approach on both platforms.
         </p>
@@ -1142,16 +1122,12 @@
         the top stack — more specifically, the table view that shows the list of
         books. To make all changes in the window layout animate nicely, also add
         a call to
-        <code>
-            layoutSubtreeIfNeeded()
-        </code>
+        <code> layoutSubtreeIfNeeded() </code>
         .
     </p>
     <p>
         Just below the comment
-        <code>
-            //perform the animation
-        </code>
+        <code> //perform the animation </code>
         (but still inside the closure) insert this:
     </p>
     <div class="wp_codebox">
@@ -1181,16 +1157,12 @@
             Just like with any other animation under Auto Layout you need to force
             a layout pass from inside the animations block to animate the changes you
             do to your views. In fact changing the
-            <code>
-                hidden
-            </code>
+            <code> hidden </code>
             property on your first arranged view will be automatically animated, the
             rest of the arranged views however will have to change position and you’d
             like to animated those changes. That’s why at the end of the block you
             make a call to
-            <code>
-                layoutSubtreeIfNeeded()
-            </code>
+            <code> layoutSubtreeIfNeeded() </code>
             .
         </p>
     </div>

@@ -40,9 +40,7 @@
             macOS
         </em>
         中，view controller是由
-        <code>
-            NSViewController
-        </code>
+        <code> NSViewController </code>
         的子类实现的。
     </p>
     <p>
@@ -62,13 +60,9 @@
     </p>
     <p>
         在OS X 10.10 Yosemite之前，
-        <code>
-            NSViewController
-        </code>
+        <code> NSViewController </code>
         并不是一个非常有用的类。它没有提供任何你所期待的view controller的功能 - 例如，可以在
-        <code>
-            UIViewController
-        </code>
+        <code> UIViewController </code>
         中找到的。
     </p>
     <p>
@@ -438,9 +432,7 @@
             Tab View Controller
         </em>
         是
-        <code>
-            NSTabViewController
-        </code>
+        <code> NSTabViewController </code>
         的子类；它包含一个带有两个或更多的项目的tab view和一个container view。在每个tab的背后是另一个view controller，它的内容被用来填充container view。每次当一个新的tab被选择时，这个Tab View Controller就用相应的view controller替换了它的内容。
     </p>
     <p>
@@ -760,9 +752,7 @@
             OverviewController.swift
         </em>
         并添加一个名为
-        <code>
-            titleLabel
-        </code>
+        <code> titleLabel </code>
         的outlet。确定其type为
         <em>
             NSTextField
@@ -784,21 +774,15 @@
     <ol>
         <li>
             中间的label：
-            <code>
-                priceLabel
-            </code>
+            <code> priceLabel </code>
         </li>
         <li>
             底部的label：
-            <code>
-                descriptionLabel
-            </code>
+            <code> descriptionLabel </code>
         </li>
         <li>
             image view：
-            <code>
-                productImageView
-            </code>
+            <code> productImageView </code>
         </li>
     </ol>
     <p>
@@ -840,35 +824,23 @@
     </p>
     <ol>
         <li>
-            <code>
-                numberFormatter
-            </code>
+            <code> numberFormatter </code>
             是一个
-            <code>
-                NumberFormatter
-            </code>
+            <code> NumberFormatter </code>
             对象，用来展示加个的值，以货币的形式格式化。
         </li>
         <li>
-            <code>
-                selectedProduct
-            </code>
+            <code> selectedProduct </code>
             持有了当前选中的产品。每次当值发生变化时，
-            <code>
-                didSet
-            </code>
+            <code> didSet </code>
             就被执行，也就是执行
-            <code>
-                updateUI
-            </code>
+            <code> updateUI </code>
             。
         </li>
     </ol>
     <p>
         现在添加
-        <code>
-            updateUI
-        </code>
+        <code> updateUI </code>
         方法到
         <em>
             OverviewController.swift
@@ -890,20 +862,14 @@
     <ol>
         <li>
             检查这个view是否已加载。
-            <code>
-                isViewLoaded
-            </code>
+            <code> isViewLoaded </code>
             是
-            <code>
-                NSViewController
-            </code>
+            <code> NSViewController </code>
             的一个property，当这个view已被加载到内存中时，它的值就变为true。当这个view被加载完毕后，访问全部的view相关的property，例如label，就都会是安全的了。
         </li>
         <li>
             Unwrap
-            <code>
-                selectedProduct
-            </code>
+            <code> selectedProduct </code>
             ，来查看是否这里有一个产品。之后，label和image就被更新，来展示适当的值。
         </li>
     </ol>
@@ -928,21 +894,15 @@
     </h3>
     <ol>
         <li>
-            <code>
-                viewDidLoad
-            </code>
+            <code> viewDidLoad </code>
             会在这个view被全部加载时被调用，可以用来一次性地初始化例如，配置一个数的formatter，注册通知，或调用仅仅需要被执行一次的API。
         </li>
         <li>
-            <code>
-                viewWillAppear
-            </code>
+            <code> viewWillAppear </code>
             会在每次view将要展示在屏幕上时被调用。在我们的应用中，它会在每次你选择Overview的tab时被调用。这是一个更新你的UI或刷新你的数据模型的好时机。
         </li>
         <li>
-            <code>
-                viewDidAppear
-            </code>
+            <code> viewDidAppear </code>
             会在view被展示到屏幕上时被调用。在这里你可以启动一些花哨的（fancy）动画。
         </li>
     </ol>
@@ -954,29 +914,19 @@
     </p>
     <ol>
         <li>
-            <code>
-                updateViewConstraints
-            </code>
+            <code> updateViewConstraints </code>
             会在每次布局发生变化时被调用，例如window的大小被调整时。
         </li>
         <li>
-            <code>
-                viewWillLayout
-            </code>
+            <code> viewWillLayout </code>
             会在view controller的view的
-            <code>
-                layout
-            </code>
+            <code> layout </code>
             方法被调用前调用。例如，你可以使用这个方法来调整约束。
         </li>
         <li>
-            <code>
-                viewDidLayout
-            </code>
+            <code> viewDidLayout </code>
             会在
-            <code>
-                layout
-            </code>
+            <code> layout </code>
             方法被调用之后调用。
         </li>
     </ol>
@@ -988,19 +938,13 @@
     </p>
     <ol>
         <li>
-            <code>
-                viewWillDisappear
-            </code>
+            <code> viewWillDisappear </code>
             会在view消失之前被调用。在这里你可以停止你在
-            <code>
-                viewDidAppear
-            </code>
+            <code> viewDidAppear </code>
             启动的那些花哨的动画。
         </li>
         <li>
-            <code>
-                viewDidDisappear
-            </code>
+            <code> viewDidDisappear </code>
             会在view不再在屏幕上时被调用。在这里你可以抛弃所有你不在需要的东西。例如，你可以废弃你用来周期性更新你的数据模型的定时器。
         </li>
     </ol>
@@ -1040,20 +984,16 @@
                         <div id="spoilerDiv3a5b8001" class="easySpoilerSpoils" style="display:none; white-space:wrap; overflow:auto; vertical-align:middle;">
                             <br>
                             有两个可能的方法：
-                            <code>
-                                viewWillAppear
+                            <code>                 viewWillAppear
                             </code>
                             和
-                            <code>
-                                viewDidAppear
+                            <code>                 viewDidAppear
                             </code>
                             。最好的解决方案是
-                            <code>
-                                viewWillAppear
+                            <code>                 viewWillAppear
                             </code>
                             ，这样用户就可以在view一出现时，来更新UI了。使用
-                            <code>
-                                viewDidAppear
+                            <code>                 viewDidAppear
                             </code>
                             会导致一个用户将在数据更新前，首先看到UI的出现。
                             <br>
@@ -1078,35 +1018,25 @@
 <span style="color: black;">}</span></pre>
     <p>
         它覆盖了
-        <code>
-            viewWillAppear
-        </code>
+        <code> viewWillAppear </code>
         方法，以在view可见之前更新用户的界面。
     </p>
     <p>
         数的formatter当前使用的是默认的值，这并不符合你的需求。你将配置它成为货币的值的格式；由于你只需要做一次，一个很好的地方就是在方法
-        <code>
-            viewDidLoad
-        </code>
+        <code> viewDidLoad </code>
         中。
     </p>
     <p>
         在
-        <code>
-            OverviewController
-        </code>
+        <code> OverviewController </code>
         添加下列的代码到
-        <code>
-            viewDidLoad
-        </code>
+        <code> viewDidLoad </code>
         中：
     </p>
     <pre class="swift" style="font-family:monospace;">numberFormatter.<span style="color: #508187;">numberStyle</span> = .<span style="color: #508187;">currency</span></pre>
     <p>
         下一步，主view controller需要响应产品的选择，然后通知给
-        <code>
-            OverviewController
-        </code>
+        <code> OverviewController </code>
         这个变化。这个最好的地方是在
         <em>
             ViewController
@@ -1125,20 +1055,14 @@
 <span style="color: #B833A1;">var</span> selectedProduct<span style="color: black;">:</span> Product?</pre>
     <p>
         第一个property
-        <code>
-            products
-        </code>
+        <code> products </code>
         ，是一个用来持有全部产品的引用的数组。第二个
-        <code>
-            selectedProduct
-        </code>
+        <code> selectedProduct </code>
         ，则持有了被pop-up按钮选中的产品。
     </p>
     <p>
         找到
-        <code>
-            viewDidLoad
-        </code>
+        <code> viewDidLoad </code>
         方法，并添加下列代码到里面：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">if</span> <span style="color: #B833A1;">let</span> filePath = Bundle.<span style="color: #508187;">main</span>.<span style="color: #508187;">path</span><span style="color: black;">(</span>forResource<span style="color: black;">:</span> <span style="color: #C41A16;">"Products"</span><span style="color: black;">,</span> ofType<span style="color: black;">:</span> <span style="color: #C41A16;">"plist"</span><span style="color: black;">)</span> <span style="color: black;">{</span>
@@ -1146,13 +1070,9 @@
 <span style="color: black;">}</span></pre>
     <p>
         它使用
-        <code>
-            Product
-        </code>
+        <code> Product </code>
         类从plist文件中加载了产品的数组（Product类是在教程一开始时被添加的），并保存到了
-        <code>
-            products
-        </code>
+        <code> products </code>
         的propert中。现在你可以使用这个数组来填充pop-up按钮了。
     </p>
     <p>
@@ -1185,9 +1105,7 @@
             productsButton
         </em>
         的outlet。确认type为
-        <code>
-            NSPopUpButton
-        </code>
+        <code> NSPopUpButton </code>
         。
     </p>
     <p>
@@ -1205,9 +1123,7 @@
             ViewController.swift
         </em>
         并添加下列的代码到
-        <code>
-            viewDidLoad
-        </code>
+        <code> viewDidLoad </code>
         方法的末尾：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #008312;">//1</span>
@@ -1235,9 +1151,7 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
     </ol>
     <p>
         问题的最后一部分，是响应pop-up按钮选择的变化。找到
-        <code>
-            valueChanged
-        </code>
+        <code> valueChanged </code>
         并添加下列的行：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">if</span> <span style="color: #B833A1;">let</span> bookTitle = sender.<span style="color: #508187;">selectedItem</span>?.<span style="color: #508187;">title</span><span style="color: black;">,</span>
@@ -1246,44 +1160,30 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
 <span style="color: black;">}</span></pre>
     <p>
         这个代码尝试获取被选择的书的标题，并在产品中搜索这个标题的产品的的序号。使用这个序号，来设置
-        <code>
-            selectedProduct
-        </code>
+        <code> selectedProduct </code>
         为正确的产品。
     </p>
     <p>
         现在，你只需要在选择的产品发生变化时，通知
-        <code>
-            OverviewController
-        </code>
+        <code> OverviewController </code>
         。为此你需要一个指向
-        <code>
-            OverviewController
-        </code>
+        <code> OverviewController </code>
         的引用。你可以在代码中获取引用，但首先你必须添加另一个property到
         <em>
             ViewController.swift
         </em>
         中来持有这个引用。添加下列的代码到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         的实现中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">private</span> <span style="color: #B833A1;">var</span> overviewViewController<span style="color: black;">:</span> OverviewController?</pre>
     <p>
         你可以在
-        <code>
-            prepare(for:sender:)
-        </code>
+        <code> prepare(for:sender:) </code>
         方法中获得
-        <code>
-            OverviewController
-        </code>
+        <code> OverviewController </code>
         的实例，它会在当view controller被嵌入到container view时被调用。添加下列的方法到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         的实现中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">override</span> <span style="color: #B833A1;">func</span> prepare<span style="color: black;">(</span><span style="color: #B833A1;">for</span> segue<span style="color: black;">:</span> <span style="color: #6F41A7;">NSStoryboardSegue</span><span style="color: black;">,</span> sender<span style="color: black;">:</span> <span style="color: #6F41A7;">Any</span>?<span style="color: black;">)</span> <span style="color: black;">{</span>
@@ -1311,21 +1211,15 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </li>
         <li>
             检查当前的view controller是否是
-            <code>
-                OverviewController
-            </code>
+            <code> OverviewController </code>
             的实例，如果是的话，设置它的
-            <code>
-                selectedProduct
-            </code>
+            <code> selectedProduct </code>
             property。
         </li>
     </ol>
     <p>
         现在，在
-        <code>
-            valueChanged
-        </code>
+        <code> valueChanged </code>
         方法的
         <em>
             if let
@@ -1404,9 +1298,7 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
             Identity Inspector
         </em>
         中将类改变为
-        <code>
-            DetailViewController
-        </code>
+        <code> DetailViewController </code>
         。
     </p>
     <p>
@@ -1419,9 +1311,7 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
     </p>
     <p>
         添加一个
-        <code>
-            image view
-        </code>
+        <code> image view </code>
         到detail view上。选择它并单击
         <em>
             Add New Constraints
@@ -1603,9 +1493,7 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         sizes="(max-width: 516px) 100vw, 516px">
     </p>
     <p>
-        <code>
-            NSBox
-        </code>
+        <code> NSBox </code>
         是一个很好的组织相关的UI元素的方式，给他们一个名字，你可以在Xcode的
         <em>
             Document Outline
@@ -1614,9 +1502,7 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
     </p>
     <p>
         为了完成UI，拖拽一个label，到
-        <code>
-            NSBox
-        </code>
+        <code> NSBox </code>
         的内容中。选择这个label并单击
         <em>
             Add New Constraints
@@ -1678,38 +1564,28 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
     <ol>
         <li>
             NSImageView命名为
-            <code>
-                productImageView
-            </code>
+            <code> productImageView </code>
             。
         </li>
         <li>
             label名为
-            <code>
-                titleLabel
-            </code>
+            <code> titleLabel </code>
             ，字体为粗体。
         </li>
         <li>
             下面的label名为
-            <code>
-                descriptionLabel
-            </code>
+            <code> descriptionLabel </code>
             。
         </li>
         <li>
             NSBox中的label名为
-            <code>
-                audienceLabel
-            </code>
+            <code> audienceLabel </code>
             。
         </li>
     </ol>
     <p>
         通过恰当的outlet，添加实现来展示产品的细节。添加下列的代码到
-        <code>
-            DetailViewController
-        </code>
+        <code> DetailViewController </code>
         类的实现中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #008312;">// 1</span>
@@ -1740,9 +1616,7 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
     <ol>
         <li>
             定义了一个
-            <code>
-                selectedProduct
-            </code>
+            <code> selectedProduct </code>
             property并在它发生变化时更新UI。
         </li>
         <li>
@@ -1750,9 +1624,7 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
         </li>
         <li>
             使用适当的outlet，来设置在label和image view上的产品信息（通过
-            <code>
-                updateUI
-            </code>
+            <code> updateUI </code>
             ）。
         </li>
     </ol>
@@ -1762,17 +1634,13 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
             ViewController.swift
         </em>
         并添加一个property来持有到detail view controller的引用。在
-        <code>
-            overviewViewController
-        </code>
+        <code> overviewViewController </code>
         property的下方，添加下列代码：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">private</span> <span style="color: #B833A1;">var</span> detailViewController<span style="color: black;">:</span> DetailViewController?</pre>
     <p>
         找到
-        <code>
-            valueChanged
-        </code>
+        <code> valueChanged </code>
         ，并添加下列的代码到里面：
     </p>
     <pre class="swift" style="font-family:monospace;">detailViewController?.<span style="color: #508187;">selectedProduct</span> = selectedProduct</pre>
@@ -1781,13 +1649,9 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
     </p>
     <p>
         最后一个改变位于
-        <code>
-            prepare(for:sender:)
-        </code>
+        <code> prepare(for:sender:) </code>
         中。找到评论
-        <code>
-            // More later
-        </code>
+        <code> // More later </code>
         并用下列代码将其替换：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">else</span> <span style="color: #B833A1;">if</span> <span style="color: #B833A1;">let</span> controller = controller <span style="color: #B833A1;">as</span>? DetailViewController <span style="color: black;">{</span>
@@ -1796,9 +1660,7 @@ productsButton.<span style="color: #508187;">selectItem</span><span style="color
 <span style="color: black;">}</span></pre>
     <p>
         这会在detail view被嵌入时，更新
-        <code>
-            selectedProduct
-        </code>
+        <code> selectedProduct </code>
         。
     </p>
     <p>

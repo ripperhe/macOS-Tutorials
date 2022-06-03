@@ -34,37 +34,25 @@
         你的Mac是由一个成熟版本的UNIX作为操作系统的，这意味着它含有大量预装的命令行工具和脚本语言。Swift、Perl、Python、Bash、Ruby以及任何你可以安装的。使用这个来创建awesome的app，难道不是很棒么？
     </p>
     <p>
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         让你可以在你的机器上执行另一个程序，作为一个子进程，并在你的主程序运行的时候，监视它的执行状态。例如，你可以运行
-        <code>
-            ls
-        </code>
+        <code> ls </code>
         命令来展示一个目录的列表 - 就是从你的app中！
     </p>
     <p>
         一个
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         的很好的类比是父母和孩子的关系。一个父母可以创建一个孩子，并告诉它去做确定的事情，（理论上）孩子必须服从。
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         表现为类似的方式；你启动一个“孩子”程序，给它指示，并告诉它在哪里报告任何的输出或错误。但会更好 - 它会比你一般的学步小孩更顺从 :]
     </p>
     <p>
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         的一个很棒的用途，是用来提供命令行程序的前端GUI。命令行的程序是很有用的，但它们要求你准确地记住。它们在你机器上的什么地方，怎么来调用它们，以及你可以为它们提供什么选项或参数。在前端添加一个GUI，可以提供给用户大量的控制能力 - 无需成为一个命令行的专家（gurn）！
     </p>
     <p>
         本教程包含一个
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         示例，它会展示给你如何执行一个简单的，带有参数的命名行程序，并在它允许时，展示它的标准输出到一个text field中。最后，你就可以在你的自己的app中使用NSTask了！
     </p>
     <div class="note">
@@ -101,30 +89,20 @@
     </p>
     <p>
         这个window有一个标题“TasksProject”。它包含一个简单的GUI，它将通过调用shell脚本，来让你构建一个iOS项目，创建一个
-        <code>
-            ipa
-        </code>
+        <code> ipa </code>
         并观察正在发生什么。
     </p>
     <h2>
         创建你的第一个NSTask
     </h2>
     <p>
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         的示例，将通过
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         在后台运行一些命令程序，来build并打包一个iOS app到
-        <code>
-            ipa
-        </code>
+        <code> ipa </code>
         文件。大多数基本的UI功能都已到位 - 你的工作的重点都在
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         上。
     </p>
     <div class="note">
@@ -133,9 +111,7 @@
                 注意：
             </em>
             建议你要有一个苹果iOS开发者的账号，因为你需要合适的证书和provisioning profile来创建一个
-            <code>
-                ipa
-            </code>
+            <code> ipa </code>
             文件，它可以安装到你的一个设备上。如果你没有也不要担心，你同样可以在没有这个账号的情况下，follow整个教程。
         </p>
     </div>
@@ -166,9 +142,7 @@
             Tasks View Controller Scene
         </em>
         。注意
-        <code>
-            projectPath
-        </code>
+        <code> projectPath </code>
         property — 这是你想要改变的那一个。
     </p>
     <p>
@@ -185,9 +159,7 @@
             Stack View
         </em>
         的一个“孩子”。在
-        <code>
-            Attributes Inspector
-        </code>
+        <code> Attributes Inspector </code>
         中，
         <em>
             Path Control
@@ -214,9 +186,7 @@
             parent
         </i>
         目录，而不是
-        <code>
-            .xcodeproj
-        </code>
+        <code> .xcodeproj </code>
         文件它本身。
     </p>
     <div class="note">
@@ -230,18 +200,12 @@
                 就在这里下载一个简单的项目
             </a>
             ，并将其解压到你机器上。然后使用前面的说明来设置你应用中的
-            <code>
-                Path
-            </code>
+            <code> Path </code>
             property。例如，如果你把这个包解压到了桌面上，你就应该设置 
-            <code>
-                Path
-            </code>
+            <code> Path </code>
             为
-            <code>
-                <br>
-                /Users/YOUR_USERNAME_HERE/Desktop/SuperDuperApp
-            </code>
+            <code> <br>
+                /Users/YOUR_USERNAME_HERE/Desktop/SuperDuperApp </code>
             。
         </p>
     </div>
@@ -279,16 +243,12 @@
             Path
         </em>
         设置成一个容易在你的机器上被找到的目录，例如Desktop。它会是这个应用所创建的
-        <code>
-            .ipa
-        </code>
+        <code> .ipa </code>
         文件将要放置的地方。
     </p>
     <p>
         这两个
-        <code>
-            Tasks View Controller Scene
-        </code>
+        <code> Tasks View Controller Scene </code>
         中额外的地方，你需要了解：
         <em>
             Target Name
@@ -307,16 +267,12 @@
                 Target Name
             </em>
             为你想要build的
-            <code>
-                Target
-            </code>
+            <code> Target </code>
             的名称。
         </li>
         <li>
             在Target Name下展示的文本域，将在你的项目运行时，展示
-            <code>
-                NSTask
-            </code>
+            <code> NSTask </code>
             对象的输出。
         </li>
     </ol>
@@ -352,9 +308,7 @@
             TasksViewController.swift
         </em>
         并添加下列的代码到
-        <code>
-            startTask(\_:)
-        </code>
+        <code> startTask(\_:) </code>
         中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #008312;">//1.</span>
@@ -391,64 +345,40 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
     </p>
     <ol>
         <li>
-            <code>
-                outputText
-            </code>
+            <code> outputText </code>
             是window中的大文本框；它会包含所有来自你将要运行的脚本的输出。如果你运行这个脚本多次，你会想在每次运行前清空它，因此第一行会设置
-            <code>
-                string
-            </code>
+            <code> string </code>
             property（text框的内容）为一个空字符串。
         </li>
         <li>
-            <code>
-                projectURL
-            </code>
+            <code> projectURL </code>
             和
-            <code>
-                repositoryURL
-            </code>
+            <code> repositoryURL </code>
             都是
-            <code>
-                NSURL
-            </code>
+            <code> NSURL </code>
             的对象，为了将它们作为参数传你给你的
-            <code>
-                NSTask
-            </code>
+            <code> NSTask </code>
             ，代码获取了这些对象的字符串的表示。
         </li>
         <li>
             一般地，目录的名称和项目文件的名称是相同的。在包含于
-            <code>
-                projectURL
-            </code>
+            <code> projectURL </code>
             的项目目录，获取
-            <code>
-                lastPathComponent
-            </code>
+            <code> lastPathComponent </code>
             property，并添加一个“.xcodeproj”的扩展，来获取项目文件的路径。
         </li>
         <li>
             定义当创建
-            <code>
-                ipa
-            </code>
+            <code> ipa </code>
             文件作为
-            <code>
-                build
-            </code>
+            <code> build </code>
             时，产生的中间的build文件，所将要保存在的子目录。
         </li>
         <li>
             将参数保存到一个数组中。这个数组将传递给
-            <code>
-                NSTask
-            </code>
+            <code> NSTask </code>
             ，用来在运行命令行工具时，构建
-            <code>
-                .ipa
-            </code>
+            <code> .ipa </code>
             文件。
         </li>
         <li>
@@ -457,13 +387,9 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
     </ol>
     <p>
         为什么要禁用“Build”按钮？
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         将在每次按下按钮时运行，因此app将在执行
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         的时间内非常忙碌，用户会无耐心地多次点击它 - 每次都会产生一个新的build过程。这个动作避免了用户在app非常忙碌的时候创建按钮的点击事件。
     </p>
     <p>
@@ -485,9 +411,7 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
             看起来
         </i>
         非常得忙碌，但你知道现在实际上，它是没有做任何事的。是时候去添加
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         的魔法了。
     </p>
     <h2>
@@ -533,51 +457,33 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
     <ol>
         <li>
             设置
-            <code>
-                isRunning
-            </code>
+            <code> isRunning </code>
             为
-            <code>
-                true
-            </code>
+            <code> true </code>
             。这会允许
-            <code>
-                Stop
-            </code>
+            <code> Stop </code>
             按钮的使用，因为它通过
             <a href="/?p=21752" sl-processed="1">
                 Cocoa Bindings
             </a>
             被绑定到了
-            <code>
-                TasksViewController
-            </code>
+            <code> TasksViewController </code>
             的
-            <code>
-                isRunning
-            </code>
+            <code> isRunning </code>
             property。你想要让这发生在主线程。
         </li>
         <li>
             创建一个
-            <code>
-                DispatchQueue
-            </code>
+            <code> DispatchQueue </code>
             来在后台的线程运行繁重的任务。
         </li>
         <li>
             在
-            <code>
-                DispatchQueue
-            </code>
+            <code> DispatchQueue </code>
             中使用
-            <code>
-                async
-            </code>
+            <code> async </code>
             。应用将会在主线程继续处理例如按钮点击的时间，但
-            <code>
-                NSTask
-            </code>
+            <code> NSTask </code>
             将运行在后台线程直到它完成为止。
         </li>
         <li>
@@ -585,17 +491,11 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
         </li>
         <li>
             当完工时，重新启用
-            <code>
-                Build
-            </code>
+            <code> Build </code>
             按钮，停止spinner动画，并设置
-            <code>
-                isRunning
-            </code>
+            <code> isRunning </code>
             为
-            <code>
-                false
-            </code>
+            <code> false </code>
             ，也就禁用了“Stop”按钮。这需要在主线程完成，因为你是在操纵UI元素。
         </li>
     </ol>
@@ -608,25 +508,17 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
             TasksViewController.swift
         </em>
         中，添加下列的代码到
-        <code>
-            startTask
-        </code>
+        <code> startTask </code>
         的末尾，就在
-        <code>
-            spinner.startAnimation(self)
-        </code>
+        <code> spinner.startAnimation(self) </code>
         的后面：
     </p>
     <pre class="swift" style="font-family:monospace;">runScript<span style="color: black;">(</span>arguments<span style="color: black;">)</span></pre>
     <p>
         上面用你在
-        <code>
-            startTask
-        </code>
+        <code> startTask </code>
         中构建的参数的数组，调用了
-        <code>
-            runScript
-        </code>
+        <code> runScript </code>
         方法。
     </p>
     <p>
@@ -639,9 +531,7 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
             Build
         </em>
         按钮变成了不可用的状态，
-        <code>
-            Stop
-        </code>
+        <code> Stop </code>
         按钮变成了可用的状态，spinner将开始动画：
     </p>
     <p>
@@ -674,9 +564,7 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
                 注意：
             </em>
             如果你在应用完成睡眠之前，遇到了问题，请增加调用
-            <code>
-                sleep(forTimeInterval:)
-            </code>
+            <code> sleep(forTimeInterval:) </code>
             时所传的秒数。
         </p>
     </div>
@@ -689,13 +577,9 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
                 注意：
             </em>
             Swift使用
-            <code>
-                Process
-            </code>
+            <code> Process </code>
             这个名字来调用
-            <code>
-                NSTask
-            </code>
+            <code> NSTask </code>
             ，因为
             <em>
                 Foundation
@@ -713,17 +597,11 @@ outputText.<span style="color: #508187;">string</span> = <span style="color: #C4
             TasksViewController.swift
         </em>
         中，找到
-        <code>
-            runScript
-        </code>
+        <code> runScript </code>
         这行，被括号括起来的
-        <code>
-            //TESTING CODE
-        </code>
+        <code> //TESTING CODE </code>
         注释这里。用下面的代码替换
-        <code>
-            taskQueue.async
-        </code>
+        <code> taskQueue.async </code>
         块中的全部内容：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #008312;">//1.</span>
@@ -762,96 +640,56 @@ guard <span style="color: #B833A1;">let</span> path = Bundle.<span style="color:
     <ol>
         <li>
             获取了
-            <code>
-                BuildScript.command
-            </code>
+            <code> BuildScript.command </code>
             脚本的路径，它包含在你的应用的bundle中。这个脚本现在还不存在 - 你将在稍后添加它。
         </li>
         <li>
             创建一个新的
-            <code>
-                Process
-            </code>
+            <code> Process </code>
             对象，并把它赋给
-            <code>
-                TasksViewController
-            </code>
+            <code> TasksViewController </code>
             的
-            <code>
-                buildTask
-            </code>
+            <code> buildTask </code>
             property。
-            <code>
-                launchPath
-            </code>
+            <code> launchPath </code>
             property是你想要运行的可执行文件的路径。将
-            <code>
-                BuildScript.command
-            </code>
+            <code> BuildScript.command </code>
             的
-            <code>
-                path
-            </code>
+            <code> path </code>
             赋值给
-            <code>
-                Process
-            </code>
+            <code> Process </code>
             的
-            <code>
-                launchPath
-            </code>
+            <code> launchPath </code>
             ，然后将传递给
-            <code>
-                runScript:
-            </code>
+            <code> runScript: </code>
             的参数赋给
-            <code>
-                Process
-            </code>
+            <code> Process </code>
             的
-            <code>
-                arguments
-            </code>
+            <code> arguments </code>
             property。
-            <code>
-                Process
-            </code>
+            <code> Process </code>
             将把参数传递给可执行文件，就像你在终端中输入它们一样。
         </li>
         <li>
-            <code>
-                Process
-            </code>
+            <code> Process </code>
             有一个
-            <code>
-                terminationHandler
-            </code>
+            <code> terminationHandler </code>
             的property，它包含一个会在任务完成时被执行的block。它会更新UI来反映完成的状态，就像你之前做得一样。
         </li>
         <li>
             为了运行task并执行脚本，调用
-            <code>
-                Process
-            </code>
+            <code> Process </code>
             对象的
-            <code>
-                launch
-            </code>
+            <code> launch </code>
             方法。这里同样有终止，打断，挂起或继续一个
-            <code>
-                Process
-            </code>
+            <code> Process </code>
             的方法。
         </li>
         <li>
             调用
-            <code>
-                waitUntilExit
-            </code>
+            <code> waitUntilExit </code>
             ，它告诉
-            <code>
-                Process
-            </code>
+            <code> Process </code>
             对象block住当前线程的其它活动，直到这个task完成为止。记住，这个代码运行在后台的线程。你的UI，则运行在主线程，将始终响用户的输入。
         </li>
     </ol>
@@ -869,9 +707,7 @@ guard <span style="color: #B833A1;">let</span> path = Bundle.<span style="color:
     <pre class="swift" style="font-family:monospace;">Unable to locate BuildScript.<span style="color: #508187;">command</span></pre>
     <p>
         这是你刚刚添加到代码开头的guard语句中的日志。由于你至今尚未添加任何的脚本，于是就触发了
-        <code>
-            guard
-        </code>
+        <code> guard </code>
         。
     </p>
     <p>
@@ -958,47 +794,31 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
 <span style="color: #002200;">/</span>usr<span style="color: #002200;">/</span>bin<span style="color: #002200;">/</span>xcrun <span style="color: #002200;">-</span>verbose <span style="color: #002200;">-</span>sdk iphoneos PackageApplication <span style="color: #002200;">-</span>v <span style="color: #bf1d1a;">"${3}/${4}.app"</span> <span style="color: #002200;">-</span>o <span style="color: #bf1d1a;">"${5}/app.ipa"</span></pre>
     <p>
         这就是你的
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         将会调用的全部的build脚本。
     </p>
     <p>
         你所看到的贯穿你的脚本的
-        <code>
-            echo
-        </code>
+        <code> echo </code>
         命令，将把任何传给它的文本发送到
         <em>
             标准输出
         </em>
         中，你会捕获它作为你的
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         对象的一部分的返回值，并展示到你的
-        <code>
-            outputText
-        </code>
+        <code> outputText </code>
         框中。
-        <code>
-            echo
-        </code>
+        <code> echo </code>
         语句可以方便地让你知道你的脚本正在做什么，因为很多命令在命令行运行时，并不会提供很多的输出。
     </p>
     <p>
         你会注意到，除了所有的
-        <code>
-            echo
-        </code>
+        <code> echo </code>
         命令外，还有两个命令：
-        <code>
-            xcodebuild
-        </code>
+        <code> xcodebuild </code>
         和
-        <code>
-            xcrun
-        </code>
+        <code> xcrun </code>
         。
     </p>
     <p>
@@ -1006,17 +826,13 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
             xcodebuild
         </em>
         build你的应用，创建一个
-        <code>
-            .app
-        </code>
+        <code> .app </code>
         文件，并将其放到子目录
         <em>
             /build
         </em>
         中。回忆一下，你已在
-        <code>
-            startTask
-        </code>
+        <code> startTask </code>
         中创建过一个引用这个目录的参数，因为你需要一个在build和打包的时候，存放中间build文件的地方。
     </p>
     <p>
@@ -1024,44 +840,26 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
             xcrun
         </em>
         在命令行中运行开发者工具。这里你使用它来调用
-        <code>
-            PackageApplication
-        </code>
+        <code> PackageApplication </code>
         ，它会把
-        <code>
-            .app
-        </code>
+        <code> .app </code>
         文件打包成一个
-        <code>
-            .ipa
-        </code>
+        <code> .ipa </code>
         文件。通过设置
-        <code>
-            verbose
-        </code>
+        <code> verbose </code>
         标记，你将在标准输出中获取大量的细节信息，它们会展示在你的
-        <code>
-            outputText
-        </code>
+        <code> outputText </code>
         框中。
     </p>
     <p>
         在
-        <code>
-            xcodebuild
-        </code>
+        <code> xcodebuild </code>
         和
-        <code>
-            xcrun
-        </code>
+        <code> xcrun </code>
         命令中，你会注意到所有的参数被写作了
-        <code>
-            “${1}”
-        </code>
+        <code> “${1}” </code>
         而不是
-        <code>
-            $1
-        </code>
+        <code> $1 </code>
         。这是因为你的项目的路径可能包含空格。为了处理这种情况，得到正确的路径，你必须把你的文件路径用双引号引起来。通过双引号和花括号，脚本就会恰当地解析全路径，包含空格。
     </p>
     <p>
@@ -1073,9 +871,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     <pre class="objc" style="font-family:monospace;"><span style="color: #6e371a;">#!/bin/sh</span></pre>
     <p>
         尽管它看起来像一条评论，因为那个前缀
-        <code>
-            #
-        </code>
+        <code> # </code>
         。实际上这行是告诉操作系统，当执行脚本剩余的部分时，使用一个指定的
         <em>
             shell
@@ -1095,29 +891,19 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     </p>
     <p>
         如果你想要指定另一个shell来执行你的脚本，就像
-        <code>
-            bash
-        </code>
+        <code> bash </code>
         ，你就得将第一行改变为恰当的shell的可执行文件的全路径，就像：
     </p>
     <pre class="objc" style="font-family:monospace;"><span style="color: #6e371a;">#!/bin/bash</span></pre>
     <p>
         在脚本中，任何你传递的参数，都是通过一个
-        <code>
-            $
-        </code>
+        <code> $ </code>
         和一个数字来访问的。
-        <code>
-            $0
-        </code>
+        <code> $0 </code>
         代表你调用的程序的名称，后面跟着的参数依次通过
-        <code>
-            $1
-        </code>
+        <code> $1 </code>
         ，
-        <code>
-            $2
-        </code>
+        <code> $2 </code>
         等等来进行引用。
     </p>
     <div class="note">
@@ -1135,9 +921,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     </div>
     <p>
         现在你已经准备好从
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         去调用你的脚本了，对么？
     </p>
     <p>
@@ -1152,17 +936,13 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     </p>
     <p>
         为了让它可执行，在终端中前往你的项目目录。终端默认位于你的家目录中，因此如果项目是在你的
-        <code>
-            Documents
-        </code>
+        <code> Documents </code>
         目录下，你应该输入命令：
     </p>
     <pre class="command" style="font-family:monospace;">cd Documents/TasksProject</pre>
     <p>
         如果你的项目在除“Documents/TasksProject”目录的另一个目录下，你需要输入正确的项目目录的路径。为了快速地完成，从Finder中点击并拖拽项目目录到终端中。你项目的路径，将魔术般地出现在终端的窗口上！现在简单地将你的光标移动到路径的前边，输入
-        <code>
-            cd
-        </code>
+        <code> cd </code>
         ，后跟一个空格，并点击enter。
     </p>
     <p>
@@ -1171,9 +951,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     <pre class="command" style="font-family:monospace;">ls</pre>
     <p>
         在生成的文件列表中，检查
-        <code>
-            BuildScript.command
-        </code>
+        <code> BuildScript.command </code>
         。如果你并非位于正确的位置，检查你是否在终端中输入了正确的项目目录。
     </p>
     <p>
@@ -1181,13 +959,9 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     </p>
     <pre class="command" style="font-family:monospace;">chmod +x BuildScript.command</pre>
     <p>
-        <code>
-            chmod
-        </code>
+        <code> chmod </code>
         命令会改变脚本的权限，使它可以被你的
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         对象执行。如果你尝试，在没有这些恰当权限的条件下，运行你的应用，你将看到“Launch path not accessible”的错误，就像之前一样。你只需要为每个你新添加到项目中的脚本执行一次该操作。
     </p>
     <div class="note">
@@ -1207,9 +981,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     </p>
     <p>
         当spinner消失的时候，你应当在期望的位置上得到了一个新的
-        <code>
-            .ipa
-        </code>
+        <code> .ipa </code>
         文件。成功！
     </p>
     <h2>
@@ -1227,9 +999,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     </p>
     <pre class="command" style="font-family:monospace;">Fri 19 Feb 2016 17:48:15 GMT</pre>
     <p>
-        <code>
-            date
-        </code>
+        <code> date </code>
         告诉你当前的日期和时间。尽管不是很明显，它的结果是被发送到了一个名叫
         <em>
             standard output
@@ -1276,13 +1046,9 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     </p>
     <p>
         还有一个
-        <code>
-            pipe
-        </code>
+        <code> pipe </code>
         ，可以让你重定向输出到另一个进程的输入上。你将创建一个pipe来让你的应用看到
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         运行时，进程的标准输出。
     </p>
     <p>
@@ -1298,25 +1064,17 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
                 注意：
             </em>
             你的键盘上的pipe字符“|”，通常位于
-            <code>
-                \
-            </code>
+            <code> \ </code>
             键这里，就在
-            <code>
-                enter/return
-            </code>
+            <code> enter/return </code>
             键的上面。
         </p>
     </div>
     <p>
         刚刚发生了：你创建了一个pipe，它将
-        <code>
-            date
-        </code>
+        <code> date </code>
         的标准输出重定向到了
-        <code>
-            say
-        </code>
+        <code> say </code>
         的标准输入中。你也可以向命令提供选项来和pipe交互，因此如果你想听到澳大利亚口音的日期，输入下面的命令来代替：
     </p>
     <pre class="command" style="font-family:monospace;">date | say -v karen</pre>
@@ -1334,21 +1092,15 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
             <em>
                 注意：
             </em>
-            <code>
-                NSPipe
-            </code>
+            <code> NSPipe </code>
             是一个
             <em>
                 Foundation
             </em>
             中的类，它在Swift 3中被称为
-            <code>
-                Pipe
-            </code>
+            <code> Pipe </code>
             。大多数文档将引用
-            <code>
-                NSPipe
-            </code>
+            <code> NSPipe </code>
             。
         </p>
     </div>
@@ -1358,13 +1110,9 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
             TasksViewController.swift
         </em>
         并在
-        <code>
-            runScript(\_:)
-        </code>
+        <code> runScript(\_:) </code>
         中将评论
-        <code>
-            // TODO: Output Handling
-        </code>
+        <code> // TODO: Output Handling </code>
         替换为下面的代码：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">self</span>.<span style="color: #508187;">captureStandardOutputAndRouteToTextView</span><span style="color: black;">(</span><span style="color: #B833A1;">self</span>.<span style="color: #508187;">buildTask</span><span style="color: black;">)</span></pre>
@@ -1410,100 +1158,60 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
 <span style="color: black;">}</span></pre>
     <p>
         这个函数从外部的进程中采集了输出，并将它添加到了GUI的
-        <code>
-            outputText
-        </code>
+        <code> outputText </code>
         框中。它就像下面这样地工作：
     </p>
     <ol>
         <li>
             创建了一个
-            <code>
-                Pipe
-            </code>
+            <code> Pipe </code>
             并将它连接到
-            <code>
-                buildTask
-            </code>
+            <code> buildTask </code>
             的标准输出上。
-            <code>
-                Pipe
-            </code>
+            <code> Pipe </code>
             代表了你在
-            <code>
-                终端
-            </code>
+            <code> 终端 </code>
             中创建的pipe的等效的类。任何写入到
-            <code>
-                buildTask
-            </code>
+            <code> buildTask </code>
             的
-            <code>
-                stdout
-            </code>
+            <code> stdout </code>
             的内容，将被提供到
-            <code>
-                Pipe
-            </code>
+            <code> Pipe </code>
             对象上。
         </li>
         <li>
-            <code>
-                Pipe
-            </code>
+            <code> Pipe </code>
             有两个property：
-            <code>
-                fileHandleForReading
-            </code>
+            <code> fileHandleForReading </code>
             和
-            <code>
-                fileHandleForWriting
-            </code>
+            <code> fileHandleForWriting </code>
             ，它们都是
-            <code>
-                NSFileHandle
-            </code>
+            <code> NSFileHandle </code>
             对象。
-            <code>
-                NSFileHandle
-            </code>
+            <code> NSFileHandle </code>
             的相关知识已经超出了这个教程的范围，但
-            <code>
-                fileHandleForReading
-            </code>
+            <code> fileHandleForReading </code>
             是用来在pipe中读取数据的。你可以调用它的
-            <code>
-                waitForDataInBackgroundAndNotify
-            </code>
+            <code> waitForDataInBackgroundAndNotify </code>
             方法，来使用一个单独的后台线程来获取有用的数据。
         </li>
         <li>
             任何当数据可用的时候，
-            <code>
-                waitForDataInBackgroundAndNotify
-            </code>
+            <code> waitForDataInBackgroundAndNotify </code>
             就会通过调用你注册在
-            <code>
-                NSNotificationCenter
-            </code>
+            <code> NSNotificationCenter </code>
             中的代码块，来通知你处理
-            <code>
-                NSFileHandleDataAvailableNotification
-            </code>
+            <code> NSFileHandleDataAvailableNotification </code>
             。
         </li>
         <li>
             在你的通知处理中，获取
-            <code>
-                NSData
-            </code>
+            <code> NSData </code>
             对象形式的数据，并将它转变为一个字符串。
         </li>
         <li>
             在主线程中，添加从上一步获取的字符串到
-            <code>
-                outputText
-            </code>
+            <code> outputText </code>
             文本的末尾，并将文本区域滚动到 用户可以看到刚刚给出的输出的地方。这个
             <i>
                 must
@@ -1517,13 +1225,9 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     </ol>
     <p>
         再次运行你的应用；确保
-        <code>
-            Project Location
-        </code>
+        <code> Project Location </code>
         和
-        <code>
-            Build Repository
-        </code>
+        <code> Build Repository </code>
         是正确的，输入你的target的名称，并单击
         <em>
             Build
@@ -1532,9 +1236,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     </p>
     <p>
         你应当在
-        <code>
-            outputText
-        </code>
+        <code> outputText </code>
         中看到来自build进程的输出：
     </p>
     <p>
@@ -1555,9 +1257,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
             TasksViewController.swift
         </em>
         中，添加下列的代码到
-        <code>
-            stopTask(\_:)
-        </code>
+        <code> stopTask(\_:) </code>
         中
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #B833A1;">if</span> isRunning <span style="color: black;">{</span>
@@ -1565,17 +1265,11 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
 <span style="color: black;">}</span></pre>
     <p>
         上面的代码检查了是否
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         正在运行，如果是的话，调用
-        <code>
-            terminate
-        </code>
+        <code> terminate </code>
         方法。这将停止
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         在它的执行中。
     </p>
     <p>
@@ -1588,9 +1282,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
             Stop
         </em>
         按钮。你将看到每个事都停下了，且在你的输出目录下，没有创建新的
-        <code>
-            .ipa
-        </code>
+        <code> .ipa </code>
         文件。
     </p>
     <h2>
@@ -1623,9 +1315,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     </p>
     <p>
         恭喜，你已经开始变成
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         “忍者”（ninja）了！
     </p>
     <p>
@@ -1634,9 +1324,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     <ul>
         <li>
             怎样创建带有参数和输出pipe的
-            <code>
-                NSTasks
-            </code>
+            <code> NSTasks </code>
             ；以及
         </li>
         <li>
@@ -1645,9 +1333,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     </ul>
     <p>
         要了解关于
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         的更多信息，请访问苹果的官方文档
         <a href="https://developer.apple.com/library/mac/#documentation/cocoa/Reference/Foundation/Classes/NSTask_Class/Reference/Reference.html"
         sl-processed="1">
@@ -1677,9 +1363,7 @@ echo <span style="color: #bf1d1a;">"*********************************"</span>
     </p>
     <p>
         我希望你可以喜欢这个
-        <code>
-            NSTask
-        </code>
+        <code> NSTask </code>
         教程，你会发现它在你将来的Mac OS X app中是非常有用的。如果你有任何的问题或评论，请参与我们下面的讨论！
     </p>
 </div>

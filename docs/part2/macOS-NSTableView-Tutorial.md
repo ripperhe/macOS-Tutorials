@@ -30,9 +30,7 @@
     	在macOS应用中，table view是最普遍存在的控件之一，熟悉的例子有邮件信息的列表及Spotlight的搜索结果。它可以让你的Mac以一个迷人的方式，来展现列成表格的数据。
     </p>
     <p>
-        <code>
-            NSTableView
-        </code>
+        <code> NSTableView </code>
         使用行和列来排列数据。每一行代表给出的数据集合中的一个单独的数据模型，每一列展示这个数据模型中的一个特定的属性。
     </p>
     <p>
@@ -138,9 +136,7 @@
                 ViewController.swift
             </em>
             ：包含了
-            <code>
-                ViewController
-            </code>
+            <code> ViewController </code>
             这个类的实现，这也是今天你要花费一些时间的地方。它是你将要创建table view和展示文件列表的地方。
         </li>
     </ul>
@@ -256,23 +252,15 @@
     </p>
     <p>
     	如果你熟悉iOS中的
-        <code>
-            UITableView
-        </code>
+        <code> UITableView </code>
         ，你会在走熟悉的路上（treading familiar waters），但在macOS中，它们会深更加入。事实上，你会惊讶于构成
-        <code>
-            NSTableView
-        </code>
+        <code> NSTableView </code>
         的单个的UI对象的层级的数量。
     </p>
     <p>
-        <code>
-            NSTableView
-        </code>
+        <code> NSTableView </code>
         是一个更老且比
-        <code>
-            UITableView
-        </code>
+        <code> UITableView </code>
         更复杂的控件，它服务于一个不同的用户交互的范例中，特别地在用户有一个鼠标或触控板的情况下。
     </p>
     <p>
@@ -283,31 +271,21 @@
         ，它的主要区别是你可以有多列，及一个可以用来同table view交互的表头，例如排序和选取。
     </p>
     <p>
-        <code>
-            NSScrollView
-        </code>
+        <code> NSScrollView </code>
         和
-        <code>
-            NSClipView
-        </code>
+        <code> NSClipView </code>
         会分别负责滚动和裁剪
-        <code>
-            NSTableView
-        </code>
+        <code> NSTableView </code>
         的内容。
     </p>
     <p>
     	这里有两个
-        <code>
-            NSScroller
-        </code>
+        <code> NSScroller </code>
         对象 - 各自负责table在垂直和水平方向上的滚动。
     </p>
     <p>
     	这里也有一些列的对象。一个
-        <code>
-            NSTableView
-        </code>
+        <code> NSTableView </code>
         有若干的列，这些列都有标题。注意，让用户能够改变列的大小和重新排序是非常重要的，尽管你可以通过设置默认为关闭的来移除这项能力。
     </p>
     <h3>
@@ -325,9 +303,7 @@
     </p>
     <p>
     	这些是构成
-        <code>
-            NSTableView
-        </code>
+        <code> NSTableView </code>
         的关键部分：
     </p>
     <ul>
@@ -336,9 +312,7 @@
                 Header View
             </em>
             ：header view是
-            <code>
-                NSTableHeaderView
-            </code>
+            <code> NSTableHeaderView </code>
             的实例。它负责在table的顶部绘制header。如果你需要展示一个定制的header，你可以使用你自己的header的子类。
         </li>
         <li>
@@ -352,13 +326,9 @@
                 Cell Views
             </em>
             ：cell可能是table view中最重要的对象了。在行和列交叉的地方，你会找到一个cell。每个cell都是
-            <code>
-                NSView
-            </code>
+            <code> NSView </code>
             或
-            <code>
-                NSTableCellView
-            </code>
+            <code> NSTableCellView </code>
             的子类，它用来负责展示实际的数据。猜下还有什么？你可以创建定制的cell view的类来展示任何你喜欢的内容。
         </li>
         <li>
@@ -366,9 +336,7 @@
                 Column
             </em>
             ：它是由
-            <code>
-                NSTableViewColumn
-            </code>
+            <code> NSTableViewColumn </code>
             代表的，负责管理列的宽度和行为，例如调整大小和重新定位。这个类不是一个view，但却是一个controller的类。你可以用它来指定列的行为，但由于header的缘故，你不能控制列的可见的风格。row和cell view把这件事已经覆盖了。
         </li>
     </ul>
@@ -378,24 +346,16 @@
             	注意：
             </em>
             NSTableView有两种模式。第一种是基于被称作
-            <code>
-                NSCell
-            </code>
+            <code> NSCell </code>
             的cell。它像是一个
-            <code>
-                NSView
-            </code>
+            <code> NSView </code>
             ，但是更老且更轻量。它来自于计算早期的时候，当桌面需要优化，要以最低的消耗绘制时而产生的。
         </p>
         <p>
         	苹果推荐使用基于view的table view，但是你会在AppKit的多个控件中看到
-            <code>
-                NSCell
-            </code>
+            <code> NSCell </code>
             ，值得去了解它是什么及它从哪里来的。你可以阅读更多的
-            <code>
-                NSCell
-            </code>
+            <code> NSCell </code>
             在苹果的
             <a title="Control and Cell Programming Topics" href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/ControlCell/Concepts/AboutControlsCells.html#//apple_ref/doc/uid/20000731-BBCEACEA"
             target="_blank">
@@ -665,15 +625,11 @@
     </p>
     <ul>
         <li>
-            <code>
-                NSTableViewDataSource
-            </code>
+            <code> NSTableViewDataSource </code>
             ：告诉table view有多少行需要展示。
         </li>
         <li>
-            <code>
-                NSTableViewDelegate
-            </code>
+            <code> NSTableViewDelegate </code>
             ：提供将要展示在指定行和列上的view cell。
         </li>
     </ul>
@@ -690,16 +646,12 @@
     <ol>
         <li>
         	这个table view调用data source的方法
-            <code>
-                numberOfRows(in:)
-            </code>
+            <code> numberOfRows(in:) </code>
             ，它会返回table将要展示的行的数量。
         </li>
         <li>
         	这个table view为每一行和列调用delegate的方法
-            <code>
-                tableView(\_:viewFor:row:)
-            </code>
+            <code> tableView(\_:viewFor:row:) </code>
             。delegate会创建这个位置上的view，并用恰当的数据填充它，然后返回给table view。
         </li>
     </ol>
@@ -720,9 +672,7 @@
         	按住control拖拽
         </em>
 		table view到
-	    <code>
-            ViewController
-        </code>
+	    <code> ViewController </code>
         类的实现中来插入一个outlet。
     </p>
     <p>
@@ -751,9 +701,7 @@
             Outlet
         </em>
         。将outlet命名为：
-        <code>
-            tableView
-        </code>
+        <code> tableView </code>
         。
     </p>
     <p>
@@ -775,9 +723,7 @@
             ViewController.swift
         </em>
         。通过添加这些代码到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         类的最后来实现提供数据源的方法：
     </p>
     <pre class="swift" style="font-family:monospace;">extension ViewController<span style="color: #002200;">:</span> NSTableViewDataSource <span style="color: #002200;">{</span>
@@ -789,17 +735,11 @@
 <span style="color: #002200;">}</span></pre>
     <p>
     	这创建了一个遵守
-    	<code>
-            NSTableViewDataSource
-        </code>
+    	<code> NSTableViewDataSource </code>
     	协议的extension，并实现了要求的方法
-        <code>
-            numberOfRows(in:)
-        </code>
+        <code> numberOfRows(in:) </code>
         来返回目录中文件的数量，它就是
-        <code>
-            directoryItems
-        </code>
+        <code> directoryItems </code>
         数组的大小。
     </p>
     <p>
@@ -857,13 +797,9 @@
 <span style="color: #002200;">}</span></pre>
     <p>
     	这个代码声明了一个遵守
-        <code>
-            NSTableViewDelegate
-        </code>
+        <code> NSTableViewDelegate </code>
         协议的extension，并实现了方法
-        <code>
-            tableView(\_:viewFor:row)
-        </code>
+        <code> tableView(\_:viewFor:row) </code>
         。它接下来会被table view的每一行和每一列调用，来得到恰当的cell。
     </p>
     <p>
@@ -878,17 +814,13 @@
         </li>
         <li>
         	它通过调用
-            <code>
-                make(withIdentifier:owner:)
-            </code>
+            <code> make(withIdentifier:owner:) </code>
             来得到一个cell。这个方法通过那个identifier来创建或复用一个cell，然后使用之前一步提供的数据来填充它，并返回。
         </li>
     </ol>
     <p>
     	接下来，在
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         中添加这个代码：
     </p>
     <pre class="swift" style="font-family:monospace;">tableView.delegate <span style="color: #002200;">=</span> <span style="color: #a61390;">self</span>
@@ -901,9 +833,7 @@ tableView.dataSource <span style="color: #002200;">=</span> <span style="color: 
     </p>
     <p>
     	首先，添加这个方法到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         的实现中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
@@ -915,17 +845,11 @@ tableView.dataSource <span style="color: #002200;">=</span> <span style="color: 
     </p>
     <p>
     	首先，它调用了
-        <code>
-            directory
-        </code>
+        <code> directory </code>
         的方法
-        <code>
-            contentsOrderedBy(\_:ascending)
-        </code>
+        <code> contentsOrderedBy(\_:ascending) </code>
         ，并返回了一个包含目录文件的有序的数组。然后调用了table view的方法
-        <code>
-            reloadData()
-        </code>
+        <code> reloadData() </code>
         来告诉它进行刷新。
     </p>
     <p>
@@ -933,13 +857,9 @@ tableView.dataSource <span style="color: #002200;">=</span> <span style="color: 
     </p>
     <p>
     	来到
-        <code>
-            representedObject
-        </code>
+        <code> representedObject </code>
         的观察者
-        <code>
-            didSet
-        </code>
+        <code> didSet </code>
         中，替换这行代码：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">print</span><span style="color: #002200;">(</span><span style="color: #bf1d1a;">"Represented object: <span style="color: #2400d9;">\(</span>url)"</span><span style="color: #002200;">)</span></pre>
@@ -950,13 +870,9 @@ tableView.dataSource <span style="color: #002200;">=</span> <span style="color: 
 reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;">)</span></pre>
     <p>
     	你刚创建了一个
-        <code>
-            Directory
-        </code>
+        <code> Directory </code>
         的示例，指向目录的URL，它调用
-        <code>
-            reloadFileList()
-        </code>
+        <code> reloadFileList() </code>
         方法来更新table view的数据。
     </p>
     <p>
@@ -996,9 +912,7 @@ reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;
     </p>
     <p>
     	为了在选择发生变化时收到通知，你需要在delegate中实现
-        <code>
-            tableViewSelectionDidChange(\_:)
-        </code>
+        <code> tableViewSelectionDidChange(\_:) </code>
         。这个方法将在table view探测到选择发生变化时被调用。
     </p>
     <p>
@@ -1034,9 +948,7 @@ reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;
     <ol>
         <li>
         	table view的属性
-            <code>
-                selectedRowIndexes
-            </code>
+            <code> selectedRowIndexes </code>
             包含了选择的行的序号。要得知有多少项被选择了，只需获取这个array的count。
         </li>
         <li>
@@ -1081,13 +993,9 @@ reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;
     </p>
     <p>
     	双击的通知不是通过table view的delegate来发送，而是发送一个动作给table view的target。但是为了在view controller中接收到那些通知，你需要设定
-        <code>
-            target
-        </code>
+        <code> target </code>
         和
-        <code>
-            doubleAction
-        </code>
+        <code> doubleAction </code>
         两个属性。
     </p>
     <div class="note">
@@ -1109,13 +1017,9 @@ reloadFileList<span style="color: #002200;">(</span><span style="color: #002200;
     </div>
     <p>
     	在
-    	<code>
-            ViewController
-        </code>
+    	<code> ViewController </code>
         的
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         方法中添加下列代码：
     </p>
     <pre class="swift" style="font-family:monospace;">tableView.target <span style="color: #002200;">=</span> <span style="color: #a61390;">self</span>
@@ -1125,9 +1029,7 @@ tableView.doubleAction <span style="color: #002200;">=</span> <span style="color
     </p>
     <p>
     	添加
-        <code>
-            tableViewDoubleClick(\_:)
-        </code>
+        <code> tableViewDoubleClick(\_:) </code>
         方法的实现：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">func</span> tableViewDoubleClick<span style="color: #002200;">(</span>_ sender<span style="color: #002200;">:</span><span style="color: #a61390;">AnyObject</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
@@ -1153,27 +1055,19 @@ tableView.doubleAction <span style="color: #002200;">=</span> <span style="color
     <ol>
         <li>
         	如果table view的选择是空的，它什么都不会做直接返回。同时注意，双击一个table view的空的区域将使得
-            <code>
-                tableView.selectedRow
-            </code>
+            <code> tableView.selectedRow </code>
             的值等于1。
         </li>
         <li>
         	如果是一个目录，它会设置
-            <code>
-                representedObject
-            </code>
+            <code> representedObject </code>
             属性为它的URL。然后这个table view会刷新来显示那个目录的内容。
         </li>
         <li>
         	如果这一项是一个文件，它会通过调用
-            <code>
-                NSWorkspace
-            </code>
+            <code> NSWorkspace </code>
             的方法
-            <code>
-                openURL()
-            </code>
+            <code> openURL() </code>
             来使用默认的应用打开它。
         </li>
     </ol>
@@ -1197,9 +1091,7 @@ tableView.doubleAction <span style="color: #002200;">=</span> <span style="color
     </p>
     <p>
     	实现这个特定的UI是非常容易的，因为
-        <code>
-            NSTableView
-        </code>
+        <code> NSTableView </code>
         打包了大多数直接“开箱即用”（out of the box）的功能。
     </p>
     <p>
@@ -1207,9 +1099,7 @@ tableView.doubleAction <span style="color: #002200;">=</span> <span style="color
             Sort descriptors
         </em>
         是你用来处理这个的
-        <code>
-            NSSortDescriptor
-        </code>
+        <code> NSSortDescriptor </code>
         类的简单的实例，它指定了要求的属性并排序。
     </p>
     <p>
@@ -1230,9 +1120,7 @@ tableView.doubleAction <span style="color: #002200;">=</span> <span style="color
     </p>
     <p>    
         在
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         中添加下列代码来创建sort descriptor:
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">// 1</span>
@@ -1253,17 +1141,13 @@ tableView.tableColumns<span style="color: #002200;">[</span><span style="color: 
         </li>
         <li>
         	通过设置
-        	<code>
-                sortDescriptorPrototype
-            </code>
+        	<code> sortDescriptorPrototype </code>
         	属性，为每一列添加sort descriptor。
         </li>
     </ol>
     <p>
     	当用户点击任一列头时，这个table view会调用data source的方法
-        <code>
-            tableView(\_:sortDescriptorsDidChange:)
-        </code>
+        <code> tableView(\_:sortDescriptorsDidChange:) </code>
         ，app就会基于提供的descriptor来进行排序。
     </p>
     <p>
@@ -1290,17 +1174,11 @@ tableView.tableColumns<span style="color: #002200;">[</span><span style="color: 
         </li>
         <li>
         	给view controller的
-            <code>
-                sortOrder
-            </code>
+            <code> sortOrder </code>
             和
-            <code>
-                sortAscending
-            </code>
+            <code> sortAscending </code>
             属性赋值，然后调用
-            <code>
-                reloadFileList()
-            </code>
+            <code> reloadFileList() </code>
             。你提早设置它来获取一个已排好序的文件的列表，并告诉table view来重载数据。
         </li>
     </ol>

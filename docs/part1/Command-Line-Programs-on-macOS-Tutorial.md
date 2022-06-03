@@ -165,13 +165,9 @@
     </p>
     <p>
         很多类C语言都有
-        <code>
-            main
-        </code>
+        <code> main </code>
         函数作为程序的入口 - 也就是说，当程序被执行的时候，被操作系统调用的代码。这意味着程序会从这个方法的第一行处开始被执行。与众不同的是，Swift并不包含一个
-        <code>
-            main
-        </code>
+        <code> main </code>
         函数，而是只有一个
         <em>
             main文件
@@ -204,9 +200,7 @@
                 standard output
             </em>
             stream（或
-            <code>
-                stdout
-            </code>
+            <code> stdout </code>
             ）会将信息正常地输出到屏幕上展示给用户。
         </li>
         <li>
@@ -214,9 +208,7 @@
                 standard error
             </em>
             stream（或
-            <code>
-                stderr
-            </code>
+            <code> stderr </code>
             ）通常是用来展示状态和错误信息的。通常它会展示到屏幕上，但也可以重定向到一个文件中。
         </li>
     </ul>
@@ -225,17 +217,11 @@
             注意：
         </em>
         当从Xcode或终端中启动一个命令行程序时，默认的，
-        <code>
-            stdout
-        </code>
+        <code> stdout </code>
         和
-        <code>
-            stderr
-        </code>
+        <code> stderr </code>
         是相同的，都会将信息写入到控制台。一般的实践是将
-        <code>
-            stderr
-        </code>
+        <code> stderr </code>
         重定向到一个文件中，这样错误的信息就不会展示到屏幕上，但可以在之后进行查看。这样就可以通过隐藏用户不需要看到的信息，来使得debug一个装载好的app更加容易，但仍然保留错误的信息以便将来的查看。
     </div>
     <p>
@@ -272,9 +258,7 @@
             ConsoleIO.swift
         </em>
         。你将会把所有的输入和输出元素封装到一个又小又方法的名为
-        <code>
-            ConsoleIO
-        </code>
+        <code> ConsoleIO </code>
         的类中。
     </p>
     <p>
@@ -296,13 +280,9 @@
             ConsoleIO.swift
         </em>
         中，添加下列的enum到文件的顶部，就在
-        <code>
-            ConsoleIO
-        </code>
+        <code> ConsoleIO </code>
         类的实现之上，
-        <code>
-            import
-        </code>
+        <code> import </code>
         这行代码之下：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">OutputType</span> </span>{
@@ -315,9 +295,7 @@
     </p>
     <p>
         接下来，添加下列的方法到
-        <code>
-            ConsoleIO
-        </code>
+        <code> ConsoleIO </code>
         类中（就在类声明的花括号之中）：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">writeMessage</span><span class="hljs-params">(<span class="hljs-number">_</span> message: String, to: OutputType = .standard)</span></span> {
@@ -331,43 +309,27 @@
 </pre>
     <p>
         这个方法中含有两个参数；第一个就是实际要打印的信息，第二个则是要输出到的目的地。第二个参数默认为
-        <code>
-            .standard
-        </code>
+        <code> .standard </code>
         。
     </p>
     <p>
         对于
-        <code>
-            .standard
-        </code>
+        <code> .standard </code>
         选项的代码使用了
-        <code>
-            print
-        </code>
+        <code> print </code>
         ，它会默认地将信息写入到
-        <code>
-            stdout
-        </code>
+        <code> stdout </code>
         中。而
-        <code>
-            .error
-        </code>
+        <code> .error </code>
         这里，则使用C函数
-        <code>
-            fputs
-        </code>
+        <code> fputs </code>
         写入到
-        <code>
-            stderr
-        </code>
+        <code> stderr </code>
         中，它是一个指向到标准错误流的全局变量。
     </p>
     <p>
         添加下列的代码到
-        <code>
-            ConsoleIO
-        </code>
+        <code> ConsoleIO </code>
         类的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">printUsage</span><span class="hljs-params">()</span></span> {
@@ -385,29 +347,17 @@
 </pre>
     <p>
         这个代码定义了
-        <code>
-            printUsage()
-        </code>
+        <code> printUsage() </code>
         方法，它可以将信息打印到控制台上。每次当你运行程序的时候，可执行程序的路径就会悄悄被传递到
-        <code>
-            argument[0]
-        </code>
+        <code> argument[0] </code>
         中，他可以通过全局的枚举
-        <code>
-            CommandLine
-        </code>
+        <code> CommandLine </code>
         访问到。
-        <code>
-            CommandLine
-        </code>
+        <code> CommandLine </code>
         是在Swift标准库中对于
-        <code>
-            argc
-        </code>
+        <code> argc </code>
         和
-        <code>
-            argv
-        </code>
+        <code> argv </code>
         参数（你可能已在类C语言中了解过的）的封装。
     </p>
     <div class="note">
@@ -435,13 +385,9 @@
 </pre>
     <p>
         这就定义了带有一个方法的一个
-        <code>
-            Panagram
-        </code>
+        <code> Panagram </code>
         类。这个类会用来处理程序逻辑，而
-        <code>
-            staticMode()
-        </code>
+        <code> staticMode() </code>
         则代表了非交互的模式 - 也就是说，当你通过命令行参数提供所有的数据的时候。现在，它只是把用法的信息打印了出来。
     </p>
     <p>
@@ -450,9 +396,7 @@
             main.swift
         </em>
         并使用下列的代码替换
-        <code>
-            print
-        </code>
+        <code> print </code>
         语句：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">let</span> panagram = <span class="hljs-type">Panagram</span>()
@@ -482,13 +426,9 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
 </pre>
     <p>
         到目前为止，你已经学习了什么是命令行工具，它会从哪里开始执行，如何发送信息到
-        <code>
-            stdout
-        </code>
+        <code> stdout </code>
         和
-        <code>
-            stderr
-        </code>
+        <code> stderr </code>
         上，以及如何将代码拆分到不同的逻辑单元，来保持
         <em>
             main.swift
@@ -514,13 +454,9 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     </p>
     <p>
         选项是由一条横线开始，后跟一个字符；或两条横线，后跟一个单词。例如，很多程序都有选项
-        <code>
-            -h
-        </code>
+        <code> -h </code>
         或
-        <code>
-            --help
-        </code>
+        <code> --help </code>
         ，前者就是后者的简写。为了让一切保持简单，Panagram将只支持简短版本的选项。
     </p>
     <p>
@@ -529,9 +465,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
             Panagram.swift
         </em>
         并添加下列的enum到文件的顶部，要在
-        <code>
-            Panagram
-        </code>
+        <code> Panagram </code>
         类的范围之外：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">OptionType</span>: <span class="hljs-title">String</span> </span>{
@@ -552,36 +486,22 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
 </pre>
     <p>
         这就使用
-        <code>
-            String
-        </code>
+        <code> String </code>
         作为基本类型，定义了一个
-        <code>
-            enum
-        </code>
+        <code> enum </code>
         ，这样你就可以直接将选项参数传递给
-        <code>
-            init(\_:)
-        </code>
+        <code> init(\_:) </code>
         。Panagram有三个选项：
-        <code>
-            -p
-        </code>
+        <code> -p </code>
         用来检测异构词，
-        <code>
-            -a
-        </code>
+        <code> -a </code>
         用来检测逆序词，
-        <code>
-            -h
-        </code>
+        <code> -h </code>
         则用来展示用法信息。其余的东西则被当做错误处理。
     </p>
     <p>
         接下来，添加下列的方法到
-        <code>
-            Panagram
-        </code>
+        <code> Panagram </code>
         类中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">getOption</span><span class="hljs-params">(<span class="hljs-number">\_</span> option: String)</span></span> -&gt; (option: <span class="hljs-type">OptionType</span>, value: <span class="hljs-type">String</span>) {
@@ -590,17 +510,11 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
 </pre>
     <p>
         上面的方法接受一个选项参数作为
-        <code>
-            String
-        </code>
+        <code> String </code>
         ，并返回一个关于
-        <code>
-            OptionType
-        </code>
+        <code> OptionType </code>
         和
-        <code>
-            String
-        </code>
+        <code> String </code>
         的元组。
     </p>
     <div class="note">
@@ -620,13 +534,9 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     </div>
     <p>
         在
-        <code>
-            Panagram
-        </code>
+        <code> Panagram </code>
         类中，使用下列代码替换
-        <code>
-            staticMode()
-        </code>
+        <code> staticMode() </code>
         的内容：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">//1</span>
@@ -644,27 +554,19 @@ consoleIO.writeMessage(<span class="hljs-string">"Argument count: <span class="h
     <ol>
         <li>
             首先，你获取了传递给程序的参数的个数。由于可执行文件的路径必然会传入（
-            <code>
-                CommandLine.arguments[0]
-            </code>
+            <code> CommandLine.arguments[0] </code>
             ），count的值总是会大于等于1。
         </li>
         <li>
             下一步，从
-            <code>
-                arguments
-            </code>
+            <code> arguments </code>
             的数组中获取“真正的”第一个参数（选项参数）。
         </li>
         <li>
             接下来，你将参数进行解析，并将它转换为一个
-            <code>
-                OptionType
-            </code>
+            <code> OptionType </code>
             。
-            <code>
-                index(\_:offsetBy:)
-            </code>
+            <code> index(\_:offsetBy:) </code>
             方法会跳过参数字符串中的第一个字符，在本例中也就是“-”这个字符。
         </li>
         <li>
@@ -677,9 +579,7 @@ consoleIO.writeMessage(<span class="hljs-string">"Argument count: <span class="h
             main.swift
         </em>
         中，使用下列代码替换
-        <code>
-            panagram.staticMode()
-        </code>
+        <code> panagram.staticMode() </code>
         这行：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">if</span> <span class="hljs-type">CommandLine</span>.argc &lt; <span class="hljs-number">2</span> {
@@ -745,9 +645,7 @@ consoleIO.writeMessage(<span class="hljs-string">"Argument count: <span class="h
             +
         </em>
         。添加
-        <code>
-            -p
-        </code>
+        <code> -p </code>
         作为参数，并点击
         <em>
             Close
@@ -814,9 +712,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     </ul>
     <p>
         你会将检测的逻辑封装到一个
-        <code>
-            String
-        </code>
+        <code> String </code>
         的小extension中。
     </p>
     <p>
@@ -912,13 +808,9 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
             Panagram.swift
         </em>
         并在
-        <code>
-            staticMode()
-        </code>
+        <code> staticMode() </code>
         方法中使用下列的代码替换对
-        <code>
-            writeMessage(\_:to:)
-        </code>
+        <code> writeMessage(\_:to:) </code>
         的调用：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">//1</span>
@@ -975,9 +867,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </li>
         <li>
             在异构词这种case下，必须传入四个命令行参数。第一个参数是可执行文件的路径，第二个是
-            <code>
-                -a
-            </code>
+            <code> -a </code>
             选项，还有待判定两个字符串。当未传入四个参数的时候，就会打印出一个错误信息。
         </li>
         <li>
@@ -985,9 +875,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </li>
         <li>
             在逆序词这种case下，则必须传入三个参数。第一个参数是可执行文件的路径，第二个是
-            <code>
-                -p
-            </code>
+            <code> -p </code>
             选项，以及一个待判定的字符串。当未传入三个参数的时候，就会打印出一个错误信息。
         </li>
         <li>
@@ -995,9 +883,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         </li>
         <li>
             如果传入
-            <code>
-                -h
-            </code>
+            <code> -h </code>
             选项，就打印出用法信息。
         </li>
         <li>
@@ -1006,9 +892,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     </ol>
     <p>
         现在，修改scheme中的参数。例如，为使用
-        <code>
-            -p
-        </code>
+        <code> -p </code>
         选项，你必须传入两个参数（除第一个参数外，也就是可执行文件的路径，总是被隐式地传递）。
     </p>
     <p>
@@ -1045,9 +929,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     </p>
     <p>
         首先，你需要增加从键盘获取输入的方法。
-        <code>
-            stdin
-        </code>
+        <code> stdin </code>
         会附加到键盘上，它提供了一个交互式收集用户输入的方式。
     </p>
     <p>
@@ -1074,9 +956,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     <ol>
         <li>
             首先，获取用来处理
-            <code>
-                stdin
-            </code>
+            <code> stdin </code>
             的句柄。
         </li>
         <li>
@@ -1138,9 +1018,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
             首先，打印一条欢迎信息。
         </li>
         <li>
-            <code>
-                shouldQuit
-            </code>
+            <code> shouldQuit </code>
             用来中断下面这行代码启动无限循环。
         </li>
         <li>
@@ -1158,43 +1036,31 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     </ol>
     <p>
         现在，你并没有任何办法能够中断
-        <code>
-            while
-        </code>
+        <code> while </code>
         循环。在
         <em>
             Panagram.swift
         </em>
         中，添加下列的行到
-        <code>
-            OptionType
-        </code>
+        <code> OptionType </code>
         枚举当中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">case</span> quit = <span class="hljs-string">"q"</span>
 </pre>
     <p>
         接下来，添加下列这行代码到枚举的
-        <code>
-            init(\_:)
-        </code>
+        <code> init(\_:) </code>
         方法中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">case</span> <span class="hljs-string">"q"</span>: <span class="hljs-keyword">self</span> = .quit
 </pre>
     <p>
         在同一文件中，添加一个
-        <code>
-            .quit
-        </code>
+        <code> .quit </code>
         case到
-        <code>
-            interactiveMode()
-        </code>
+        <code> interactiveMode() </code>
         的
-        <code>
-            switch
-        </code>
+        <code> switch </code>
         语句中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">case</span> .quit:
@@ -1202,13 +1068,9 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
 </pre>
     <p>
         接下来，改变
-        <code>
-            staticMode()
-        </code>
+        <code> staticMode() </code>
         中的
-        <code>
-            .unknown
-        </code>
+        <code> .unknown </code>
         case的定义，就像下面这样：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">case</span> .unknown, .quit:
@@ -1219,9 +1081,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
             main.swift
         </em>
         并使用下列代码替换注释
-        <code>
-            //TODO: Handle interactive mode
-        </code>
+        <code> //TODO: Handle interactive mode </code>
         ：
     </p>
     <pre lang="swift" class="language-swift hljs">panagram.interactiveMode()
@@ -1414,9 +1274,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
         tab，然后添加一个新的参数：
     </p>
     <p>
-        <code>
-            ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME}
-        </code>
+        <code> ${BUILT_PRODUCTS_DIR}/${FULL_PRODUCT_NAME} </code>
     </p>
     <p>
         <a href="https://koenig-media.raywenderlich.com/uploads/2016/03/passed_arguments2.png"
@@ -1554,13 +1412,9 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
             ConsoleIO.swift
         </em>
         ，并在
-        <code>
-            writeMessage(\_:to:)
-        </code>
+        <code> writeMessage(\_:to:) </code>
         中，使用下列代码替换两个
-        <code>
-            case
-        </code>
+        <code> case </code>
         语句：
     </p>
     <pre lang="swift" class="language-swift hljs">    <span class="hljs-keyword">case</span> .standard:
@@ -1575,15 +1429,11 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
     </p>
     <ol>
         <li>
-            <code>
-                \u{001B}[;m
-            </code>
+            <code> \u{001B}[;m </code>
             用来将终端的字体颜色重置为默认的值。
         </li>
         <li>
-            <code>
-                \u{001B}[0;31m
-            </code>
+            <code> \u{001B}[0;31m </code>
             则把其后字体的颜色改变为红色。
         </li>
     </ol>
@@ -1592,9 +1442,7 @@ Program ended with <span class="hljs-built_in">exit</span> code: 0
             注意：
         </em>
         当你运行Panagram的scheme时（不是终端），输出起始处的
-        <code>
-            [;m
-        </code>
+        <code> [;m </code>
         看起来会有一点尴尬。这是因为Xcode的控制台不支持着色的输出。
     </div>
     <p>

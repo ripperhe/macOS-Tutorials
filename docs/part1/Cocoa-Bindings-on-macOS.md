@@ -112,17 +112,13 @@
                 注意
             </em>
             ：所有在
-            <code>
-                Result
-            </code>
+            <code> Result </code>
             类中的变量都被定义为
             <em>
                 dynamic
             </em>
             型。这是因为bindings是依赖于键值编码的，因此要求了Objective-C的运行时特性。添加
-            <code>
-                dynamic
-            </code>
+            <code> dynamic </code>
             关键字确保了访问那些属性总是通过使用Objective-C的运行时特性动态分配的。
         </p>
         <p>
@@ -138,9 +134,7 @@
     </h2>
     <p>
         首先，你将通过iTunes的API获取搜索的结果，并将它们添加到一个
-        <code>
-            NSArrayController
-        </code>
+        <code> NSArrayController </code>
         中。
     </p>
     <p>
@@ -162,13 +156,9 @@
         设置NSArrayController
     </h3>
     <p>
-        <code>
-            NSArrayController
-        </code>
+        <code> NSArrayController </code>
         对象管理
-        <code>
-            NSTableView
-        </code>
+        <code> NSTableView </code>
         的内容。这个内容通常表现为一个模型对象数组的形式。
     </p>
     <div class="note">
@@ -177,9 +167,7 @@
                 注意
             </em>
             ：
-            <code>
-                NSArrayController
-            </code>
+            <code> NSArrayController </code>
             提供的不仅仅是一个数组，还包括管理对象的选取、排序、和过滤。Cocoa Bindings会重度地使用这些功能。
         </p>
     </div>
@@ -193,9 +181,7 @@
             Object Library
         </em>
         中找到
-        <code>
-            NSArrayController
-        </code>
+        <code> NSArrayController </code>
         对象，并把它拖拽到document outline中的
         <em>
             View Controller Scene
@@ -242,9 +228,7 @@
     </h3>
     <p>
         现在你已准备好了使用搜索框和按钮来获取一个搜索结果的列表，并添加它们到
-        <code>
-            searchResultsController
-        </code>
+        <code> searchResultsController </code>
         对象上。
     </p>
     <p>
@@ -276,9 +260,7 @@
     </p>
     <p>
         现在，添加下面的代码到
-        <code>
-            searchClicked(:_)
-        </code>
+        <code> searchClicked(:_) </code>
         方法中：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-comment">//1</span>
@@ -315,70 +297,44 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         </li>
         <li>
             调用
-            <code>
-                getSearchResults(\_:results:langString:completionHandler:)
-            </code>
+            <code> getSearchResults(\_:results:langString:completionHandler:) </code>
             方法。它传递来自组合框的结果的数字，和你输入到文本输入框中的查询字符串。并通过完成的句柄，来返回一个
-            <code>
-                Dictionary
-            </code>
+            <code> Dictionary </code>
             的数组的对象，或当完成查询的时候出现了问题时，返回一个
-            <code>
-                NSError
-            </code>
+            <code> NSError </code>
             的对象。
         </li>
         <li>
             这里你使用了一些Swift风格的数组进行映射，来传递字典到初始化方法，来创建
-            <code>
-                Result
-            </code>
+            <code> Result </code>
             对象。当完成后，
-            <code>
-                itunesResults
-            </code>
+            <code> itunesResults </code>
             变量就包含了一个
-            <code>
-                Result
-            </code>
+            <code> Result </code>
             对象的数组。
         </li>
         <li>
             在你设置新的数据到
-            <code>
-                searchResultsController
-            </code>
+            <code> searchResultsController </code>
             上前，你需要确保你正在主线程上。因此你使用
-            <code>
-                DispatchQueue.main.async
-            </code>
+            <code> DispatchQueue.main.async </code>
             来获取主线程。你尚未设置任何bindings，但一旦你有了，变更            
-            <code>
-                searchResultsController
-            </code>
+            <code> searchResultsController </code>
             上的content property将更新
-            <code>
-                NSTableView
-            </code>
+            <code> NSTableView </code>
             （以及潜在的其它的UI元素）在主线程上。在后台线程更新UI永远都是禁忌。
         </li>
         <li>
             最后，设置
-            <code>
-                NSArrayController
-            </code>
+            <code> NSArrayController </code>
             中的content property。这个array controller有一些不同的方法来添加或删除它所管理的对象。每次当你搜索时，你想要清除之前的结果，并使用最新的查询的结果。此时，打印
-            <code>
-                searchResultsController
-            </code>
+            <code> searchResultsController </code>
             的内容到控制台上，来验证每件事都如同计划中一般进行。
         </li>
     </ol>
     <p>
         现在，添加下列的
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         extension：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-class"><span class="hljs-keyword">extension</span> <span class="hljs-title">ViewController</span>: <span class="hljs-title">NSTextFieldDelegate</span> </span>{
@@ -392,9 +348,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
 </pre>
     <p>
         当用户在文本输入框中点击Enter时，就会调用
-        <code>
-            searchClicked(\_:)
-        </code>
+        <code> searchClicked(\_:) </code>
         ，就如同你点击搜索按钮一样。这使得使用键盘搜索更加得快速和容易。
     </p>
     <p>
@@ -531,24 +485,16 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         。
     </p>
     <p>
-        <code>
-            objectValue
-        </code>
+        <code> objectValue </code>
         是一个在table cell view上的property，它从
-        <code>
-            NSTableView
-        </code>
+        <code> NSTableView </code>
         上的每个cell view对象的到table的binding中获取相应的值。
     </p>
     <p>
         在这个case中，
-        <code>
-            objectValue
-        </code>
+        <code> objectValue </code>
         等于这行的
-        <code>
-            Result
-        </code>
+        <code> Result </code>
         模型对象。
     </p>
     <p>
@@ -586,13 +532,9 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
     </p>
     <p>
         在
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         中
-        <code>
-            //Deal with rank here later
-        </code>
+        <code> //Deal with rank here later </code>
         评论的下面，添加下列的代码：
     </p>
     <pre lang="swift" class="hljs kotlin">.enumerated()
@@ -603,13 +545,9 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
 </pre>
     <p>
         这个代码调用了
-        <code>
-            enumerated()
-        </code>
+        <code> enumerated() </code>
         已获取序号和相应这个序号的对象。然后调用
-        <code>
-            map(:_)
-        </code>
+        <code> map(:_) </code>
         来为每个对象设置排名的值，并返回结果的数组。
     </p>
     <p>
@@ -642,9 +580,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
             Model Key Path
         </em>
         为
-        <code>
-            objectValue.rank
-        </code>
+        <code> objectValue.rank </code>
         。
     </p>
     <p>
@@ -658,9 +594,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
     </p>
     <p>
         现在，你需要将用户选择的
-        <code>
-            Result
-        </code>
+        <code> Result </code>
         选项绑定到UI的剩余的部分。
     </p>
     <h2>
@@ -672,16 +606,12 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
     <ol>
         <li>
             首先绑定
-            <code>
-                NSArrayController
-            </code>
+            <code> NSArrayController </code>
             到table的选择上。
         </li>
         <li>
             然后，你可以绑定NSArrayController中
-            <code>
-                selection
-            </code>
+            <code> selection </code>
             对象的property到各自的label和其它的property。
         </li>
     </ol>
@@ -728,9 +658,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
             selectionIndexes
         </em>
         。这个table有一个
-        <code>
-            selectionIndexes
-        </code>
+        <code> selectionIndexes </code>
         property，它包含一个序号的集合，这些序号代表了用户在table中选择的内容。
     </p>
     <p>
@@ -741,21 +669,13 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         alt="selectionIndexes" width="248" height="262" class="aligncenter size-full wp-image-126073">
     </p>
     <p>
-        <code>
-            NSArrayController
-        </code>
+        <code> NSArrayController </code>
         对象有一个
-        <code>
-            selection
-        </code>
+        <code> selection </code>
         property，它会返回一个对象的数组。当你把table view的
-        <code>
-            selectionIndexes
-        </code>
+        <code> selectionIndexes </code>
         property绑定到array controller时，array controller中的
-        <code>
-            selection
-        </code>
+        <code> selection </code>
         property就会被相应的在table中选择的序号构成的对象所填充。
     </p>
     <p>
@@ -847,9 +767,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
             Label
         </em>
         的
-        <code>
-            NSTextFieldCell
-        </code>
+        <code> NSTextFieldCell </code>
         上，就在
         <em>
             Price
@@ -1070,16 +988,12 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
             itemDescription
         </em>
         Model Key Path上。确保你绑定的是
-        <code>
-            NSTextView
-        </code>
+        <code> NSTextView </code>
         ，它在层级中有一些深。
         <i>
             并不是
         </i>
-        <code>
-            NSScrollView
-        </code>
+        <code> NSScrollView </code>
         ，它在顶层。
     </p>
     <p>
@@ -1110,17 +1024,11 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         上。这个有一点trick，因为JSON并不包含事实上的图像，而是用一个图片的URL来代替。
     </p>
     <p>
-        <code>
-            Result
-        </code>
+        <code> Result </code>
         包含了一个方法来下载图片文件，并让它成为
-        <code>
-            artworkImage
-        </code>
+        <code> artworkImage </code>
         property的可用
-        <code>
-            NSImage
-        </code>
+        <code> NSImage </code>
         对象。
     </p>
     <h3>
@@ -1149,35 +1057,23 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
     </p>
     <ol>
         <li>
-            <code>
-                tableViewSelectionDidChange(\_:)
-            </code>
+            <code> tableViewSelectionDidChange(\_:) </code>
             会在用户每次table选择不同的行时被触发。
         </li>
         <li>
             array controller的property
-            <code>
-                selectedObjects
-            </code>
+            <code> selectedObjects </code>
             返回了一个数组，它包含了全部的在table中选择的行的序号。在这个case中，这个table只允许单选行，因此这个数组总是只包含一个对象。你用
-            <code>
-                result
-            </code>
+            <code> result </code>
             对象的形式来储存它。
         </li>
         <li>
             最后，你调用了
-            <code>
-                loadIcon()
-            </code>
+            <code> loadIcon() </code>
             。这个方法会在后台线程下载图像，然后下载完后在主线程更新
-            <code>
-                Result
-            </code>
+            <code> Result </code>
             对象的
-            <code>
-                artworkImage
-            </code>
+            <code> artworkImage </code>
             property。
         </li>
     </ol>
@@ -1265,13 +1161,9 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
     </h3>
     <p>
         首先你要将collection view绑定到
-        <code>
-            screenShots
-        </code>
+        <code> screenShots </code>
         property上，并确保
-        <code>
-            screenShots
-        </code>
+        <code> screenShots </code>
         数组被正确地填充。
     </p>
     <p>
@@ -1317,21 +1209,13 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
         。
     </p>
     <p>
-        <code>
-            screenShots
-        </code>
+        <code> screenShots </code>
         数组开始是空的。
-        <code>
-            loadScreenShots()
-        </code>
+        <code> loadScreenShots() </code>
         方法会下载图片文件，并以
-        <code>
-            NSImage
-        </code>
+        <code> NSImage </code>
         对象的形式填充到
-        <code>
-            screenShots
-        </code>
+        <code> screenShots </code>
         数组中。
     </p>
     <p>
@@ -1340,13 +1224,9 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
             ViewController.swift
         </em>
         的
-        <code>
-            tableViewSelectionDidChange(\_:)
-        </code>
+        <code> tableViewSelectionDidChange(\_:) </code>
         方法中，就在
-        <code>
-            result.loadIcon()
-        </code>
+        <code> result.loadIcon() </code>
         的后面：
     </p>
     <pre lang="swift" class="hljs">result.loadScreenShots()
@@ -1363,9 +1243,7 @@ iTunesRequestManager.getSearchResults(searchTextField.stringValue,
             ViewController.swift
         </em>
         中的
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         方法的末尾：
     </p>
     <pre lang="swift" class="hljs swift"><span class="hljs-keyword">let</span> itemPrototype = <span class="hljs-keyword">self</span>.storyboard?.instantiateController(withIdentifier:
@@ -1410,13 +1288,9 @@ collectionView.itemPrototype = itemPrototype
         。
     </p>
     <p>
-        <code>
-            representedObject
-        </code>
+        <code> representedObject </code>
         property代表了在collection view数组中相应的项目；在这个case中，它就是一个
-        <code>
-            NSImage
-        </code>
+        <code> NSImage </code>
         对象。
     </p>
     <p>
@@ -1445,37 +1319,25 @@ collectionView.itemPrototype = itemPrototype
     </h3>
     <p>
         你可以很轻松地绑定一个进度spinner到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         中的一个新property上。添加下列的property到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         ：
     </p>
     <pre lang="swift" class="hljs cs"><span class="hljs-keyword">dynamic</span> <span class="hljs-keyword">var</span> loading = <span class="hljs-literal">false</span>
 </pre>
     <p>
         为了正常工作，加载需要满足两件事：
-        <code>
-            dynamic
-        </code>
+        <code> dynamic </code>
         关键字，且其父类为
-        <code>
-            NSObject
-        </code>
+        <code> NSObject </code>
         的子类。Bindings依赖于KVO，一个并非继承自NSObject的Swift的类无法使用KVO。
     </p>
     <p>
         在
-        <code>
-            searchClicked(:_)
-        </code>
+        <code> searchClicked(:_) </code>
         中添加下列的代码，就在调用
-        <code>
-            getSearchResults(\_:results:langString:completionHandler:)
-        </code>
+        <code> getSearchResults(\_:results:langString:completionHandler:) </code>
         之前：
     </p>
     <pre lang="swift" class="hljs javascript">loading = <span class="hljs-literal">true</span>
@@ -1483,13 +1345,9 @@ collectionView.itemPrototype = itemPrototype
     <p>
         在相同的方法中找到设置
         on
-        <code>
-            searchResultsController
-        </code>
+        <code> searchResultsController </code>
         的
-        <code>
-            content
-        </code>
+        <code> content </code>
         property那行。就在那行前面添加下列的代码：
     </p>
     <pre lang="swift" class="hljs objectivec"><span class="hljs-keyword">self</span>.loading = <span class="hljs-literal">false</span>
@@ -1504,13 +1362,9 @@ collectionView.itemPrototype = itemPrototype
             Search Progress Indicator (Bind)
         </em>
         。你要去绑定进度spinner的两个property：
-        <code>
-            hidden
-        </code>
+        <code> hidden </code>
         和
-        <code>
-            animate
-        </code>
+        <code> animate </code>
         。
     </p>
     <p>
@@ -1538,28 +1392,18 @@ collectionView.itemPrototype = itemPrototype
     </p>
     <p>
         在这个case中，你想要当
-        <code>
-            loading
-        </code>
+        <code> loading </code>
         为
-        <code>
-            true
-        </code>
+        <code> true </code>
         是
-        <code>
-            hidden
-        </code>
+        <code> hidden </code>
         置为false，反之亦然。有一个轻松的办法来做到这点：使用
-        <code>
-            NSValueTransformer
-        </code>
+        <code> NSValueTransformer </code>
         去翻转bool的值。
     </p>
     <div class="note">
         <p>
-            <code>
-                NSValueTransformer
-            </code>
+            <code> NSValueTransformer </code>
             是一个类，它可以当在UI和数据模型移动的时候，帮助你转换转换形式或数据的值。
         </p>
         <p>
@@ -1650,9 +1494,7 @@ collectionView.itemPrototype = itemPrototype
             No Selection Placeholder
         </em>
         的下面，输入
-        <code>
-            --
-        </code>
+        <code> -- </code>
         ，如同下面这样：
     </p>
     <p>

@@ -172,9 +172,7 @@
     </p>
     <p>
         在project navigator中周到
-        <code>
-            Assets.xcassets
-        </code>
+        <code> Assets.xcassets </code>
         ，下载图片
         <a href="https://koenig-media.raywenderlich.com/uploads/2015/03/StatusBarButtonImage@2x.png"
         sl-processed="1">
@@ -207,9 +205,7 @@
             AppDelegate.swift
         </em>
         ，添加下列的代码到
-        <code>
-            applicationDidFinishLaunching(\_:)
-        </code>
+        <code> applicationDidFinishLaunching(\_:) </code>
         中
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> button = statusItem.button {
@@ -235,9 +231,7 @@
     </p>
     <p>
         注意
-        <code>
-            @objc
-        </code>
+        <code> @objc </code>
         这个标记。它会把这个方法暴露给Objective-C的运行时，来让按钮响应这里的动作。
     </p>
     <p>
@@ -310,9 +304,7 @@
             注意：
         </em>
         如果你是一个编辑plist editor的专家，你可以随意地使用
-        <code>
-            LSUIElement
-        </code>
+        <code> LSUIElement </code>
         键来进行设置。
     </div>
     <p>
@@ -321,9 +313,7 @@
     <ul>
         <li>
             打开
-            <code>
-                Main.storyboard
-            </code>
+            <code> Main.storyboard </code>
         </li>
         <li>
             选择Window Controller场景并删除它。
@@ -350,9 +340,7 @@
     </h2>
     <p>
         通常，点击它只有可怜兮兮的一个动作，是不值得成为一个菜单栏的app的。为你的app添加更多功能，最简单的办法就是添加菜单了。因此添加下列的方法到
-        <code>
-            AppDelegate
-        </code>
+        <code> AppDelegate </code>
         的尾部。
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">constructMenu</span><span class="hljs-params">()</span></span> {
@@ -367,9 +355,7 @@
 </pre>
     <p>
         然后在
-        <code>
-            applicationDidFinishLaunching(\_:)
-        </code>
+        <code> applicationDidFinishLaunching(\_:) </code>
         的尾部添加对它的调用
     </p>
     <pre lang="swift" class="language-swift hljs">
@@ -377,13 +363,9 @@
     </pre>
     <p>
         你在这里创建了一个
-        <code>
-            NSMenu
-        </code>
+        <code> NSMenu </code>
         ，并添加了三个
-        <code>
-            NSMenuItem
-        </code>
+        <code> NSMenuItem </code>
         的实例，然后把status item的菜单设置为这个新的菜单。
     </p>
     <p>
@@ -397,9 +379,7 @@
             动作，类似于按钮或者其它控件的动作，是当你在点击菜单项的时候将会调用的方法。
         </li>
         <li>
-            <code>
-                keyEquivalent
-            </code>
+            <code> keyEquivalent </code>
             是用来激活菜单项的键盘快捷键。小写的字母将使用
             <em>
                 Cmd
@@ -411,27 +391,17 @@
             作为修饰键。这里的键盘快捷键只有当app位于应用的最前方且被激活的时候才会work。因此，在这个case中，这个菜单或其它的窗口必须在可见的情况下，键盘快捷键才可以使用，因为我们的app没有dock的icon。
         </li>
         <li>
-            <code>
-                separatorItem
-            </code>
+            <code> separatorItem </code>
             则是一个不活动的菜单项，它只会表现为其它菜单项之间的一条灰色的线。我们可以用它来对菜单中的功能进行分组。
         </li>
         <li>
-            <code>
-                printQuote:
-            </code>
+            <code> printQuote: </code>
             动作是你早已定义在
-            <code>
-                AppDelegate
-            </code>
+            <code> AppDelegate </code>
             中的方法，而
-            <code>
-                terminate:
-            </code>
+            <code> terminate: </code>
             动作则是定义在
-            <code>
-                NSApplication
-            </code>
+            <code> NSApplication </code>
             中的方法。
         </li>
     </ul>
@@ -492,16 +462,12 @@
     <ul>
         <li>
             将这个类命名为
-            <code>
-                QuotesViewController
-            </code>
+            <code> QuotesViewController </code>
             。
         </li>
         <li>
             将它成为
-            <code>
-                NSViewController
-            </code>
+            <code> NSViewController </code>
             的子类。
         </li>
         <li>
@@ -565,17 +531,13 @@
             Identity Inspector
         </em>
         并将Class修改为
-        <code>
-            QuotesViewController
-        </code>
+        <code> QuotesViewController </code>
         ，将
         <em>
             Storyboard ID
         </em>
         设置为
-        <code>
-            QuotesViewController
-        </code>
+        <code> QuotesViewController </code>
     </p>
     <p>
         下面添加下列的代码到
@@ -627,24 +589,16 @@
     </ol>
     <p>
         创建了这个方法之后，其它用到
-        <code>
-            QuotesViewController
-        </code>
+        <code> QuotesViewController </code>
         的东西就不需要了解如何去实例化它了。直接调用它就阔以了:]
     </p>
     <p>
         注意位于
-        <code>
-            guard
-        </code>
+        <code> guard </code>
         语句中的
-        <code>
-            fatalError
-        </code>
+        <code> fatalError </code>
         。使用它或
-        <code>
-            assertionFailure
-        </code>
+        <code> assertionFailure </code>
         ，来让自己或团队其它的成员知晓这里出现了问题，是一个非常好的习惯。
     </p>
     <p>
@@ -658,9 +612,7 @@
 </pre>
     <p>
         现在，使用下列的方法替换
-        <code>
-            applicationDidFinishLaunching(\_:)
-        </code>
+        <code> applicationDidFinishLaunching(\_:) </code>
         ：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">applicationDidFinishLaunching</span><span class="hljs-params">(<span class="hljs-number">_</span> aNotification: Notification)</span></span> {
@@ -673,16 +625,12 @@
 </pre>
     <p>
         现在你已把按钮的动作替换为
-        <code>
-            togglePopover(\_:)
-        </code>
+        <code> togglePopover(\_:) </code>
         ，接下来我们就会实现它，用popover去展示存在于QuotesViewController中的内容。
     </p>
     <p>
         添加下面的三个方法到
-        <code>
-            AppDelegate
-        </code>
+        <code> AppDelegate </code>
         中
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@objc</span> <span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">togglePopover</span><span class="hljs-params">(<span class="hljs-number">_</span> sender: Any?)</span></span> {
@@ -704,19 +652,13 @@
 }
 </pre>
     <p>
-        <code>
-            showPopover()
-        </code>
+        <code> showPopover() </code>
         方法会向用户展示popover。你只需要提供一个源rect，macOS会基于此来展示popover和箭头，这样看起来popover就像是从菜单栏中的icon中弹出来的。
     </p>
     <p>
-        <code>
-            closePopover()
-        </code>
+        <code> closePopover() </code>
         会把popover关闭掉，而
-        <code>
-            togglePopover()
-        </code>
+        <code> togglePopover() </code>
         则会基于当前的状态，来确定是打开还是关闭popover。
     </p>
     <p>
@@ -791,13 +733,9 @@
 </pre>
     <p>
         上述代码定义了一个简单的名言结构体，其中包含一个静态的property来返回全部的名言。同时，你让
-        <code>
-            Quote
-        </code>
+        <code> Quote </code>
         遵循
-        <code>
-            CustomStringConvertible
-        </code>
+        <code> CustomStringConvertible </code>
         协议，这样你就能够很轻松地获得一个准备好的字符串。
     </p>
     <p>
@@ -808,9 +746,7 @@
     </h3>
     <p>
         打开
-        <code>
-            Main.storyboard
-        </code>
+        <code> Main.storyboard </code>
         并拖拽三个
         <em>
             Push Button
@@ -888,16 +824,12 @@
     <ul>
         <li>
             设置左侧按钮的图片为
-            <code>
-                NSGoLeftTemplate
-            </code>
+            <code> NSGoLeftTemplate </code>
             ，并删除title。
         </li>
         <li>
             设置右侧按钮的图片为
-            <code>
-                NSGoRightTemplate
-            </code>
+            <code> NSGoRightTemplate </code>
             ，并删除title。
         </li>
         <li>
@@ -928,9 +860,7 @@
             QuotesViewController.swift
         </em>
         ，并添加下列的代码到
-        <code>
-            QuotesViewController
-        </code>
+        <code> QuotesViewController </code>
         类的实现中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-meta">@IBOutlet</span> <span class="hljs-keyword">var</span> textLabel: <span class="hljs-type">NSTextField</span>!
@@ -963,13 +893,9 @@
     </h3>
     <p>
         你会注意到源码编辑器的左侧已出现了一些小小的圆形。只要你使用
-        <code>
-            @IBAction
-        </code>
+        <code> @IBAction </code>
         和
-        <code>
-            @IBOutlet
-        </code>
+        <code> @IBOutlet </code>
         关键字，这些原型就会出现。
     </p>
     <p>
@@ -997,9 +923,7 @@
     </p>
     <p>
         拖拽靠近
-        <code>
-            textLabel
-        </code>
+        <code> textLabel </code>
         的小圆形到interface builder中的label上。并用相同的方式把previous，next和quit动作连接到相应的按钮上。
     </p>
     <p>
@@ -1075,17 +999,11 @@
 }
 </pre>
     <p>
-        <code>
-            quotes
-        </code>
+        <code> quotes </code>
         property会持有所有的名言，而
-        <code>
-            currentQuoteIndex
-        </code>
+        <code> currentQuoteIndex </code>
         则持有着当前的名言。
-        <code>
-            currentQuoteIndex
-        </code>
+        <code> currentQuoteIndex </code>
         同时会作为一个property的观察器，他会在序号发生变化的时候，使用新的名言来更新文本标签。
     </p>
     <p>
@@ -1102,13 +1020,9 @@
 </pre>
     <p>
         当这个view被加载的时候，你就会把当前名言的序号设置为0，相应地来更新UI。
-        <code>
-            updateQuote()
-        </code>
+        <code> updateQuote() </code>
         会根据
-        <code>
-            currentQuoteIndex
-        </code>
+        <code> currentQuoteIndex </code>
         确定的当前选择的名言来更新文本的标签。
     </p>
     <p>
@@ -1128,17 +1042,11 @@
 </pre>
     <p>
         在
-        <code>
-            next()
-        </code>
+        <code> next() </code>
         和
-        <code>
-            previous()
-        </code>
+        <code> previous() </code>
         中，你会循环遍历全部的名言。而
-        <code>
-            quit
-        </code>
+        <code> quit </code>
         则会退出当前的app。
     </p>
     <p>
@@ -1218,39 +1126,25 @@
     </p>
     <p>
         当你准备好开始监听的时候，
-        <code>
-            start()
-        </code>
+        <code> start() </code>
         就会调用
-        <code>
-            addGlobalMonitorForEventsMatchingMask(\_:handler:)
-        </code>
+        <code> addGlobalMonitorForEventsMatchingMask(\_:handler:) </code>
         ，它会返回一个可以让你持有的对象。任何时候只有指定的事件发生，系统就会调用你的处理方法。
     </p>
     <p>
         要移除全局事件的监听器，可以调用
-        <code>
-            stop()
-        </code>
+        <code> stop() </code>
         中的
-        <code>
-            removeMonitor()
-        </code>
+        <code> removeMonitor() </code>
         方法，并通过将其设置为nil，删除返回的对象。
     </p>
     <p>
         现在剩下的工作，就只有在需要的时候调用
-        <code>
-            start()
-        </code>
+        <code> start() </code>
         和
-        <code>
-            stop()
-        </code>
+        <code> stop() </code>
         方法了。是不是很容易？当然这个类也会在它的析构器中调用
-        <code>
-            stop()
-        </code>
+        <code> stop() </code>
         方法来实现清理自己。
     </p>
     <h3>
@@ -1267,9 +1161,7 @@
 </pre>
     <p>
         然后，在
-        <code>
-            applicationDidFinishLaunching(\_:)
-        </code>
+        <code> applicationDidFinishLaunching(\_:) </code>
         的尾部添加下列代码来配置事件监听器：
     </p>
     <pre lang="swift" class="language-swift hljs">eventMonitor = <span class="hljs-type">EventMonitor</span>(mask: [.leftMouseDown, .rightMouseDown]) { [<span class="hljs-keyword">weak</span> <span class="hljs-keyword">self</span>] event <span class="hljs-keyword">in</span>
@@ -1283,17 +1175,11 @@
     </p>
     <p>
         你使用了一个指向self的
-        <code>
-            weak
-        </code>
+        <code> weak </code>
         引用以避免
-        <code>
-            AppDelegate
-        </code>
+        <code> AppDelegate </code>
         和
-        <code>
-            EventMonitor
-        </code>
+        <code> EventMonitor </code>
         之间潜在的
         <i>
             循环引用
@@ -1302,9 +1188,7 @@
     </p>
     <p>
         添加下列的代码到
-        <code>
-            showPopover(\_:)
-        </code>
+        <code> showPopover(\_:) </code>
         的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs">eventMonitor?.start()
@@ -1314,9 +1198,7 @@
     </p>
     <p>
         然后添加下列的代码到
-        <code>
-            closePopover(\_:)
-        </code>
+        <code> closePopover(\_:) </code>
         的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs">eventMonitor?.stop()
@@ -1366,23 +1248,17 @@
         一个寻找其它可能性的很棒的地方，就是阅读苹果的官方文档，如
         <a href="https://developer.apple.com/documentation/appkit/nsmenu" target="_blank"
         sl-processed="1">
-            <code>
-                NSMenu
-            </code>
+            <code> NSMenu </code>
         </a>
         ，
         <a href="https://developer.apple.com/documentation/appkit/nspopover" target="_blank"
         sl-processed="1">
-            <code>
-                NSPopover
-            </code>
+            <code> NSPopover </code>
         </a>
         和
         <a href="https://developer.apple.com/documentation/appkit/nsstatusitem"
         target="_blank" sl-processed="1">
-            <code>
-                NSStatusItem
-            </code>
+            <code> NSStatusItem </code>
         </a>
         。
     </p>

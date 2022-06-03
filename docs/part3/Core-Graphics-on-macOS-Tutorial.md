@@ -128,13 +128,9 @@
                 VolumeInfo.swift
             </em>
             ：包含了
-            <code>
-                VolumeInfo
-            </code>
+            <code> VolumeInfo </code>
             类的实现，它可以从硬盘中读取信息，而
-            <code>
-                FilesDistribution
-            </code>
+            <code> FilesDistribution </code>
             结构体则用来处理文件类型间的拆分
         </li>
         <li>
@@ -181,9 +177,7 @@
     </h2>
     <p>
         你要做的第一件事是创建一个自定义的view，名为
-        <code>
-            GraphView
-        </code>
+        <code> GraphView </code>
         。你将在这里绘制饼状和条状的图表，因此它相当得重要。
     </p>
     <p>
@@ -192,16 +186,12 @@
     <ol>
         <li>
             创建一个
-            <code>
-                NSView
-            </code>
+            <code> NSView </code>
             的子类。
         </li>
         <li>
             重写
-            <code>
-                draw(\_:)
-            </code>
+            <code> draw(\_:) </code>
             ，添加一些绘制的代码。
         </li>
     </ol>
@@ -232,13 +222,9 @@
             Next
         </em>
         ，并在确认界面中，将新的类命名为
-        <code>
-            GraphView
-        </code>
+        <code> GraphView </code>
         ，并将其作为
-        <code>
-            NSView
-        </code>
+        <code> NSView </code>
         的子类，并确保语言为
         <em>
             Swift
@@ -290,9 +276,7 @@
             Identity Inspector
         </em>
         中。将类名设置为
-        <code>
-            GraphView
-        </code>
+        <code> GraphView </code>
         。
     </p>
     <p>
@@ -377,9 +361,7 @@
             Xcode
         </em>
         已创建了
-        <code>
-            draw(\_:)
-        </code>
+        <code> draw(\_:) </code>
         的默认的实现。将其中的注释替换为下列的代码，并确保你保留着对父类方法的调用：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-type">NSColor</span>.white.setFill()
@@ -387,9 +369,7 @@
 </pre>
     <p>
         首先你将填充颜色设置为白色，然后调用
-        <code>
-            NSRectFill
-        </code>
+        <code> NSRectFill </code>
         方法来填充这个view的背景。
     </p>
     <p>
@@ -427,13 +407,9 @@
     </p>
     <p>
         要打开这个特性，你只需在你的类中添加
-        <code>
-            @IBDesignable
-        </code>
+        <code> @IBDesignable </code>
         标注，且可选择的，你可以实现
-        <code>
-            prepareForInterfaceBuilder()
-        </code>
+        <code> prepareForInterfaceBuilder() </code>
         方法来提供一些样本的数据。
     </p>
     <p>
@@ -447,9 +423,7 @@
 </pre>
     <p>
         现在，你需要提供一些样本数据。在
-        <code>
-            GraphView
-        </code>
+        <code> GraphView </code>
         类中添加下列代码：
     </p>
     <pre lang="swift" class="language-swift hljs">  
@@ -477,13 +451,9 @@
 </pre>
     <p>
         这定义了
-        <code>
-            fileDistribution
-        </code>
+        <code> fileDistribution </code>
         属性，用来储存硬盘信息。当这个property发生变化的时候，就将这个view的
-        <code>
-            needsDisplay
-        </code>
+        <code> needsDisplay </code>
         property设置为
         <em>
             true
@@ -492,9 +462,7 @@
     </p>
     <p>
         然后实现
-        <code>
-            prepareForInterfaceBuilder()
-        </code>
+        <code> prepareForInterfaceBuilder() </code>
         方法来创建一个样本的文件分布，Xcode就会用它来渲染这个view。
     </p>
     <div class="note">
@@ -503,17 +471,13 @@
                 注意
             </em>
             ：你也可以在Interface Builder中实时地改变你自定义view的可视的属性。你只需添加
-            <code>
-                @IBInspectable
-            </code>
+            <code> @IBInspectable </code>
             这个标注到这个property上。
         </p>
     </div>
     <p>
         接下来：让这个view中所有的可视的property标注@IBInspectable。在
-        <code>
-            GraphView
-        </code>
+        <code> GraphView </code>
         的实现中添加下列的代码：
     </p>
     <pre lang="swift" class="language-swift hljs">  
@@ -673,13 +637,9 @@
             path
         </em>
         ，在Core Graphics中它是由
-        <code>
-            CGPathRef
-        </code>
+        <code> CGPathRef </code>
         类型所代表的，相应地，它的可变版本的类型则是
-        <code>
-            CGMutablePathRef
-        </code>
+        <code> CGMutablePathRef </code>
         。path只是形状的一个向量的表示。它无法自己去绘制自己。
     </p>
     <p>
@@ -745,8 +705,7 @@
             </li>
             <li>
                 使用
-                <code>
-                    addArc(tangent1End:tangent2End:radius)
+                <code>     addArc(tangent1End:tangent2End:radius)
                 </code>
                 方法来绘制矩形右下侧的部分。这个方法将会绘制水平的线及圆角。
             </li>
@@ -768,9 +727,7 @@
         </li>
         <li>
             将路径添加到上下文中，并使用
-            <code>
-                .fillStroke
-            </code>
+            <code> .fillStroke </code>
             参数来绘制它，该参数会告知Core Graphics去填充矩形并绘制边框。
         </li>
     </ol>
@@ -872,9 +829,7 @@
     </ol>
     <p>
         现在该将它绘制到你的view上了。在
-        <code>
-            GraphView
-        </code>
+        <code> GraphView </code>
         的绘制extension中添加下面的方法：
     </p>
     <pre lang="swift" class="language-swift hljs">  
@@ -895,9 +850,7 @@
     </p>
     <p>
         使用下列代码替换
-        <code>
-            draw(\_:)
-        </code>
+        <code> draw(\_:) </code>
         方法中的全部内容：
     </p>
     <pre lang="swift" class="language-swift hljs">    
@@ -908,9 +861,7 @@ drawBarGraphInContext(context: context)
 </pre>
     <p>
         此处才是绘制真正发生的地方。首先，你通过调用
-        <code>
-            NSGraphicsContext.current()
-        </code>
+        <code> NSGraphicsContext.current() </code>
         方法获取到了这个view当前的图形上下文，接着调用drawBarGraphInContext(context:)绘制出条状的图表。
     </p>
     <p>
@@ -995,9 +946,7 @@ drawBarGraphInContext(context: context)
     </p>
     <p>
         在绘制之前，你需要设置当一个一篇被选中时
-        <code>
-            fileDistribution
-        </code>
+        <code> fileDistribution </code>
         的值。打开
         <em>
             Main.storyboard
@@ -1037,9 +986,7 @@ drawBarGraphInContext(context: context)
     </p>
     <p>
         在弹出的面板中，将outlet命名为
-        <code>
-            graphView
-        </code>
+        <code> graphView </code>
         ，并点击
         <em>
             Connect
@@ -1059,9 +1006,7 @@ drawBarGraphInContext(context: context)
             ViewController.swift
         </em>
         ，并在
-        <code>
-            showVolumeInfo(\_:)
-        </code>
+        <code> showVolumeInfo(\_:) </code>
         的尾部添加下列代码：
     </p>
     <pre lang="swift" class="language-swift hljs">    
@@ -1069,9 +1014,7 @@ graphView.fileDistribution = volume.fileDistribution
 </pre>
     <p>
         根据被选择的硬盘，设置
-        <code>
-            fileDistribution
-        </code>
+        <code> fileDistribution </code>
         的值。
     </p>
     <p>
@@ -1080,9 +1023,7 @@ graphView.fileDistribution = volume.fileDistribution
             GraphView.swift
         </em>
         ，并在
-        <code>
-            drawBarGraphInContext(context:)
-        </code>
+        <code> drawBarGraphInContext(context:) </code>
         方法的尾部添加下列代码以绘制条状图表：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// 1</span>
@@ -1114,9 +1055,7 @@ graphView.fileDistribution = volume.fileDistribution
     <ol>
         <li>
             确保这里的
-            <code>
-                fileDistribution
-            </code>
+            <code> fileDistribution </code>
             有效。
         </li>
         <li>
@@ -1144,9 +1083,7 @@ graphView.fileDistribution = volume.fileDistribution
     </p>
     <p>
         现在，由于
-        <code>
-            index
-        </code>
+        <code> index </code>
         从未被使用过，
         <em>
             Xcode
@@ -1177,13 +1114,9 @@ graphView.fileDistribution = volume.fileDistribution
     </h3>
     <p>
         在自定义的view中绘制文本超级得简单。你只需要创建一个文本属性的字典 - 例如字体，大小，颜色，对齐方式 - 计算好要绘制到的rect的位置，然后调用
-        <code>
-            String
-        </code>
+        <code> String </code>
         的
-        <code>
-            draw(in:withAttributes:)
-        </code>
+        <code> draw(in:withAttributes:) </code>
         方法就可以了。
     </p>
     <p>
@@ -1204,13 +1137,9 @@ graphView.fileDistribution = volume.fileDistribution
     </p>
     <p>
         现在，添加下列的代码到
-        <code>
-            drawBarGraphInContext(context:)
-        </code>
+        <code> drawBarGraphInContext(context:) </code>
         中。确保添加到
-        <code>
-            for (index,fileType) in fileTypes.enumerated()
-        </code>
+        <code> for (index,fileType) in fileTypes.enumerated() </code>
         的循环中：
     </p>
     <pre lang="swift" class="language-swift hljs"> 
@@ -1269,9 +1198,7 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
         </li>
         <li>
             创建一个包含有字体和段落格式
-            <code>
-                NSMutableParagraphStyle
-            </code>
+            <code> NSMutableParagraphStyle </code>
             的属性的字典。这个段落格式会确定文本如何被绘制到给定的矩形中。在本例中，它被设定为靠左对齐及过长时省略尾部。
         </li>
         <li>
@@ -1279,20 +1206,14 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
         </li>
         <li>
             使用
-            <code>
-                draw(in:withAttributes:)
-            </code>
+            <code> draw(in:withAttributes:) </code>
             方法绘制文本。
         </li>
         <li>
             使用
-            <code>
-                bytesFormatter
-            </code>
+            <code> bytesFormatter </code>
             获取文本的尺寸大小，并为文件大小的文本创建属性。这里相对于之前的代码，主要的区别是它通过
-            <code>
-                NSFontAttributeName
-            </code>
+            <code> NSFontAttributeName </code>
             在属性字典中设置了一个不同的文本颜色。
         </li>
     </ol>
@@ -1337,13 +1258,9 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
     </p>
     <p>
         正如在Core Graphics中所做的一样，你需要使用
-        <code>
-            NSBezierPath
-        </code>
+        <code> NSBezierPath </code>
         来创建和绘制路径，它是在Cocoa Drawing中等价于
-        <code>
-            CGPathRef
-        </code>
+        <code> CGPathRef </code>
         的对象：
     </p>
     <p>
@@ -1425,9 +1342,7 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
     <ol>
         <li>
             使用构造器
-            <code>
-                init(ovalIn:)
-            </code>
+            <code> init(ovalIn:) </code>
             来创建一个圆形的path，设定好笔划和填充的颜色，然后绘制path。
         </li>
         <li>
@@ -1449,9 +1364,7 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
         </li>
         <li>
             设定好笔划的颜色，并使用
-            <code>
-                stroke()
-            </code>
+            <code> stroke() </code>
             方法来绘制path。
         </li>
     </ol>
@@ -1472,9 +1385,7 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
     </ul>
     <p>
         现在，添加下列的代码到
-        <code>
-            draw(\_:)
-        </code>
+        <code> draw(\_:) </code>
         中来绘制饼状图表：
     </p>
     <pre lang="swift" class="language-swift hljs">drawPieChart()</pre>
@@ -1500,9 +1411,7 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
             Cocoa Drawing
         </em>
         使用
-        <code>
-            NSGradient
-        </code>
+        <code> NSGradient </code>
         来绘制渐变效果。
     </p>
     <p>
@@ -1516,9 +1425,7 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
     </p>
     <p>
         添加下列的代码到
-        <code>
-            drawPieChart()
-        </code>
+        <code> drawPieChart() </code>
         的尾部：
     </p>
     <pre lang="swift" class="language-swift hljs">     
@@ -1529,9 +1436,7 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
 </pre>
     <p>
         在第一行代码中，你尝试用两种颜色来创建一个渐变效果。如果创建成功的话，就调用
-        <code>
-            draw(in:angle:)
-        </code>
+        <code> draw(in:angle:) </code>
         方法来绘制它。这个方法在内部设置了裁切区域，并绘制渐变的效果。这样子是不很棒？
     </p>
     <p>
@@ -1558,17 +1463,11 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
     <ol>
         <li>
             使用
-            <code>
-                bytesFormatter
-            </code>
+            <code> bytesFormatter </code>
             来获取可用空间的文本（
-            <code>
-                fileDistribution.available
-            </code>
+            <code> fileDistribution.available </code>
             property）以及全部空间（
-            <code>
-                fileDistribution.capacity
-            </code>
+            <code> fileDistribution.capacity </code>
             property）。
         </li>
         <li>
@@ -1580,20 +1479,17 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
         <ul>
             <li>
                 字体：
-                <code>
-                    NSFont.pieChartLegendFont
+                <code>     NSFont.pieChartLegendFont
                 </code>
             </li>
             <li>
                 已用空间文本的颜色：
-                <code>
-                    NSColor.pieChartUsedSpaceTextColor
+                <code>     NSColor.pieChartUsedSpaceTextColor
                 </code>
             </li>
             <li>
                 可用空间文本的颜色：
-                <code>
-                    NSColor.pieChartAvailableSpaceTextColor
+                <code>     NSColor.pieChartAvailableSpaceTextColor
                 </code>
             </li>
         </ul>
@@ -1603,9 +1499,7 @@ bytesText.draw(<span class="hljs-keyword">in</span>: bytesTextRect, withAttribut
     </h3>
     <p>
         添加下面的代码到
-        <code>
-            drawPieChart()
-        </code>
+        <code> drawPieChart() </code>
         方法中：
     </p>
     <pre lang="swift" class="language-swift hljs"><span class="hljs-comment">// 1</span>

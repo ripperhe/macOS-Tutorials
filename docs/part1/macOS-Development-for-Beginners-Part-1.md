@@ -599,13 +599,9 @@
     <p>
         Select the text field. Hold down the Control key and drag from the text
         field into the top of the
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         class definition. Let go and enter
-        <code>
-            nameField
-        </code>
+        <code> nameField </code>
         in the name box of the popup, then click
         <em>
             Connect
@@ -620,30 +616,22 @@
     </p>
     <p>
         Do the same with the label, naming it
-        <code>
-            helloLabel
-        </code>
+        <code> helloLabel </code>
         .
     </p>
     <p>
         Looking at the code that Xcode has generated, you see that these are both
         marked with
-        <code>
-            @IBOutlet
-        </code>
+        <code> @IBOutlet </code>
         . This is short for Interface Builder Outlet and is how you tell the storyboard
         editor that these object names are available for linking to a visual object.
     </p>
     <p>
         For the button, the code does not need to have a name for it, but it does
         need to know when a user clicks the button. This calls for an
-        <code>
-            @IBAction
-        </code>
+        <code> @IBAction </code>
         instead of an
-        <code>
-            @IBOutlet
-        </code>
+        <code> @IBOutlet </code>
         .
     </p>
     <p>
@@ -660,9 +648,7 @@
             Action
         </em>
         and set the name to
-        <code>
-            sayButtonClicked
-        </code>
+        <code> sayButtonClicked </code>
         . This creates the function that will be called when the button is clicked.
     </p>
     <p>
@@ -696,9 +682,7 @@
     </p>
     <p>
         Enter the following code into
-        <code>
-            sayButtonClicked
-        </code>
+        <code> sayButtonClicked </code>
         .
     </p>
     <div class="wp_codebox">
@@ -759,17 +743,13 @@
     </p>
     <p>
         Go to
-        <code>
-            sayButtonClicked
-        </code>
+        <code> sayButtonClicked </code>
         in
         <em>
             ViewController.swift
         </em>
         and click on the line number beside the
-        <code>
-            var name =
-        </code>
+        <code> var name = </code>
         line. A blue pointed rectangle will appear. This is an active breakpoint
         and when you click the button, the debugger will stop here. Click it again
         and it will turn pale blue. It is now an inactive breakpoint and will not
@@ -805,13 +785,9 @@
             Variables
         </em>
         section shows the variables used in this function as well as
-        <code>
-            self
-        </code>
+        <code> self </code>
         – the View Controller, and
-        <code>
-            sender
-        </code>
+        <code> sender </code>
         – the button.
     </p>
     <p>
@@ -838,28 +814,20 @@
             Variables
         </em>
         display, you can check that
-        <code>
-            name
-        </code>
+        <code> name </code>
         is an empty string, so click
         <em>
             Step Over
         </em>
         twice more. The debugger will move into and through the
-        <code>
-            if
-        </code>
+        <code> if </code>
         statement and set the
-        <code>
-            name
-        </code>
+        <code> name </code>
         variable to “World”.
     </p>
     <p>
         Select the
-        <code>
-            name
-        </code>
+        <code> name </code>
         variable in the
         <em>
             Variables
@@ -998,17 +966,13 @@
             ViewController.swift
         </em>
         and find the first line in
-        <code>
-            sayButtonClicked
-        </code>
+        <code> sayButtonClicked </code>
         .
         <em>
             Option-click
         </em>
         on the word
-        <code>
-            stringValue
-        </code>
+        <code> stringValue </code>
         . A popup appears with a short description. At the bottom of the popup
         is a link to
         <em>

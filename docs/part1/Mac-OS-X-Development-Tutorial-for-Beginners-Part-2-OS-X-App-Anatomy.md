@@ -152,9 +152,7 @@
         sizes="(max-width: 475px) 100vw, 475px">
     </p>
     <p>
-    	<code>
-            NSWindowController
-        </code>
+    	<code> NSWindowController </code>
     	这个类代表了Window controller，因此当你需要配置不同的window时，你通常就需要创建不同的子类来管理它们各自的行为。
     </p>
     <h3>
@@ -165,9 +163,7 @@
     </p>
     <p>
         View是矩形的，由
-        <code>
-            NSView
-        </code>
+        <code> NSView </code>
         来表示。View存在在层级中 - 也就是说，任何view都可以包含0个或多个subview - 让你能够用更简单，可重用的view组件来构成复杂的布局。
     </p>
     <h3>
@@ -196,24 +192,16 @@
     </p>
     <p>
         View controller是由
-        <code>
-            NSViewController
-        </code>
+        <code> NSViewController </code>
         来表现的，它提供了全范围的生命周期的事件 - 允许你在不同的时刻执行定制的动作。例如你可以在当view将要出现在屏幕上时，用这个方法
-        <code>
-            viewWillAppear()
-        </code>
+        <code> viewWillAppear() </code>
         来启动动画，或在view的层次已正确地装载时，使用填数据充相关的view在这个方法中
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         。
     </p>
     <p>
         你的app有可能是由一系列
-        <code>
-            NSViewController
-        </code>
+        <code> NSViewController </code>
         定制的子类来构成的，每一个都负责window中不同的部分。它们是一个app中非常重要的一方面 - 形成允许你展示基础的（underlying）数据给用户的连接。
     </p>
     <h3>
@@ -221,13 +209,9 @@
     </h3>
     <p>
         你已知道了view是用来被绘制到屏幕上的 - 但它实际上是怎么实现的？在最低层你可以创建一个
-        <code>
-            NSView
-        </code>
+        <code> NSView </code>
         定制的子类并重写
-        <code>
-            drawRect()
-        </code>
+        <code> drawRect() </code>
         方法来手动地绘制你的view的内容。
     </p>
     <p>
@@ -235,9 +219,7 @@
     </p>
     <p>
         幸运的是，你不必这么做。AppKit包含一系列常用的
-        <code>
-            NSView
-        </code>
+        <code> NSView </code>
         的子类，可以用来在屏幕上展示内容。
     </p>
     <p>
@@ -267,9 +249,7 @@
                 Image View
             </em>
             ：绘制一副图像 - 由
-            <code>
-                NSImage
-            </code>
+            <code> NSImage </code>
             对象提供。
             <br>
             <img class="aligncenter size-full wp-image-111907" src="https://koenig-media.raywenderlich.com/uploads/2015/08/image_view.png"

@@ -190,9 +190,7 @@
     </h3>
     <p>
         首先，你需要添加一个label到view controller上来展示你的欢迎文本。label事实上特定的类型是
-        <code>
-            NSTextField
-        </code>
+        <code> NSTextField </code>
         ，它被设计来展示一个单行的不可编辑的文本 - 对“Hello World”来说完美。
     </p>
     <p>
@@ -449,22 +447,16 @@
             NOTE:
             注意：
         </em>
-        <code>
-            NSStackView
-        </code>
+        <code> NSStackView </code>
         是从OS X 10.9开始支持的，但在10.11（El Capitan）时收到了一个重大的更新 - 与在iOS中介绍的（
-        <code>
-            UIStackView
-        </code>
+        <code> UIStackView </code>
         ）一致。Stack view在两个平台上是类似的，因此你可以点击
         <a href="http://www.raywenderlich.com/114552/uistackview-tutorial-introducing-stack-views"
         sl-processed="1">
         	iOS的stack view教程
         </a>
         来加快学习的速度。或是稍等，
-        <code>
-            NSStackView
-        </code>
+        <code> NSStackView </code>
         的教程将在接下来的几周内发布。
     </div>
     <p>
@@ -698,9 +690,7 @@
             ViewController.swift
         </em>
         中的  
-        <code>
-            override func viewDidLoad()
-        </code>
+        <code> override func viewDidLoad() </code>
         的上边：
     </p>
     <p>
@@ -726,9 +716,7 @@
     </p>
     <p>
     	这将添加下列的属性到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         中，并在加载view controller时，更新storyboard来自动地连接text field：
     </p>
 	<pre class="swift" style="font-family:monospace;">@IBOutlet weak <span style="color: #a61390;">var</span> nameTextField<span style="color: #002200;">:</span> <span style="color: #400080;">NSTextField</span><span style="color: #002200;">!</span></pre>
@@ -752,9 +740,7 @@
             Control-drag
         </em>
         button到你的
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         类上：
     </p>
     <p>
@@ -784,9 +770,7 @@
             Connect
         </em>
         来完成连接，Xcode会添加下列的空方法到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         上：
     </p>
     <pre class="swift" style="font-family:monospace;">@IBAction <span style="color: #a61390;">func</span> handleWelcome<span style="color: #002200;">(</span>sender<span style="color: #002200;">:</span> <span style="color: #a61390;">AnyObject</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
@@ -796,25 +780,17 @@
     </p>
     <p>
     	添加下面这行代码到
-        <code>
-            handleWelcome(\_:)
-        </code>
+        <code> handleWelcome(\_:) </code>
         方法体中：
     </p>
     <pre class="swift" style="font-family:monospace;">welcomeLabel.stringValue <span style="color: #002200;">=</span> <span style="color: #bf1d1a;">"Hello <span style="color: #2400d9;">\(</span>nameTextField.stringValue)!"</span></pre>
     <p>
     	这会更新
-    	<code>
-            welcomeLabel
-        </code>
+    	<code> welcomeLabel </code>
         的
-        <code>
-            stringValue
-        </code>
+        <code> stringValue </code>
         属性，变为一个由nameTextField的stringValue所构成的欢迎的信息。
-        <code>
-            stringValue
-        </code>
+        <code> stringValue </code>
         代表了一个基于文本的控件的当前的值 - 由用户输入的或在storyboard上定义的。
     </p>
     <p>
@@ -928,9 +904,7 @@
     </h3>
     <p>
     	你已经看过怎么在你的app中展示文本，按钮和文本输入框了，但对于图像呢？进入
-        <code>
-            ImageView
-        </code>
+        <code> ImageView </code>
         。
     </p>
     <p>
@@ -1428,9 +1402,7 @@
             Connect
         </em>
         ，Xcode将添加下列的函数定义到
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         类中：
     </p>
     <pre class="swift" style="font-family:monospace;">@IBAction <span style="color: #a61390;">func</span> handleBallClick<span style="color: #002200;">(</span>sender<span style="color: #002200;">:</span> <span style="color: #a61390;">AnyObject</span><span style="color: #002200;">)</span> <span style="color: #002200;">{</span>
@@ -1447,16 +1419,12 @@
     </h2>
     <p>
     	当用户点击8-ball时，你想在展示建议或展示“8”。这意味着
-        <code>
-            handleBallClick(\_:)
-        </code>
+        <code> handleBallClick(\_:) </code>
         会同时操作image view和建议label。
     </p>
     <p>
     	添加下列的代码到
-        <code>
-            handleBallClick(\_:)
-        </code>
+        <code> handleBallClick(\_:) </code>
         中：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #11740a; font-style: italic;">// 1:</span>
@@ -1472,36 +1440,22 @@
     <ol start="1">
         <li>
         	检查当前
-            <code>
-                adviceLabel
-            </code>
+            <code> adviceLabel </code>
             是否可见。
-            <code>
-                hidden
-            </code>
+            <code> hidden </code>
             是一个在
-            <code>
-                NSView
-            </code>
+            <code> NSView </code>
             上的布尔类型的属性（因此
-            <code>
-                NSTextField
-            </code>
+            <code> NSTextField </code>
             也就有了），允许你指定是否要让view隐藏。
         </li>
         <li>
         	如果建议label当前被隐藏了，显示它，并改变图片为magic这边。
-            <code>
-                NSImage(named:)
-            </code>
+            <code> NSImage(named:) </code>
             会从asset目录中加载图片，而
-            <code>
-                NSImageView
-            </code>
+            <code> NSImageView </code>
             的
-            <code>
-                image
-            </code>
+            <code> image </code>
             属性指定了要展示的图片。
         </li>
         <li>
@@ -1516,16 +1470,12 @@
     </h2>
     <p>
     	当app第一次启动时，你想确保那个建议label是隐藏的，8-ball则是显示的。View controller有一个完美的方法来配置这个初始化的设置 - 以
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         的形式。
     </p>
     <p>
     	一旦view controller完成了从storyboard中加载所有的view组件，它就会调用
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         ；来给你一个机会执行最终的配置。
     </p>
     <p>
@@ -1534,9 +1484,7 @@
             ViewController.swift
         </em>
         中，找到
-        <code>
-            viewDidLoad()
-        </code>
+        <code> viewDidLoad() </code>
         方法并添加下列的内容：
     </p>
     <pre class="swift" style="font-family:monospace;">adviceLabel.hidden <span style="color: #002200;">=</span> <span style="color: #a61390;">true</span>ballImageView.image <span style="color: #002200;">=</span> <span style="color: #400080;">NSImage</span><span style="color: #002200;">(</span>named<span style="color: #002200;">:</span> <span style="color: #bf1d1a;">"8ball"</span><span style="color: #002200;">)</span></pre>
@@ -1558,9 +1506,7 @@
     </p>
     <p>
     	在
-    	<code>
-            ViewController
-        </code>
+    	<code> ViewController </code>
         中添加下列的代码作为属性 - 就在类定义的下面：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">let</span> adviceList <span style="color: #002200;">=</span> <span style="color: #002200;">[</span>
@@ -1578,9 +1524,7 @@
     </p>
     <p>
     	找到文件的最底部（不在）
-        <code>
-            ViewController
-        </code>
+        <code> ViewController </code>
         类中），添加下列的extension:
     </p>
     <pre class="swift" style="font-family:monospace;">extension <span style="color: #a61390;">Array</span> <span style="color: #002200;">{</span>
@@ -1592,32 +1536,20 @@
 <span style="color: #002200;">}</span></pre>
     <p>
     	这添加了一个新的property到标注库的
-        <code>
-            Array
-        </code>
+        <code> Array </code>
         类型，它会返回一个随机的严肃。如果Array是空的，它就返回
-        <code>
-            nil
-        </code>
+        <code> nil </code>
         ，否则它会在返回相应的元素前，使用
-        <code>
-            arc4random_uniform()
-        </code>
+        <code> arc4random_uniform() </code>
         产生一个随机的序号。
     </p>
     <p>
     	在
-        <code>
-            handleBallClick(\_:)
-        </code>
+        <code> handleBallClick(\_:) </code>
         中，更新
-    	<code>
-            if
-        </code>
+    	<code> if </code>
         语句的第一个分支（也就是说
-        <code>
-            adviceLabel.hidden == true
-        </code>
+        <code> adviceLabel.hidden == true </code>
         ）为如下：
     </p>
     <pre class="swift" style="font-family:monospace;"><span style="color: #a61390;">if</span> <span style="color: #a61390;">let</span> advice <span style="color: #002200;">=</span> adviceList.randomElement <span style="color: #002200;">{</span>
@@ -1627,13 +1559,9 @@
 <span style="color: #002200;">}</span></pre>
     <p>
     	这会尝试获取一条随机的建议来展示，如果成功的话就会更新
-    	<code>
-            adviceLabel
-        </code>
+    	<code> adviceLabel </code>
         的
-        <code>
-            stringValue
-        </code>
+        <code> stringValue </code>
         来展示。
     </p>
     <p>
