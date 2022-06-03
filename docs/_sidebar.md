@@ -15,9 +15,9 @@
   * [macOS教程：在Menu Bar App中的Menu和Popover](/part1/Menus-and-Popovers-in-Menu-Bar-Apps-for-macOS)
 * **视图**
   * [OS X教程：Collection Views](/part2/Collection-Views-in-OS-X-Tutorial)
+  * [OS X教程：高级Collection Views](/part2/Advanced-Collection-Views-in-OS-X-Tutorial)
   * [OS X Stack Views：NSStackView](/part2/OS-X-Stack-Views-with-NSStackView)
   * [macOS教程：NSOutlineView](/part2/NSOutlineView-on-macOS-Tutorial)
-  * [OS X教程：高级Collection Views](/part2/Advanced-Collection-Views-in-OS-X-Tutorial)
   * [macOS Drag和Drop的教程](/part2/Drag-and-Drop-Tutorial-for-macOS)
   * [macOS NSTableView教程](/part2/macOS-NSTableView-Tutorial)
   * [OS X View Controllers教程](/part2/OS-X-View-Controllers-Tutorial)
